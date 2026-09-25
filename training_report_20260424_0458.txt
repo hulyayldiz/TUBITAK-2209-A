@@ -1,0 +1,45 @@
+============================================================
+
+GNSS HİBRİT MODEL EĞİTİM RAPORU
+
+Tarih: 2026-04-24 04:58:34
+
+Toplam Veri: 2025 satır
+
+Sınıf Dağılımı:
+target_label
+NORMAL      1030
+SPOOFING     990
+JAMMING        5
+
+============================================================
+
+📊 RF Eğitim Tamamlandı
+En İyi Parametreler: {'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}
+5-Fold CV F1: 0.9958 ± 0.0017
+CV Varyansı: KARARLI ✅
+
+Bağımsız Test Seti Raporu:
+              precision    recall  f1-score   support
+
+     JAMMING       1.00      1.00      1.00         1
+      NORMAL       1.00      1.00      1.00       206
+    SPOOFING       1.00      1.00      1.00       198
+
+    accuracy                           1.00       405
+   macro avg       1.00      1.00      1.00       405
+weighted avg       1.00      1.00      1.00       405
+
+Confusion Matrix:
+[[  1   0   0]
+ [  0 206   0]
+ [  0   0 198]]
+
+Görseller (ROC ve CM) dizine .png olarak kaydedildi.
+
+🧠 LSTM-VAE Eğitim Tamamlandı [stride=1, örtüşmeli]
+Eğitim Sekans Sayısı: 815 | Val: 197
+Son Epoch Kaybı: 0.0255
+IQR Eşiği: Q3=0.0065, IQR=0.0023
+Anomali Eşiği (Q3+1.5×IQR): 0.0100
+Eğitim Tarihi: 2026-04-24 04:58

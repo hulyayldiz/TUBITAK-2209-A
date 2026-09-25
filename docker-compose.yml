@@ -1,0 +1,15 @@
+# SDC GNSS Anti-Spoofing Uygulaması - Docker Compose Dosyası
+version: '3.8'
+
+services:
+  gnss-app:
+    build: .
+    container_name: tri-space-gnss-defense
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: streamlit run main.py --server.port=8501 --server.address=0.0.0.0

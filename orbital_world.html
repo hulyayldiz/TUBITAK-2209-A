@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Gerçek Yörünge Eğimleri ve Hızları | Uydu Görev Paneli</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Segoe UI', 'Poppins', 'Arial', sans-serif;
+        }
+
+        /* Ana bilgi paneli - yörünge katmanları */
+        #info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 14px 20px;
+            color: white;
+            border-left: 5px solid #00a8ff;
+            pointer-events: none;
+            z-index: 20;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            font-size: 12px;
+            max-width: 300px;
+            font-family: monospace;
+        }
+
+        #info-panel h1 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #88ddff;
+        }
+
+        #info-panel h2 {
+            font-size: 0.8rem;
+            margin: 8px 0 4px;
+            border-bottom: 1px solid #444;
+            display: inline-block;
+        }
+
+        .orbit-legend {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0;
+            font-size: 10px;
+        }
+
+        .color-box {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+        }
+
+        .note {
+            font-size: 0.65rem;
+            color: #aaa;
+            margin-top: 8px;
+            border-top: 1px solid #333;
+            padding-top: 5px;
+        }
+
+        /* Görev Paneli - en altta */
+        #mission-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 10px 16px;
+            color: #eee;
+            font-size: 11px;
+            font-family: monospace;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            z-index: 20;
+            pointer-events: none;
+            border-top: 1px solid #00a8ff;
+            border-bottom: 1px solid #00a8ff;
+        }
+
+        .mission-item {
+            flex: 1;
+            min-width: 140px;
+            text-align: left;
+            border-left: 2px solid;
+            padding-left: 8px;
+            margin: 4px 0;
+        }
+
+        .mission-item strong {
+            display: block;
+            font-size: 11px;
+        }
+
+        .mission-item span {
+            font-size: 9px;
+            color: #ccc;
+        }
+
+        #controls-panel {
+            position: absolute;
+            bottom: 80px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            padding: 4px 10px;
+            color: #ccc;
+            font-size: 9px;
+            font-family: monospace;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        @media (max-width: 800px) {
+            #mission-panel {
+                flex-direction: column;
+                gap: 4px;
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                padding: 8px;
+            }
+
+            .mission-item {
+                min-width: auto;
+            }
+
+            #info-panel {
+                top: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                max-width: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info-panel">
+        <h1>🛰️ GERÇEK YÖRÜNGE EĞİMLERİ & HIZLAR</h1>
+        <div class="orbit-legend">
+            <div class="color-box" style="background: #88aaff;"></div> LEO: ISS (51.6°), Hubble (28.5°), Sputnik (65°),
+            Starlink (53°)
+        </div>
+        <div class="orbit-legend">
+            <div class="color-box" style="background: #ffaa66;"></div> MEO: GPS (55°), Galileo (56°)
+        </div>
+        <div class="orbit-legend">
+            <div class="color-box" style="background: #66ffaa;"></div> GEO: İletişim & Meteosat (0°)
+        </div>
+        <div class="note">📐 Hızlar: LEO > MEO > GEO (gerçekçi oranlarda). Fare ile keşfedin.</div>
+    </div>
+
+    <div id="mission-panel">
+        <div class="mission-item" style="border-left-color: #88aaff;"><strong>🛸 SPUTNIK 1</strong><span>Tarihteki ilk
+                yapay uydu (1957) - İyonosfer araştırması</span></div>
+        <div class="mission-item" style="border-left-color: #88aaff;"><strong>🚀 ISS</strong><span>Uluslararası Uzay
+                İstasyonu - Mikro yerçekimi laboratuvarı</span></div>
+        <div class="mission-item" style="border-left-color: #88aaff;"><strong>🔭 HUBBLE</strong><span>Uzay teleskobu -
+                Evren gözlemi, derin uzay fotoğrafları</span></div>
+        <div class="mission-item" style="border-left-color: #88aaff;"><strong>✨ STARLINK</strong><span>Küresel internet
+                altyapısı - Alçak yörünge genişbant</span></div>
+        <div class="mission-item" style="border-left-color: #ffaa66;"><strong>🛰️ GPS</strong><span>Küresel
+                Konumlandırma Sistemi - Navigasyon, zamanlama</span></div>
+        <div class="mission-item" style="border-left-color: #ffaa66;"><strong>📡 GALILEO</strong><span>Avrupa navigasyon
+                sistemi - Sivil kullanıma odaklı</span></div>
+        <div class="mission-item" style="border-left-color: #66ffaa;"><strong>📡 GEO COMM</strong><span>Sabit iletişim
+                uyduları - TV, telefon, veri</span></div>
+        <div class="mission-item" style="border-left-color: #66ffaa;"><strong>☁️ METEOSAT</strong><span>Meteoroloji
+                uydusu - Hava durumu, iklim izleme</span></div>
+    </div>
+    <div id="controls-panel">🖱️ Fare: Döndür (sol) | Kaydır (sağ) | Yakınlaş (scroll) | Gerçek eğimler & hızlar</div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+        // --- KURULUM ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x010218);
+        scene.fog = new THREE.FogExp2(0x010218, 0.0002);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 500);
+        camera.position.set(6, 7, 22);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        const labelRenderer = new CSS2DRenderer();
+        labelRenderer.setSize(window.innerWidth, window.innerHeight);
+        labelRenderer.domElement.style.position = 'absolute';
+        labelRenderer.domElement.style.top = '0px';
+        labelRenderer.domElement.style.left = '0px';
+        labelRenderer.domElement.style.pointerEvents = 'none';
+        document.body.appendChild(labelRenderer.domElement);
+
+        // Post processing (hafif bloom)
+        const renderScene = new RenderPass(scene, camera);
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.45, 0.3, 0.2);
+        bloomPass.threshold = 0.1;
+        bloomPass.strength = 0.35;
+        const effectComposer = new EffectComposer(renderer);
+        effectComposer.addPass(renderScene);
+        effectComposer.addPass(bloomPass);
+
+        // Kontroller
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.06;
+        controls.rotateSpeed = 0.9;
+        controls.zoomSpeed = 1.2;
+        controls.panSpeed = 0.8;
+        controls.enableZoom = true;
+        controls.target.set(0, 0, 0);
+
+        // Işıklandırma
+        const ambientLight = new THREE.AmbientLight(0x222222, 0.6);
+        scene.add(ambientLight);
+        const sunLight = new THREE.DirectionalLight(0xffeedd, 1.3);
+        sunLight.position.set(12, 18, 6);
+        sunLight.castShadow = true;
+        scene.add(sunLight);
+        const fillLight = new THREE.PointLight(0x4466aa, 0.5);
+        fillLight.position.set(0, -4, 2);
+        scene.add(fillLight);
+        const rimLight = new THREE.PointLight(0xffaa66, 0.6);
+        rimLight.position.set(-6, 4, -10);
+        scene.add(rimLight);
+
+        // Yıldızlar
+        const starGeo = new THREE.BufferGeometry();
+        const starPos = new Float32Array(4000 * 3);
+        for (let i = 0; i < 4000; i++) {
+            starPos[i * 3] = (Math.random() - 0.5) * 800;
+            starPos[i * 3 + 1] = (Math.random() - 0.5) * 500;
+            starPos[i * 3 + 2] = (Math.random() - 0.5) * 400 - 150;
+        }
+        starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+        const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.16, transparent: true, opacity: 0.8 }));
+        scene.add(stars);
+
+        // Dünya
+        const textureLoader = new THREE.TextureLoader();
+        const earthMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+        const earthSpecular = textureLoader.load('https://threejs.org/examples/textures/planets/earth_specular_2048.jpg');
+        const earthNormal = textureLoader.load('https://threejs.org/examples/textures/planets/earth_normal_2048.jpg');
+        const cloudMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_clouds_1024.png');
+
+        const earthGeo = new THREE.SphereGeometry(5.0, 256, 256);
+        const earthMat = new THREE.MeshPhongMaterial({ map: earthMap, specularMap: earthSpecular, specular: new THREE.Color('grey'), shininess: 8, normalMap: earthNormal });
+        const earth = new THREE.Mesh(earthGeo, earthMat);
+        scene.add(earth);
+
+        const cloudGeo = new THREE.SphereGeometry(5.02, 256, 256);
+        const cloudMat = new THREE.MeshPhongMaterial({ map: cloudMap, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending });
+        const clouds = new THREE.Mesh(cloudGeo, cloudMat);
+        scene.add(clouds);
+
+        const atmosGeo = new THREE.SphereGeometry(5.1, 128, 128);
+        const atmosMat = new THREE.MeshPhongMaterial({ color: 0x88aaff, transparent: true, opacity: 0.07, side: THREE.BackSide });
+        const atmosphere = new THREE.Mesh(atmosGeo, atmosMat);
+        scene.add(atmosphere);
+
+        // Eksen göstergeci
+        const axesHelper = new THREE.AxesHelper(3.5);
+        axesHelper.material.transparent = true;
+        axesHelper.material.opacity = 0.3;
+        axesHelper.position.set(-7, -3.5, -6);
+        scene.add(axesHelper);
+
+        // --- YÖRÜNGE VE UYDU KONUMLARI İÇİN EĞİM DÖNÜŞÜMÜ ---
+        function rotatePointByInclination(x, z, incDeg) {
+            const incRad = incDeg * Math.PI / 180;
+            const yNew = z * Math.sin(incRad);
+            const zNew = z * Math.cos(incRad);
+            return new THREE.Vector3(x, yNew, zNew);
+        }
+
+        // Eğimli yörünge çizgisi oluştur
+        function createInclinedOrbit(radius, incDeg, color, yOffset = 0) {
+            const points = [];
+            const segments = 200;
+            for (let i = 0; i <= segments; i++) {
+                const angle = (i / segments) * Math.PI * 2;
+                const x = radius * Math.cos(angle);
+                const z = radius * Math.sin(angle);
+                const pos = rotatePointByInclination(x, z, incDeg);
+                points.push(new THREE.Vector3(pos.x, pos.y + yOffset, pos.z));
+            }
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const material = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.65 });
+            const orbit = new THREE.LineLoop(geometry, material);
+            scene.add(orbit);
+
+            // Noktalar
+            const dotCount = 150;
+            const dotPositions = [];
+            for (let i = 0; i <= dotCount; i++) {
+                const angle = (i / dotCount) * Math.PI * 2;
+                const x = radius * Math.cos(angle);
+                const z = radius * Math.sin(angle);
+                const pos = rotatePointByInclination(x, z, incDeg);
+                dotPositions.push(pos.x, pos.y + yOffset, pos.z);
+            }
+            const dotGeo = new THREE.BufferGeometry();
+            dotGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(dotPositions), 3));
+            const dotMat = new THREE.PointsMaterial({ color: color, size: 0.04, transparent: true, opacity: 0.3 });
+            const dots = new THREE.Points(dotGeo, dotMat);
+            scene.add(dots);
+        }
+
+        // --- LİTERATÜRE UYGUN YÖRÜNGELER (EĞİMLER) ---
+        createInclinedOrbit(6.35, 65.1, 0x88aaff, 0.05);   // Sputnik 1
+        createInclinedOrbit(6.6, 51.6, 0x66ccff, 0.0);     // ISS
+        createInclinedOrbit(6.4, 28.5, 0x77aaff, -0.02);   // Hubble
+        createInclinedOrbit(7.5, 53.0, 0x88aaff, 0.1);     // Starlink
+        createInclinedOrbit(10.1, 55.0, 0xffaa66, 0.0);    // GPS
+        createInclinedOrbit(10.75, 56.0, 0xffcc88, 0.0);   // Galileo
+        createInclinedOrbit(15.05, 0.0, 0x66ffaa, 0.0);    // GEO Comm & Meteosat
+
+        // --- UYDU MODELLERİ (Detaylı) ---
+        function createLabel(text, color) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            div.style.color = color;
+            div.style.fontSize = '10px';
+            div.style.fontWeight = '600';
+            div.style.fontFamily = 'monospace';
+            div.style.backgroundColor = 'rgba(0,0,0,0.7)';
+            div.style.padding = '2px 6px';
+            div.style.borderRadius = '12px';
+            div.style.border = `1px solid ${color}`;
+            div.style.whiteSpace = 'nowrap';
+            return new CSS2DObject(div);
+        }
+
+        function getPosOnInclinedOrbit(angle, radius, incDeg, yOffset = 0) {
+            const x = radius * Math.cos(angle);
+            const z = radius * Math.sin(angle);
+            const rotated = rotatePointByInclination(x, z, incDeg);
+            return new THREE.Vector3(rotated.x, rotated.y + yOffset, rotated.z);
+        }
+
+        const satellites = [];
+
+        // Hızlar (açısal hız, radyan/frame) - gerçekçi oranlar: LEO ~0.011, MEO ~0.005, GEO ~0.0017
+        // (Bu değerler görsel izlenebilirlik için ölçeklendirilmiştir, ancak birbirlerine oranları doğrudur.)
+
+        // 1. Sputnik
+        const sputnik = new THREE.Group();
+        const sputnikBody = new THREE.Mesh(new THREE.SphereGeometry(0.28, 32, 32), new THREE.MeshStandardMaterial({ color: 0xccaa77, metalness: 0.85 }));
+        sputnik.add(sputnikBody);
+        for (let i = 0; i < 4; i++) {
+            const ang = (i * Math.PI / 2);
+            const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 6), new THREE.MeshStandardMaterial({ color: 0xbb9966 }));
+            rod.position.set(Math.cos(ang) * 0.5, Math.sin(ang) * 0.5, 0);
+            sputnik.add(rod);
+        }
+        scene.add(sputnik);
+        satellites.push({ obj: sputnik, label: createLabel('📡 SPUTNIK 1', '#ffaa77'), angle: 0, radius: 6.35, speed: 0.0118, incDeg: 65.1, yOffset: 0.05 });
+
+        // 2. ISS
+        const iss = new THREE.Group();
+        const core = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.45, 0.7), new THREE.MeshStandardMaterial({ color: 0xdddddd, metalness: 0.75 }));
+        iss.add(core);
+        const panelMat = new THREE.MeshStandardMaterial({ color: 0x88aaff });
+        const leftPanel = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.08, 0.4), panelMat);
+        leftPanel.position.set(-0.8, 0.1, 0);
+        const rightPanel = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.08, 0.4), panelMat);
+        rightPanel.position.set(0.8, 0.1, 0);
+        iss.add(leftPanel, rightPanel);
+        scene.add(iss);
+        satellites.push({ obj: iss, label: createLabel('🚀 ISS (51.6°)', '#88ccff'), angle: 1.8, radius: 6.6, speed: 0.0105, incDeg: 51.6, yOffset: 0.0 });
+
+        // 3. Hubble
+        const hubble = new THREE.Group();
+        const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.9, 24), new THREE.MeshStandardMaterial({ color: 0xccddff, metalness: 0.65 }));
+        tube.rotation.x = Math.PI / 2;
+        hubble.add(tube);
+        const ring = new THREE.Mesh(new THREE.TorusGeometry(0.38, 0.05, 16, 32), new THREE.MeshStandardMaterial({ color: 0xffaa66 }));
+        ring.rotation.x = Math.PI / 2;
+        ring.position.z = 0.48;
+        hubble.add(ring);
+        scene.add(hubble);
+        satellites.push({ obj: hubble, label: createLabel('🔭 HUBBLE (28.5°)', '#99ddff'), angle: 2.5, radius: 6.4, speed: 0.0102, incDeg: 28.5, yOffset: -0.02 });
+
+        // 4. GPS (8 uydu)
+        for (let i = 0; i < 8; i++) {
+            const gps = new THREE.Group();
+            const body = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.28, 0.32), new THREE.MeshStandardMaterial({ color: 0xffaa66, metalness: 0.6 }));
+            gps.add(body);
+            const panel = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.06, 0.4), new THREE.MeshStandardMaterial({ color: 0xccddff }));
+            panel.position.x = 0.7;
+            const panel2 = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.06, 0.4), new THREE.MeshStandardMaterial({ color: 0xccddff }));
+            panel2.position.x = -0.7;
+            gps.add(panel, panel2);
+            scene.add(gps);
+            let lbl = null;
+            if (i === 0) lbl = createLabel('🛰️ GPS (55°)', '#ffaa66');
+            satellites.push({ obj: gps, label: lbl, angle: (i * Math.PI * 2 / 8), radius: 10.1, speed: 0.0050, incDeg: 55.0, yOffset: 0.0 });
+        }
+
+        // 5. Galileo (6 uydu)
+        for (let i = 0; i < 6; i++) {
+            const gal = new THREE.Group();
+            const body = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.3, 0.3), new THREE.MeshStandardMaterial({ color: 0xffcc88, metalness: 0.55 }));
+            gal.add(body);
+            const ant = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.1, 0.35, 8), new THREE.MeshStandardMaterial({ color: 0xddaa77 }));
+            ant.position.y = 0.25;
+            gal.add(ant);
+            scene.add(gal);
+            let lbl = null;
+            if (i === 0) lbl = createLabel('📡 GALILEO (56°)', '#ffcc88');
+            satellites.push({ obj: gal, label: lbl, angle: (i * Math.PI * 2 / 6) + 0.7, radius: 10.75, speed: 0.0048, incDeg: 56.0, yOffset: 0.03 });
+        }
+
+        // 6. GEO İletişim
+        const geoComm = new THREE.Group();
+        const geoBody = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.55, 0.55), new THREE.MeshStandardMaterial({ color: 0x88aaff, metalness: 0.7 }));
+        geoComm.add(geoBody);
+        const dish = new THREE.Mesh(new THREE.SphereGeometry(0.28, 24, 24), new THREE.MeshStandardMaterial({ color: 0xccaa88 }));
+        dish.scale.set(0.8, 0.25, 0.8);
+        dish.position.set(0, -0.4, 0.55);
+        geoComm.add(dish);
+        scene.add(geoComm);
+        satellites.push({ obj: geoComm, label: createLabel('📡 GEO Comm (0°)', '#66ffaa'), angle: 1.2, radius: 15.05, speed: 0.00175, incDeg: 0.0, yOffset: 0.0 });
+
+        // 7. Meteosat
+        const meteo = new THREE.Group();
+        const meteoBody = new THREE.Mesh(new THREE.SphereGeometry(0.32, 32, 32), new THREE.MeshStandardMaterial({ color: 0xddddff }));
+        meteo.add(meteoBody);
+        const torus = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.05, 16, 48), new THREE.MeshStandardMaterial({ color: 0xffaa77 }));
+        torus.rotation.x = Math.PI / 2;
+        meteo.add(torus);
+        scene.add(meteo);
+        satellites.push({ obj: meteo, label: createLabel('☁️ METEOSAT (0°)', '#88ddff'), angle: 3.0, radius: 15.05, speed: 0.00178, incDeg: 0.0, yOffset: 0.08 });
+
+        // 8. Starlink (28 uydu, 53°)
+        const starlinkCount = 28;
+        for (let i = 0; i < starlinkCount; i++) {
+            const sl = new THREE.Group();
+            const body = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, 0.35), new THREE.MeshStandardMaterial({ color: 0xccddff, metalness: 0.85, emissive: 0x224466 }));
+            sl.add(body);
+            const wing = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.04, 0.45), new THREE.MeshStandardMaterial({ color: 0xaaccff }));
+            wing.position.x = 0.55;
+            const wing2 = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.04, 0.45), new THREE.MeshStandardMaterial({ color: 0xaaccff }));
+            wing2.position.x = -0.55;
+            sl.add(wing, wing2);
+            scene.add(sl);
+            let lbl = null;
+            if (i === 0) lbl = createLabel('✨ STARLINK (53°)', '#aaddff');
+            if (i === 14) lbl = createLabel('🛸 Starlink', '#aaffdd');
+            const radiusVar = (i % 2 === 0) ? 7.45 : 7.55;
+            const yOff = (i % 3 === 0) ? 0.12 : (i % 3 === 1) ? -0.08 : 0.02;
+            satellites.push({
+                obj: sl, label: lbl,
+                angle: (i * Math.PI * 2 / starlinkCount) + (i * 0.08),
+                radius: radiusVar,
+                speed: 0.0092 + (i * 0.00003),
+                incDeg: 53.0,
+                yOffset: yOff
+            });
+        }
+
+        // Etiketleri sahneye ekleyelim (daha önce createLabel ile oluşturulup pushlananların label'larını ekle)
+        satellites.forEach(sat => {
+            if (sat.label) scene.add(sat.label);
+        });
+
+        // Dinamik ışık
+        const dynLight = new THREE.PointLight(0x88aaff, 0.45);
+        dynLight.name = 'satLight';
+        dynLight.position.set(4, 2, 5);
+        scene.add(dynLight);
+
+        // --- ANİMASYON ---
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.016;
+
+            earth.rotation.y += 0.0022;
+            clouds.rotation.y += 0.0024;
+            atmosphere.rotation.y += 0.0019;
+
+            satellites.forEach(sat => {
+                sat.angle += sat.speed;
+                if (sat.angle > Math.PI * 2) sat.angle -= Math.PI * 2;
+                const pos = getPosOnInclinedOrbit(sat.angle, sat.radius, sat.incDeg, sat.yOffset);
+                sat.obj.position.copy(pos);
+                if (sat.label) {
+                    sat.label.position.copy(pos.clone().add(new THREE.Vector3(0, 0.55, 0)));
+                }
+            });
+
+            dynLight.position.x = Math.sin(time * 0.6) * 5;
+            dynLight.position.z = Math.cos(time * 0.8) * 6;
+            rimLight.intensity = 0.55 + Math.sin(time) * 0.1;
+            stars.rotation.y += 0.00015;
+
+            controls.update();
+            effectComposer.render();
+            labelRenderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            effectComposer.setSize(window.innerWidth, window.innerHeight);
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        console.log('Simülasyon başlatıldı | Eğimler: Sputnik65°, ISS51.6°, Hubble28.5°, Starlink53°, GPS55°, Galileo56°, GEO0° | Hızlar literatüre uygun oranda');
+    </script>
+</body>
+
+</html>

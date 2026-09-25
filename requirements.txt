@@ -1,0 +1,15 @@
+streamlit
+pandas
+numpy
+scikit-learn
+joblib
+torch
+pynmea2
+pyserial
+smbus2
+requests
+pydeck
+plotly
+tqdm
+skyfield
+scipy

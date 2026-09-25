@@ -1,0 +1,24 @@
+============================================================
+TEXBAT SCENARIO 1 (STATIC OVERLAP) DEĞERLENDİRME RAPORU
+Tarih: 2026-04-24 03:06:23
+============================================================
+Toplam Frame: 100
+Doğru Pozitif (TP): 34 | Yanlış Negatif (FN): 16
+Doğru Negatif (TN): 15 | Yanlış Pozitif (FP): 35
+------------------------------------------------------------
+Tespit Oranı (Pd): %68.00
+Yanlış Alarm Oranı (Pfa): %70.00
+Precision (Kesinlik): %49.28
+F1-Score: 57.1429
+============================================================
+Özet Log:
+Zaman: 90 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 91 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 92 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 93 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 94 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 95 | Gerçek: SPOOFING | Sistem Kararı: NORMAL (90.0%)
+Zaman: 96 | Gerçek: SPOOFING | Sistem Kararı: NORMAL (90.0%)
+Zaman: 97 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 98 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)
+Zaman: 99 | Gerçek: SPOOFING | Sistem Kararı: SPOOFING (100.0%)

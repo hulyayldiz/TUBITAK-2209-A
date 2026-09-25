@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Veri ve Modeller (Küçük oldukları için repo'ya dahil edildi)
+# gnss_training_dataset.csv
+# gnss_rf_model.pkl
+
+# Loglar ve Çıktılar
+system_events.log
+forensic_ledger.jsonl
+bkzs_forensics_*.csv
+*.pkl
+*.pth
+*.npy
+
+# Streamlit/IDE
+.streamlit/
+.vscode/
+.idea/
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
