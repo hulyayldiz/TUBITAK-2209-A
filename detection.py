@@ -94,8 +94,19 @@ def run_firewall_rules(state, raw_lat, raw_lon, raw_cn0, raw_speed, conf_cn0_nom
             state.fix_acquired = True
             state.fix_loss_duration_s = 0.
         elif state.get("fix_acquired", False):
-            state.fix_loss_duration_s = float(state.get("fix_loss_duration_s", 0.)) + dt
+            # Do not infer a continuous outage across an unobserved data gap.
+            # Invalid-fix time accumulates only across intervals shorter than
+            # the 3 s alarm duration; a larger gap restarts the observation.
+            if dt < 3.:
+                state.fix_loss_duration_s = float(state.get("fix_loss_duration_s", 0.)) + dt
+            else:
+                state.fix_loss_duration_s = 0.
             fix_loss_alarm = state.fix_loss_duration_s >= 3. - 1e-6
+        else:
+            state.fix_loss_duration_s = 0.
+    else:
+        # Missing fix-validity telemetry breaks the evidence of continuity.
+        state.fix_loss_duration_s = 0.
 
     # Configurable nominal comparison with a project floor; not a receiver-
     # independent or literature-standard jamming threshold.

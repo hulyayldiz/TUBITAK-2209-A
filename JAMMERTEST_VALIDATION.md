@@ -2,6 +2,11 @@
 
 **Sonuç:** Akım mevcut fiziksel kuralları gerçek bir alıcı veri kümesinde çok sayıda saldırıyı geç algılıyor veya kaçırıyor. Bu çalışma bir performans başarısı değil, dış veri üzerindeki açığı ölçen bir değerlendirmedir.
 
+**Sürüm notu:** Bu rapor 23 Ekim replay'ini kaydeder. Sonraki düzeltmede fix-kaybı
+süresi yalnızca ardışık ve en çok 3 saniye aralıklı geçersiz-fix gözlemlerinden
+biriktiriliyor; bu nedenle aşağıdaki sayı/gecikmeler yeni kod için geçerli ölçüm
+değildir. Replay'in yeniden üretilmesi gerekir.
+
 ## Veri ve protokol
 
 Kaynak, Jammertest 2024'ün Zenodo v3 kaydıdır ([DOI 10.5281/zenodo.15911589](https://zenodo.org/records/15911589)). Arşiv 375.338.522 bayt olarak indirildi; yayıncı MD5'i ve yerel SHA-256 özeti doğrulandı. Resmî açıklama 24 senaryoyu kapsar: 7 jamming, 8 spoofing, 5 meaconing ve 4 birleşik saldırı.

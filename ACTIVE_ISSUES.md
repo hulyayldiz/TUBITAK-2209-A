@@ -10,8 +10,9 @@
    alıcıda yanlış alarm oranı bilinmiyor. DS3 örnek kapsamı
    %100 olsa da onset'te alarm önceden açık ve yeni alarm oluşmuyor; bu saldırı
    için yeni tespit süresi ölçülemiyor. [Güncel TEXBAT ölçümü](TEXBAT_CURRENT_VALIDATION.md).
-2. **Jammertest saldırılarının çoğunda zamanında uyarı yok.** Fix-kaybı gözlemi
-   korunduktan sonra 33 olayın 12'sinde yeni uyarı oluştu; yeni uyarıların ortanca
+2. **Jammertest saldırılarının çoğunda zamanında uyarı yok.** 23 Ekim replay'inde
+   (fix kaybında uzun kayıt boşluklarını süreye ekleyen önceki sürüm) 33 olayın
+   12'sinde yeni uyarı oluştu; yeni uyarıların ortanca
    gecikmesi 428,3 s. Bu 12 olayın tamamında fix-kaybı yolu görüldü; bu sinyal
    GNSS hizmet kaybını gösterir, tek başına jamming nedeni kanıtlamaz.
    Olay pencereleri dışında 10.349 epoch'un 195'inde alarm var; kaynak bu aralıkları
@@ -65,6 +66,9 @@
 - Fix geçerliliği kaybı veri adaptöründe korunuyor. Daha önce fix edinilmiş
   oturumda kesinti 3 s sürerse ayrı `GNSS_FIX_LOSS` uyarısı veriliyor; başlangıçta
   fix olmaması alarm sayılmıyor ve saldırı türü atfedilmiyor.
+- Fix-kaybı süresi, zaman damgası aralığı 3 s veya daha uzunsa ya da arada fix
+  telemetrisi eksikse sıfırlanıyor; kayıt boşlukları artık kesintisiz kayıp gibi
+  biriktirilmiyor. Bu düzeltmeden sonra Jammertest replay'i yeniden alınmalı.
 - HK-UrbanSpoof S2/S3 referans dosyaları commit, boyut ve özetlerle doğrulandı;
   parser/eşleştirme hazır. Kaynakta lisans bildirimi bulunmadığından dosyalar
   yerel doğrulama amacıyla tutuluyor.
