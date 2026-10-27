@@ -4,8 +4,15 @@
 
 Yeni alıcıda bağımsız sınama için seçilen FGI Jammertest 2025 aday veri kümesi ve
 test öncesi dondurma/ölçüm protokolü [holdout protokolünde](INDEPENDENT_HOLDOUT_PROTOCOL.md)
-belgelenmiştir; katalog açık erişim bildiriyor ancak dosyalar yerelde alınmış ve
-şema doğrulanmış değil. İndirme yolu başvuru öncesi yeniden doğrulanmalı.
+belgelenmiştir. 27 Ekim 2026 tarihli katalog manifestinde 102 dosya listeleniyor;
+katalogdaki dosya boyutlarının toplamı 874.580.271 bayt (yaklaşık 834,06 MiB).
+Bu, veri içeriklerinin indirildiği anlamına gelmiyor.
+Yalnız 299 baytlık statik referans koordinat dosyası indirilip katalog SHA-256
+özetiyle eşleştirildi. Saldırı ölçümleri ve olay zaman etiketleri henüz edinilmedi;
+indirme uç noktası `Download is not enabled` yanıtı verdi. Manifesti
+[`data_manifests/fgi_jammertest_2025.json`](data_manifests/fgi_jammertest_2025.json)
+ve yenileme betiğini [`scripts/fetch_fgi_catalogue_manifest.py`](scripts/fetch_fgi_catalogue_manifest.py)
+inceleyin. Bu nedenle FGI bağımsız sınama adayıdır, doğrulanmış sonuç kaynağı değildir.
 TÜBİTAK 2209-A araştırma odağı, bu bağımsız veri üzerinde mevcut GNSS tutarsızlık
 izleyicisinin sıfır-atış değerlendirmesidir; [başvuru metni taslağı](output/docs/TUBITAK_2209A_GNSS_TYBS_Metin_Taslagi.docx)
 TYBS'ye yüklenmez ve veri erişimi doğrulanana kadar koşullu plan olarak kalır.

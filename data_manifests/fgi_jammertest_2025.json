@@ -1,0 +1,962 @@
+{
+  "dataset_id": "095782a8-4e31-456e-8719-7021b4c96362",
+  "doi": "10.23729/fd-bb2cf9f9-d135-35d4-bda0-46eaca30e2ee",
+  "dataset_url": "https://etsin.fairdata.fi/dataset/095782a8-4e31-456e-8719-7021b4c96362",
+  "metadata_api": "https://metax.fairdata.fi/v3/datasets/095782a8-4e31-456e-8719-7021b4c96362/files?limit=20&offset=0",
+  "snapshot_utc": "2026-10-27T18:29:22+00:00",
+  "access": "Open",
+  "license": "CC BY 4.0",
+  "file_count": 102,
+  "total_size_bytes": 874580271,
+  "files_by_extension": {
+    ".25o": {
+      "count": 20,
+      "size_bytes": 231159592
+    },
+    ".25p": {
+      "count": 20,
+      "size_bytes": 5931940
+    },
+    ".csv": {
+      "count": 1,
+      "size_bytes": 299
+    },
+    ".json": {
+      "count": 20,
+      "size_bytes": 13881
+    },
+    ".log": {
+      "count": 1,
+      "size_bytes": 1616
+    },
+    ".rtcm3": {
+      "count": 20,
+      "size_bytes": 19505403
+    },
+    ".sbf": {
+      "count": 20,
+      "size_bytes": 617967540
+    }
+  },
+  "payloads_downloaded_by_this_script": false,
+  "files": [
+    {
+      "path": "/Static/JT_25_static_antenna.log",
+      "size_bytes": 1616,
+      "checksum_algorithm": "sha256",
+      "checksum": "2747dac350926eb86de20d2844a97d36b5b18957c599c65477df7bc8c6d05ae6",
+      "frozen": "2026-09-30T11:12:17Z",
+      "modified": "2026-09-30T11:11:00Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.4.6/JT25_1.4.6_J_MF.25O",
+      "size_bytes": 5838871,
+      "checksum_algorithm": "sha256",
+      "checksum": "9b2fd842af6d191e9b81008b06ff2d59bd4d5ca4175c5764cab05da4f6535e97",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-03-24T09:01:59Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.4.6/JT25_1.4.6_J_MF.25P",
+      "size_bytes": 248301,
+      "checksum_algorithm": "sha256",
+      "checksum": "6ca11271a7621a9f39b9be0841ed3210157a2fae75d65943765e64b047f208a5",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-03-24T09:02:00Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.4.6/JT25_1.4.6_J_MF.json",
+      "size_bytes": 587,
+      "checksum_algorithm": "sha256",
+      "checksum": "51998bae7083c4e94dfa80bb2c6aff07678bcb34dd0db05fe0991fc1bb765225",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-07-30T08:29:44Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.4.6/JT25_1.4.6_J_MF.sbf",
+      "size_bytes": 19124636,
+      "checksum_algorithm": "sha256",
+      "checksum": "006c64c067b31831205315b45001eb4f701a3051405f5463e35350a2364a8cf3",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2025-11-14T15:46:46Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.4.6/JT25_1.4.6_J_MF_hascorr.rtcm3",
+      "size_bytes": 830753,
+      "checksum_algorithm": "sha256",
+      "checksum": "15187ba786978347accb3b8a5b7e75664b7c81a7fce23d3bd6ee0c9263e5f5c6",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.8.1/JT25_1.8.1_J_MF.25O",
+      "size_bytes": 45730855,
+      "checksum_algorithm": "sha256",
+      "checksum": "cc69cb4a13041b443d67bb845a3ddd3578339377ed79bb13007f919ee8b38200",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-03-24T09:00:21Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.8.1/JT25_1.8.1_J_MF.25P",
+      "size_bytes": 264974,
+      "checksum_algorithm": "sha256",
+      "checksum": "4db87c31720217032698cc7d705030ba85333f17cefe47e8daf14b368209fd70",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-03-24T09:00:23Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.8.1/JT25_1.8.1_J_MF.json",
+      "size_bytes": 672,
+      "checksum_algorithm": "sha256",
+      "checksum": "0f4adbf735eb236144538d8b66e8aecdb952085dac0013fba842a32d6715ea32",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-07-30T08:36:04Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.8.1/JT25_1.8.1_J_MF.sbf",
+      "size_bytes": 82277320,
+      "checksum_algorithm": "sha256",
+      "checksum": "0f922c77486d4ee6578f56f72a5bacde82589516d3547e0f6e519db1763bb107",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2025-11-14T15:51:24Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/MF/1.8.1/JT25_1.8.1_J_MF_hascorr.rtcm3",
+      "size_bytes": 967396,
+      "checksum_algorithm": "sha256",
+      "checksum": "263ebfab9468432ca1ac8da1b53560a26b8f4ca0ebda5180c679a9141fd53006",
+      "frozen": "2026-09-04T08:24:52Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.2.1/JT25_1.2.1_J_L1.25O",
+      "size_bytes": 6798065,
+      "checksum_algorithm": "sha256",
+      "checksum": "55953347d72c86a39f682fa653343c4d6bbde70e3dcac4ae8fa452eff8cf8aa5",
+      "frozen": "2026-09-04T08:25:01Z",
+      "modified": "2026-08-03T08:45:50Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.2.1/JT25_1.2.1_J_L1.25P",
+      "size_bytes": 258750,
+      "checksum_algorithm": "sha256",
+      "checksum": "14b7d26764aa79a3938553c8af6c21d9f7ff147a74e360536d48e5704a755cab",
+      "frozen": "2026-09-04T08:25:01Z",
+      "modified": "2026-03-24T08:55:41Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.2.1/JT25_1.2.1_J_L1.json",
+      "size_bytes": 473,
+      "checksum_algorithm": "sha256",
+      "checksum": "054ecb0b408a98b7ce6ea6a753e1fbb76f273e0854a211bd359681b64c610271",
+      "frozen": "2026-09-04T08:25:01Z",
+      "modified": "2026-07-30T07:59:42Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.2.1/JT25_1.2.1_J_L1.sbf",
+      "size_bytes": 27235872,
+      "checksum_algorithm": "sha256",
+      "checksum": "5a8fbc17aacb3b37f153d1790ba2a9a2a96e728174feeac20cfddcfe447f648f",
+      "frozen": "2026-09-04T08:25:01Z",
+      "modified": "2025-11-14T15:24:42Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.2.1/JT25_1.2.1_J_L1_hascorr.rtcm3",
+      "size_bytes": 1302353,
+      "checksum_algorithm": "sha256",
+      "checksum": "63ada733e674a1b4535f51408cebec1c45a68921d1db38f220e52c77ddd3894c",
+      "frozen": "2026-09-04T08:25:01Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.3.10/JT25_1.3.10_J_L1.25O",
+      "size_bytes": 13928519,
+      "checksum_algorithm": "sha256",
+      "checksum": "245aae0c3118a6586c652dfa6f938e4c0da6511c54d2e71bc403baed29deab37",
+      "frozen": "2026-09-04T08:25:23Z",
+      "modified": "2026-03-24T09:01:40Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.3.10/JT25_1.3.10_J_L1.25P",
+      "size_bytes": 251695,
+      "checksum_algorithm": "sha256",
+      "checksum": "fed5d2044c8d55660ddc28dc05cd1853f32ce81c69cc7bf523be5eda7bb496ba",
+      "frozen": "2026-09-04T08:25:39Z",
+      "modified": "2026-03-24T09:01:41Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.3.10/JT25_1.3.10_J_L1.json",
+      "size_bytes": 576,
+      "checksum_algorithm": "sha256",
+      "checksum": "beaed730451fb3557350ad38769cfdeda4000e6cd89190e1396c4548aa6b82d8",
+      "frozen": "2026-09-04T08:25:46Z",
+      "modified": "2026-07-30T08:34:56Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.3.10/JT25_1.3.10_J_L1.sbf",
+      "size_bytes": 25051860,
+      "checksum_algorithm": "sha256",
+      "checksum": "fcb3807965d3604f12d27cb89e7fa1822759f42f644b49ee58eacc54970271c1",
+      "frozen": "2026-09-04T08:25:53Z",
+      "modified": "2025-11-14T15:37:12Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.3.10/JT25_1.3.10_J_L1_hascorr.rtcm3",
+      "size_bytes": 1186729,
+      "checksum_algorithm": "sha256",
+      "checksum": "19e078d7249c0811a771236862fecfbecf18caddeebe080ad3c6bd76ebcd9c81",
+      "frozen": "2026-09-04T08:26:00Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.4.5/JT25_1.4.5_J_L1.25O",
+      "size_bytes": 12487425,
+      "checksum_algorithm": "sha256",
+      "checksum": "708d343ede410f596650bb07803fdd18b14fc3898edeb9ed07e41fbe36f70e89",
+      "frozen": "2026-09-04T08:25:09Z",
+      "modified": "2026-03-24T09:01:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.4.5/JT25_1.4.5_J_L1.25P",
+      "size_bytes": 245785,
+      "checksum_algorithm": "sha256",
+      "checksum": "7af075c41c71ae7afb82acc86da8263c393d8c0b0b32c9cd7ae3ba2ed6575410",
+      "frozen": "2026-09-04T08:25:09Z",
+      "modified": "2026-03-24T09:01:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.4.5/JT25_1.4.5_J_L1.json",
+      "size_bytes": 520,
+      "checksum_algorithm": "sha256",
+      "checksum": "e1de23130a75fb424045d697ab21eb6f8cf6599fb88e83b8d0f2cd2965d572ca",
+      "frozen": "2026-09-04T08:25:09Z",
+      "modified": "2026-07-30T08:27:40Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.4.5/JT25_1.4.5_J_L1.sbf",
+      "size_bytes": 22691000,
+      "checksum_algorithm": "sha256",
+      "checksum": "dc13c053a523ac0bd5cd389095e4ca798814f34a095d93df311656204bb9b160",
+      "frozen": "2026-09-04T08:25:09Z",
+      "modified": "2025-11-14T15:49:00Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Jamming/SF/1.4.5/JT25_1.4.5_J_L1_hascorr.rtcm3",
+      "size_bytes": 1010423,
+      "checksum_algorithm": "sha256",
+      "checksum": "2240d311c2478bd643858c8638b708ad258d1496de8bfa28486ac9fab581b723",
+      "frozen": "2026-09-04T08:25:09Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.1.3/JT25_3.1.3_M_MF.25O",
+      "size_bytes": 10535337,
+      "checksum_algorithm": "sha256",
+      "checksum": "ea055b5b7252007fbdae3647b82b5f3a5f41b63c80e30a9bbc6b5e58b56beb87",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-03-24T09:56:21Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.1.3/JT25_3.1.3_M_MF.25P",
+      "size_bytes": 197127,
+      "checksum_algorithm": "sha256",
+      "checksum": "9b995aff20dd1e32a3f82bba941773c9f53a64ee40747df05332d55d21ffe9af",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-03-24T09:56:22Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.1.3/JT25_3.1.3_M_MF.json",
+      "size_bytes": 533,
+      "checksum_algorithm": "sha256",
+      "checksum": "8fe4afa5ea7a69b28caa184d0abf84fb2f75f926f595b6131da1eddcf811a9a4",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-07-30T11:06:44Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.1.3/JT25_3.1.3_M_MF.sbf",
+      "size_bytes": 21704672,
+      "checksum_algorithm": "sha256",
+      "checksum": "6beccd29119cdf5bbe2e12676f30a55ec0fad79cdb386a88f9257fd0a855b2f1",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2025-11-14T17:16:28Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.1.3/JT25_3.1.3_M_MF_hascorr.rtcm3",
+      "size_bytes": 1101294,
+      "checksum_algorithm": "sha256",
+      "checksum": "b29a461b2f401402990156f989c16b48f4e210f7547485d9d7df88fc216d1eb7",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.3.1/JT25_3.3.1_M_MF.25O",
+      "size_bytes": 28737089,
+      "checksum_algorithm": "sha256",
+      "checksum": "84aa58f5df0d33a60dd79c0712b05e83f58a3ba05b0e327d7d27ab52da74b3c4",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-03-24T09:57:08Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.3.1/JT25_3.3.1_M_MF.25P",
+      "size_bytes": 258005,
+      "checksum_algorithm": "sha256",
+      "checksum": "ca139b0874199ada88001a2fe4dfb18bcebe6ec03532a22925976ca5ae9fda71",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-03-24T09:57:09Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.3.1/JT25_3.3.1_M_MF.json",
+      "size_bytes": 609,
+      "checksum_algorithm": "sha256",
+      "checksum": "79b53853553aefc28e434db97b24648b477d339258d9ec708d33a7447ce8acb0",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-07-30T11:08:44Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.3.1/JT25_3.3.1_M_MF.sbf",
+      "size_bytes": 44805688,
+      "checksum_algorithm": "sha256",
+      "checksum": "473bffc7a503a06f6fe2d7f4a320b24b0bd24413e3b2e34ee545e8cebc4860f3",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2025-11-14T17:39:48Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Meaconing/MF/3.3.1/JT25_3.3.1_M_MF_hascorr.rtcm3",
+      "size_bytes": 1010586,
+      "checksum_algorithm": "sha256",
+      "checksum": "d497732ed567794308fe8d9161c38e350e42e8eaa362eb76d247c788100316e6",
+      "frozen": "2026-09-04T08:24:34Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.1.4/JT25_3.1.4_JM_MF.25O",
+      "size_bytes": 2413958,
+      "checksum_algorithm": "sha256",
+      "checksum": "d646aa3bce63a0775a87fc7f3ebeb2fd98a84ef025ac508e5845a66c8e12ab60",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:23:47Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.1.4/JT25_3.1.4_JM_MF.25P",
+      "size_bytes": 216289,
+      "checksum_algorithm": "sha256",
+      "checksum": "f87e55d98d4c01e2f6a8ecf95573330427c6dafb77d1183709f7d9dcfd891c0e",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:23:48Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.1.4/JT25_3.1.4_JM_MF.json",
+      "size_bytes": 811,
+      "checksum_algorithm": "sha256",
+      "checksum": "a82942fd825049a21c21049e14036faf06becadabf4306621e608ee37af6cbac",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:23:29Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.1.4/JT25_3.1.4_JM_MF.sbf",
+      "size_bytes": 22974984,
+      "checksum_algorithm": "sha256",
+      "checksum": "79856cf4a43d28bb0e67edb809453c1d36329b6d3dabdb77bfc05fecd0e2b787",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2025-11-14T17:33:18Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.1.4/JT25_3.1.4_JM_MF_hascorr.rtcm3",
+      "size_bytes": 1209794,
+      "checksum_algorithm": "sha256",
+      "checksum": "489f518133925e86ee4f3b04c6aea2b7200887fc7bebbd233bb5033aea8eceed",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.2.10/JT25_3.2.10_JM_MF.25O",
+      "size_bytes": 5711837,
+      "checksum_algorithm": "sha256",
+      "checksum": "2159ff8eed476a0ea1fc0feea7513af3445412a5f05e284f8dee238f22f9212a",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:27:15Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.2.10/JT25_3.2.10_JM_MF.25P",
+      "size_bytes": 221150,
+      "checksum_algorithm": "sha256",
+      "checksum": "6fa09645e03f50269dadde1acc07167d711c120f9d4fdbd6b70e9a192726987b",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:27:16Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.2.10/JT25_3.2.10_JM_MF.json",
+      "size_bytes": 887,
+      "checksum_algorithm": "sha256",
+      "checksum": "1b5243c68a0cc35028a2af44d951563736bbd9979bf9332d704b0619be875fe5",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:27:02Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.2.10/JT25_3.2.10_JM_MF.sbf",
+      "size_bytes": 39778276,
+      "checksum_algorithm": "sha256",
+      "checksum": "f0bb0fc33208591daeff8848c284a7da4b10c5ae4fc89fbfbeb826b43a66c100",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2025-11-14T17:49:10Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingMeaconing/3.2.10/JT25_3.2.10_JM_MF_hascorr.rtcm3",
+      "size_bytes": 991248,
+      "checksum_algorithm": "sha256",
+      "checksum": "77d2c390b163ac3cd57228740d6b2df93d7df3f9d540bbfc0384ce8d02cd711e",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.2.2/JT25_2.2.2_JS_MF.25O",
+      "size_bytes": 7989653,
+      "checksum_algorithm": "sha256",
+      "checksum": "c355ebb016b2010418be504929153c3a411542b467988f7a6a42600adc418cbf",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-03-24T09:46:00Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.2.2/JT25_2.2.2_JS_MF.25P",
+      "size_bytes": 383565,
+      "checksum_algorithm": "sha256",
+      "checksum": "018125d11d927f38d8521dd8eead6221f51e9ca0b6f62db6e5f4a1b6440552ee",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-03-24T09:46:00Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.2.2/JT25_2.2.2_JS_MF.json",
+      "size_bytes": 973,
+      "checksum_algorithm": "sha256",
+      "checksum": "ef17878c6d73f8a4192190801a0568605d3b0d2ba98109b796383e6a4eb56daa",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:14:55Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.2.2/JT25_2.2.2_JS_MF.sbf",
+      "size_bytes": 25667940,
+      "checksum_algorithm": "sha256",
+      "checksum": "a6fb632fa17a29819a8798730a9602ad25c66d710c87e27c7e59d04f63e0ab62",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2025-11-06T09:32:54Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.2.2/JT25_2.2.2_JS_MF_hascorr.rtcm3",
+      "size_bytes": 587435,
+      "checksum_algorithm": "sha256",
+      "checksum": "b26b6142ed3f6b5041a53e39f274234818c80465f408be05379c4e20824f57aa",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.3.11/JT25_2.3.11_JS_MF.25O",
+      "size_bytes": 1680543,
+      "checksum_algorithm": "sha256",
+      "checksum": "77291e0cdba81eb6d1121a66ef8af3efeeecc2ea26da759788ebfa57cf7a16eb",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:18:47Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.3.11/JT25_2.3.11_JS_MF.25P",
+      "size_bytes": 510389,
+      "checksum_algorithm": "sha256",
+      "checksum": "04859d17e1882723137e1ff50f3e17d0852e96ae71fa00fd7df5ab8edb3515df",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:18:47Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.3.11/JT25_2.3.11_JS_MF.json",
+      "size_bytes": 1025,
+      "checksum_algorithm": "sha256",
+      "checksum": "16720f02c2181c01ba0fa07b22dc0613206b0f0ec28f249b6f007eb89ed8324b",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:18:30Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.3.11/JT25_2.3.11_JS_MF.sbf",
+      "size_bytes": 22633600,
+      "checksum_algorithm": "sha256",
+      "checksum": "73c4b9b058761aa69063c8086c9169834a51b75e3ba15d68e400eff15d9ea4f9",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2025-11-06T09:58:34Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/JammingSpoofing/2.3.11/JT25_2.3.11_JS_MF_hascorr.rtcm3",
+      "size_bytes": 782726,
+      "checksum_algorithm": "sha256",
+      "checksum": "116baa50e927099948a869cfdc9e5cc1e046d0bdbc89e748246cc29ff5ee8117",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/SpoofingMeaconing/3.4.4/JT25_3.4.4_MS_MF.25O",
+      "size_bytes": 10447777,
+      "checksum_algorithm": "sha256",
+      "checksum": "0ea002588434e362d8a4d1e133bbfd8d01ff7813ee8f00e175becede317c4866",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:34:01Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/SpoofingMeaconing/3.4.4/JT25_3.4.4_MS_MF.25P",
+      "size_bytes": 351452,
+      "checksum_algorithm": "sha256",
+      "checksum": "1d1b87f5acd0e446e099ab5eeaec7b9b521244bb2cedfb2174c9bf78b7818ca2",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:34:01Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/SpoofingMeaconing/3.4.4/JT25_3.4.4_MS_MF.json",
+      "size_bytes": 791,
+      "checksum_algorithm": "sha256",
+      "checksum": "e09c983c5e6fb8bf5f59a7f90417a38bedfe5ab79f46ca505cfeeb25f0826b09",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-07-30T11:33:39Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/SpoofingMeaconing/3.4.4/JT25_3.4.4_MS_MF.sbf",
+      "size_bytes": 36900916,
+      "checksum_algorithm": "sha256",
+      "checksum": "091f9c93848a311ca0455fc4a837c6f90ec850e725ca41c53a9fda7e9c792e64",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2025-11-14T17:59:48Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Multiple_vectors/SpoofingMeaconing/3.4.4/JT25_3.4.4_MS_MF_hascorr.rtcm3",
+      "size_bytes": 864066,
+      "checksum_algorithm": "sha256",
+      "checksum": "805687fc7e413ccd4120e8ba6c6a972ca5161c90bd3166c18d69316c85ea1565",
+      "frozen": "2026-09-04T08:24:09Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.1.1/JT25_2.1.1_S_MF.25O",
+      "size_bytes": 25051851,
+      "checksum_algorithm": "sha256",
+      "checksum": "850040195aba21226a7dd5110fa6d06a7d3b33fd154a7200efa591729435c44b",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-03-24T09:45:58Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.1.1/JT25_2.1.1_S_MF.25P",
+      "size_bytes": 122979,
+      "checksum_algorithm": "sha256",
+      "checksum": "42799c19a882fde0653ae2650148cf997970e1f15980fbbd97e36b0aa33b48fb",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-03-24T09:45:59Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.1.1/JT25_2.1.1_S_MF.json",
+      "size_bytes": 728,
+      "checksum_algorithm": "sha256",
+      "checksum": "8e7e22731b4ea10ff594e4c6834fd7ce04af2de10b386c6ba83a25795c20c0ff",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:09:35Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.1.1/JT25_2.1.1_S_MF.sbf",
+      "size_bytes": 50699060,
+      "checksum_algorithm": "sha256",
+      "checksum": "2667cf6f79dff3efe6344174955373be7b314ed60a31ffed556c02042db3cc7d",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2025-11-06T07:25:00Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.1.1/JT25_2.1.1_S_MF_hascorr.rtcm3",
+      "size_bytes": 1083192,
+      "checksum_algorithm": "sha256",
+      "checksum": "a95ab9efc50c5951d6ab923d5c6fca1e14e59f142f84d980f6c312b51f8d3f22",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.2.5/JT25_2.2.5_S_MF.25O",
+      "size_bytes": 8173948,
+      "checksum_algorithm": "sha256",
+      "checksum": "2fc1b69cd79d39be6737627acb66643ae63a121fc44e43eeff9e5901940df283",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-03-24T09:46:05Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.2.5/JT25_2.2.5_S_MF.25P",
+      "size_bytes": 359541,
+      "checksum_algorithm": "sha256",
+      "checksum": "4f04c012d1fb2c93950a6513b6aabb72da40ade23d811e5d6929dfb0dfe53681",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-03-24T09:46:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.2.5/JT25_2.2.5_S_MF.json",
+      "size_bytes": 638,
+      "checksum_algorithm": "sha256",
+      "checksum": "ceac8dd995067958f5e31ef8751c6e481b9a95f1ff98ed71ec9ad0ded41ef30b",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:09:20Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.2.5/JT25_2.2.5_S_MF.sbf",
+      "size_bytes": 24837236,
+      "checksum_algorithm": "sha256",
+      "checksum": "52fc72281399ac8637ae6410e762fa760ca4858c952b8457332147fa694dff9d",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2025-11-06T09:28:58Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.2.5/JT25_2.2.5_S_MF_hascorr.rtcm3",
+      "size_bytes": 738733,
+      "checksum_algorithm": "sha256",
+      "checksum": "e57bf6b11821351f8f5e09bf441277c5c5ac4387fd3788d5d2f2289169ceaace",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.10/JT25_2.3.10_S_MF.25O",
+      "size_bytes": 3897801,
+      "checksum_algorithm": "sha256",
+      "checksum": "3477bcdb14057905302220118de0bf0bb86d53a043aab49a91f9d5f7ebe891c8",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:17:35Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.10/JT25_2.3.10_S_MF.25P",
+      "size_bytes": 487432,
+      "checksum_algorithm": "sha256",
+      "checksum": "5804e5b97ddc29cc4d2c78fc5247dd5b0bb4d36fe8ab699203b606a1b96ba86f",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:17:36Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.10/JT25_2.3.10_S_MF.json",
+      "size_bytes": 658,
+      "checksum_algorithm": "sha256",
+      "checksum": "6f8ce297b993cca57c119df1f1afadd1ebb0a866d886ab022fd691bd050120bb",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:17:11Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.10/JT25_2.3.10_S_MF.sbf",
+      "size_bytes": 21591924,
+      "checksum_algorithm": "sha256",
+      "checksum": "f3f01c5894ad1a30ad37bdc72c8466d76a8c26629640839f11d9b55235462d1c",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2025-11-06T09:54:26Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.10/JT25_2.3.10_S_MF_hascorr.rtcm3",
+      "size_bytes": 727047,
+      "checksum_algorithm": "sha256",
+      "checksum": "7fd0f3103246ea21fdad78170d8fa90901dfa64db6f7d6a2fb62c5260a946809",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.5/JT25_2.3.5_S_MF.25O",
+      "size_bytes": 4123736,
+      "checksum_algorithm": "sha256",
+      "checksum": "de7bdf7766de7de2ba41812c4b322fb5629ee49649ce4114c7995155b55c737d",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T08:59:03Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.5/JT25_2.3.5_S_MF.25P",
+      "size_bytes": 453139,
+      "checksum_algorithm": "sha256",
+      "checksum": "f18b5533f33cb76b2a8b84e8674e15f694e5cd85c7caec6b23442dc05ccc6e8e",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T08:59:03Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.5/JT25_2.3.5_S_MF.json",
+      "size_bytes": 616,
+      "checksum_algorithm": "sha256",
+      "checksum": "c52580a469ab8ffb25c093633f53923f6340135c3f124ff0289c0dcf633e41ea",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:13:39Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.5/JT25_2.3.5_S_MF.sbf",
+      "size_bytes": 21355148,
+      "checksum_algorithm": "sha256",
+      "checksum": "92780cfcd8ae6a0f8434a9a899da538edf6d1b4519b6aeb61ef62ac6f9f2c3b4",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2025-11-06T09:51:44Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.5/JT25_2.3.5_S_MF_hascorr.rtcm3",
+      "size_bytes": 814600,
+      "checksum_algorithm": "sha256",
+      "checksum": "79a18e470d5b72f76856bf98fdc95f6f82fcc431d07546c8e01c48a5cec7d1a5",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.8/JT25_2.3.8_S_MF.25O",
+      "size_bytes": 3462583,
+      "checksum_algorithm": "sha256",
+      "checksum": "257bf8972d5f3f339072fdd017f29c932fd8447394812e8570283a96d39598c2",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:15:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.8/JT25_2.3.8_S_MF.25P",
+      "size_bytes": 419848,
+      "checksum_algorithm": "sha256",
+      "checksum": "22b3cc5180a2841c6e3084e45a681a7bc4f2cbda8a8b5d1717c5a4430923ae97",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:15:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.8/JT25_2.3.8_S_MF.json",
+      "size_bytes": 627,
+      "checksum_algorithm": "sha256",
+      "checksum": "1adfd3c72ffe4c39af85a26d7c192fd494947f3ce6d361d5c4b72558e512db2d",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:14:42Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.8/JT25_2.3.8_S_MF.sbf",
+      "size_bytes": 21512152,
+      "checksum_algorithm": "sha256",
+      "checksum": "1fbb9d03f65cec9785a8c29bf04371730dfa96173d0c1fdb6a91c0feba95df4b",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2025-11-06T09:48:16Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/MF/2.3.8/JT25_2.3.8_S_MF_hascorr.rtcm3",
+      "size_bytes": 651449,
+      "checksum_algorithm": "sha256",
+      "checksum": "9d63a4ccc515cc686e44722662f2750475dd94959b23c6d8b334e9a210107182",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/SF/2.1.2/JT25_2.1.2_J_L1.25O",
+      "size_bytes": 18060402,
+      "checksum_algorithm": "sha256",
+      "checksum": "9ae56ddc9e6ddf0562c6fcf725a58bf712024f9c0b55e2be69c1f47884201f4a",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-03-24T09:46:02Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/SF/2.1.2/JT25_2.1.2_J_L1.25P",
+      "size_bytes": 163990,
+      "checksum_algorithm": "sha256",
+      "checksum": "8586354c5f6305ac52e39298f9a01926ef4fd7e91f2683f6147554fc035ffeed",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-03-24T09:46:02Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/SF/2.1.2/JT25_2.1.2_J_L1.json",
+      "size_bytes": 651,
+      "checksum_algorithm": "sha256",
+      "checksum": "fddd37871b5e491b5847e6cca52319f454ad63043f05c8e1bebf71846d70b892",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-07-30T09:08:57Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/SF/2.1.2/JT25_2.1.2_J_L1.sbf",
+      "size_bytes": 28766580,
+      "checksum_algorithm": "sha256",
+      "checksum": "ab252c034bfad6d71c1c0821355f3695775958d0fac342d6282e98fa0b8c7fb2",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2025-11-06T07:30:40Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Spoofing/SF/2.1.2/JT25_2.1.2_J_L1_hascorr.rtcm3",
+      "size_bytes": 1105910,
+      "checksum_algorithm": "sha256",
+      "checksum": "bf0a9a6c0156d37bcab425ae527503696de8872f151380b72008aa5058d97639",
+      "frozen": "2026-09-04T08:23:59Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/MF/1.18.13/JT25_1.18.13_U_MF.25O",
+      "size_bytes": 7829975,
+      "checksum_algorithm": "sha256",
+      "checksum": "9bf525f36bef81ff22e3d0be6eaa30ea759cffc6b55718386dfc2db6c0d7db6d",
+      "frozen": "2026-09-04T08:23:18Z",
+      "modified": "2026-07-30T08:43:35Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/MF/1.18.13/JT25_1.18.13_U_MF.25P",
+      "size_bytes": 280039,
+      "checksum_algorithm": "sha256",
+      "checksum": "a05b7caf692872feda83d7d7b704b2702f10dfaa9073e90f11b208f41d4d5090",
+      "frozen": "2026-09-04T08:23:18Z",
+      "modified": "2026-07-30T08:43:35Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/MF/1.18.13/JT25_1.18.13_U_MF.json",
+      "size_bytes": 813,
+      "checksum_algorithm": "sha256",
+      "checksum": "cf7ceebb98742d918cd11bd84b4710e3429dc9a2fad5354deb9a88e630e58080",
+      "frozen": "2026-09-04T08:23:18Z",
+      "modified": "2026-07-30T08:45:57Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/MF/1.18.13/JT25_1.18.13_U_MF.sbf",
+      "size_bytes": 28926744,
+      "checksum_algorithm": "sha256",
+      "checksum": "8a3ea26f080e5bdfb859d9e565ad2c7c2989baaa2a4e9ae19bb559481aa5780a",
+      "frozen": "2026-09-04T08:23:18Z",
+      "modified": "2025-11-15T08:48:56Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/MF/1.18.13/JT25_1.18.13_U_MF_hascorr.rtcm3",
+      "size_bytes": 1282875,
+      "checksum_algorithm": "sha256",
+      "checksum": "b5ebb08ccdc7d82ebf4d574f9befe4dd5909bc23bc69ada506b0708793676b2a",
+      "frozen": "2026-09-04T08:23:18Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/SF/1.18.7/JT25_1.18.7_U_L1.25O",
+      "size_bytes": 8259367,
+      "checksum_algorithm": "sha256",
+      "checksum": "f3654094ed69b0d585e636d8c3cb18d6ba63f344c82affdd906dcb2e30452726",
+      "frozen": "2026-09-04T08:23:47Z",
+      "modified": "2026-07-30T08:38:20Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/SF/1.18.7/JT25_1.18.7_U_L1.25P",
+      "size_bytes": 237490,
+      "checksum_algorithm": "sha256",
+      "checksum": "c36d2ad0a35732a3b2d6f38e86b5168d35ae7cdf0f3180d7fe559eaaf0cb638c",
+      "frozen": "2026-09-04T08:23:47Z",
+      "modified": "2026-07-30T08:38:21Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/SF/1.18.7/JT25_1.18.7_U_L1.json",
+      "size_bytes": 693,
+      "checksum_algorithm": "sha256",
+      "checksum": "dd7ae9fa4919f6cbe66ad0ed9560df4aa488c9dd4fc905f0e04a34bf3556e4b8",
+      "frozen": "2026-09-04T08:23:47Z",
+      "modified": "2026-07-30T08:45:44Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/SF/1.18.7/JT25_1.18.7_U_L1.sbf",
+      "size_bytes": 29431932,
+      "checksum_algorithm": "sha256",
+      "checksum": "b93eed21129d43c3a745e99bb7b6f4dccc1fb5982549623456367fa3eb668811",
+      "frozen": "2026-09-04T08:23:47Z",
+      "modified": "2025-11-15T08:41:36Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/Unintentional_RFI/SF/1.18.7/JT25_1.18.7_U_L1_hascorr.rtcm3",
+      "size_bytes": 1256794,
+      "checksum_algorithm": "sha256",
+      "checksum": "2d1177d13cd1b5a10e86c3bdaff0a79b9e6d73a9ae9b1df3da068899d06c845a",
+      "frozen": "2026-09-04T08:23:47Z",
+      "modified": "2026-08-13T07:34:06Z",
+      "published": "2026-09-30T11:36:23Z"
+    },
+    {
+      "path": "/Static/ground_truth_static.csv",
+      "size_bytes": 299,
+      "checksum_algorithm": "sha256",
+      "checksum": "37fcf37972f580455072691206de64510ff7d43532925e958883fc450a495620",
+      "frozen": "2026-09-04T08:24:42Z",
+      "modified": "2026-08-06T11:29:26Z",
+      "published": "2026-09-30T11:36:23Z"
+    }
+  ]
+}

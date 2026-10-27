@@ -42,13 +42,19 @@
    geliştirme/değerlendirme kanıtıdır; yeni alıcıda başarı garantisi değildir.
    DS7'nin kalan kaçırmaları ve DS3'ün onset öncesi uyarısı yeni, önceden ayrılmış
    ve temiz veride ayrıca sınanmalı.
-8. **Yeni alıcı holdout'u hazır değil.** FGI Jammertest 2025 kaydı doğru yer
-   gerçeği ve Septentrio PolaRx5 SBF/RINEX verisi sunan uygun bir adaydır; katalog
-   CC BY 4.0 ve 102 dosya / 874.580.271 bayt bildiriyor. Dosya indirme servisi
-   23 Ekim 2026 kontrolünde `Download is not enabled` döndürdü; içerik henüz
-   alınmadı ve bu kaynakta sonuç üretilmedi. Erişim, dosya hash'leri, saat
-   eşlemesi, temiz aralık etiketleri ve test öncesi kod/eşik dondurması
-   tamamlanmadan bağımsız test sonucu raporlanamaz. [Holdout protokolü](INDEPENDENT_HOLDOUT_PROTOCOL.md).
+8. **Yeni alıcı holdout'u hazır değil.** FGI Jammertest 2025 kaydı Septentrio
+   PolaRx5 SBF/RINEX ölçümleri ve yer gerçeği sunduğunu bildiriyor; uygun bir
+   adaydır, fakat henüz dosya düzeyinde doğrulanmış test kaynağı değildir. 27 Ekim
+   2026 tarihli Metax snapshot'ında CC BY 4.0, 102 dosya ve 874.580.271 bayt
+   listeleniyor. Yalnızca 299 baytlık `ground_truth_static.csv` indirildi; SHA-256
+   katalog özetiyle eşleşti. Bu dosya statik referans koordinatıdır, saldırı
+   başlangıç/bitiş etiketi değildir. Saldırı senaryosu SBF/RINEX ve eşleşen olay
+   etiketleri alınmadı; aynı gün dosya kullanılabilirlik uç noktası
+   `Download is not enabled` yanıtı verdi. Katalog metadata'sındaki SHA-256'lar
+   yerel payload hash'i değildir. Dosyalar, saat eşlemesi, etiket kapsamı ve test
+   öncesi kod/eşik dondurması doğrulanmadan bağımsız test sonucu raporlanamaz.
+   [Holdout protokolü](INDEPENDENT_HOLDOUT_PROTOCOL.md) ve
+   [metadata manifesti](data_manifests/fgi_jammertest_2025.json).
 
 ## Tamamlanan altyapı
 
