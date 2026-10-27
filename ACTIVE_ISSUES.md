@@ -1,4 +1,4 @@
-# Aktif sorunlar — 23 Ekim 2026
+# Aktif sorunlar — 27 Ekim 2026
 
 ## Algılama performansı
 
@@ -54,7 +54,9 @@
    yerel payload hash'i değildir. Dosyalar, saat eşlemesi, etiket kapsamı ve test
    öncesi kod/eşik dondurması doğrulanmadan bağımsız test sonucu raporlanamaz.
    [Holdout protokolü](INDEPENDENT_HOLDOUT_PROTOCOL.md) ve
-   [metadata manifesti](data_manifests/fgi_jammertest_2025.json).
+   [metadata manifesti](data_manifests/fgi_jammertest_2025.json). Kullanıcı,
+   Mika Saajasto'ya 27 Ekim 2026'da veri erişimi ve olay etiketleri hakkında
+   e-posta gönderdiğini bildirdi; yanıt ve erişim teyidi bekleniyor.
 
 ## Tamamlanan altyapı
 

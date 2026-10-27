@@ -1,6 +1,6 @@
 # Literatür eşlemesi ve yöntem kapsamı
 
-**Son gözden geçirme:** 23 Ekim 2026  
+**Son gözden geçirme:** 27 Ekim 2026
 **Amaç:** Projedeki yöntem iddialarını temel ve birincil literatürle ilişkilendirmek, desteklenmeyen yorumları ayırmak. Bu belge kapsamlı sistematik derleme değildir; seçilmiş hakemli yayınlar ve resmi benchmark kaynakları için izlenebilirlik notudur.
 
 ## Problem kapsamı
@@ -31,7 +31,7 @@ TEXBAT, kontrollü GPS L1 C/A spoofing senaryoları içeren bir araştırma benc
 
 Literatüre uygun doğrulama için deney öncesi eşik ve karar parametreleri dondurulmalı; kayıt, uçuş veya alıcı bazında ayrılmış temiz ve saldırı testleri kullanılmalı; alarm düzeyi ground truth saldırı zamanlarıyla eşleştirilmeli; olay düzeyinde tespit, kaçırma, ilk tespit gecikmesi ve temiz kayıt başına yanlış alarm raporlanmalıdır. Metrik tanımı, örnekleme aralığı, kapsama aralığı, veri kökeni, yazılım sürümü ve güven aralıkları açıklanmalıdır. Tekrarlanan zaman örneklerini bağımsız istatistiksel örnek gibi saymamak gerekir [4, 8].
 
-Yeni alıcıda test için FGI Jammertest 2025 kaydı aday seçildi: Etsin kaydı Septentrio PolaRx5 ölçümleri, SBF/RINEX, olay yer gerçeği ve CC BY 4.0 erişim bilgisi bildiriyor [15]. Veri kümesi kümülatif olduğundan sınama, sabitlenmiş dosya listesi ve dosya hash'leriyle tanımlanmalıdır. 23 Ekim 2026'da katalog dosya listesi görünürken indirme kullanılabilirlik uç noktası kapalıydı; bu nedenle bu kayıt henüz bağımsız test sonucu sağlamıyor. Erişim ve protokol durumu [holdout planında](INDEPENDENT_HOLDOUT_PROTOCOL.md) tutuluyor.
+Yeni alıcıda test için FGI Jammertest 2025 kaydı aday seçildi: Etsin kaydı Septentrio PolaRx5 ölçümleri, SBF/RINEX, olay yer gerçeği ve CC BY 4.0 erişim bilgisi bildiriyor [15]. Veri kümesi kümülatif olduğundan sınama, sabitlenmiş dosya listesi ve dosya hash'leriyle tanımlanmalıdır. 27 Ekim 2026'da katalog dosya listesi görünürken indirme kullanılabilirlik uç noktası kapalıydı. Kullanıcı aynı tarihte veri erişimi ve olay etiketleri için araştırmacıya e-posta gönderdiğini bildirdi; yanıt bekleniyor. Bu nedenle kayıt henüz bağımsız test sonucu sağlamıyor. Erişim ve protokol durumu [holdout planında](INDEPENDENT_HOLDOUT_PROTOCOL.md) tutuluyor.
 
 ## Sonuç ve iddia sınırı
 

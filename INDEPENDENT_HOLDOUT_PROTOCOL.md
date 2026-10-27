@@ -2,6 +2,7 @@
 
 **Durum:** FGI Jammertest 2025 uygun bir adaydır; saldırı kayıtları ve olay etiketleri henüz edinilmediği için bağımsız test başlamamıştır.
 **Metax metadata snapshot'ı:** 27 Ekim 2026. **Dosya indirme kontrolü:** 27 Ekim 2026.
+**Veri erişim yazışması:** Kullanıcı, Mika Saajasto'ya 27 Ekim 2026'da veri erişimi ve olay zaman etiketleri hakkında e-posta gönderdiğini bildirdi; yanıt bekleniyor. Bu, veri erişiminin onaylandığı anlamına gelmez.
 
 ## Aday veri ve erişim durumu
 
@@ -22,11 +23,11 @@ yerel hash'lerinin doğrulandığını göstermez.
 Yalnızca `/Static/ground_truth_static.csv` (299 bayt) indirildi ve SHA-256 özeti
 katalogdaki değerle eşleşti. Bu dosya statik referans koordinatları içerir; saldırı
 başlangıç/bitiş zaman etiketleri değildir. Senaryo SBF/RINEX, JSON metadata ve
-olay zaman çizelgeleri henüz yerelde incelenmedi. 27 Ekim 2026'da Metax dosya
+olay zaman çizelgeleri henüz yerelde incelenmedi. Kullanıcı 27 Ekim 2026'da veri
+erişimi için e-posta gönderdiğini bildirdi; yanıt bekleniyor. Aynı gün Metax dosya
 kullanılabilirlik uç noktası `405: Download is not enabled` yanıtı verdi. Bu nedenle
 katalogdaki açık erişim etiketi, dosyaların fiilen indirilebilir olduğu anlamına
-gelmiyor. Erişim sorusu gönderilmedi; başvuru sahibi/veri sorumlusu bu konuyu
-doğrudan netleştirmelidir.
+gelmiyor.
 
 Uygulama şu anda CSV/MAT/NMEA benzeri ortak şemaya çevrilmiş navigasyon kayıtlarını
 oynatır; SBF veya RINEX için hazır bir alıcı adaptörü yoktur. Bu biçimler için
@@ -75,9 +76,17 @@ yeterli değildir.
   zaten açık olan alarm yeni tespit sayılmaz.
 - **Gecikme:** olay başlangıcından ilk yeni alarma kadar süre raporlanır. Kaçırılan
   olaylar ayrıca gösterilir; medyan, aralık ve olay bazlı değerler verilir.
+- **Olay eşlemesi:** tespit, yalnızca olay başlangıcı ile bitişi arasında başlayan
+  yeni ve ilgili alarm olarak sayılır. Olay öncesi açık alarm ayrı raporlanır;
+  nedensellik kanıtı sayılmaz. GNSS hizmet kaybını gösteren alarm, ek kanıt yoksa
+  jamming sınıfı olarak yorumlanmaz.
 - **Yanlış alarm:** yalnızca yayıncı tarafından açıkça temiz/normal diye etiketlenmiş
   zaman aralığında hesaplanır. Olaylaştırılmış yanlış alarm/alıcı-saati raporlanır.
   Saldırı dışı fakat temizliği bilinmeyen zamanlar paydada kullanılmaz.
+- **Başlangıç/ısınma:** alıcı profilinin edinim süresi ve dosya başlangıcındaki
+  geçersiz/eksik epoch'lar analiz planında belirtilir. Bu dönem sessizce atılmaz;
+  ölçülebilir saldırı olayıyla çakışıyorsa olay kapsam dışı/ölçülemez diye
+  gerekçesiyle raporlanır.
 - **Alan aktarımı:** PolaRx5 sonucu TEXBAT, CMU veya geliştirme verileriyle
   birleştirilmez; ayrı bir dış alıcı/veri kaynağı sonucu olarak sunulur. Dosya ve
   olay kümeleri bağımsızlık varsayımı korunarak raporlanır.
