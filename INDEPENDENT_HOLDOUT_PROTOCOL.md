@@ -1,23 +1,25 @@
 # Yeni alıcıda bağımsız holdout protokolü
 
-**Durum:** Protokol hazır; FGI Jammertest 2025 dosyaları henüz indirilemedi.  
-**Son kontrol:** 23 Ekim 2026.
+**Durum:** FGI Jammertest 2025, bağımsız test adayıdır; dosyalar indirilip yerelde doğrulanmadı.  
+**Katalog kontrolü:** 27 Ekim 2026. **Son dosya erişim denemesi:** 23 Ekim 2026.
 
 ## Aday veri ve erişim durumu
 
 Fairdata Etsin'deki [FGI Jammertest 2025 GNSS interference dataset](https://etsin.fairdata.fi/dataset/095782a8-4e31-456e-8719-7021b4c96362)
-Septentrio PolaRx5 alıcısından SBF/RINEX, ground-truth ve alıcı-durumu kayıtları
-sağlıyor. Katalogda iki istenmeyen girişim, beş jamming, altı spoofing, iki
+katalog kaydı Septentrio PolaRx5 alıcısından SBF/RINEX, yer gerçeği ve alıcı-durumu
+kayıtları bildiriyor. Katalogda iki istenmeyen girişim, beş jamming, altı spoofing, iki
 meaconing ve beş birleşik girişim senaryosu açıklanıyor. Veri CC BY 4.0 lisanslı,
 102 dosya ve toplam 874.580.271 bayt olarak listeleniyor; katalog veri kümesinin
 büyüyebileceğini belirtiyor. Deneyde kullanılan her dosyanın sürümü, boyutu,
 SHA-256 özeti ve katalog gözlem zamanı sabitlenmelidir.
 
-Metax dosya listesi anonim erişimle sorgulanabildi; ancak 23 Ekim 2026'da resmi
+Katalog sayfası veriyi açık erişimli olarak listeliyor; ancak 23 Ekim 2026'da
+anonim Metax indirme listesi sorgulanabilmesine rağmen resmi
 `/v3/download/available/<dataset-id>` uç noktası `Download is not enabled` yanıtı
-verdi. Veri içeriği alınamadığı için henüz alıcı çıktıları çözümlenmedi ve hiçbir
-performans sonucu üretilmedi. İndirme açılana veya yayıncı tarafından erişim yolu
-sağlanana kadar bu kayıt yalnızca doğrulanacak holdout adayıdır.
+verdi. Bu nedenle katalogdaki erişim etiketi, dosyaların gerçekten indirildiği
+anlamına gelmiyor. Veri içeriği alınamadı; alıcı çıktıları çözümlenmedi ve hiçbir
+performans sonucu üretilmedi. Erişim yolu başvuru öncesi yeniden kontrol edilmeli;
+dosyalar edinilmeden bağımsız test yapılamaz ve test tamamlanmış gibi sunulmamalıdır.
 
 ## Test başlamadan önce dondurulacaklar
 
@@ -28,7 +30,10 @@ sağlanana kadar bu kayıt yalnızca doğrulanacak holdout adayıdır.
 2. Etsin veri sürümü/gözlem tarihi, dosya yolları, her dosyanın boyutu ve özeti;
    olay takviminin kaynağı/sürümü ve saat dilimi birlikte kaydedilir. Veri kümesi
    büyüdüğünden test kapsamı tanımlanmış dosya listesiyle sınırlanır.
-3. Olay etiketleri yalnızca algılayıcı kararları üretildikten sonra uygulanır.
+3. Birincil analiz, mevcut algılayıcı ve eşiklerle dondurulmuş sıfır-atış
+   aktarım testidir. Jammertest 2025 test kayıtlarında eşik, model veya profil
+   ayarı yapılmaz. Olay etiketleri yalnızca algılayıcı kararları üretildikten
+   sonra uygulanır.
    Saatler UTC'ye çevrilir; alıcı saatiyle olay takvimi arasındaki fark ve
    belirsizlik raporlanır. Belirsiz sınırlar için duyarlılık analizi ayrı verilir.
 4. RINEX/SBF dönüştürmesi sürümlü, deterministik adaptörle yapılır. Ölçüm kaybı,

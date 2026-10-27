@@ -4,7 +4,11 @@
 
 Yeni alıcıda bağımsız sınama için seçilen FGI Jammertest 2025 aday veri kümesi ve
 test öncesi dondurma/ölçüm protokolü [holdout protokolünde](INDEPENDENT_HOLDOUT_PROTOCOL.md)
-belgelenmiştir; katalog dosyaları şu an indirme servisi üzerinden alınamıyor.
+belgelenmiştir; katalog açık erişim bildiriyor ancak dosyalar yerelde alınmış ve
+şema doğrulanmış değil. İndirme yolu başvuru öncesi yeniden doğrulanmalı.
+TÜBİTAK 2209-A araştırma odağı, bu bağımsız veri üzerinde mevcut GNSS tutarsızlık
+izleyicisinin sıfır-atış değerlendirmesidir; [başvuru metni taslağı](output/docs/TUBITAK_2209A_GNSS_TYBS_Metin_Taslagi.docx)
+TYBS'ye yüklenmez ve veri erişimi doğrulanana kadar koşullu plan olarak kalır.
 
 GNSS jamming ve spoofing belirtilerini inceleyen Streamlit uygulaması. Simülasyon, etiketli kayıt oynatımı ve pasif seri/TCP/UDP NMEA alımı desteklenir. Gerçek uçuş kontrolü ve saha güvenliği doğrulanmış değildir.
 
