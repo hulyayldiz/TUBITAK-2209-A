@@ -14,6 +14,10 @@ class NMEAStream:
         self.gsv = {}
         self.revision = 0
         self.delivered = -1
+        self.last_fix_valid = None
+        self.fix_status_at = None
+        self.has_acquired_fix = False
+        self.fix_loss_since = None
 
     def feed(self, data, now=None):
         now = time.monotonic() if now is None else now
@@ -41,11 +45,17 @@ class NMEAStream:
                         for index in range(1,5) if str(getattr(message, f"snr_{index}", "")).strip()])
                 elif kind in ("RMC", "GGA"):
                     valid = message.status == "A" if kind == "RMC" else int(message.gps_qual or 0) > 0
+                    self.last_fix_valid = valid
+                    self.fix_status_at = now
                     if not valid:
+                        if self.has_acquired_fix and self.fix_loss_since is None:
+                            self.fix_loss_since = now
                         self.position = None
                         self.velocity = None
                         self.revision += 1
                         continue
+                    self.has_acquired_fix = True
+                    self.fix_loss_since = None
                     lat, lon = float(message.latitude), float(message.longitude)
                     if not (-90 <= lat <= 90 and -180 <= lon <= 180):
                         continue

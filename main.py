@@ -130,7 +130,32 @@ def run_app():
                     gps_mode=state.get("gps_mode", "Seri"),
                     port=state.get("gps_port", "COM3"), tcp_port=state.get("tcp_port", 9000), dt=sample_dt)
                 if observation is None:
-                    st.warning("GNSS verisi bekleniyor; simülasyon verisi kullanılmıyor.")
+                    if state.get("use_live_gps", False):
+                        now = time.monotonic()
+                        parsers = state.get("nmea_parsers", {}).values()
+                        fresh_statuses = [parser for parser in parsers
+                            if parser.last_fix_valid is not None and parser.fix_status_at is not None
+                            and now-parser.fix_status_at <= parser.ttl_s]
+                        invalid_after_lock = [parser for parser in fresh_statuses
+                            if not parser.last_fix_valid and parser.has_acquired_fix
+                            and parser.fix_loss_since is not None]
+                        if invalid_after_lock:
+                            duration = max(now-parser.fix_loss_since for parser in invalid_after_lock)
+                            message = (f"GNSS alıcısı geçersiz çözüm bildiriyor ({duration:.1f} s). "
+                                       "Bu hizmet kaybını gösterir; tek başına jamming/spoofing nedeni kanıtlamaz.")
+                            if duration >= 3.:
+                                st.warning(message)
+                            else:
+                                st.info(message + " Süreklilik izleniyor; saldırı alarmı üretilmiyor.")
+                        elif fresh_statuses and all(not parser.last_fix_valid for parser in fresh_statuses):
+                            st.info("GNSS alıcısı henüz geçerli fix bildirmedi; başlangıç/edinim aşaması olabilir.")
+                        elif fresh_statuses:
+                            st.info("Fix geçerli, ancak konum ve hız birlikte henüz alınmadı; alarm değerlendirmesi yapılmıyor.")
+                        else:
+                            st.warning("GNSS verisi bekleniyor veya NMEA durumu güncelliğini yitirdi; "
+                                       "bağlantı kesintisi ile fix kaybı ayırt edilemiyor.")
+                    else:
+                        st.warning("GNSS verisi bekleniyor; simülasyon verisi kullanılmıyor.")
                     return
                 raw_lat, raw_lon, raw_speed, raw_cn0 = observation
                 state.kinematic_features = None
