@@ -22,14 +22,15 @@ class LooselyCoupledEKF:
         
         # Süreç Gürültüsü (Q)
         q_val = profile["Q"]
-        self.Q = np.eye(4) * q_val
+        self.acceleration_variance = q_val
         
         # Ölçüm Gürültüsü (R)
-        r_val = profile["R"]
-        self.R = np.eye(2) * r_val
+        # Profiles specify SI variances; convert to degrees at the current latitude.
+        scale = np.array([self.LAT_TO_M, self.LAT_TO_M * math.cos(math.radians(self.x[0]))])
+        self.R = np.diag(np.full(2, profile.get("position_variance_m2", .25)) / scale**2)
         
         # Kovaryansı sıfırla (Yeni profile uyum için hızlandırma)
-        self.P = np.eye(4) * 0.1
+        self.P = np.diag(np.array([25., 25., 4., 4.]) / np.tile(scale, 2)**2)
 
     def _f(self, x_state, ax_m_s2, ay_m_s2, dt):
         lat, lon, v_lat, v_lon = x_state
@@ -43,8 +44,11 @@ class LooselyCoupledEKF:
         new_v_lon = v_lon + a_lon * dt
         return np.array([new_lat, new_lon, new_v_lat, new_v_lon])
 
-    def predict(self, ax_m_s2, ay_m_s2, dt=0.5):
+    def predict(self, ax_m_s2, ay_m_s2, dt=0.5, acceleration_variance=None):
         """EKF Prediction: IMU verisi ile bir sonraki durumu tahmin et."""
+        variance = self.acceleration_variance if acceleration_variance is None else acceleration_variance
+        if not math.isfinite(variance) or variance < 0:
+            raise ValueError('Acceleration variance must be finite and nonnegative')
         # 1. State Transition (Durum Geçiş)
         new_state = self._f(self.x, ax_m_s2, ay_m_s2, dt)
         
@@ -63,14 +67,23 @@ class LooselyCoupledEKF:
             [0.0, 0.0, 0.0, 1.0]
         ])
             
+        latitude = math.radians(self.x[0])
+        longitude_accel_derivative = (ay_m_s2 / self.LAT_TO_M * math.sin(latitude)
+                                      / math.cos(latitude)**2 * math.pi / 180)
+        F[1, 0] = .5 * dt**2 * longitude_accel_derivative
+        F[3, 0] = dt * longitude_accel_derivative
         self.x = new_state
         
         # 3. Kovaryans Tahmini (P = FPF' + Q)
+        scale = np.array([self.LAT_TO_M, self.LAT_TO_M * math.cos(math.radians(self.x[0]))])
+        G = np.vstack((np.diag(.5 * dt**2 / scale), np.diag(dt / scale)))
+        self.Q = G @ G.T * variance
+        self.last_acceleration_variance = variance
         self.P = F @ self.P @ F.T + self.Q
         
         return self.x[0], self.x[1]
 
-    def update(self, gps_lat, gps_lon):
+    def update(self, gps_lat, gps_lon, measurement_covariance=None, gate=True):
         """EKF Correction: GPS verisi ile durumu düzelt."""
         # Gözlem Matrisi (H) - Jacobian of h(x). h(x) = [lat, lon] lineer olduğu için H sabit.
         H = np.array([
@@ -81,38 +94,79 @@ class LooselyCoupledEKF:
         z = np.array([gps_lat, gps_lon])
         y = z - H @ self.x # Yenilik (Innovation)
         
-        S = H @ self.P @ H.T + self.R # Yenilik Kovaryansı
-        K = self.P @ H.T @ np.linalg.inv(S) # Kalman Kazancı
+        R = self.R if measurement_covariance is None else measurement_covariance
+        S = H @ self.P @ H.T + R
+        self.last_nis = float(y @ np.linalg.solve(S, y))
+        self.last_measurement_used = not gate or self.last_nis <= -2*math.log(.001)
+        if not self.last_measurement_used:
+            return self.x[0], self.x[1]
+        K = np.linalg.solve(S, H @ self.P).T
         
         # Güncelleme
         self.x = self.x + K @ y
-        self.P = (np.eye(4) - K @ H) @ self.P
+        correction = np.eye(4) - K @ H
+        self.P = correction @ self.P @ correction.T + K @ R @ K.T
         
         return self.x[0], self.x[1]
 
-# Global EKF instance (Sensors.py tarafından başlatılacak)
-ekf_filter = None
-
-def get_fused_position(state, raw_lat, raw_lon, imu_ax, imu_ay, dt=0.5, gps_trustworthy=True):
-    global ekf_filter
+def get_fused_position(state, raw_lat, raw_lon, imu_ax, imu_ay, dt=0.5, gps_trustworthy=True,
+                       degraded_cn0=None, unobserved_accel_bound_m_s2=None):
+    ekf_filter = state.get("ekf_filter")
     
     current_profile = state.get("ekf_profile", "İHA (UAV) - Yüksek Dinamik")
     
     if ekf_filter is None:
-        ekf_filter = LooselyCoupledEKF(raw_lat, raw_lon, profile_name=current_profile)
+        start_lat = raw_lat if gps_trustworthy else state.get("last_good_lat", raw_lat)
+        start_lon = raw_lon if gps_trustworthy else state.get("last_good_lon", raw_lon)
+        ekf_filter = LooselyCoupledEKF(start_lat, start_lon, profile_name=current_profile)
+        heading = math.radians(state.get("prev_heading", 0.))
+        speed = state.get("prev_speed", 0.) / 3.6
+        ekf_filter.x[2] = speed * math.cos(heading) / 111320
+        ekf_filter.x[3] = speed * math.sin(heading) / (111320 * math.cos(math.radians(start_lat)))
+        state.ekf_filter = ekf_filter
+        state.prev_ekf_profile = current_profile
     elif getattr(state, "prev_ekf_profile", "") != current_profile:
         # Profil değişmiş, filtreyi güncelle
         ekf_filter.update_parameters(current_profile)
         state.prev_ekf_profile = current_profile
     
+    if not math.isfinite(dt) or dt <= 0:
+        raise ValueError("dt must be positive and finite")
     # 1. Prediction (IMU her zaman çalışır)
-    pred_lat, pred_lon = ekf_filter.predict(imu_ax, imu_ay, dt)
+    variance = ekf_filter.acceleration_variance
+    if unobserved_accel_bound_m_s2 is not None:
+        if not math.isfinite(unobserved_accel_bound_m_s2) or unobserved_accel_bound_m_s2 < 0:
+            raise ValueError('Unobserved acceleration bound must be finite and nonnegative')
+        # With no independent IMU, zero acceleration is an input placeholder,
+        # not evidence of constant velocity. A bounded component in [-a,a]
+        # has variance a^2/3. The bound is the existing physical motion limit,
+        # never estimated by inflating covariance until a rejected fix passes.
+        variance = max(variance, unobserved_accel_bound_m_s2**2/3.)
+    state.effective_acceleration_variance = variance
+    pred_lat, pred_lon = ekf_filter.predict(imu_ax, imu_ay, dt, acceleration_variance=variance)
     
     # 2. Update (Sadece GPS güvenilirse/sağlıklıysa)
-    if gps_trustworthy:
-        final_lat, final_lon = ekf_filter.update(raw_lat, raw_lon)
+    state.gnss_measurement_used = False
+    if gps_trustworthy or degraded_cn0 is not None:
+        covariance = None
+        accuracy = state.get('horizontal_accuracy_m')
+        if accuracy is not None and math.isfinite(accuracy) and accuracy > 0:
+            scale = np.array([111320., 111320.*math.cos(math.radians(raw_lat))])
+            covariance = np.diag(np.full(2, accuracy**2)/scale**2)
+            # Never make a receiver claim more precise than the configured floor.
+            covariance = np.diag(np.maximum(np.diag(covariance), np.diag(ekf_filter.R)))
+        if degraded_cn0 is not None:
+            # Signal loss is not proof of coordinate manipulation. Downweight only
+            # physically plausible fixes; innovation gating still rejects jumps.
+            factor = max(16., 16*(45/max(float(degraded_cn0), 1.))**2)
+            covariance = (ekf_filter.R if covariance is None else covariance) * factor
+        final_lat, final_lon = ekf_filter.update(raw_lat, raw_lon, covariance, gate=True)
+        state.gnss_measurement_used = ekf_filter.last_measurement_used
     else:
         # Spoofing/Jamming varsa sadece tahmine güven (Dead Reckoning)
         final_lat, final_lon = pred_lat, pred_lon
         
+    scale = np.array([111320., 111320*math.cos(math.radians(ekf_filter.x[0]))])
+    position_covariance = ekf_filter.P[:2, :2] * np.outer(scale, scale)
+    state.position_sigma_m = math.sqrt(max(0., float(np.linalg.eigvalsh(position_covariance)[-1])))
     return final_lat, final_lon

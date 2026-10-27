@@ -6,143 +6,41 @@ Tüm alt sistemleri (Sensörler, ML, UI, Devlet) koordine eder.
 import streamlit as st
 import time
 import random
-import math
 import logging
-import hashlib
+import logging.handlers
 import os
-import json
 from datetime import datetime
+import config
 
-# Merkezi Log Yapılandırması (Kriptografik Zincirleme Desteği)
-FORENSIC_SECRET_KEY = os.getenv("FORENSIC_SECRET_KEY", "b'SECRET_TUBITAK_2209_KEY'").encode('utf-8')
+from forensic_config import load_forensic_key, FORENSIC_LEDGER_PATH
 
 def init_forensic_chain(state):
-    """Sistem yeniden başlatıldığında hash zincirini diskten okur ve doğruluk kontrolü (Tampering Detection) yapar."""
-    if "last_log_hash" not in state:
-        state.last_log_hash = "0"*64
-        jsonl_path = "forensic_ledger.jsonl"
-        if os.path.exists(jsonl_path):
-            try:
-                import hmac
-                with open(jsonl_path, "r", encoding="utf-8") as f:
-                    lines = f.readlines()
-                    
-                if not lines:
-                    return
-                
-                # Zincir doğrulama işlemi (Tampering check)
-                current_hash = "0"*64
-                is_valid = True
-                for i, line in enumerate(lines):
-                    try:
-                        log_obj = json.loads(line.strip())
-                        log_content = f"{log_obj['timestamp']} - {log_obj['level']} - {log_obj['message']}"
-                        salt = log_obj['salt']
-                        chain_input = f"{current_hash}{log_content}{salt}".encode('utf-8')
-                        calc_hash = hmac.new(FORENSIC_SECRET_KEY, chain_input, hashlib.sha256).hexdigest()
-                        
-                        if calc_hash != log_obj['chain_hmac']:
-                            logging.critical(f"DİJİTAL DELİL BOZULMASI (TAMPERING TESPİT EDİLDİ): Satır {i+1} değiştirilmiş!")
-                            is_valid = False
-                            break
-                        current_hash = calc_hash
-                    except Exception as parse_err:
-                        logging.critical(f"DİJİTAL DELİL BOZULMASI: Satır {i+1} okunamadı ({parse_err})")
-                        is_valid = False
-                        break
-                        
-                if is_valid:
-                    state.last_log_hash = current_hash
-                    logging.info("Dijital Delil Zinciri (Forensic Ledger) doğrulandı.")
-                else:
-                    # Bozulma durumunda zinciri kırılmış kabul edip devam etmesi veya güvenli moda alması
-                    state.last_log_hash = current_hash # Kaldığı en son geçerli hash
-            except Exception as e:
-                logging.error(f"Adli bilişim zinciri yüklenemedi: {e}")
+    from forensic_ledger import Ledger
+    try:
+        head, _ = Ledger(FORENSIC_LEDGER_PATH, load_forensic_key()).verify()
+        state.last_log_hash = head
+        state.forensic_chain_valid = True
+    except (ValueError, OSError, TimeoutError) as error:
+        state.forensic_chain_valid = False
+        logging.error("Adli zincir doğrulanamadı: %s", error)
+
 
 def log_chained_event(state, level, message):
-    """
-    Her log girişini bir önceki girişe bağlayan (Blockchain benzeri) adli kayıt sistemi.
-    Format: [ZAMAN] [SEVİYE] [MESAJ | HMAC]
-    """
-    import hmac
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_content = f"{timestamp} - {level} - {message}"
-    
-    # Zincirleme: Yeni Hash = HMAC-SHA256(SecretKey, Eski Hash + Mevcut Log + Salt)
-    salt = os.urandom(8).hex()
-    chain_input = f"{state.last_log_hash}{log_content}{salt}".encode('utf-8')
-    new_hash = hmac.new(FORENSIC_SECRET_KEY, chain_input, hashlib.sha256).hexdigest()
-    state.last_log_hash = new_hash
-    
-    final_entry = f"{log_content} | SALT: {salt} | HMAC: {new_hash[:16]}..."
-    
-    # UI için state listesine ekle
-    if "sim_logs" not in state: state.sim_logs = []
-    state.sim_logs.insert(0, final_entry)
-    if len(state.sim_logs) > 15: state.sim_logs.pop()
-    
-    # Kriptografik Adli Sicil (JSONL Loglama)
-    log_obj = {
-        "timestamp": timestamp,
-        "level": level,
-        "message": message,
-        "salt": salt,
-        "chain_hmac": new_hash
-    }
-    
-    # Kriptografik Adli Sicil (JSONL Loglama) - Rotasyon Destekli (Atomic)
-    jsonl_path = "forensic_ledger.jsonl"
-    if os.path.exists(jsonl_path) and os.path.getsize(jsonl_path) > 10 * 1024 * 1024:
-        archive_name = f"forensic_ledger_{int(time.time())}.jsonl"
-        try:
-            os.replace(jsonl_path, archive_name) # Atomic operation on Windows/Linux
-        except OSError:
-            pass # Eğer o anda dosya kilitliyse bir sonraki tur dener
-            
-    with open(jsonl_path, "a", encoding="utf-8") as f:
-        f.write(json.dumps(log_obj) + "\n")
-    
-    if level == "ERROR":
-        logging.error(message)
-    else:
-        logging.warning(message)
+    from forensic_ledger import Ledger
+    if not state.get("forensic_chain_valid", False):
+        return
+    try:
+        entry = Ledger(FORENSIC_LEDGER_PATH, load_forensic_key()).append(level, message)
+    except (ValueError, OSError, TimeoutError) as error:
+        state.forensic_chain_valid = False
+        logging.error("Adli kayıt yazılamadı: %s", error)
+        return
+    state.last_log_hash = entry["chain_hmac"]
+    if "sim_logs" not in state:
+        state.sim_logs = []
+    state.sim_logs.insert(0, f"{entry['timestamp']} - {level} - {message} | HMAC: {entry['chain_hmac'][:16]}...")
+    del state.sim_logs[15:]
 
-import logging.handlers
-logging.basicConfig(
-    level=logging.WARNING,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.handlers.RotatingFileHandler('system_events.log', maxBytes=10*1024*1024, backupCount=3),
-        logging.StreamHandler()
-    ]
-)
-
-# Paket Importları
-import config
-from state import SimulationState
-from sensors import simulate_sensors, update_ins_model, calculate_distance_km
-from detection import run_firewall_rules, calculate_metrics
-from satellites import load_all_satellites_logic_v2, get_live_sat_data, SAT_SYSTEMS
-from ml_detection import get_hybrid_decision, log_training_data
-
-# Modern Modüler UI Bileşenleri
-from ui import render_ui_skeleton
-from analytics import render_top_metrics, render_academic_metrics, render_expanders
-from map_layers import render_map
-
-# --- 1. Uygulama Başlatma ---
-st.set_page_config(page_title="GNSS Savunma Sistemi", layout="wide")
-SimulationState.initialize()
-state = SimulationState.get()
-
-if "attack_counts" not in state:
-    state.attack_counts = {"Jamming": 0, "Spoofing": 0}
-
-# Hash zincirini diskten başlat
-init_forensic_chain(state)
-
-# --- 2. Yardımcı Fonksiyonlar (Logic Separation) ---
 def handle_attack_logic(state):
     """Saldırı zaman aşımı ve otomatik saldırı motorunu yönetir."""
     if state.attack_mode != "normal":
@@ -157,154 +55,247 @@ def handle_attack_logic(state):
             state.attack_mode = random.choices(["jamming", "spoofing"], weights=[0.7, 0.3])[0]
             state.attack_start_time = time.time()
 
-def process_navigation(state, raw_lat, raw_lon, raw_speed, raw_cn0, fw_active, conf_cn0_percent, conf_accel, dt=0.5):
-    """Güvenlik duvarı ve navigasyon filtreleme mantığı."""
-    attack_type, reason = run_firewall_rules(
-        state, raw_lat, raw_lon, raw_cn0, raw_speed, config.NOMINAL_CN0, conf_cn0_percent, conf_accel, config.DEFAULT_HEADING_THRESHOLD, dt=dt)
-    
-    final_lat, final_lon, final_speed = raw_lat, raw_lon, raw_speed
-    
-    if attack_type != "NORMAL":
-        if "JAMMING" in attack_type:
-            if fw_active:
-                # Jamming durumunda sinyal kaybolduğu için INS/Otopilot'a geç (Ataletsel Navigasyon)
-                if not state.ins_active:
-                    state.ins_active = True
-                    state.ins_start_time = time.time()
-                    state.ins_duration = 10.0 # Jamming için varsayılan 10sn koruma
-                    state.ins_lat, state.ins_lon = state.last_good_lat, state.last_good_lon
-                    state.ins_speed = getattr(state, "prev_speed", 40.0)
-                    state.ins_heading = getattr(state, "prev_heading", 45.0)
-                
-                ins_elapsed = time.time() - state.ins_start_time
-                if ins_elapsed < state.ins_duration:
-                    state.ins_lat, state.ins_lon, final_speed = update_ins_model(state, dt=dt)
-                    final_lat, final_lon = state.ins_lat, state.ins_lon
-                    state.ins_remaining = state.ins_duration - ins_elapsed
-                else:
-                    state.ins_active = False # INS süresi dolunca dur (failsafe)
-        
-        elif attack_type == "SPOOFING":
-            if fw_active:
-                if not state.ins_active:
-                    state.ins_active = True
-                    state.ins_start_time = time.time()
-                    state.ins_duration = random.uniform(config.INS_DURATION_MIN, config.INS_DURATION_MAX)
-                    state.ins_lat, state.ins_lon = state.last_good_lat, state.last_good_lon
-                    state.ins_speed = getattr(state, "prev_speed", 40.0)
-                    state.ins_heading = getattr(state, "prev_heading", 45.0)
-                
-                ins_elapsed = time.time() - state.ins_start_time
-                if ins_elapsed < state.ins_duration:
-                    state.ins_lat, state.ins_lon, final_speed = update_ins_model(state, dt=dt)
-                    final_lat, final_lon = state.ins_lat, state.ins_lon
-                    state.ins_remaining = state.ins_duration - ins_elapsed
-                else:
-                    state.ins_active = False
-    else:
-        state.last_good_lat, state.last_good_lon = raw_lat, raw_lon
-        state.ins_active = False
+def run_app():
+    """Streamlit arayüzünü ve 2 Hz uygulama döngüsünü başlatır."""
+    import torch
 
-    return final_lat, final_lon, final_speed, attack_type, reason
+    torch.set_num_threads(max(1, int(os.getenv("GNSS_INFERENCE_THREADS", "1"))))
+    logging.basicConfig(
+        level=logging.WARNING,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.handlers.RotatingFileHandler('system_events.log', maxBytes=10*1024*1024, backupCount=3),
+            logging.StreamHandler()
+        ]
+    )
 
-# --- 3. Ana Arayüz ve Döngü ---
-fw_active, conf_cn0, conf_accel, conf_heading = render_ui_skeleton(state)
+    from state import SimulationState
+    from sensors import simulate_sensors
+    from satellites import load_all_satellites_logic_v2, get_live_sat_data, SAT_SYSTEMS
+    from ui import render_app_shell
+    from analytics import render_top_metrics, render_evaluation_metrics, render_expanders
+    from map_layers import render_map
+    from ai_assistant import show_ai_chat
+    from dataset_loader import get_next_dataset_row
+    from simulation import process_observation
 
-# Uydu Verisi Yükleme
-all_sats_db = load_all_satellites_logic_v2()
-sat_data = []
-if not state.academic_mode and all_sats_db:
-    sat_data = get_live_sat_data(list(SAT_SYSTEMS.keys()), all_sats_db)
+    st.set_page_config(page_title="GNSS Savunma Sistemi", layout="wide")
+    SimulationState.initialize()
+    state = SimulationState.get()
 
-@st.fragment(run_every=0.5)
-def main_simulation_loop(sat_data_ref):
-    """Her saniye çalışan çekirdek simülasyon döngüsü (10 Hz)."""
-    try:
-        # A. Mantıksal İşlemler
-        handle_attack_logic(state)
-        
-        # B. Sensör Okuma
-        raw_lat, raw_lon, raw_speed, raw_cn0 = simulate_sensors(
-            state, 
-            use_live_gps=state.get("use_live_gps", False),
-            port=state.get("gps_port", "COM3"),
-            tcp_port=state.get("tcp_port", 9000),
-            dt=0.5 # 2 Hz döngü süresine uyarlandı (run_every=0.5)
-        )
-        
-        # C. Navigasyon ve Filtreleme
-        f_lat, f_lon, f_speed, a_type, reason = process_navigation(state, raw_lat, raw_lon, raw_speed, raw_cn0, fw_active, conf_cn0, conf_accel, dt=0.5)
-        
-        # Rota geçmişini kaydet (Haritadaki iz için)
-        if "route_history" not in state: state.route_history = []
-        state.route_history.append((f_lat, f_lon))
-        if len(state.route_history) > 200: state.route_history.pop(0)
-        
-        # D. Kararlılık Kayıtları (Grafikler için)
-        res_err = math.sqrt((raw_lat - state.last_good_lat)**2 + (raw_lon - state.last_good_lon)**2) * 111000
-        state.residuals_history.append(res_err)
-        if len(state.residuals_history) > 30: state.residuals_history.pop(0)
-        
-        state.snr_history.append(raw_cn0)
-        if len(state.snr_history) > 30: state.snr_history.pop(0)
-        
-        ml_features = [raw_cn0, getattr(state, 'acceleration', 0.0), abs(state.get('prev_heading', 45.0) - 45.0), res_err]
-        state.vae_buffer.append(ml_features)
-        if len(state.vae_buffer) > 10: state.vae_buffer.pop(0)
+    if "attack_counts" not in state:
+        state.attack_counts = {"Jamming": 0, "Spoofing": 0}
 
-        final_type, conf, ml_label, anomaly = get_hybrid_decision(a_type, ml_features, state, state.vae_buffer)
-        pd, pfa, prec, f1, ttd, rmse = calculate_metrics(state, a_type, raw_lat, raw_lon, f_lat, f_lon)
-        
-        # Fragment zaten saniyede 2 kez (0.5s) çalıştığı için her tick'te render edebiliriz.
-        state.render_counter = getattr(state, "render_counter", 0) + 1
-        ui_update_tick = True
-        
-        if ui_update_tick:
-            # E. UI Güncelleme
-            render_top_metrics(state, f_speed, raw_cn0, fw_active)
-            
-            # Canlı veya Dataset Loglarını Popüle Et
-            log_text = f"📍 {datetime.now().strftime('%H:%M:%S')} - Lat: {raw_lat:.5f}, Lon: {raw_lon:.5f}, C/N0: {raw_cn0:.1f}"
-            if state.get("use_live_gps", False):
-                state.live_logs.insert(0, log_text)
-                if len(state.live_logs) > 10: state.live_logs.pop()
-            elif state.get("use_dataset_mode", False):
-                state.dataset_logs_iha.insert(0, log_text)
-                if len(state.dataset_logs_iha) > 10: state.dataset_logs_iha.pop()
-            
-            c_map, c_info = st.columns([2, 1])
-            with c_map:
-                render_map(state, state.true_lat, state.true_lon, raw_lat, raw_lon, f_lat, f_lon, not state.academic_mode, sat_data_ref, a_type)
-            
-            with c_info:
-                st.subheader("🛡️ Hibrit Karar Motoru")
-                if a_type == "NORMAL":
-                    st.success("✅ Sistem Stabil: Tehdit Yok")
-                else:
-                    st.error(f"🚨 {a_type} TESPİT EDİLDİ!")
-                    st.info(f"💡 Neden: {reason}")
-                    
-                    # Saldırı değiştiyse veya yeni başladıysa logla (Dosya şişmesini önle)
-                    if getattr(state, "prev_attack_mode", "NORMAL") != a_type:
-                        log_chained_event(state, "WARNING", f"Durum Değişimi: {a_type} Tespiti | Model: {ml_label}")
-                
-                st.markdown("---")
-                render_academic_metrics(pd, pfa, prec, f1, ttd, rmse)
-    
-            render_expanders(state)
-        
-        # F. Durum Güncellemesi ve Saldırı Takibi
-        state.prev_attack_mode = a_type 
-        state.prev_lat = raw_lat
-        state.prev_lon = raw_lon
-        state.prev_speed = raw_speed
-        if "current_heading" in state:
-            state.prev_heading = state.current_heading
+    # Hash zincirini diskten başlat
+    init_forensic_chain(state)
+    if not state.get("forensic_chain_valid", False):
+        st.warning("Adli kayıt zinciri veya bağlı arşivi doğrulanamadı. Anahtarı ve kayıt bütünlüğünü kontrol edin; zincire yeni kayıt eklenmiyor.")
 
-    except Exception as e:
-        st.error(f"⚠️ Simülasyon Döngü Hatası: {str(e)}")
-        # Hata loguna da düşür (forensic analiz için)
-        log_chained_event(state, "ERROR", f"Fragment Hatası: {str(e)}")
+    # Arayüz ve döngü, run_app çağrısı dışında oluşturulmaz.
+    fw_active, conf_cn0, conf_accel, conf_heading = render_app_shell(state)
 
-# Döngüyü Başlat
-main_simulation_loop(sat_data)
+    all_sats_db = load_all_satellites_logic_v2()
+    sat_data = []
+    if not state.academic_mode and all_sats_db:
+        sat_data = get_live_sat_data(list(SAT_SYSTEMS.keys()), _all_sats_db=all_sats_db)
+
+    @st.fragment(run_every=0.5)
+    def main_simulation_loop(sat_data_ref):
+        """0.5 saniye aralıklarla çalışan çekirdek simülasyon döngüsü (2 Hz)."""
+        try:
+            # A. Mantıksal İşlemler
+            if not state.get("use_live_gps", False) and not state.get("use_dataset_mode", False):
+                handle_attack_logic(state)
+
+            # B. Sensör Okuma
+            sample_dt = .5
+            if state.get("use_dataset_mode", False):
+                observation = get_next_dataset_row(state)
+                if observation is None:
+                    st.info("Veri kaydı tamamlandı veya henüz veri yüklenmedi.")
+                    return
+                raw_lat, raw_lon, raw_speed, raw_cn0, label = observation
+                sample_dt = state.get("sample_dt", .5)
+                if state.get("dataset_dt_assumed", False):
+                    st.caption("Kayıtta zaman bilgisi yok; örnek aralığı 0.5 saniye varsayılıyor.")
+                if label != state.attack_mode or state.get("dataset_clock_reset", False):
+                    state.attack_start_time = time.time()
+                    state.attack_start_sample_time = state.get("sample_time_s")
+                    state.is_attack_detected = False
+                state.attack_mode = label
+                state.acceleration = 0.
+            else:
+                observation = simulate_sensors(
+                    state, use_live_gps=state.get("use_live_gps", False),
+                    gps_mode=state.get("gps_mode", "Seri"),
+                    port=state.get("gps_port", "COM3"), tcp_port=state.get("tcp_port", 9000), dt=sample_dt)
+                if observation is None:
+                    st.warning("GNSS verisi bekleniyor; simülasyon verisi kullanılmıyor.")
+                    return
+                raw_lat, raw_lon, raw_speed, raw_cn0 = observation
+                state.kinematic_features = None
+                if state.get("use_live_gps", False):
+                    sample_dt = state.get("sample_dt", .5)
+            source = (("dataset", state.get("last_uploaded_filename"), state.get("last_uploaded_digest"))
+                      if state.get("use_dataset_mode", False) else
+                      ("live", state.get("gps_mode"), state.get("gps_port"), state.get("tcp_port"))
+                      if state.get("use_live_gps", False) else ("simulation",))
+            if state.get("active_navigation_source") != source:
+                if source[0] != 'dataset':
+                    for key in ('speed_accuracy_m_s', 'previous_speed_accuracy_m_s',
+                                'horizontal_accuracy_m', 'receiver_profile_name',
+                                'receiver_profile_monitor', 'receiver_profile_result',
+                                'code_carrier_monitor', 'code_carrier_version'):
+                        state.pop(key, None)
+                    state.receiver_observables = {}
+                if source[0] != "live":
+                    serial_manager = state.pop("gps_serial_manager", None)
+                    if serial_manager is not None and serial_manager.ser is not None:
+                        serial_manager.ser.close()
+                    socket_manager = state.pop("gps_socket_manager", None)
+                    if socket_manager is not None:
+                        socket_manager.close()
+                    state.nmea_parsers = {}
+                    state.pop("last_live_sample_time", None)
+                for key in ("ekf_filter", "inertial_monitor", "previous_observed_cn0", "gnss_quarantine_until", "inertial_reference_seeded", "inertial_hold_until"):
+                    state.pop(key, None)
+                state.vae_buffer, state.vae_anomaly_streak, state.spoof_persistence = [], 0, 0
+                state.rf_anomaly_streak = 0
+                state.ins_active, state.is_attack_detected = False, False
+                state.prev_lat, state.last_good_lat = raw_lat, raw_lat
+                state.prev_lon, state.last_good_lon = raw_lon, raw_lon
+                state.prev_speed = raw_speed
+                state.simulation_time = 0.
+                state.reference_position = state.get("reference_position") if state.get("use_dataset_mode", False) else None
+                for counter in ("stats_tp", "stats_fp", "stats_tn", "stats_fn"):
+                    state[counter] = 0
+                state.stats_response_times, state.rmse_buffer = [], []
+                state.active_navigation_source = source
+            if state.get("use_dataset_mode", False):
+                state.navigation_time = state.sample_time_s
+            elif state.get("use_live_gps", False):
+                state.navigation_time = time.monotonic()
+            else:
+                state.simulation_time = state.get("simulation_time", 0.) + sample_dt
+                state.navigation_time = state.simulation_time
+            if not state.get("cn0_available", True):
+                st.info("C/N0 ölçümü yok: sinyal tabanlı RF/VAE kapalı; mevcutsa ayrı kinematik model kullanılıyor.")
+
+            # C. Tek örneğin algılama, navigasyon ve metrik hesabı
+            result = process_observation(
+                state, (raw_lat, raw_lon, raw_speed, raw_cn0), sample_dt,
+                (conf_cn0, conf_accel, conf_heading, fw_active))
+            final_type = result.decision
+            reason = result.reason
+            conf, ml_label, anomaly = result.confidence, result.model_label, result.anomaly_score
+            f_lat, f_lon, f_speed = result.latitude, result.longitude, result.speed
+            pd, pfa, prec, f1, ttd, rmse = result.metrics
+
+            if state.get('ml_source') in ('TEXBAT_RECEIVER_PROFILE', 'RECEIVER_PROFILE'):
+                receiver_result = state.get('receiver_profile_result', {})
+                st.caption('Alıcı profili: ' + receiver_result.get('profile_id', str(state.get('receiver_profile_name')))
+                           + ' | ' + receiver_result.get('status', 'unavailable'))
+                if receiver_result.get('available') and not receiver_result.get('fully_assessed', False):
+                    remaining = receiver_result.get('warmup_remaining_s', 0.)
+                    names = dict(position_rate_m_s='konum değişimi', clock_rate_m_s='saat kayması değişimi',
+                                 cn0_change_db='sinyal gücü değişimi', reported_clock_drift_m_s='anlık saat sürüklenmesi')
+                    checked = ', '.join(names.get(name, name) for name in receiver_result.get('assessed_features', [])) or 'henüz yok'
+                    st.info(f'Alıcı edinimi: {remaining:.1f} s kaldı. Değerlendirilen özellikler: {checked}. '
+                            'Pencere kontrolleri tamamlanmadı; fiziksel kurallar çalışmaya devam ediyor.')
+                if not receiver_result.get('available', False):
+                    st.warning('Alıcı profili kullanılamıyor: ' + receiver_result.get('reason', 'Bilinmeyen hata'))
+            elif state.get("cn0_available", True) and not state.get("rf_available", False):
+                st.warning("RF modeli kullanılamıyor; mevcut diğer karar katmanları çalışıyor.")
+            if (state.get('ml_source') not in ('TEXBAT_RECEIVER_PROFILE', 'RECEIVER_PROFILE')
+                    and state.get("cn0_available", True) and not state.get("vae_available", False)):
+                st.warning("VAE modeli kullanılamıyor; anomali katmanı devre dışı.")
+            if (state.get("use_live_gps", False) or state.get("use_dataset_mode", False)) and not state.get("imu_navigation_available", False):
+                st.info("Bağımsız IMU navigasyon ivmesi yok: GPS kesintisindeki çıktı doğrulanmış ataletsel navigasyon sayılmaz.")
+            if state.get("ins_degraded", False):
+                st.warning("GNSS uzun süredir reddediliyor; ataletsel tahmin belirsizliği artıyor. Bağımsız konum doğrulaması gerekli.")
+            # INS Rota Geçmişi (Haritada Sarı Çizgi için)
+            if state.get("ins_active", False):
+                if "ins_history" not in state: state.ins_history = []
+                state.ins_history.append([f_lon, f_lat])
+                if len(state.ins_history) > 60: state.ins_history.pop(0)
+            else:
+                # INS bitti, geçmişi temizle
+                if state.get("ins_history"):
+                    state.ins_history = []
+
+
+            # Fragment zaten saniyede 2 kez (0.5s) çalıştığı için her tick'te render edebiliriz.
+            state.render_counter = getattr(state, "render_counter", 0) + 1
+            ui_update_tick = True
+
+            if ui_update_tick:
+                # E. UI Güncelleme
+                render_top_metrics(state, f_speed, raw_cn0, fw_active)
+
+                # Canlı veya Dataset Loglarını Popüle Et
+                log_text = f"📍 {datetime.now().strftime('%H:%M:%S')} - Lat: {raw_lat:.5f}, Lon: {raw_lon:.5f}, C/N0: {raw_cn0:.1f}"
+                if state.get("use_live_gps", False):
+                    state.live_logs.insert(0, log_text)
+                    if len(state.live_logs) > 10: state.live_logs.pop()
+                elif state.get("use_dataset_mode", False):
+                    state.dataset_logs_iha.insert(0, log_text)
+                    if len(state.dataset_logs_iha) > 10: state.dataset_logs_iha.pop()
+
+                c_map, c_info = st.columns([2, 1])
+                with c_map:
+                    render_map(state, state.true_lat, state.true_lon, raw_lat, raw_lon, f_lat, f_lon, not state.academic_mode, sat_data_ref, final_type)
+
+                with c_info:
+                    st.subheader("🛡️ Hibrit Karar Motoru")
+                    if final_type == "NORMAL":
+                        st.success("✅ İzleme: Etkin ölçütlerde alarm yok")
+                    elif final_type == "GNSS_FIX_LOSS":
+                        st.warning("⚠️ GNSS Çözüm Kaybı: Olası girişim; saldırı nedeni doğrulanmadı")
+                        st.info(reason)
+                    else:
+                        if final_type in ("JAMMING", "SPOOFING"):
+                            st.error(f"🚨 {final_type} ile uyumlu ölçüm uyarısı; saldırı nedeni doğrulanmış değildir")
+                        else:
+                            st.error(f"🚨 Algılayıcı uyarısı: {final_type}")
+                        source_info = reason if final_type != "NORMAL" else f"YZ Modeli: {ml_label} (Anomali: {anomaly:.4f})"
+                        score_text = ("Kalibre edilmiş olasılık üretilmedi" if conf is None else
+                                      f"Karar skoru: {conf:.1f} (kalibre olasılık değildir)")
+                        st.info(f"💡 Neden / Model: {source_info} | {score_text}")
+
+                        # Saldırı değiştiyse veya yeni başladıysa logla (Dosya şişmesini önle)
+                        if state.get("last_detection_type", "NORMAL") != final_type:
+                            log_chained_event(state, "WARNING", f"Durum Değişimi: {final_type} Tespiti | Model: {ml_label}")
+
+                    st.markdown("---")
+                    render_evaluation_metrics(pd, pfa, prec, f1, ttd, rmse)
+
+                    # Genel amaçlı yerel sohbeti geniş pencerede aç.
+                    if st.button(
+                        "🐺 Bozkurt AI Asistanı",
+                        icon=":material/chat:",
+                        width="stretch",
+                        key="open_bozkurt_chat",
+                    ):
+                        show_ai_chat(state)
+
+                render_expanders(state, pd, pfa)
+
+            # F. Durum Güncellemesi ve Saldırı Takibi
+            state.last_detection_type = final_type
+            state.prev_attack_mode = state.attack_mode
+            state.prev_lat = raw_lat
+            state.prev_lon = raw_lon
+            state.prev_speed = raw_speed
+            state.prev_heading = state.get("observed_heading", state.prev_heading)
+
+        except Exception as e:
+            st.error(f"⚠️ Simülasyon Döngü Hatası: {str(e)}")
+            # Hata loguna da düşür (forensic analiz için)
+            log_chained_event(state, "ERROR", f"Fragment Hatası: {str(e)}")
+
+    # Döngüyü Başlat
+    main_simulation_loop(sat_data)
+
+
+if __name__ == "__main__":
+    run_app()

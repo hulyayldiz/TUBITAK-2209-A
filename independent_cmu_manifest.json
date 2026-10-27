@@ -1,0 +1,34 @@
+{
+  "schema": "independent-cmu-v1",
+  "doi": "10.1184/R1/12683453",
+  "article_version": 1,
+  "files": [
+    {
+      "relative_path": "independent_cmu/parameters.csv",
+      "url": "https://ndownloader.figshare.com/files/26385034",
+      "sha256": "568dffaed11a4d335ef4f8a932b342c836907af2f4aa54da9b4a0e2ffef2108a",
+      "publisher_md5": "7daa897a1af7847b592ccb7a459477ee",
+      "bytes": 7867
+    },
+    {
+      "relative_path": "independent_cmu/flights.zip",
+      "url": "https://ndownloader.figshare.com/files/26385070",
+      "sha256": "98f65a1ab54a8b618c169fdf49311a53ff1fefed86fdc3f440d6a0166ce49fb1",
+      "publisher_md5": "cd1d267fd9b025219f9633b95158eea2",
+      "bytes": 41274360
+    },
+    {
+      "relative_path": "independent_cmu/README.txt",
+      "url": "https://ndownloader.figshare.com/files/26405786",
+      "sha256": "8601dd211d6c297c5411992dc34923bdb98b72cdc287517ed18e479f0e9540fd",
+      "publisher_md5": "af6afbb550286df945c9ecaf4c5f72a4",
+      "bytes": 25101
+    },
+    {
+      "relative_path": "independent_cmu/example_flight_1.csv",
+      "url": "https://ndownloader.figshare.com/files/26385070#flights/1.csv",
+      "sha256": "ecafd1655a183ea0e37b3ab6570b102a09d7b36a39d94f3f7bae88ddc5142183",
+      "bytes": 345436
+    }
+  ]
+}

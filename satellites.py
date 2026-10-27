@@ -79,7 +79,7 @@ def get_live_sat_data(active_systems, _all_sats_db, time_offset_hours=0):
     
     ts = get_skyfield_timescale()
     if ts:
-        t_now = datetime.utcnow() + timedelta(hours=time_offset_hours)
+        t_now = datetime.now() + timedelta(hours=time_offset_hours)
         t = ts.utc(t_now.year, t_now.month, t_now.day, t_now.hour, t_now.minute, t_now.second)
     else:
         t = None

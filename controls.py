@@ -100,6 +100,18 @@ def render_sidebar(state):
             state.use_dataset_mode = True
             state.use_live_gps = False
 
+            from real_data_catalog import available_sources
+            sources = available_sources()
+            if sources:
+                selected = st.selectbox('Hazır gerçek kayıt', ['Kayıt seçin', *sources],
+                                        key='real_dataset_selection')
+                if st.button('Gerçek kaydı yükle', key='load_real_dataset', width='stretch'):
+                    if selected in sources:
+                        with st.spinner('Kaynak adaptörü çalışıyor...'):
+                            ok = load_dataset_from_local_path(str(sources[selected]), state)
+                        if not ok:
+                            st.error(state.get('dataset_error', 'Veri okunamadı'))
+
             st.markdown("**Dosya Yükle** (.csv / .zip / .mat)")
             uploaded = st.file_uploader(
                 "Veri seti seç", type=["csv", "zip", "mat"],
@@ -117,7 +129,7 @@ def render_sidebar(state):
             st.markdown("**veya Yerel Yol Girin**")
             local_path = st.text_input("Tam dosya yolu", placeholder="C:/veri/dataset.csv",
                                        label_visibility="collapsed")
-            if st.button("📂 Yükle", use_container_width=True) and local_path:
+            if st.button("📂 Yükle", width="stretch") and local_path:
                 with st.spinner("Dosya okunuyor..."):
                     ok = load_dataset_from_local_path(local_path, state)
                 if ok:
@@ -125,10 +137,53 @@ def render_sidebar(state):
                 else:
                     st.error(state.get("dataset_error", "Hata"))
 
+            summary = state.get('dataset_summary')
+            if summary:
+                st.caption(f"Etkin kayıt: {summary['filename']} — {summary['rows']} örnek")
+                capabilities = summary.get('capabilities', {})
+                st.caption(f"Adaptör: {summary.get('adapter', '?')} | Zaman: saniye | Hız: km/sa")
+                if not capabilities.get('cn0'):
+                    st.info('C/N0 yok: sinyal tabanlı RF ve VAE bu kayıtta çalışmaz.')
+                if not capabilities.get('attack_labels'):
+                    st.info('Doğrulanmış saldırı etiketleri yok: tespit başarısı ve yanlış alarm oranı hesaplanmaz.')
+                if not capabilities.get('independent_imu'):
+                    st.caption('Bağımsız yönelim doğrulanmadı; gövde IMU tek başına bağımsız referans değildir. '
+                               'Hareketle tutarlı yavaş GNSS sapmaları ayırt edilemeyebilir.')
+                notes = summary.get('source', {}).get('notes')
+                if notes:
+                    st.caption(notes)
+                receiver_source = summary.get('source', {})
+                if receiver_source.get('receiver_id'):
+                    st.caption(f"Alıcı: {receiver_source['receiver_id']} | Kullanım: "
+                               f"{receiver_source.get('receiver_motion')} | Profil: "
+                               f"{receiver_source.get('receiver_profile')}")
+                    if str(receiver_source.get('receiver_profile', '')).startswith('receiver:'):
+                        st.info('Profil aynı alıcı ve kullanım türü için ayrı normal oturumla kontrol edilmiştir; '
+                                'bu kontrol saldırı tespiti veya tam navigasyon zinciri için saha sertifikası değildir.')
+                    else:
+                        st.warning('Bu alıcı/kullanım türü için kontrol edilmiş profil yok; fiziksel kurallar çalışıyor.')
+                if summary.get('adapter') in ('texbat-grid-v1', 'zurich-mav-v1'):
+                    st.warning('Bu kaynaklarda mevcut modellerin saha başarısı doğrulanmadı. '
+                               'Bu kayıtlar geliştirmede kullanıldı; bağımsız saha doğrulaması değildir.')
+                if summary.get('adapter') == 'texbat-grid-v1':
+                    st.caption('Statik alıcıya özel temiz kayıt kalibrasyonu kullanılır. '
+                                'Kısa tek sapma uyarıdır; kalıcı tek-grup sapması ve toplam statik '
+                                'konum sürüklenmesi ayrıca izlenir. Alarm saldırı kimliğini kanıtlamaz.')
+                if summary.get('adapter') == 'cmu-flight-v1':
+                    st.warning('Bu nominal kayıt navigasyon düzeltmesinde kullanıldı; bağımsız saha testi değildir. '
+                               'Güncel yeniden oynatma ölçümleri NAVIGATION_FIX.md raporundadır. '
+                               'Bu verideki alarmlar saldırı etiketiyle doğrulanmış değildir.')
+                source_info = summary.get('source', {})
+                if source_info.get('held_gps_rows_removed'):
+                    st.caption(f"{source_info['input_gps_rows']} ham GPS satırından "
+                               f"{source_info['held_gps_rows_removed']} tekrar ayrıldı; "
+                               f"{summary['rows']} GPS güncellemesi oynatılıyor.")
+
         elif veri_modu == "🔌 Canlı GPS":
             state.use_live_gps = True
             state.use_dataset_mode = False
             gps_mode = st.selectbox("Bağlantı Tipi", ["Seri (COM/ttyUSB)", "TCP/UDP"])
+            state.gps_mode = "Seri" if "Seri" in gps_mode else "TCP/UDP"
             if "Seri" in gps_mode:
                 state.gps_port = st.text_input("Port", value="COM3")
             else:
@@ -153,6 +208,11 @@ def render_sidebar(state):
                 state.attack_mode = "spoofing"
                 state.attack_start_time = time.time()
                 state.is_attack_detected = False
+
+        if st.button("🐢 Yavaş Spoofing", width="stretch"):
+            state.attack_mode = "slow_spoofing"
+            state.attack_start_time = time.time()
+            state.is_attack_detected = False
 
         if st.button("✅ Normal Moda Dön", use_container_width=True):
             state.attack_mode = "normal"
@@ -184,9 +244,9 @@ def render_sidebar(state):
         )
 
         conf_accel = st.slider(
-            "İvme Toleransı (km/sa per frame)",
+            "İvme Toleransı (değer / 20 = g)",
             min_value=5, max_value=80, value=40, step=5,
-            help="Anlık hız değişimi bu değeri aşarsa Spoofing tespiti tetiklenir."
+            help="40 değeri 2g eşiğine karşılık gelir; ivme m/s² cinsinden hesaplanır."
         )
 
         conf_heading = st.slider(
@@ -218,7 +278,7 @@ def render_sidebar(state):
         state.save_training_data = st.toggle(
             "📊 Eğitim Verisi Topla",
             value=state.get("save_training_data", False),
-            help="Aktifken her simülasyon döngüsü gnss_training_dataset.csv'ye kaydedilir."
+            help="Yalnız simülasyon örnekleri oturum kimliğiyle kaydedilir. Veri kümesi oynatımları eğitim dosyasına eklenmez."
         )
 
         state.academic_mode = st.toggle(
@@ -235,8 +295,18 @@ def render_sidebar(state):
                     if success:
                         st.success(f"✅ {msg}")
                         if report:
-                            with st.expander("📊 Eğitim Raporu"):
-                                st.text(report)
+                            with st.expander("📊 Eğitim Raporu (Detaylı)", expanded=True):
+                                # Raporu satır satır parse edip güzel göster
+                                lines = report.split('\n')
+                                for line in lines:
+                                    if '✅' in line or 'Accuracy' in line or 'F1' in line:
+                                        st.success(line)
+                                    elif '❌' in line or 'Error' in line or 'Hata' in line:
+                                        st.error(line)
+                                    elif line.strip().startswith('|'):
+                                        st.markdown(line)  # tablo satırları
+                                    elif line.strip():
+                                        st.caption(line)
                     else:
                         st.warning(f"⚠️ {msg}")
                 except Exception as e:
@@ -274,6 +344,9 @@ def render_sidebar(state):
 
         attack_counts = state.get("attack_counts", {"Jamming": 0, "Spoofing": 0})
         st.caption(f"📊 Tespit: Jamming×{attack_counts['Jamming']} | Spoofing×{attack_counts['Spoofing']}")
+        latency = state.get('inference_latency', 0.0)
+        latency_color = "🟢" if latency < 10 else "🟡" if latency < 50 else "🔴"
+        st.caption(f"{latency_color} ML Inference: {latency:.1f} ms")
 
         if st.button("🔄 Sistemi Sıfırla", use_container_width=True, type="secondary"):
             for key in list(st.session_state.keys()):

@@ -1,0 +1,30 @@
+📊 RF Eğitim Tamamlandı
+En İyi Parametreler: {'model__max_depth': 10, 'model__min_samples_split': 2, 'model__n_estimators': 200}
+5-Fold CV F1: 0.9436 ± 0.0736
+CV Varyansı: YÜKSEK ⚠️
+
+Split yöntemi: run-group holdout and grouped CV
+Holdout Raporu:
+              precision    recall  f1-score   support
+
+     JAMMING       1.00      1.00      1.00       420
+      NORMAL       0.91      1.00      0.95      1320
+    SPOOFING       0.99      0.69      0.81       420
+
+    accuracy                           0.94      2160
+   macro avg       0.97      0.89      0.92      2160
+weighted avg       0.94      0.94      0.93      2160
+
+Confusion Matrix:
+[[ 420    0    0]
+ [   0 1317    3]
+ [   0  132  288]]
+
+Görseller (ROC ve CM) dizine .png olarak kaydedildi.
+
+🧠 LSTM-VAE Eğitim Tamamlandı [örtüşmeli pencereler; eğitim/doğrulama bölümleri ayrık]
+Eğitim Sekans Sayısı: 3936 | Val: 735
+Son Epoch Kaybı: 24.4880
+IQR Eşiği: Q3=0.0023, IQR=0.0005
+Anomali Eşiği (Q3+1.5×IQR): 0.0030
+Eğitim Tarihi: 2026-10-22 16:42

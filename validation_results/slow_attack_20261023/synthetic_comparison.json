@@ -1,0 +1,617 @@
+{
+  "protocol": "Fixed synthetic cases; no real labels supplied to inference. Only static receiver monitoring is isolated; no physical-rule or navigation claims.",
+  "baseline_code_sha256": "ae69a25aa651f05921b16fae8246eaca24ec4442a7a72f5ba77e0450962bfa8b",
+  "current_code_sha256": "e32ed339c3d8fc6151e9190803af3fa72d6c347ded47d84db55e3762c7744624",
+  "new_constants": {
+    "sequential_limit": 6.0,
+    "disjoint_window_s": 10.0,
+    "per_window_increment_cap": 1.0,
+    "static_sigma_multiplier": 6.0,
+    "static_hold_s": 30.0
+  },
+  "results": [
+    {
+      "case": "normal",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "bounded_wander",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "short_clock_transient",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "position_0.05",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 149,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 149,
+        "first_alarm_s": 345.5,
+        "latency_s": 295.5,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "position_0.1",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 420,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 420,
+        "first_alarm_s": 210.0,
+        "latency_s": 160.0,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "position_0.15",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 507,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 507,
+        "first_alarm_s": 166.5,
+        "latency_s": 116.5,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "clock_1.2",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 160,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 160,
+        "first_alarm_s": 340.0,
+        "latency_s": 290.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "clock_1.5",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 520,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 520,
+        "first_alarm_s": 160.0,
+        "latency_s": 110.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "clock_-1.5",
+      "seed": 81001,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 520,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 520,
+        "first_alarm_s": 160.0,
+        "latency_s": 110.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "normal",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "bounded_wander",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "short_clock_transient",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "position_0.05",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 156,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 156,
+        "first_alarm_s": 342.0,
+        "latency_s": 292.0,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "position_0.1",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 417,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 417,
+        "first_alarm_s": 211.5,
+        "latency_s": 161.5,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "position_0.15",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 504,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 504,
+        "first_alarm_s": 168.0,
+        "latency_s": 118.0,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "clock_1.2",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 160,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 160,
+        "first_alarm_s": 340.0,
+        "latency_s": 290.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "clock_1.5",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 520,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 520,
+        "first_alarm_s": 160.0,
+        "latency_s": 110.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "clock_-1.5",
+      "seed": 81002,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 520,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 520,
+        "first_alarm_s": 160.0,
+        "latency_s": 110.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "normal",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "bounded_wander",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "short_clock_transient",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      }
+    },
+    {
+      "case": "position_0.05",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 157,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 157,
+        "first_alarm_s": 341.5,
+        "latency_s": 291.5,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "position_0.1",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 417,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 417,
+        "first_alarm_s": 211.5,
+        "latency_s": 161.5,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "position_0.15",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 507,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 507,
+        "first_alarm_s": 166.5,
+        "latency_s": 116.5,
+        "paths": [
+          "static_cumulative_drift"
+        ]
+      }
+    },
+    {
+      "case": "clock_1.2",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 160,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 160,
+        "first_alarm_s": 340.0,
+        "latency_s": 290.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "clock_1.5",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 520,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 520,
+        "first_alarm_s": 160.0,
+        "latency_s": 110.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    },
+    {
+      "case": "clock_-1.5",
+      "seed": 81003,
+      "synthetic": true,
+      "before": {
+        "alarm_samples": 0,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 0,
+        "first_alarm_s": null,
+        "latency_s": null,
+        "paths": []
+      },
+      "after": {
+        "alarm_samples": 520,
+        "pre_onset_alarm_samples": 0,
+        "post_onset_alarm_samples": 520,
+        "first_alarm_s": 160.0,
+        "latency_s": 110.0,
+        "paths": [
+          "persistent_single_group"
+        ]
+      }
+    }
+  ]
+}

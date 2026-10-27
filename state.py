@@ -4,6 +4,7 @@ Simülasyonun tüm değişkenlerini merkezi bir yapıda toplar.
 """
 
 import time
+import uuid
 import streamlit as st
 import config
 
@@ -81,12 +82,19 @@ class SimulationState:
             st.session_state.academic_mode = False
             st.session_state.cam_lock = False
             st.session_state.save_training_data = False
+            st.session_state.training_session_id = uuid.uuid4().hex
             st.session_state.tcp_status = "Bekleniyor..."
             st.session_state.startup_time = time.time()
             st.session_state.vae_buffer = []
             st.session_state.force_reset = False
             st.session_state.attack_counts = {"Jamming": 0, "Spoofing": 0}
             st.session_state.last_log_hash = "0" * 64 # Başlangıç (Genesis) hash
+            st.session_state.roc_history = []  # [(p_fa, p_d)] ROC eğrisi için birikimli veri
+            st.session_state.inference_latency = 0.0  # ms cinsinden son inference süresi
+            st.session_state.ins_history = []   # [[lon, lat]] INS rota çizgisi için
+            st.session_state.render_counter = 0
+            st.session_state.fused_lat = lat
+            st.session_state.fused_lon = lon
             
             st.session_state.initialized_v10 = True
 

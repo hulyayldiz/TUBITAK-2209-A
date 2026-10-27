@@ -1,0 +1,4431 @@
+{
+  "created_at_utc": "2026-10-23T13:20:37.123379+00:00",
+  "independent_test": false,
+  "protocol": "Regression on known CMU records after navigation fix. No model training, decision relabelling or archive flight selection. All 209 included. Physical acceleration limit sets missing-IMU process uncertainty; NIS gate unchanged.",
+  "source_url": "https://kilthub.cmu.edu/articles/dataset/12683453",
+  "archive_sha256": "98f65a1ab54a8b618c169fdf49311a53ff1fefed86fdc3f440d6a0166ce49fb1",
+  "baseline_report_sha256": "4a80757ec8af02e0e3d20e4992f58aeb3ff21c795421af21f3408990f2e821e3",
+  "frozen_before_after": {
+    "navigation.py": "46aa5e3c6c325fc122c0990727766e19b87a2bc0fb4cbc49c292cfea23b75d4d",
+    "fusion.py": "0a3a4e32e735b0589a343342180a94d4f6e1200f69b098adab9275a50500afba",
+    "detection.py": "860dda160b61aaa61b231f184deb5a73903625e7ef035fb4dcd772b3b5b69c90",
+    "ml_detection.py": "c3b6bb86bbf8c640c2c6cdb1210748916f076589ffd1d94a4b096dbb4e7033da",
+    "config.py": "0f84f6ee40927e0a0e8e7e505981bbaf8705a9c2540f45769c03f1cb2d9c9db9",
+    "features.py": "e84fc1e91c59653a4851ee4040752f660b7fab096244e3078d20a44d48f61ad8",
+    "dataset_loader.py": "213e3dda6f7e3901042c7bb3886ebbef271be2b33a959dc81393b9f26b867bc0",
+    "dataset_adapters.py": "a230a7a705da6e8daa1e23b1321b2774d7c60b1599dd50032ce055eed584d26d",
+    "receiver_profile.py": "1ab507444b6282657b13d20ce6e44e8970ffb97d6c75afb5b26bcb1ebb626488",
+    "receiver_registry.py": "fea3a34f8b5a471b1864f9863f38f9668751180332513e958245525cd07fedf4",
+    "gnss_rf_model.pkl": "d4bbbdf94b62dd0a3283e6091bc8bbdc12038e7cdd0b4bc18399d0917200182e",
+    "gnss_lstm_vae.pth": "d84956caa5d5728a81e4e351ee1eccdd17d6ff6e0b808d5d747a33f1b07974e8",
+    "gnss_kinematic_model.pkl": "b43dea742994302d454a556982e766bad2fa3e076b987a847a4361c4e4688302",
+    "models/texbat_grid_profile.json": "276dcaaf200ab43fc52768d7a562593615cdbc0a61620682397a40b6a192d116"
+  },
+  "summary": {
+    "records": 209,
+    "rows": 257896,
+    "historical_nominal_alarm_samples": 126321,
+    "nominal_alarm_samples": 0,
+    "nominal_alarm_rate": 0.0,
+    "gnss_measurement_used_samples": 257896,
+    "normal_decision_measurement_unused_samples": 0,
+    "records_with_alarms": 0
+  },
+  "results": [
+    {
+      "flight": 1,
+      "rows": 1339,
+      "source_sha256": "ecafd1655a183ea0e37b3ab6570b102a09d7b36a39d94f3f7bae88ddc5142183",
+      "historical_nominal_alarm_samples": 590,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1339,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1339
+      },
+      "detector_decisions": {
+        "NORMAL": 1339
+      },
+      "rule_decisions": {
+        "NORMAL": 1339
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6137456207125619,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 2,
+      "rows": 1809,
+      "source_sha256": "ff4a060f832f6e8e8e2a3e881e16099963bf8a49e3b91d53c5de99672087d6f0",
+      "historical_nominal_alarm_samples": 984,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1809,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1809
+      },
+      "detector_decisions": {
+        "NORMAL": 1809
+      },
+      "rule_decisions": {
+        "NORMAL": 1809
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.5259286593931145,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 3,
+      "rows": 1201,
+      "source_sha256": "672e3e9c7dd025f23ea9a8931fa5a4ce944de87c9c9f40cff9eb88460dce2c01",
+      "historical_nominal_alarm_samples": 862,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1201,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1201
+      },
+      "detector_decisions": {
+        "NORMAL": 1201
+      },
+      "rule_decisions": {
+        "NORMAL": 1201
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9201137249399779,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 4,
+      "rows": 1141,
+      "source_sha256": "e80b07b124015c585f1c3842c2194a23ac642b11668142304c303296c2d22846",
+      "historical_nominal_alarm_samples": 940,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1141,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1141
+      },
+      "detector_decisions": {
+        "NORMAL": 1141
+      },
+      "rule_decisions": {
+        "NORMAL": 1141
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.827058761327592,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 5,
+      "rows": 1445,
+      "source_sha256": "c8a53323f80f8864639d0fcb40b13ab87f5d9d1efbfaf7a439a82555148b1c1b",
+      "historical_nominal_alarm_samples": 885,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1445,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1445
+      },
+      "detector_decisions": {
+        "NORMAL": 1445
+      },
+      "rule_decisions": {
+        "NORMAL": 1445
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.40942349774234926,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 6,
+      "rows": 1364,
+      "source_sha256": "c41c557632b935a54a7867d4ab14f8c1d67e34a43e1b7bb6ab11d09db037b2d6",
+      "historical_nominal_alarm_samples": 845,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1364,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1364
+      },
+      "detector_decisions": {
+        "NORMAL": 1364
+      },
+      "rule_decisions": {
+        "NORMAL": 1364
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.43136747176806983,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 7,
+      "rows": 1197,
+      "source_sha256": "07781642636b85cd14d6bdaa092c4c577ae153f8a446874eb2b3b3aed3ccb8ef",
+      "historical_nominal_alarm_samples": 745,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1197,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1197
+      },
+      "detector_decisions": {
+        "NORMAL": 1197
+      },
+      "rule_decisions": {
+        "NORMAL": 1197
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.42723623104516145,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 8,
+      "rows": 1558,
+      "source_sha256": "9cc3b6c76e07615ba7263b2918eaf3f71d50fb3f2a47fcea4a22e3b25e32eaa2",
+      "historical_nominal_alarm_samples": 804,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1558,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1558
+      },
+      "detector_decisions": {
+        "NORMAL": 1558
+      },
+      "rule_decisions": {
+        "NORMAL": 1558
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5894688307599409,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 10,
+      "rows": 922,
+      "source_sha256": "3fee0c3eea5e8466179385da5e7543ba4676b5d76aea14f30bcd5dd77f5b6746",
+      "historical_nominal_alarm_samples": 510,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 922,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 922
+      },
+      "detector_decisions": {
+        "NORMAL": 922
+      },
+      "rule_decisions": {
+        "NORMAL": 922
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7036123397949082,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 12,
+      "rows": 775,
+      "source_sha256": "0acad8e1ed4855119f13277eda35e967c0d1d10e6160986cc68851b5e743767e",
+      "historical_nominal_alarm_samples": 369,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 775,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 775
+      },
+      "detector_decisions": {
+        "NORMAL": 775
+      },
+      "rule_decisions": {
+        "NORMAL": 775
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8907156512378334,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 14,
+      "rows": 708,
+      "source_sha256": "8c1c6528d1f5fddbbad8d27b55ebd92d8cadabb96cb982c876c939551e090c47",
+      "historical_nominal_alarm_samples": 438,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 708,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 708
+      },
+      "detector_decisions": {
+        "NORMAL": 708
+      },
+      "rule_decisions": {
+        "NORMAL": 708
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.028693930667711,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 15,
+      "rows": 756,
+      "source_sha256": "459ef30e08a20affd3e8d9f350a8d26ce92a35699a87724344dacf6bb3622887",
+      "historical_nominal_alarm_samples": 437,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 756,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 756
+      },
+      "detector_decisions": {
+        "NORMAL": 756
+      },
+      "rule_decisions": {
+        "NORMAL": 756
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9133828084465003,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 16,
+      "rows": 840,
+      "source_sha256": "31ead6a2699c56345210f76f5a6c9d9eab31bd5a49404a0141fcff052adac3f5",
+      "historical_nominal_alarm_samples": 608,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 840,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 840
+      },
+      "detector_decisions": {
+        "NORMAL": 840
+      },
+      "rule_decisions": {
+        "NORMAL": 840
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7591344898391407,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 17,
+      "rows": 928,
+      "source_sha256": "6c569cfd13aeda577d5ca3de0f22c496a81a141abffc19086e142914b2951882",
+      "historical_nominal_alarm_samples": 648,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 928,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 928
+      },
+      "detector_decisions": {
+        "NORMAL": 928
+      },
+      "rule_decisions": {
+        "NORMAL": 928
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7078559641499397,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 18,
+      "rows": 1135,
+      "source_sha256": "664ca2064fdfacd459606ca1cfef68bf19a997e9895ebb29fff004b3c2ea133e",
+      "historical_nominal_alarm_samples": 740,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1135,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1135
+      },
+      "detector_decisions": {
+        "NORMAL": 1135
+      },
+      "rule_decisions": {
+        "NORMAL": 1135
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.42849777258491273,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 20,
+      "rows": 934,
+      "source_sha256": "4e11fd7d0ede1c597694a0c88a829ec8ab739dd5fa1c9785a694e7722c49c9b4",
+      "historical_nominal_alarm_samples": 575,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 934,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 934
+      },
+      "detector_decisions": {
+        "NORMAL": 934
+      },
+      "rule_decisions": {
+        "NORMAL": 934
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.71347976681243,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 23,
+      "rows": 848,
+      "source_sha256": "edd77acfc655ca28d6b4e6625a1855494280c70742ab19c5a5103194e5c4a7a8",
+      "historical_nominal_alarm_samples": 405,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 848,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 848
+      },
+      "detector_decisions": {
+        "NORMAL": 848
+      },
+      "rule_decisions": {
+        "NORMAL": 848
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6869794616915227,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 59,
+      "rows": 941,
+      "source_sha256": "b00996b81af176b73f876e46b2c25d90c1326bd45e8f5893766dc64c25e26cf1",
+      "historical_nominal_alarm_samples": 373,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 941,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 941
+      },
+      "detector_decisions": {
+        "NORMAL": 941
+      },
+      "rule_decisions": {
+        "NORMAL": 941
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8327825678616773,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 60,
+      "rows": 1003,
+      "source_sha256": "877bdf5c2486308492ac2850dcda1ddd2b9340431e03e090a302667ff42eb827",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1003,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1003
+      },
+      "detector_decisions": {
+        "NORMAL": 1003
+      },
+      "rule_decisions": {
+        "NORMAL": 1003
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.012039492099268,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 68,
+      "rows": 1144,
+      "source_sha256": "9d80ef2c33a86b9269b2383538f9c11a716d1bb7a02930399e3d24c7f27d4cba",
+      "historical_nominal_alarm_samples": 437,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1144,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1144
+      },
+      "detector_decisions": {
+        "NORMAL": 1144
+      },
+      "rule_decisions": {
+        "NORMAL": 1144
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8719954893800805,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 76,
+      "rows": 1622,
+      "source_sha256": "27d49a5a281ff90a432e78260408533de6901abddd7065171a7e8985eeb0c1e9",
+      "historical_nominal_alarm_samples": 1109,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1622,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1622
+      },
+      "detector_decisions": {
+        "NORMAL": 1622
+      },
+      "rule_decisions": {
+        "NORMAL": 1622
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5240768023129309,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 77,
+      "rows": 909,
+      "source_sha256": "c22fc7173f8df13be1da34004cbe9a9689bc67a7cf5311ffc2cd274f92113728",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 909,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 909
+      },
+      "detector_decisions": {
+        "NORMAL": 909
+      },
+      "rule_decisions": {
+        "NORMAL": 909
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8239094234806542,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 78,
+      "rows": 1257,
+      "source_sha256": "38ac0a348f7d638525ca93c94ef9fcc1d2ffc6f257a34ea0ec8c844525df1ca4",
+      "historical_nominal_alarm_samples": 940,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1257,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1257
+      },
+      "detector_decisions": {
+        "NORMAL": 1257
+      },
+      "rule_decisions": {
+        "NORMAL": 1257
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5996088697219842,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 79,
+      "rows": 1043,
+      "source_sha256": "cb4b1d81732de8c2cde326413c81d0dda63bb9d02a681c79c594680a76684727",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1043,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1043
+      },
+      "detector_decisions": {
+        "NORMAL": 1043
+      },
+      "rule_decisions": {
+        "NORMAL": 1043
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9037273166226806,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 80,
+      "rows": 1181,
+      "source_sha256": "799f2dd35b6a6ac79bcdab7759c56f2c28ff3a19110bd47f2418bbc9c25fbcbf",
+      "historical_nominal_alarm_samples": 440,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1181,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1181
+      },
+      "detector_decisions": {
+        "NORMAL": 1181
+      },
+      "rule_decisions": {
+        "NORMAL": 1181
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6698676536343976,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 81,
+      "rows": 1194,
+      "source_sha256": "3910837cca4a53b998471389ebb4de1524b43e4faa15dbce192e72b794bb8540",
+      "historical_nominal_alarm_samples": 820,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1194,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1194
+      },
+      "detector_decisions": {
+        "NORMAL": 1194
+      },
+      "rule_decisions": {
+        "NORMAL": 1194
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6889474279466378,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 82,
+      "rows": 1218,
+      "source_sha256": "7457392e4551788029e475affe75d9d8e7d01cdae56dcd309c7a9c28a16e2b13",
+      "historical_nominal_alarm_samples": 544,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1218,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1218
+      },
+      "detector_decisions": {
+        "NORMAL": 1218
+      },
+      "rule_decisions": {
+        "NORMAL": 1218
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7175455350195954,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 83,
+      "rows": 1191,
+      "source_sha256": "f3d1faf145eb8b8b8c3b01283fd2a90efd81caf78b48292fa880ae92f6d96ae2",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1191,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1191
+      },
+      "detector_decisions": {
+        "NORMAL": 1191
+      },
+      "rule_decisions": {
+        "NORMAL": 1191
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7949437631374713,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 84,
+      "rows": 1517,
+      "source_sha256": "c1ddc48f8d4b029fae9d9bafd2f4e02360aa07725e5f2653f19470cedc7b1170",
+      "historical_nominal_alarm_samples": 1107,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1517,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1517
+      },
+      "detector_decisions": {
+        "NORMAL": 1517
+      },
+      "rule_decisions": {
+        "NORMAL": 1517
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.660366555858683,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 85,
+      "rows": 1514,
+      "source_sha256": "ef6b117fd9b4b6823867f0af9562a60b829b1b60dbfb842f3ff71ee243286804",
+      "historical_nominal_alarm_samples": 507,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1514,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1514
+      },
+      "detector_decisions": {
+        "NORMAL": 1514
+      },
+      "rule_decisions": {
+        "NORMAL": 1514
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9018453223617181,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 86,
+      "rows": 1218,
+      "source_sha256": "9a22f8f690e633c3822e3496d262cab45b0ecdf4e0f15df39ee8e9bc0f0b2e48",
+      "historical_nominal_alarm_samples": 373,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1218,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1218
+      },
+      "detector_decisions": {
+        "NORMAL": 1218
+      },
+      "rule_decisions": {
+        "NORMAL": 1218
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8507919871212734,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 87,
+      "rows": 1671,
+      "source_sha256": "e733dc9f258cd61d8c9b1a2f9690cb7f80ea33a7a151a31685baee916fba9d01",
+      "historical_nominal_alarm_samples": 1011,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1671,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1671
+      },
+      "detector_decisions": {
+        "NORMAL": 1671
+      },
+      "rule_decisions": {
+        "NORMAL": 1671
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.43747961733535645,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 88,
+      "rows": 1369,
+      "source_sha256": "21c1059d871066bc9626f1bfbe33561c7a52cf81a52320ddc4216bd1c3e6d147",
+      "historical_nominal_alarm_samples": 506,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1369,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1369
+      },
+      "detector_decisions": {
+        "NORMAL": 1369
+      },
+      "rule_decisions": {
+        "NORMAL": 1369
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7526140752576963,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 91,
+      "rows": 1185,
+      "source_sha256": "3622813ec266a7b6f6d88d240ea6d92fd55d2d57508bb0cd37f39c574b4bd795",
+      "historical_nominal_alarm_samples": 373,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1185,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1185
+      },
+      "detector_decisions": {
+        "NORMAL": 1185
+      },
+      "rule_decisions": {
+        "NORMAL": 1185
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8142458937269024,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 92,
+      "rows": 1174,
+      "source_sha256": "0337d5a86121e5b4c404a9dd1adb05279641655c7ec3c31e85f5469af8d01c70",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1174,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1174
+      },
+      "detector_decisions": {
+        "NORMAL": 1174
+      },
+      "rule_decisions": {
+        "NORMAL": 1174
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9519523538309764,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 93,
+      "rows": 1214,
+      "source_sha256": "1eecd75ad3f43d677a745cced31155db106599446017bbcd1fc330e317087283",
+      "historical_nominal_alarm_samples": 836,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1214,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1214
+      },
+      "detector_decisions": {
+        "NORMAL": 1214
+      },
+      "rule_decisions": {
+        "NORMAL": 1214
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.655351662406714,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 94,
+      "rows": 1461,
+      "source_sha256": "23e61af429789a6ba3467150791107ae3995bb37a63ab4c514cfd8c0f99ace0b",
+      "historical_nominal_alarm_samples": 926,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1461,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1461
+      },
+      "detector_decisions": {
+        "NORMAL": 1461
+      },
+      "rule_decisions": {
+        "NORMAL": 1461
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.529823114637729,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 95,
+      "rows": 1066,
+      "source_sha256": "08393684fb7dd43bc87d1abdd98e8d6052fda2ae1517677f597723400358476d",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1066,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1066
+      },
+      "detector_decisions": {
+        "NORMAL": 1066
+      },
+      "rule_decisions": {
+        "NORMAL": 1066
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8188795810178648,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 96,
+      "rows": 1341,
+      "source_sha256": "6eb1cc6703dc8dd1f01594b0483c1a4c6388947e16cca021c16163a930fb93c8",
+      "historical_nominal_alarm_samples": 875,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1341,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1341
+      },
+      "detector_decisions": {
+        "NORMAL": 1341
+      },
+      "rule_decisions": {
+        "NORMAL": 1341
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6555001916851928,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 97,
+      "rows": 1577,
+      "source_sha256": "d131524881fa4ec169fd566cd9eff2a66ce04b176251a23637cccb790e1b5343",
+      "historical_nominal_alarm_samples": 984,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1577,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1577
+      },
+      "detector_decisions": {
+        "NORMAL": 1577
+      },
+      "rule_decisions": {
+        "NORMAL": 1577
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5117698301426196,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 98,
+      "rows": 871,
+      "source_sha256": "b00b9a3b524f9f6dcfc2d298af4af69916c4d7f98930e171d34e43c297aed50c",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 871,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 871
+      },
+      "detector_decisions": {
+        "NORMAL": 871
+      },
+      "rule_decisions": {
+        "NORMAL": 871
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7185300513122779,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 99,
+      "rows": 1274,
+      "source_sha256": "6a23ea1b2065c3cd0ea06603ad681220505ce9b4c758baa14fbe06b1ba75c61d",
+      "historical_nominal_alarm_samples": 542,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1274,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1274
+      },
+      "detector_decisions": {
+        "NORMAL": 1274
+      },
+      "rule_decisions": {
+        "NORMAL": 1274
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7470990543640567,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 100,
+      "rows": 1042,
+      "source_sha256": "e579d423c18d126a772e27ba647a201789bf64c20bbe46541244debb8f9e7c2e",
+      "historical_nominal_alarm_samples": 369,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1042,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1042
+      },
+      "detector_decisions": {
+        "NORMAL": 1042
+      },
+      "rule_decisions": {
+        "NORMAL": 1042
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0227600075377627,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 101,
+      "rows": 1098,
+      "source_sha256": "541bce0d9c4f57706eee5001e9697f0f38ded6d77595b66971b0c8523b04a3b6",
+      "historical_nominal_alarm_samples": 539,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1098,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1098
+      },
+      "detector_decisions": {
+        "NORMAL": 1098
+      },
+      "rule_decisions": {
+        "NORMAL": 1098
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8192636873569139,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 102,
+      "rows": 1688,
+      "source_sha256": "ea550c6f9c1597420cda1eaa082aeae2aa9615cdf50a6cc87002438e52184bea",
+      "historical_nominal_alarm_samples": 980,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1688,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1688
+      },
+      "detector_decisions": {
+        "NORMAL": 1688
+      },
+      "rule_decisions": {
+        "NORMAL": 1688
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.3957570612210776,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 105,
+      "rows": 1477,
+      "source_sha256": "a142aca363d5375df8509c6ca2bc9723b9473231c00d5c59b7e90ec6634634cc",
+      "historical_nominal_alarm_samples": 908,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1477,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1477
+      },
+      "detector_decisions": {
+        "NORMAL": 1477
+      },
+      "rule_decisions": {
+        "NORMAL": 1477
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.79394191835171,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 106,
+      "rows": 1299,
+      "source_sha256": "17507c8c35da4f6c4a638cb3b76d70847e1b3ae2109d9d9c68bbdf3565645cf3",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1299,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1299
+      },
+      "detector_decisions": {
+        "NORMAL": 1299
+      },
+      "rule_decisions": {
+        "NORMAL": 1299
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7972919956967721,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 107,
+      "rows": 1300,
+      "source_sha256": "1b2a54e167e48f7819efd865ce5cbfd99273599262cde7244d1714f18e7aa777",
+      "historical_nominal_alarm_samples": 471,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1300,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1300
+      },
+      "detector_decisions": {
+        "NORMAL": 1300
+      },
+      "rule_decisions": {
+        "NORMAL": 1300
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8956434100648369,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 108,
+      "rows": 1073,
+      "source_sha256": "64990fc1b47853c3cddafcc76b5e36aac6afb19677aaeea512669429b505400b",
+      "historical_nominal_alarm_samples": 832,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1073,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1073
+      },
+      "detector_decisions": {
+        "NORMAL": 1073
+      },
+      "rule_decisions": {
+        "NORMAL": 1073
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5421225675931687,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 109,
+      "rows": 1691,
+      "source_sha256": "b52088f64d13d3c92089afb7e2507ca24ce9304f3bc9c9e17e0e71bb418caba1",
+      "historical_nominal_alarm_samples": 1038,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1691,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1691
+      },
+      "detector_decisions": {
+        "NORMAL": 1691
+      },
+      "rule_decisions": {
+        "NORMAL": 1691
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.4047489557716525,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 110,
+      "rows": 1628,
+      "source_sha256": "2943201c98caf56b871d7731aa4457f6e63f40a44664ac8c9f8f8827becbb0cf",
+      "historical_nominal_alarm_samples": 900,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1628,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1628
+      },
+      "detector_decisions": {
+        "NORMAL": 1628
+      },
+      "rule_decisions": {
+        "NORMAL": 1628
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5596399951723082,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 111,
+      "rows": 906,
+      "source_sha256": "f5d7f5bb94cd771f8b19b7e0a2827dc7ff39404c2adf7c214d659f4455cbb245",
+      "historical_nominal_alarm_samples": 402,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 906,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 906
+      },
+      "detector_decisions": {
+        "NORMAL": 906
+      },
+      "rule_decisions": {
+        "NORMAL": 906
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8897066884530503,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 112,
+      "rows": 1342,
+      "source_sha256": "5a2cb96390bb448987878b3e70817b6f8cae294dfa544649ffb3b53e21e83ad8",
+      "historical_nominal_alarm_samples": 967,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1342,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1342
+      },
+      "detector_decisions": {
+        "NORMAL": 1342
+      },
+      "rule_decisions": {
+        "NORMAL": 1342
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6224666000137757,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 113,
+      "rows": 1331,
+      "source_sha256": "8a3752853e47122e3b3771ba475a8120dd156e5886578641da0ba90f8a66f98c",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1331,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1331
+      },
+      "detector_decisions": {
+        "NORMAL": 1331
+      },
+      "rule_decisions": {
+        "NORMAL": 1331
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0192214499492578,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 114,
+      "rows": 1176,
+      "source_sha256": "871c46aad107a70c71986021e405bd173f611d9e5f9c742ecee8feb130a6a3c9",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1176,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1176
+      },
+      "detector_decisions": {
+        "NORMAL": 1176
+      },
+      "rule_decisions": {
+        "NORMAL": 1176
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8325206717989582,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 115,
+      "rows": 994,
+      "source_sha256": "1cf6f07d252aab0bb1a1f861e5008e07d080e281ed4c9caba4fccdf57630562e",
+      "historical_nominal_alarm_samples": 572,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 994,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 994
+      },
+      "detector_decisions": {
+        "NORMAL": 994
+      },
+      "rule_decisions": {
+        "NORMAL": 994
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7314644004943286,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 116,
+      "rows": 902,
+      "source_sha256": "91b964645a7d3103c05daab1dac6ca3cc7fedc49f81816f72d6a6786a50d7770",
+      "historical_nominal_alarm_samples": 440,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 902,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 902
+      },
+      "detector_decisions": {
+        "NORMAL": 902
+      },
+      "rule_decisions": {
+        "NORMAL": 902
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9948702748981426,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 117,
+      "rows": 1073,
+      "source_sha256": "83364f4eefb9b3d7598b976a2e8152d0be30858c5d6b4ac62eb2b1116ce45705",
+      "historical_nominal_alarm_samples": 369,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1073,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1073
+      },
+      "detector_decisions": {
+        "NORMAL": 1073
+      },
+      "rule_decisions": {
+        "NORMAL": 1073
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9104345089916221,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 118,
+      "rows": 1704,
+      "source_sha256": "3203210e884afed4edb510fd6b55ed5636fc747c41f0335b66335af69a9a7110",
+      "historical_nominal_alarm_samples": 977,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1704,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1704
+      },
+      "detector_decisions": {
+        "NORMAL": 1704
+      },
+      "rule_decisions": {
+        "NORMAL": 1704
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5371945017796993,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 119,
+      "rows": 1333,
+      "source_sha256": "6f63e85c6117cf48fa0490d504ba1e9843d13a09a06bd296d35763f6b52a81cb",
+      "historical_nominal_alarm_samples": 508,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1333,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1333
+      },
+      "detector_decisions": {
+        "NORMAL": 1333
+      },
+      "rule_decisions": {
+        "NORMAL": 1333
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8191749175662087,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 120,
+      "rows": 921,
+      "source_sha256": "e6df70bb7064fef7a0b282d218d49e5c1f08968f46226958a877f27fdad282b1",
+      "historical_nominal_alarm_samples": 636,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 921,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 921
+      },
+      "detector_decisions": {
+        "NORMAL": 921
+      },
+      "rule_decisions": {
+        "NORMAL": 921
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7923934789072536,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 121,
+      "rows": 1220,
+      "source_sha256": "0e72e9536c946b2f1135d76350f6cb190887e5a475ba365919fb8d6ddf2aeb25",
+      "historical_nominal_alarm_samples": 906,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1220,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1220
+      },
+      "detector_decisions": {
+        "NORMAL": 1220
+      },
+      "rule_decisions": {
+        "NORMAL": 1220
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6600517923229627,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 122,
+      "rows": 1163,
+      "source_sha256": "d838a405a187d199a9398d011c7bd328ace8cd457ac04621d9075e17b7ee09f7",
+      "historical_nominal_alarm_samples": 404,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1163,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1163
+      },
+      "detector_decisions": {
+        "NORMAL": 1163
+      },
+      "rule_decisions": {
+        "NORMAL": 1163
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8220170776497061,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 123,
+      "rows": 1428,
+      "source_sha256": "a1c571d35152259e7b45cccd9a83078e4d5fe65db48aee456896724426d88c82",
+      "historical_nominal_alarm_samples": 1016,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1428,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1428
+      },
+      "detector_decisions": {
+        "NORMAL": 1428
+      },
+      "rule_decisions": {
+        "NORMAL": 1428
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6811985847028523,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 124,
+      "rows": 996,
+      "source_sha256": "f9a5d32af6ad119f1637dffbbbd2ea360d3abf976a023a06b20f88964ef562de",
+      "historical_nominal_alarm_samples": 536,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 996,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 996
+      },
+      "detector_decisions": {
+        "NORMAL": 996
+      },
+      "rule_decisions": {
+        "NORMAL": 996
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7750740222627129,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 125,
+      "rows": 1523,
+      "source_sha256": "44e9f3a24300321dbeb5e1dada989782acf7f145384be907396c24b6c4246ee9",
+      "historical_nominal_alarm_samples": 934,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1523,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1523
+      },
+      "detector_decisions": {
+        "NORMAL": 1523
+      },
+      "rule_decisions": {
+        "NORMAL": 1523
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.43527206541951213,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 126,
+      "rows": 1719,
+      "source_sha256": "8c9d000c8dbdb6e7e127ba65ecf6238bf31f6d39b8f1da9d271103e976b48301",
+      "historical_nominal_alarm_samples": 1032,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1719,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1719
+      },
+      "detector_decisions": {
+        "NORMAL": 1719
+      },
+      "rule_decisions": {
+        "NORMAL": 1719
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5164603355252022,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 127,
+      "rows": 1086,
+      "source_sha256": "dfc7cbd3d701eb11962186178e6d34b9186a453bac7b6d6a3cc0f0d28173771a",
+      "historical_nominal_alarm_samples": 502,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1086,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1086
+      },
+      "detector_decisions": {
+        "NORMAL": 1086
+      },
+      "rule_decisions": {
+        "NORMAL": 1086
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7619400701027196,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 128,
+      "rows": 1363,
+      "source_sha256": "837a08cf8a8c3f0a68ec8179b4b687302f2b15f48b86d06414df3c567ebd121a",
+      "historical_nominal_alarm_samples": 501,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1363,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1363
+      },
+      "detector_decisions": {
+        "NORMAL": 1363
+      },
+      "rule_decisions": {
+        "NORMAL": 1363
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7197403661598748,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 129,
+      "rows": 1248,
+      "source_sha256": "00eb99c3ec44f555dfa79fd8e35e3b98e2cb765252a60b55dc85390fc172a1a5",
+      "historical_nominal_alarm_samples": 805,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1248,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1248
+      },
+      "detector_decisions": {
+        "NORMAL": 1248
+      },
+      "rule_decisions": {
+        "NORMAL": 1248
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9098164679179155,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 130,
+      "rows": 1038,
+      "source_sha256": "154c44de945969d3154562a32f9f4ba611418cc3489694000293ff60d0a2f704",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1038,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1038
+      },
+      "detector_decisions": {
+        "NORMAL": 1038
+      },
+      "rule_decisions": {
+        "NORMAL": 1038
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7578652191278337,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 131,
+      "rows": 1644,
+      "source_sha256": "2204622bc3e2660d20c8eb8aef75b89c857610d20ce150c66027538358ddbe32",
+      "historical_nominal_alarm_samples": 975,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1644,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1644
+      },
+      "detector_decisions": {
+        "NORMAL": 1644
+      },
+      "rule_decisions": {
+        "NORMAL": 1644
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.43864265462084223,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 134,
+      "rows": 1074,
+      "source_sha256": "f4ba73f2f0345c1ff81f88382f65c351b1e762f1c1e8a99236ada420dafb12da",
+      "historical_nominal_alarm_samples": 403,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1074,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1074
+      },
+      "detector_decisions": {
+        "NORMAL": 1074
+      },
+      "rule_decisions": {
+        "NORMAL": 1074
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0304183380779441,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 135,
+      "rows": 1309,
+      "source_sha256": "ffdc56a1f5935b96a518394b3ab21933ecc5933abf08725054bc1297f09cbbb8",
+      "historical_nominal_alarm_samples": 847,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1309,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1309
+      },
+      "detector_decisions": {
+        "NORMAL": 1309
+      },
+      "rule_decisions": {
+        "NORMAL": 1309
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5938553598200635,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 136,
+      "rows": 1183,
+      "source_sha256": "b3d2622cac6c558667cd096ee7eeefa09e520413d2693a59d0a5e526e8e84cb6",
+      "historical_nominal_alarm_samples": 574,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1183,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1183
+      },
+      "detector_decisions": {
+        "NORMAL": 1183
+      },
+      "rule_decisions": {
+        "NORMAL": 1183
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7596503793303593,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 137,
+      "rows": 1315,
+      "source_sha256": "9618aae92338b9a76ba503bbd1709bdf06a8727c685ebd672aada44843a4a311",
+      "historical_nominal_alarm_samples": 506,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1315,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1315
+      },
+      "detector_decisions": {
+        "NORMAL": 1315
+      },
+      "rule_decisions": {
+        "NORMAL": 1315
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.665318211504333,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 138,
+      "rows": 1339,
+      "source_sha256": "fd8419d04a4112bb9e22bffb2417bda51920c99ab365ca7ecaef099d067ff31b",
+      "historical_nominal_alarm_samples": 574,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1339,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1339
+      },
+      "detector_decisions": {
+        "NORMAL": 1339
+      },
+      "rule_decisions": {
+        "NORMAL": 1339
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5579887803998806,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 139,
+      "rows": 1045,
+      "source_sha256": "80e37a330423a2547bd6864289f01d33b279649b21c70a810c1fc961469210fb",
+      "historical_nominal_alarm_samples": 470,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1045,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1045
+      },
+      "detector_decisions": {
+        "NORMAL": 1045
+      },
+      "rule_decisions": {
+        "NORMAL": 1045
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9115022716733183,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 140,
+      "rows": 1320,
+      "source_sha256": "b38b7ad7049b52d0f2286bea9e4d9c3c23cb97b6f23e15484aaab248647cda83",
+      "historical_nominal_alarm_samples": 855,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1320,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1320
+      },
+      "detector_decisions": {
+        "NORMAL": 1320
+      },
+      "rule_decisions": {
+        "NORMAL": 1320
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.4961380043121495,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 141,
+      "rows": 1574,
+      "source_sha256": "12ee79649e5f04925322cc83e54f5d590a88057187f03490c6edde6fac25df13",
+      "historical_nominal_alarm_samples": 337,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1574,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1574
+      },
+      "detector_decisions": {
+        "NORMAL": 1574
+      },
+      "rule_decisions": {
+        "NORMAL": 1574
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.899948410964865,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 142,
+      "rows": 1185,
+      "source_sha256": "89d72b2c82b5a30a57195b51afedfeefc69dd3c1a3f3b398ac13e6a7e7b63c08",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1185,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1185
+      },
+      "detector_decisions": {
+        "NORMAL": 1185
+      },
+      "rule_decisions": {
+        "NORMAL": 1185
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8388169060641395,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 143,
+      "rows": 1120,
+      "source_sha256": "a9c00e60f93dcfb9be47cb01d2ff9e17bda858e55386bb36714dd97e181630e3",
+      "historical_nominal_alarm_samples": 337,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1120,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1120
+      },
+      "detector_decisions": {
+        "NORMAL": 1120
+      },
+      "rule_decisions": {
+        "NORMAL": 1120
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0015227775685764,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 144,
+      "rows": 1158,
+      "source_sha256": "4dd64606a5342180f30d13bf68359f12a4ba74683911d9af70986830d229c55a",
+      "historical_nominal_alarm_samples": 611,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1158,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1158
+      },
+      "detector_decisions": {
+        "NORMAL": 1158
+      },
+      "rule_decisions": {
+        "NORMAL": 1158
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7812330921535084,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 145,
+      "rows": 1470,
+      "source_sha256": "b57d47c09463e534c102a6d40e0ad51d43ab2f368c716a66d84ab6fd7ea8b682",
+      "historical_nominal_alarm_samples": 1043,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1470,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1470
+      },
+      "detector_decisions": {
+        "NORMAL": 1470
+      },
+      "rule_decisions": {
+        "NORMAL": 1470
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6302501128200727,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 146,
+      "rows": 1218,
+      "source_sha256": "3c9373a94e835b9c34e3623b8f864fe6573c950021780b301ca13d833fb87012",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1218,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1218
+      },
+      "detector_decisions": {
+        "NORMAL": 1218
+      },
+      "rule_decisions": {
+        "NORMAL": 1218
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8898560470096102,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 147,
+      "rows": 1629,
+      "source_sha256": "1d7963770ecacbf878f99f8d7c8b2abe37262c47ef111b783e30585219a9434b",
+      "historical_nominal_alarm_samples": 1270,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1629,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1629
+      },
+      "detector_decisions": {
+        "NORMAL": 1629
+      },
+      "rule_decisions": {
+        "NORMAL": 1629
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6843959903793629,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 148,
+      "rows": 2027,
+      "source_sha256": "7f0e4ad1dee5a7703136450932f49c0990d5cb85552945f84bbdb4926564cbd0",
+      "historical_nominal_alarm_samples": 1051,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 2027,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 2027
+      },
+      "detector_decisions": {
+        "NORMAL": 2027
+      },
+      "rule_decisions": {
+        "NORMAL": 2027
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5254411416284654,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 149,
+      "rows": 1158,
+      "source_sha256": "48e7767fbbd9ba69a34abe9a56ac5bff2d4ec05e8ee79d6cf900d3e2d804d761",
+      "historical_nominal_alarm_samples": 372,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1158,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1158
+      },
+      "detector_decisions": {
+        "NORMAL": 1158
+      },
+      "rule_decisions": {
+        "NORMAL": 1158
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8963947452394166,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 150,
+      "rows": 1215,
+      "source_sha256": "70302bbec5f043747195f6b82cbc560fb7a0e01820f4a075fdc9c04537124509",
+      "historical_nominal_alarm_samples": 336,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1215,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1215
+      },
+      "detector_decisions": {
+        "NORMAL": 1215
+      },
+      "rule_decisions": {
+        "NORMAL": 1215
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.1351831023729526,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 151,
+      "rows": 999,
+      "source_sha256": "0f9a4e98d25faf747795e343029f9a6baefbf3ef2e591b272760b5fb8fdd5688",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 999,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 999
+      },
+      "detector_decisions": {
+        "NORMAL": 999
+      },
+      "rule_decisions": {
+        "NORMAL": 999
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.128920700905118,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 152,
+      "rows": 1290,
+      "source_sha256": "a2e3f4e97b1f70e81c25c97181c4a32060628a1ff0305f7c4bb3fac12bdecdb5",
+      "historical_nominal_alarm_samples": 538,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1290,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1290
+      },
+      "detector_decisions": {
+        "NORMAL": 1290
+      },
+      "rule_decisions": {
+        "NORMAL": 1290
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8714739375964302,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 153,
+      "rows": 1257,
+      "source_sha256": "f2aa999ee668d9551764d691e2b93105b07e67f760409bcc0aaab7347629e464",
+      "historical_nominal_alarm_samples": 374,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1257,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1257
+      },
+      "detector_decisions": {
+        "NORMAL": 1257
+      },
+      "rule_decisions": {
+        "NORMAL": 1257
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.893267392633258,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 154,
+      "rows": 1180,
+      "source_sha256": "6cf4f425457144998b8606f5dac40a2fc786e1979795ae2ce5abf4f7430f0e9c",
+      "historical_nominal_alarm_samples": 764,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1180,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1180
+      },
+      "detector_decisions": {
+        "NORMAL": 1180
+      },
+      "rule_decisions": {
+        "NORMAL": 1180
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6175180013479917,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 155,
+      "rows": 1256,
+      "source_sha256": "23a3d583b858af92ac92c4a1aa1c5416516fbad591b1b5548e39a2d46bbfb65a",
+      "historical_nominal_alarm_samples": 373,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1256,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1256
+      },
+      "detector_decisions": {
+        "NORMAL": 1256
+      },
+      "rule_decisions": {
+        "NORMAL": 1256
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0723040679548932,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 156,
+      "rows": 1447,
+      "source_sha256": "f4397f8b2d9b500d307612f6316c8a57b617fc5ba71f2ec7e1df75e01e2f48aa",
+      "historical_nominal_alarm_samples": 917,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1447,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1447
+      },
+      "detector_decisions": {
+        "NORMAL": 1447
+      },
+      "rule_decisions": {
+        "NORMAL": 1447
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5500585431178017,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 157,
+      "rows": 1005,
+      "source_sha256": "288f84b6105140010c2b758df52b09397c63cc6abe3a4c86a768565583fe7ce5",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1005,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1005
+      },
+      "detector_decisions": {
+        "NORMAL": 1005
+      },
+      "rule_decisions": {
+        "NORMAL": 1005
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8790009376147273,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 158,
+      "rows": 1127,
+      "source_sha256": "9fdadb741b55f49fa57fb7ef6b59e8d3d9b4a8d53ae50b98a81dd51329f305a6",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1127,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1127
+      },
+      "detector_decisions": {
+        "NORMAL": 1127
+      },
+      "rule_decisions": {
+        "NORMAL": 1127
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9796980140047274,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 159,
+      "rows": 1068,
+      "source_sha256": "35e3e26a20cd1825df64aed7c7a84ccdbf4c8028a6e7518a73be9ab5b3b7f55c",
+      "historical_nominal_alarm_samples": 710,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1068,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1068
+      },
+      "detector_decisions": {
+        "NORMAL": 1068
+      },
+      "rule_decisions": {
+        "NORMAL": 1068
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7154231496853672,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 160,
+      "rows": 1453,
+      "source_sha256": "372f858ae8ce78aff4c98d1786205f08155d275df071c0a8cc162c834ebbbea2",
+      "historical_nominal_alarm_samples": 931,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1453,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1453
+      },
+      "detector_decisions": {
+        "NORMAL": 1453
+      },
+      "rule_decisions": {
+        "NORMAL": 1453
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6118562198860252,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 162,
+      "rows": 1206,
+      "source_sha256": "421156452226378ef913c2c467c8895dce90a8b69cbdc553c4e814f79295d3b7",
+      "historical_nominal_alarm_samples": 672,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1206,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1206
+      },
+      "detector_decisions": {
+        "NORMAL": 1206
+      },
+      "rule_decisions": {
+        "NORMAL": 1206
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6797147907663518,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 163,
+      "rows": 1360,
+      "source_sha256": "262a7e01aaf2fc01631d8055db8f0734b00ed06e0f430d5c96fda2d8702c6724",
+      "historical_nominal_alarm_samples": 899,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1360,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1360
+      },
+      "detector_decisions": {
+        "NORMAL": 1360
+      },
+      "rule_decisions": {
+        "NORMAL": 1360
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5698361048141103,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 164,
+      "rows": 1287,
+      "source_sha256": "175de79b8db3484ac9f8ad592ab02939fe288bccb249044d88828474d5da5bbb",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1287,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1287
+      },
+      "detector_decisions": {
+        "NORMAL": 1287
+      },
+      "rule_decisions": {
+        "NORMAL": 1287
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7787367135421772,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 165,
+      "rows": 1374,
+      "source_sha256": "fd7bbdc2d8968387f2ac50ca6bfeb57daf1a81eae33a1219f570d847a62d42a7",
+      "historical_nominal_alarm_samples": 542,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1374,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1374
+      },
+      "detector_decisions": {
+        "NORMAL": 1374
+      },
+      "rule_decisions": {
+        "NORMAL": 1374
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7439221341990531,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 166,
+      "rows": 1281,
+      "source_sha256": "8b04b2562b578609371e09613b22b44048455b2ee3913254d4a0326f2b7ee08a",
+      "historical_nominal_alarm_samples": 841,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1281,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1281
+      },
+      "detector_decisions": {
+        "NORMAL": 1281
+      },
+      "rule_decisions": {
+        "NORMAL": 1281
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6306462705381084,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 167,
+      "rows": 951,
+      "source_sha256": "2a29c879860ddb5db5524703c79a5d96ad1772b9b794e6d83be59c4a6093d077",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 951,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 951
+      },
+      "detector_decisions": {
+        "NORMAL": 951
+      },
+      "rule_decisions": {
+        "NORMAL": 951
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9387392640536073,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 168,
+      "rows": 1206,
+      "source_sha256": "2c0c876ecf5763a2355bb8c917f091144e8e6f1351b827a1ff633858922a0deb",
+      "historical_nominal_alarm_samples": 405,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1206,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1206
+      },
+      "detector_decisions": {
+        "NORMAL": 1206
+      },
+      "rule_decisions": {
+        "NORMAL": 1206
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9086228814155718,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 169,
+      "rows": 1222,
+      "source_sha256": "ce88c4c8197c5601f37b57c86ab4d93e941d02816f26414481001789006703c9",
+      "historical_nominal_alarm_samples": 798,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1222,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1222
+      },
+      "detector_decisions": {
+        "NORMAL": 1222
+      },
+      "rule_decisions": {
+        "NORMAL": 1222
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6731005347176701,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 170,
+      "rows": 1100,
+      "source_sha256": "2137d3e524b140f37b1faff6cd777931917fab7eede96eab6b7ddf4f6e0c9bc0",
+      "historical_nominal_alarm_samples": 729,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1100,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1100
+      },
+      "detector_decisions": {
+        "NORMAL": 1100
+      },
+      "rule_decisions": {
+        "NORMAL": 1100
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6342399156601675,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 171,
+      "rows": 882,
+      "source_sha256": "0aa435142b316e00b6328f9ee3d145d263846647caf77aec61adc8162fa56894",
+      "historical_nominal_alarm_samples": 335,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 882,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 882
+      },
+      "detector_decisions": {
+        "NORMAL": 882
+      },
+      "rule_decisions": {
+        "NORMAL": 882
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9187231106082444,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 172,
+      "rows": 1476,
+      "source_sha256": "96f12998049f8440984226f58652cf3c36aa15442eb5a997ffefc94c1018c0d0",
+      "historical_nominal_alarm_samples": 1053,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1476,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1476
+      },
+      "detector_decisions": {
+        "NORMAL": 1476
+      },
+      "rule_decisions": {
+        "NORMAL": 1476
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7120485702074969,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 173,
+      "rows": 1577,
+      "source_sha256": "a8f21d305a1b5bf0e61eb535eb1f92f305e754862a3d04efc157491d9a6dba29",
+      "historical_nominal_alarm_samples": 1009,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1577,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1577
+      },
+      "detector_decisions": {
+        "NORMAL": 1577
+      },
+      "rule_decisions": {
+        "NORMAL": 1577
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6656636861684435,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 174,
+      "rows": 1146,
+      "source_sha256": "e39ffe5ff72e63bccda01142a4e7f109f99b51a560fc5f4022c8de518eebda47",
+      "historical_nominal_alarm_samples": 340,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1146,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1146
+      },
+      "detector_decisions": {
+        "NORMAL": 1146
+      },
+      "rule_decisions": {
+        "NORMAL": 1146
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0024630414703128,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 175,
+      "rows": 1304,
+      "source_sha256": "4cda5f645f589eeb66b37632e398d3ba534084f18e051e42f37ba1d0b1686bb5",
+      "historical_nominal_alarm_samples": 866,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1304,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1304
+      },
+      "detector_decisions": {
+        "NORMAL": 1304
+      },
+      "rule_decisions": {
+        "NORMAL": 1304
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6151278609106801,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 176,
+      "rows": 1357,
+      "source_sha256": "3cbd181e680009433f90e49ae64741767b26ba3bf4db2a5c5dc43cc3ba371b2c",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1357,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1357
+      },
+      "detector_decisions": {
+        "NORMAL": 1357
+      },
+      "rule_decisions": {
+        "NORMAL": 1357
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6945241639471967,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 177,
+      "rows": 929,
+      "source_sha256": "3f1f6f4e5d465bb8d02c3a602c49e41bf88b98510fb34c82c318b512021e34de",
+      "historical_nominal_alarm_samples": 372,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 929,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 929
+      },
+      "detector_decisions": {
+        "NORMAL": 929
+      },
+      "rule_decisions": {
+        "NORMAL": 929
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8412866603595918,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 178,
+      "rows": 925,
+      "source_sha256": "d1f1728921d7a38bb95caf8394e890f889c8587eabe5aff24e69f03981b0e6fd",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 925,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 925
+      },
+      "detector_decisions": {
+        "NORMAL": 925
+      },
+      "rule_decisions": {
+        "NORMAL": 925
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7910296242670753,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 179,
+      "rows": 1413,
+      "source_sha256": "2036c535d14b701d4ec71568ceffb348499d30c921f14f24d25ea790a7c3941d",
+      "historical_nominal_alarm_samples": 1003,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1413,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1413
+      },
+      "detector_decisions": {
+        "NORMAL": 1413
+      },
+      "rule_decisions": {
+        "NORMAL": 1413
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.657225181889231,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 180,
+      "rows": 1148,
+      "source_sha256": "481ba27416d5c5ddd1c97565460039c11ec72ebde6722e2646b5b3bb839f5896",
+      "historical_nominal_alarm_samples": 368,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1148,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1148
+      },
+      "detector_decisions": {
+        "NORMAL": 1148
+      },
+      "rule_decisions": {
+        "NORMAL": 1148
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.783897859086376,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 181,
+      "rows": 1172,
+      "source_sha256": "b8679dad703791cc7fbf1036545a16d96bf8f353df3af00d3572c24c093eac03",
+      "historical_nominal_alarm_samples": 776,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1172,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1172
+      },
+      "detector_decisions": {
+        "NORMAL": 1172
+      },
+      "rule_decisions": {
+        "NORMAL": 1172
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.621155132303206,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 182,
+      "rows": 1207,
+      "source_sha256": "2e5ab42d35eeec9cd98a86d28041586b36e3eebbca7b42320a23ba01c260da49",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1207,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1207
+      },
+      "detector_decisions": {
+        "NORMAL": 1207
+      },
+      "rule_decisions": {
+        "NORMAL": 1207
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7708158718899158,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 183,
+      "rows": 907,
+      "source_sha256": "d1def01fbe05a4671aa96e517a8afac60acab8fcdf9d76dc6880a9e66f9ed814",
+      "historical_nominal_alarm_samples": 338,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 907,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 907
+      },
+      "detector_decisions": {
+        "NORMAL": 907
+      },
+      "rule_decisions": {
+        "NORMAL": 907
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9700638594080305,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 184,
+      "rows": 1668,
+      "source_sha256": "bac79acf4609c7557bfba59048d288241b02d9e5cf8d99c245dac22be60cba08",
+      "historical_nominal_alarm_samples": 1018,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1668,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1668
+      },
+      "detector_decisions": {
+        "NORMAL": 1668
+      },
+      "rule_decisions": {
+        "NORMAL": 1668
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5056118627109464,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 185,
+      "rows": 1269,
+      "source_sha256": "ed2a6524ae4741a1f322232df7b41ca6ffce124ad0bb5aee36b7c03dc5b9da25",
+      "historical_nominal_alarm_samples": 746,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1269,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1269
+      },
+      "detector_decisions": {
+        "NORMAL": 1269
+      },
+      "rule_decisions": {
+        "NORMAL": 1269
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8969303683183377,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 186,
+      "rows": 1128,
+      "source_sha256": "d77f07682b71ad15bae11140fcc22256105b712cf1bb87ed85da2a635e51d228",
+      "historical_nominal_alarm_samples": 337,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1128,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1128
+      },
+      "detector_decisions": {
+        "NORMAL": 1128
+      },
+      "rule_decisions": {
+        "NORMAL": 1128
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9208601565024419,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 187,
+      "rows": 920,
+      "source_sha256": "b4a2700e67f96dbfcb3f8f2ceb986b0e5e22526a0797e06611926db8a8b9f93c",
+      "historical_nominal_alarm_samples": 338,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 920,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 920
+      },
+      "detector_decisions": {
+        "NORMAL": 920
+      },
+      "rule_decisions": {
+        "NORMAL": 920
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.1069795328320702,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 188,
+      "rows": 2042,
+      "source_sha256": "efb3ecc026932c1e0ef28a67813f67f9ec4c5f4df4efc3f1825a77bd923f6589",
+      "historical_nominal_alarm_samples": 973,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 2042,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 2042
+      },
+      "detector_decisions": {
+        "NORMAL": 2042
+      },
+      "rule_decisions": {
+        "NORMAL": 2042
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.524298472827695,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 189,
+      "rows": 988,
+      "source_sha256": "349911bf775b3a6bcd2eb819c6d839668bf1dbde2bc98d9e4ec3643f4bacb2c6",
+      "historical_nominal_alarm_samples": 542,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 988,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 988
+      },
+      "detector_decisions": {
+        "NORMAL": 988
+      },
+      "rule_decisions": {
+        "NORMAL": 988
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.796224293170507,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 190,
+      "rows": 1312,
+      "source_sha256": "80ce0252f01852342941c81200b26c1d646a534ef1f8e584802cb8c736fea57c",
+      "historical_nominal_alarm_samples": 373,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1312,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1312
+      },
+      "detector_decisions": {
+        "NORMAL": 1312
+      },
+      "rule_decisions": {
+        "NORMAL": 1312
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8325263179383752,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 191,
+      "rows": 1287,
+      "source_sha256": "2e6e1d8520e8464b566b8cdc08bb775ec85e10e2664bc426500a83963ef3f49c",
+      "historical_nominal_alarm_samples": 340,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1287,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1287
+      },
+      "detector_decisions": {
+        "NORMAL": 1287
+      },
+      "rule_decisions": {
+        "NORMAL": 1287
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0053634026725868,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 192,
+      "rows": 1060,
+      "source_sha256": "3225e811a4a87620e471dd8e9ac79de4901949d7443c76615a125d35005616c8",
+      "historical_nominal_alarm_samples": 340,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1060,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1060
+      },
+      "detector_decisions": {
+        "NORMAL": 1060
+      },
+      "rule_decisions": {
+        "NORMAL": 1060
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0481714939841589,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 193,
+      "rows": 1453,
+      "source_sha256": "a0126d65c2f44e18c9218ef049d38cd9b2fe65591815aaae49896396f7b94d32",
+      "historical_nominal_alarm_samples": 926,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1453,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1453
+      },
+      "detector_decisions": {
+        "NORMAL": 1453
+      },
+      "rule_decisions": {
+        "NORMAL": 1453
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5112879283802423,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 194,
+      "rows": 1366,
+      "source_sha256": "f2823eba53c3d8dd0cf12ffccf5da2caf56d34273486fd99ccca95b1c2baeac4",
+      "historical_nominal_alarm_samples": 337,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1366,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1366
+      },
+      "detector_decisions": {
+        "NORMAL": 1366
+      },
+      "rule_decisions": {
+        "NORMAL": 1366
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9622257779187708,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 195,
+      "rows": 1394,
+      "source_sha256": "72f797cb3af014d01d1fe960cbe148c337ab429acfed5ac8827056c3a84645fd",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1394,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1394
+      },
+      "detector_decisions": {
+        "NORMAL": 1394
+      },
+      "rule_decisions": {
+        "NORMAL": 1394
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7119209420373583,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 196,
+      "rows": 1775,
+      "source_sha256": "ca07b2b66985779741f62d567aa475a9304b340aaec428775402df72450a4e5f",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1775,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1775
+      },
+      "detector_decisions": {
+        "NORMAL": 1775
+      },
+      "rule_decisions": {
+        "NORMAL": 1775
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0261641621691202,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 197,
+      "rows": 916,
+      "source_sha256": "f9c3f3d80e1aba266ffc21c33ed1f55d1e56782b8b2c8f7d339a826b00c3c3a6",
+      "historical_nominal_alarm_samples": 374,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 916,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 916
+      },
+      "detector_decisions": {
+        "NORMAL": 916
+      },
+      "rule_decisions": {
+        "NORMAL": 916
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9522813072105325,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 198,
+      "rows": 1020,
+      "source_sha256": "5a3fcf69276f601cc6f61e184bbb4c1d48da4c8546c1e99dab973549e849dd0b",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1020,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1020
+      },
+      "detector_decisions": {
+        "NORMAL": 1020
+      },
+      "rule_decisions": {
+        "NORMAL": 1020
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8248111149156728,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 199,
+      "rows": 1550,
+      "source_sha256": "467e2f3198f7e3ea9b36c485194ab557ca1fd2ae7169735e6c28f7ba1083a2ee",
+      "historical_nominal_alarm_samples": 1023,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1550,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1550
+      },
+      "detector_decisions": {
+        "NORMAL": 1550
+      },
+      "rule_decisions": {
+        "NORMAL": 1550
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.43314889376327526,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 200,
+      "rows": 1312,
+      "source_sha256": "7e78b64f710e1e95338f7f7401ae0ff151b4860827e65304cf483151b692be2f",
+      "historical_nominal_alarm_samples": 845,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1312,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1312
+      },
+      "detector_decisions": {
+        "NORMAL": 1312
+      },
+      "rule_decisions": {
+        "NORMAL": 1312
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5294798079855781,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 201,
+      "rows": 1563,
+      "source_sha256": "3ad5cd0fe68df54aa849d82ae2b8843a257af3247cb1152658a76725e0396b62",
+      "historical_nominal_alarm_samples": 993,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1563,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1563
+      },
+      "detector_decisions": {
+        "NORMAL": 1563
+      },
+      "rule_decisions": {
+        "NORMAL": 1563
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5164381419029863,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 202,
+      "rows": 1427,
+      "source_sha256": "2f3454f26c943adbfad84b874400c5a7d3154a4c366304290a43e194ec0aea99",
+      "historical_nominal_alarm_samples": 954,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1427,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1427
+      },
+      "detector_decisions": {
+        "NORMAL": 1427
+      },
+      "rule_decisions": {
+        "NORMAL": 1427
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5908269457701925,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 203,
+      "rows": 951,
+      "source_sha256": "b1d75a2f78552c0bf298c22cfba3781110f777f53ec0012ab088c46c7c3a631a",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 951,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 951
+      },
+      "detector_decisions": {
+        "NORMAL": 951
+      },
+      "rule_decisions": {
+        "NORMAL": 951
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6526565699597257,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 204,
+      "rows": 1112,
+      "source_sha256": "60fe2a37703cf33d773f1c4aa3cef47f8cfc2728d46d8fb23b20a7e29d1d1905",
+      "historical_nominal_alarm_samples": 835,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1112,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1112
+      },
+      "detector_decisions": {
+        "NORMAL": 1112
+      },
+      "rule_decisions": {
+        "NORMAL": 1112
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6458309657708887,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 205,
+      "rows": 1079,
+      "source_sha256": "e01088ed315d99b644b271f6268c0d2c3444998da0ac9939ae084b5629fc3dd4",
+      "historical_nominal_alarm_samples": 833,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1079,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1079
+      },
+      "detector_decisions": {
+        "NORMAL": 1079
+      },
+      "rule_decisions": {
+        "NORMAL": 1079
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6334183334352412,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 206,
+      "rows": 1239,
+      "source_sha256": "5fdb898586cfec5a540e9b696f8dad1174a3715712f09963f504fbccc1faf23b",
+      "historical_nominal_alarm_samples": 507,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1239,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1239
+      },
+      "detector_decisions": {
+        "NORMAL": 1239
+      },
+      "rule_decisions": {
+        "NORMAL": 1239
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7793723337217956,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 207,
+      "rows": 1102,
+      "source_sha256": "37d7bb414b25cea1e96cc983049acf2eb43672aedaa5932839ff6c9b0fff9f2a",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1102,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1102
+      },
+      "detector_decisions": {
+        "NORMAL": 1102
+      },
+      "rule_decisions": {
+        "NORMAL": 1102
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8156473748180648,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 208,
+      "rows": 1320,
+      "source_sha256": "435080494c1622bfda46a8919321e9823a7b94ff2ca8f28259d1b3a046c1970f",
+      "historical_nominal_alarm_samples": 953,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1320,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1320
+      },
+      "detector_decisions": {
+        "NORMAL": 1320
+      },
+      "rule_decisions": {
+        "NORMAL": 1320
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7345589077446036,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 209,
+      "rows": 1169,
+      "source_sha256": "ad5ad42b3a6c2f713718ce7695ac1f48053336df09ac6cad811638fa208785fc",
+      "historical_nominal_alarm_samples": 899,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1169,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1169
+      },
+      "detector_decisions": {
+        "NORMAL": 1169
+      },
+      "rule_decisions": {
+        "NORMAL": 1169
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6263503790437298,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 210,
+      "rows": 1677,
+      "source_sha256": "2401880b5ad1100f2b513bd94f1f760765e083b165cf21ba5bc8268610fa82f5",
+      "historical_nominal_alarm_samples": 944,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1677,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1677
+      },
+      "detector_decisions": {
+        "NORMAL": 1677
+      },
+      "rule_decisions": {
+        "NORMAL": 1677
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.43100325964263064,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 211,
+      "rows": 881,
+      "source_sha256": "a1dd5410b408570a2dffbe0603573d73c348278980b6ade4985cee03ce3039ff",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 881,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 881
+      },
+      "detector_decisions": {
+        "NORMAL": 881
+      },
+      "rule_decisions": {
+        "NORMAL": 881
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 212,
+      "rows": 805,
+      "source_sha256": "e45b3d3847f0fc6b057852f0a92a32c430df3cb660459592e6064f0501f65f0b",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 805,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 805
+      },
+      "detector_decisions": {
+        "NORMAL": 805
+      },
+      "rule_decisions": {
+        "NORMAL": 805
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 213,
+      "rows": 392,
+      "source_sha256": "5e29b222bdf8f30664ffe54ff9e655015dcf52e85426e6c25176c940e919f9c7",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 392,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 392
+      },
+      "detector_decisions": {
+        "NORMAL": 392
+      },
+      "rule_decisions": {
+        "NORMAL": 392
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 214,
+      "rows": 910,
+      "source_sha256": "806225d9379cef818c7543b13c60acdb4bb6b0a5c8b16b96ed927641b52ae53c",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 910,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 910
+      },
+      "detector_decisions": {
+        "NORMAL": 910
+      },
+      "rule_decisions": {
+        "NORMAL": 910
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 215,
+      "rows": 391,
+      "source_sha256": "2299e5081725a1675ddbb11a49a6580fed6c8a471989b02ba84106c9a98d1083",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 391,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 391
+      },
+      "detector_decisions": {
+        "NORMAL": 391
+      },
+      "rule_decisions": {
+        "NORMAL": 391
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 216,
+      "rows": 392,
+      "source_sha256": "5ef1a148511aeecf4290988e99e0fa04e722369343a42263ed57641baaca7450",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 392,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 392
+      },
+      "detector_decisions": {
+        "NORMAL": 392
+      },
+      "rule_decisions": {
+        "NORMAL": 392
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 217,
+      "rows": 935,
+      "source_sha256": "e863437263b73604df061ad4a98150065f3ec0aa21bd33d66979326326e456e8",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 935,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 935
+      },
+      "detector_decisions": {
+        "NORMAL": 935
+      },
+      "rule_decisions": {
+        "NORMAL": 935
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 218,
+      "rows": 953,
+      "source_sha256": "fff1f9a129d5a58d9d87c6fb56c1029ec95c0743ae454365f368210b80912054",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 953,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 953
+      },
+      "detector_decisions": {
+        "NORMAL": 953
+      },
+      "rule_decisions": {
+        "NORMAL": 953
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 219,
+      "rows": 842,
+      "source_sha256": "4840dd610ecb03c6cb5227dcd6bd954f9c256ee7087ed8176223e077de0e1767",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 842,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 842
+      },
+      "detector_decisions": {
+        "NORMAL": 842
+      },
+      "rule_decisions": {
+        "NORMAL": 842
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 221,
+      "rows": 809,
+      "source_sha256": "8686679e53b1a3fd1b5cf3083a110a8ee9a83b86746162b25c6d6da7814d401d",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 809,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 809
+      },
+      "detector_decisions": {
+        "NORMAL": 809
+      },
+      "rule_decisions": {
+        "NORMAL": 809
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.0685571988970629,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 222,
+      "rows": 950,
+      "source_sha256": "20e77482713f8746760a0767a5a3a1d683e0840023e9a34d19fac0e1af9a34c4",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 950,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 950
+      },
+      "detector_decisions": {
+        "NORMAL": 950
+      },
+      "rule_decisions": {
+        "NORMAL": 950
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.08333268737056702,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 223,
+      "rows": 857,
+      "source_sha256": "fedac8524b7c9a51ee1d4557a857e52613c90e547485dc1b99a52d567f92b42a",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 857,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 857
+      },
+      "detector_decisions": {
+        "NORMAL": 857
+      },
+      "rule_decisions": {
+        "NORMAL": 857
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.12251081779664284,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 224,
+      "rows": 1178,
+      "source_sha256": "10af9b697f34e3fd8220bae041981a8d2b6c7cf7a3c7e6f6699fdf86449413ea",
+      "historical_nominal_alarm_samples": 0,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1178,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1178
+      },
+      "detector_decisions": {
+        "NORMAL": 1178
+      },
+      "rule_decisions": {
+        "NORMAL": 1178
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.1567931307846641,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 225,
+      "rows": 1163,
+      "source_sha256": "3b78a8a893974ab2157764bb704763e180b74d9cfc131536d74d268407fe6551",
+      "historical_nominal_alarm_samples": 540,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1163,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1163
+      },
+      "detector_decisions": {
+        "NORMAL": 1163
+      },
+      "rule_decisions": {
+        "NORMAL": 1163
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7284588926746912,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 226,
+      "rows": 1251,
+      "source_sha256": "87db2f10e2cc5c279a8f6dbbb0a293fa8a55213d05e6512f8c74ccc0998c820a",
+      "historical_nominal_alarm_samples": 577,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1251,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1251
+      },
+      "detector_decisions": {
+        "NORMAL": 1251
+      },
+      "rule_decisions": {
+        "NORMAL": 1251
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7856602292090604,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 227,
+      "rows": 1443,
+      "source_sha256": "b39bd1eafa318c43bb7820753e15b2ef097dda835995eb3057ecf094f5791a68",
+      "historical_nominal_alarm_samples": 915,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1443,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1443
+      },
+      "detector_decisions": {
+        "NORMAL": 1443
+      },
+      "rule_decisions": {
+        "NORMAL": 1443
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5295083115706334,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 228,
+      "rows": 1271,
+      "source_sha256": "d4a0a41a2f75abb8cfe6f0daf3befd446a826a998176b1a49ce674cd796cb05f",
+      "historical_nominal_alarm_samples": 372,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1271,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1271
+      },
+      "detector_decisions": {
+        "NORMAL": 1271
+      },
+      "rule_decisions": {
+        "NORMAL": 1271
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8139162713373719,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 229,
+      "rows": 1053,
+      "source_sha256": "dc1d6fa1742a1de274a59a05f22208c922a378c6c5701333d3557e407c7970de",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1053,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1053
+      },
+      "detector_decisions": {
+        "NORMAL": 1053
+      },
+      "rule_decisions": {
+        "NORMAL": 1053
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8914049662472335,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 230,
+      "rows": 1098,
+      "source_sha256": "d4fc546c1b2015b59ced8526bc57668e78d0c927848a249df35a532a7275ae1f",
+      "historical_nominal_alarm_samples": 774,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1098,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1098
+      },
+      "detector_decisions": {
+        "NORMAL": 1098
+      },
+      "rule_decisions": {
+        "NORMAL": 1098
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7430150137925485,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 231,
+      "rows": 1325,
+      "source_sha256": "76217319a9a93e4e0c7c0d8386462683f92d0c787991d9669fceb075f2cd23fb",
+      "historical_nominal_alarm_samples": 607,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1325,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1325
+      },
+      "detector_decisions": {
+        "NORMAL": 1325
+      },
+      "rule_decisions": {
+        "NORMAL": 1325
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7565189971223922,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 232,
+      "rows": 1336,
+      "source_sha256": "d6d8ca342d1feb4c05d9026890a0d1c417d522a2619bbbd5fee23a1ac9db0649",
+      "historical_nominal_alarm_samples": 373,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1336,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1336
+      },
+      "detector_decisions": {
+        "NORMAL": 1336
+      },
+      "rule_decisions": {
+        "NORMAL": 1336
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.006033450960465,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 233,
+      "rows": 1446,
+      "source_sha256": "1cbd0902ba26ba7eb0255f438d9897ebd6a70fb8a2e8d2912d22dd29814b2b0a",
+      "historical_nominal_alarm_samples": 917,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1446,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1446
+      },
+      "detector_decisions": {
+        "NORMAL": 1446
+      },
+      "rule_decisions": {
+        "NORMAL": 1446
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6218737132806633,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 234,
+      "rows": 1263,
+      "source_sha256": "1b61323517dbd7fe39e24e8c11154ec1abd941021b0809bec212b7923b357ea3",
+      "historical_nominal_alarm_samples": 404,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1263,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1263
+      },
+      "detector_decisions": {
+        "NORMAL": 1263
+      },
+      "rule_decisions": {
+        "NORMAL": 1263
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7871638506277492,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 235,
+      "rows": 943,
+      "source_sha256": "03347d64f02ed6c6b751361cbd3eb51bdd64c8c1668b611149fbd1084d91621e",
+      "historical_nominal_alarm_samples": 406,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 943,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 943
+      },
+      "detector_decisions": {
+        "NORMAL": 943
+      },
+      "rule_decisions": {
+        "NORMAL": 943
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.073612532542272,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 236,
+      "rows": 1036,
+      "source_sha256": "ce84a901f6b610955e2d28e1dbd466d2477df7ddbe7a6901804edc1561193d0c",
+      "historical_nominal_alarm_samples": 442,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1036,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1036
+      },
+      "detector_decisions": {
+        "NORMAL": 1036
+      },
+      "rule_decisions": {
+        "NORMAL": 1036
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8903175589019783,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 237,
+      "rows": 1897,
+      "source_sha256": "cb980a03a7499a9ac0ae8f002faee57ee1a3c67b6289093208fa80b4675ed186",
+      "historical_nominal_alarm_samples": 974,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1897,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1897
+      },
+      "detector_decisions": {
+        "NORMAL": 1897
+      },
+      "rule_decisions": {
+        "NORMAL": 1897
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5482934666142376,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 238,
+      "rows": 1444,
+      "source_sha256": "a6cd6f67a65160a2d1561f255052d116c1be3493f127b83d2f4b0b1a0d191c37",
+      "historical_nominal_alarm_samples": 910,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1444,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1444
+      },
+      "detector_decisions": {
+        "NORMAL": 1444
+      },
+      "rule_decisions": {
+        "NORMAL": 1444
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.4587598819316813,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 239,
+      "rows": 1674,
+      "source_sha256": "e8e7a78be37ccbba7aa7c2c0fd3eed360540370c0cfe8db8aa6aa97ef2b16809",
+      "historical_nominal_alarm_samples": 976,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1674,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1674
+      },
+      "detector_decisions": {
+        "NORMAL": 1674
+      },
+      "rule_decisions": {
+        "NORMAL": 1674
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.40612907310024104,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 240,
+      "rows": 1338,
+      "source_sha256": "76fc5c508d75274ea3dd38a9993c3027901456118ae185e6e07a9f2bf2c6b5fb",
+      "historical_nominal_alarm_samples": 859,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1338,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1338
+      },
+      "detector_decisions": {
+        "NORMAL": 1338
+      },
+      "rule_decisions": {
+        "NORMAL": 1338
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.705565604765955,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 241,
+      "rows": 1152,
+      "source_sha256": "c30d37d51da8fa13b1f7df939729b4443d1ce626b06c6cab14f38184e2d549cb",
+      "historical_nominal_alarm_samples": 368,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1152,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1152
+      },
+      "detector_decisions": {
+        "NORMAL": 1152
+      },
+      "rule_decisions": {
+        "NORMAL": 1152
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9023083579094572,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 242,
+      "rows": 1765,
+      "source_sha256": "b8b280a2ed9a2fcee456085f3d539164859ecedad644e7512434edc08a1b83bc",
+      "historical_nominal_alarm_samples": 604,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1765,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1765
+      },
+      "detector_decisions": {
+        "NORMAL": 1765
+      },
+      "rule_decisions": {
+        "NORMAL": 1765
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7739459117791221,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 243,
+      "rows": 1619,
+      "source_sha256": "1eae0bb7a1731649d6c088f983e81d157b4021f651535bc825b2e4340c3d80fb",
+      "historical_nominal_alarm_samples": 1046,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1619,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1619
+      },
+      "detector_decisions": {
+        "NORMAL": 1619
+      },
+      "rule_decisions": {
+        "NORMAL": 1619
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.5124853906642077,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 246,
+      "rows": 1366,
+      "source_sha256": "8f8c4af03aebc1dc4cc7c218e837e6eca12a682700f1327cc0666590f4db80f6",
+      "historical_nominal_alarm_samples": 541,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1366,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1366
+      },
+      "detector_decisions": {
+        "NORMAL": 1366
+      },
+      "rule_decisions": {
+        "NORMAL": 1366
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7475423424479581,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 247,
+      "rows": 1245,
+      "source_sha256": "97f3fce3ce55793b070c40eb142ade7c5e85674d5a310330449cec03e400655a",
+      "historical_nominal_alarm_samples": 571,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1245,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1245
+      },
+      "detector_decisions": {
+        "NORMAL": 1245
+      },
+      "rule_decisions": {
+        "NORMAL": 1245
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9066231006833735,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 248,
+      "rows": 1593,
+      "source_sha256": "fd0a10343f0a931ea4d63d9901978e6b4c2340cd518939c6841f3d56ae15f34c",
+      "historical_nominal_alarm_samples": 984,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1593,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1593
+      },
+      "detector_decisions": {
+        "NORMAL": 1593
+      },
+      "rule_decisions": {
+        "NORMAL": 1593
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.4788267001861446,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 249,
+      "rows": 1103,
+      "source_sha256": "b90300d0e65d8a9a58224131f1a6c476afb5635ff899d32707e29379f2376d35",
+      "historical_nominal_alarm_samples": 538,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1103,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1103
+      },
+      "detector_decisions": {
+        "NORMAL": 1103
+      },
+      "rule_decisions": {
+        "NORMAL": 1103
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7459069503975673,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 250,
+      "rows": 1101,
+      "source_sha256": "22d77be03b195c0182e460d5709f09362b982cd68cdc930e048e8f7953525da2",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1101,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1101
+      },
+      "detector_decisions": {
+        "NORMAL": 1101
+      },
+      "rule_decisions": {
+        "NORMAL": 1101
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8345409832808054,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 251,
+      "rows": 1177,
+      "source_sha256": "acfb014cf8e0f785cfde23c858b08b09ae918a24d4c8e6ca74a0ca87d41c4287",
+      "historical_nominal_alarm_samples": 505,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1177,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1177
+      },
+      "detector_decisions": {
+        "NORMAL": 1177
+      },
+      "rule_decisions": {
+        "NORMAL": 1177
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7928228439309007,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 252,
+      "rows": 1286,
+      "source_sha256": "08e113502ac3d449e838088bb5b448b6abb17773d45f2c984354fa32bc3ef3bb",
+      "historical_nominal_alarm_samples": 339,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1286,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1286
+      },
+      "detector_decisions": {
+        "NORMAL": 1286
+      },
+      "rule_decisions": {
+        "NORMAL": 1286
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0495213349229529,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 253,
+      "rows": 1021,
+      "source_sha256": "5e4017a3cb5a4a481bc3efd093dda3490c341886e6635a8033b885b68260d893",
+      "historical_nominal_alarm_samples": 371,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1021,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1021
+      },
+      "detector_decisions": {
+        "NORMAL": 1021
+      },
+      "rule_decisions": {
+        "NORMAL": 1021
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8611969963376207,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 254,
+      "rows": 1103,
+      "source_sha256": "df81301b2c3b345aca2a1ca8babc5494d01e1c16b0eee5164dc54924ee890ef0",
+      "historical_nominal_alarm_samples": 372,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1103,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1103
+      },
+      "detector_decisions": {
+        "NORMAL": 1103
+      },
+      "rule_decisions": {
+        "NORMAL": 1103
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8941476704643414,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 255,
+      "rows": 1102,
+      "source_sha256": "68549f12eebfdc1b641fab63839fa68d6521e5e6a8bb1364b1190ea6c112ebfa",
+      "historical_nominal_alarm_samples": 738,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1102,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1102
+      },
+      "detector_decisions": {
+        "NORMAL": 1102
+      },
+      "rule_decisions": {
+        "NORMAL": 1102
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7041804567772543,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 256,
+      "rows": 1150,
+      "source_sha256": "9b7c83d8327ab3e6e10b46d7e105c0580ce8ea9b7c82d2d97603d3a1f25723d5",
+      "historical_nominal_alarm_samples": 372,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1150,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1150
+      },
+      "detector_decisions": {
+        "NORMAL": 1150
+      },
+      "rule_decisions": {
+        "NORMAL": 1150
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8864775184711602,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 257,
+      "rows": 1401,
+      "source_sha256": "f3df77bf826ad7b0a43fc695a127a189d34532b7bd3247c3b077fb23b0c8a993",
+      "historical_nominal_alarm_samples": 1036,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1401,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1401
+      },
+      "detector_decisions": {
+        "NORMAL": 1401
+      },
+      "rule_decisions": {
+        "NORMAL": 1401
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6290757240363823,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 258,
+      "rows": 1462,
+      "source_sha256": "3e99c3ee0954a2d2089d7465f59b7202f2e112845dc13064c326f59599fce3b9",
+      "historical_nominal_alarm_samples": 944,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1462,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1462
+      },
+      "detector_decisions": {
+        "NORMAL": 1462
+      },
+      "rule_decisions": {
+        "NORMAL": 1462
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.388696499766098,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 260,
+      "rows": 1632,
+      "source_sha256": "6dd4fd28fcace7c739dd6f84973f61c7ab21cab1eeb491658a13771735e60039",
+      "historical_nominal_alarm_samples": 945,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1632,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1632
+      },
+      "detector_decisions": {
+        "NORMAL": 1632
+      },
+      "rule_decisions": {
+        "NORMAL": 1632
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6051107350973761,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 261,
+      "rows": 1287,
+      "source_sha256": "569415a4c5a420312311bc7da04ced41e6d4758e73cc4205c0d6a52f27f5a7d2",
+      "historical_nominal_alarm_samples": 985,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1287,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1287
+      },
+      "detector_decisions": {
+        "NORMAL": 1287
+      },
+      "rule_decisions": {
+        "NORMAL": 1287
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6360320591126363,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 262,
+      "rows": 1149,
+      "source_sha256": "6ea2b115f4b3fa08dcc8bec6e17628f5cf4ebf90475296ba4d3f09a8865d244b",
+      "historical_nominal_alarm_samples": 370,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1149,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1149
+      },
+      "detector_decisions": {
+        "NORMAL": 1149
+      },
+      "rule_decisions": {
+        "NORMAL": 1149
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.1137448139390198,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 263,
+      "rows": 1590,
+      "source_sha256": "9c4a94609e5f2628ca454415f3573b8057e0c752b688a0e1db9509f3abc9749b",
+      "historical_nominal_alarm_samples": 906,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1590,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1590
+      },
+      "detector_decisions": {
+        "NORMAL": 1590
+      },
+      "rule_decisions": {
+        "NORMAL": 1590
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.4508523025731763,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 264,
+      "rows": 1515,
+      "source_sha256": "6c8742fc1c2c3196f56abe256ff227b876e832617290bb852863357bb00b36c7",
+      "historical_nominal_alarm_samples": 1095,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1515,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1515
+      },
+      "detector_decisions": {
+        "NORMAL": 1515
+      },
+      "rule_decisions": {
+        "NORMAL": 1515
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.730750383870052,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 267,
+      "rows": 1009,
+      "source_sha256": "6b378a4223bc9572a4f0d7fd1d0b7aa31303c4d5fea80f69b034f9cb9e61daaa",
+      "historical_nominal_alarm_samples": 569,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1009,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1009
+      },
+      "detector_decisions": {
+        "NORMAL": 1009
+      },
+      "rule_decisions": {
+        "NORMAL": 1009
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7820278909134495,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 268,
+      "rows": 1511,
+      "source_sha256": "aa9678be35e33b5c63c0ed7ee7e66a19dc33af3129e077bd62fe85e10e139f52",
+      "historical_nominal_alarm_samples": 1221,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1511,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1511
+      },
+      "detector_decisions": {
+        "NORMAL": 1511
+      },
+      "rule_decisions": {
+        "NORMAL": 1511
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6177393085673362,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 269,
+      "rows": 1317,
+      "source_sha256": "584a75f9b3e89ee4472cb1d5965ea240d17f343a6b02b90c1376016e452d38f3",
+      "historical_nominal_alarm_samples": 961,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1317,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1317
+      },
+      "detector_decisions": {
+        "NORMAL": 1317
+      },
+      "rule_decisions": {
+        "NORMAL": 1317
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 1.0292358860594102,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 270,
+      "rows": 1466,
+      "source_sha256": "a47578d0bd1aaff6870f4bd01fe02e9dd1e1c71edbf0aefffcd1de80f1b567a4",
+      "historical_nominal_alarm_samples": 837,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1466,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1466
+      },
+      "detector_decisions": {
+        "NORMAL": 1466
+      },
+      "rule_decisions": {
+        "NORMAL": 1466
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9228934028006782,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 271,
+      "rows": 1219,
+      "source_sha256": "f8e2e25746cd9c783a28bffbbb77b1a45ac6bb79cc113912f629bbc83543dcea",
+      "historical_nominal_alarm_samples": 971,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1219,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1219
+      },
+      "detector_decisions": {
+        "NORMAL": 1219
+      },
+      "rule_decisions": {
+        "NORMAL": 1219
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9044116395448739,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 272,
+      "rows": 2856,
+      "source_sha256": "c4cf8daa7e2194ba59b9cb6ab9d259b4a5dc52b3faa0fb6853fcce0c1b665c16",
+      "historical_nominal_alarm_samples": 1053,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 2856,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 2856
+      },
+      "detector_decisions": {
+        "NORMAL": 2856
+      },
+      "rule_decisions": {
+        "NORMAL": 2856
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.6653005516096342,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 275,
+      "rows": 983,
+      "source_sha256": "0a0242c39f89f1405f4b2b1b5c68ab838a322cdf6062db66738d3c68a6dd494b",
+      "historical_nominal_alarm_samples": 497,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 983,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 983
+      },
+      "detector_decisions": {
+        "NORMAL": 983
+      },
+      "rule_decisions": {
+        "NORMAL": 983
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.7353207744165896,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 276,
+      "rows": 984,
+      "source_sha256": "ae6a63616fe868d9a0d26dcd97732818edad0e1763228c931600a80eda9bf182",
+      "historical_nominal_alarm_samples": 369,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 984,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 984
+      },
+      "detector_decisions": {
+        "NORMAL": 984
+      },
+      "rule_decisions": {
+        "NORMAL": 984
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8726770296666659,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 277,
+      "rows": 860,
+      "source_sha256": "ea6fe8a36984ad25b560596d1dc2699409c2e2a61cd10d0b871b26f179828750",
+      "historical_nominal_alarm_samples": 417,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 860,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 860
+      },
+      "detector_decisions": {
+        "NORMAL": 860
+      },
+      "rule_decisions": {
+        "NORMAL": 860
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.9474202020010446,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 278,
+      "rows": 1197,
+      "source_sha256": "37143f7edf09b98fd45ce0e573012a5922f7db0b3c8f6ef9062da2d1a84ea72d",
+      "historical_nominal_alarm_samples": 566,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 1197,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 1197
+      },
+      "detector_decisions": {
+        "NORMAL": 1197
+      },
+      "rule_decisions": {
+        "NORMAL": 1197
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8716396884224973,
+      "difference_is_not_ground_truth_error": true
+    },
+    {
+      "flight": 279,
+      "rows": 988,
+      "source_sha256": "88ef8f832b4c6ad37ec49890286da353512467319c852f051a9f96feef490e62",
+      "historical_nominal_alarm_samples": 404,
+      "nominal_alarm_samples": 0,
+      "gnss_measurement_used_samples": 988,
+      "normal_decision_measurement_unused_samples": 0,
+      "decisions": {
+        "NORMAL": 988
+      },
+      "detector_decisions": {
+        "NORMAL": 988
+      },
+      "rule_decisions": {
+        "NORMAL": 988
+      },
+      "causes": {},
+      "max_filter_measurement_difference_m": 0.8036942863335251,
+      "difference_is_not_ground_truth_error": true
+    }
+  ],
+  "limitations": [
+    "Nominal-operation assumption; no verified attack labels.",
+    "Known development data, not renewed independent evidence.",
+    "No C/N0/AV schema; RF/VAE not validated. No independent position truth.",
+    "Filter-to-measurement difference is not absolute position accuracy."
+  ]
+}

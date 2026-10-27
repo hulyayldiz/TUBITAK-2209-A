@@ -1,0 +1,21 @@
+{
+  "schema": "grid-gps-l1-cmc-v1",
+  "window_s": 20.0,
+  "center_m_s": -0.0045201944965360796,
+  "limit_m_s": 0.15,
+  "fast_window_s": 1.0,
+  "fast_min_samples": 6,
+  "fast_confirm_s": 0.4,
+  "fast_center_m_s": -0.016838954854411062,
+  "fast_limit_m_s": 0.15122486145853314,
+  "calibration": {
+    "source": "TEXBAT cleanStatic only",
+    "source_sha256": "4943045923140423d3202e363f9737fae6e2f6af0d2bba02f4f950d62ef07649",
+    "recording_start_s": 50.0,
+    "recording_stop_s": 120.0,
+    "samples": 350,
+    "fast_samples": 350,
+    "independent_holdout": false
+  },
+  "policy": "Common CMC rate; >=4 GPS channels and >=75% coherent rates beyond bound. The 1s fast fit uses six samples and 0.4s confirmation; the 20s fit uses 3s confirmation. Confirmed alarms clear only after one slow fit horizon plus confirmation interval without anomalous evidence. No attack times, receiver spoof flags or IMU used; not proof of signal identity."
+}

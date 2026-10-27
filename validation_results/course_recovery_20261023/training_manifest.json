@@ -1,0 +1,180 @@
+{
+  "source": "synthetic only",
+  "training_seeds": [
+    11,
+    22,
+    33
+  ],
+  "calibration_seeds": [
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ],
+  "rows": 8640,
+  "normal_calibration_quantile": 0.9999,
+  "vae_threshold": 0.003880828896025187,
+  "feature_schema": "motion-v2",
+  "training_csv_sha256": "31710c009497ceee0349f3525956d7dcc61b6095410065952dea4591f389ffea",
+  "previous_calibration_seeds": [
+    101,
+    202,
+    303
+  ],
+  "normal_calibration": {
+    "threshold": 0.003880828896025187,
+    "persistence_samples": 4,
+    "persistence_seconds": 2.0,
+    "normal_quantile": 0.9999,
+    "normal_windows": 23820,
+    "longest_normal_streak": 3,
+    "sample_dt_s": 0.5,
+    "max_confirmation_s": 5.0,
+    "source": "synthetic normal only",
+    "runs": [
+      {
+        "seed": 2001,
+        "steps": 1200,
+        "features_sha256": "fe8450b2b8eaf92bf1fec4e2cf1d1c64484174347747ea777d46ee98736a18b2"
+      },
+      {
+        "seed": 2002,
+        "steps": 1200,
+        "features_sha256": "5c1b35e8187148be183aa6b463a594004e0982f36ef733e48db2459712fd5f0a"
+      },
+      {
+        "seed": 2003,
+        "steps": 1200,
+        "features_sha256": "2b9549e45517b1d6d8fed642ab7c71aab0310220d3af0743f381663309ca0921"
+      },
+      {
+        "seed": 2004,
+        "steps": 1200,
+        "features_sha256": "5cffaf3beb3de7ff378ab6242e787ce47b2db29097719bf697915043d559be5c"
+      },
+      {
+        "seed": 2005,
+        "steps": 1200,
+        "features_sha256": "332b754549b720d23f8ffe0a7a563db37b51e2620ae21797347989ae221c2b53"
+      },
+      {
+        "seed": 2006,
+        "steps": 1200,
+        "features_sha256": "5d832b684680267565fe7bb6ed682e2de677411b91ae68f6948c465fca7bd020"
+      },
+      {
+        "seed": 2007,
+        "steps": 1200,
+        "features_sha256": "318ef576d36eb70b4f2e494164ea2b2143940a88b2926f2417156c29416e2215"
+      },
+      {
+        "seed": 2008,
+        "steps": 1200,
+        "features_sha256": "bb9d64f1fe48ea6054fd1209f0dfde3cb96aec692b84b168a2febbfa78e78772"
+      },
+      {
+        "seed": 2009,
+        "steps": 1200,
+        "features_sha256": "94929e9de031d3350c2b26270223df50b60c2da984757dfca12c429fce7bf11f"
+      },
+      {
+        "seed": 2010,
+        "steps": 1200,
+        "features_sha256": "6cc6c6f1e2e54ef2dc1edb0894f0fe4b5840a2b19606cdae07f54307f131a2cb"
+      },
+      {
+        "seed": 2011,
+        "steps": 1200,
+        "features_sha256": "8aaa245879832c5eea594fbc3223cb2afa167f0d835dcfc84aa48c2f5a8c4cbd"
+      },
+      {
+        "seed": 2012,
+        "steps": 1200,
+        "features_sha256": "de78304c6b753e756a77dda9890d24f71acc4efd54a9be72cd9641353c81b163"
+      },
+      {
+        "seed": 2013,
+        "steps": 1200,
+        "features_sha256": "a88470b64af522d7accbebcc584ab264637254f5a3586550e178278035a749d5"
+      },
+      {
+        "seed": 2014,
+        "steps": 1200,
+        "features_sha256": "67c37f3dfd10367a5dac8633b89e74cc072f9f60db3d9cefcb350709f614a0fb"
+      },
+      {
+        "seed": 2015,
+        "steps": 1200,
+        "features_sha256": "03c5b7e798a9e5ae85e46c3704c076200be9828a7a2ccac4e45c8dc52cb4e21f"
+      },
+      {
+        "seed": 2016,
+        "steps": 1200,
+        "features_sha256": "a057732f60576143530f0993e26f00c01e5feca38001eb0058df433e7c8bc1d1"
+      },
+      {
+        "seed": 2017,
+        "steps": 1200,
+        "features_sha256": "faf6e34120c0077c391748f8984f969da3803f51e3dd9daf54421d704f061cb3"
+      },
+      {
+        "seed": 2018,
+        "steps": 1200,
+        "features_sha256": "9b111e3953d024f58e2db7326b501b4aed4fff43fe5c08c4cf46606e54228d41"
+      },
+      {
+        "seed": 2019,
+        "steps": 1200,
+        "features_sha256": "ce88db7f0b3fa8e16371912a3980b98662f68271b0649fa84c4ca5a5033b1349"
+      },
+      {
+        "seed": 2020,
+        "steps": 1200,
+        "features_sha256": "d3bf8eb8f29508928519dfc33e19ab7d3bf3bf549827f7fc98fb9f08c1fa26db"
+      }
+    ],
+    "calibration_seeds": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "previous_threshold": 0.0031478898534551257,
+    "previous_persistence_samples": 3,
+    "model_before_sha256": "aec22cbe10f17be3810728788843e125f40c0d85dc825b24658c816c4d1d8a55",
+    "applied": true,
+    "model_after_sha256": "d84956caa5d5728a81e4e351ee1eccdd17d6ff6e0b808d5d747a33f1b07974e8"
+  }
+}

@@ -1,0 +1,275 @@
+[
+  {
+    "seed": 60001,
+    "scenario": "normal",
+    "steps": 1200,
+    "simulated_seconds": 600.0,
+    "phase_metrics": {
+      "clean": {
+        "samples": 1200,
+        "alarms": 34,
+        "alarm_rate": 0.028333333333333332
+      },
+      "attack": {
+        "samples": 0,
+        "alarms": 0,
+        "alarm_rate": null
+      },
+      "recovery": {
+        "samples": 0,
+        "alarms": 0,
+        "alarm_rate": null
+      }
+    },
+    "false_alarm_sources": {
+      "ml": 16,
+      "navigation": 18
+    },
+    "layers": {
+      "rule": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "rf": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "vae": {
+        "tp": 0,
+        "fp": 16,
+        "tn": 1184,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.013333333333333334,
+        "f1": 0.0,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 34,
+        "tn": 1166,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.028333333333333332,
+        "f1": 0.0,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "inertial": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      }
+    },
+    "inference_ms": {
+      "median": 7.234150019939989,
+      "p95": 12.103019998176022,
+      "max": 1090.8949000295252
+    },
+    "raw_rmse_m": 0.24848478479519745,
+    "navigation_rmse_m": 0.20694008688807317,
+    "ekf_rmse_m": 0.20694008688807317
+  },
+  {
+    "seed": 60002,
+    "scenario": "normal",
+    "steps": 1200,
+    "simulated_seconds": 600.0,
+    "phase_metrics": {
+      "clean": {
+        "samples": 1200,
+        "alarms": 10,
+        "alarm_rate": 0.008333333333333333
+      },
+      "attack": {
+        "samples": 0,
+        "alarms": 0,
+        "alarm_rate": null
+      },
+      "recovery": {
+        "samples": 0,
+        "alarms": 0,
+        "alarm_rate": null
+      }
+    },
+    "false_alarm_sources": {
+      "ml": 1,
+      "navigation": 9
+    },
+    "layers": {
+      "rule": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "rf": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 1199,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0008333333333333334,
+        "f1": 0.0,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "vae": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 10,
+        "tn": 1190,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.008333333333333333,
+        "f1": 0.0,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "inertial": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      }
+    },
+    "inference_ms": {
+      "median": 6.956750003155321,
+      "p95": 7.871219981461763,
+      "max": 12.959800020325929
+    },
+    "raw_rmse_m": 0.24389107359235065,
+    "navigation_rmse_m": 0.18446785331223814,
+    "ekf_rmse_m": 0.18446785331223814
+  },
+  {
+    "seed": 60003,
+    "scenario": "normal",
+    "steps": 1200,
+    "simulated_seconds": 600.0,
+    "phase_metrics": {
+      "clean": {
+        "samples": 1200,
+        "alarms": 0,
+        "alarm_rate": 0.0
+      },
+      "attack": {
+        "samples": 0,
+        "alarms": 0,
+        "alarm_rate": null
+      },
+      "recovery": {
+        "samples": 0,
+        "alarms": 0,
+        "alarm_rate": null
+      }
+    },
+    "false_alarm_sources": {},
+    "layers": {
+      "rule": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "rf": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "vae": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      },
+      "inertial": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1200,
+        "fn": 0,
+        "recall": null,
+        "false_alarm_rate": 0.0,
+        "f1": null,
+        "episode_ttd_s": [],
+        "missed_episodes": 0
+      }
+    },
+    "inference_ms": {
+      "median": 7.152549980673939,
+      "p95": 15.292949968716128,
+      "max": 20.477700047194958
+    },
+    "raw_rmse_m": 0.24522993781535923,
+    "navigation_rmse_m": 0.17952040478437492,
+    "ekf_rmse_m": 0.17952040478437492
+  }
+]

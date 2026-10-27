@@ -1,0 +1,16 @@
+{
+  "dataset": "GNSS Dataset Under Jamming, Spoofing, and Meaconing Conditions (JammerTest 2024)",
+  "doi": "10.5281/zenodo.15911589",
+  "record_id": 15911589,
+  "version": null,
+  "url": "https://zenodo.org/api/records/15911589/files/GNSS_DATASET_JAMMING_SPOOFING.tar.gz/content",
+  "license": {
+    "id": "gpl-3.0-or-later"
+  },
+  "relative_path": "dataset_gercek/external/jammertest_2024/GNSS_DATASET_JAMMING_SPOOFING.tar.gz",
+  "bytes": 375338522,
+  "publisher_md5": "c7b00c63bb1ee5db80c7692a2b06e169",
+  "sha256": "73e78934aa00d01dfeebabc45f81b38c9c0aecf972f5fc94d9ff60527065b313",
+  "verified_at_utc": "2026-10-23T14:40:53.078442+00:00",
+  "note": "Raw publisher archive; no parsing or label interpretation performed."
+}

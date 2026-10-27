@@ -1,0 +1,40 @@
+{
+  "schema": "texbat-grid-static-v1",
+  "features": [
+    "position_rate_m_s",
+    "clock_rate_m_s",
+    "cn0_change_db",
+    "reported_clock_drift_m_s"
+  ],
+  "center": [
+    0.03721065255456803,
+    0.022953022367786992,
+    -0.027350289481024248,
+    -0.0009612357582864861
+  ],
+  "limits": [
+    0.21086159831875018,
+    0.27734443035685485,
+    1.2448821749005976,
+    0.025284382475551412
+  ],
+  "window_s": 10.0,
+  "warmup_s": 30.0,
+  "position_sigma_m": 2.1558812417477395,
+  "confirmation_s": 2.0,
+  "confirmation_samples": 3,
+  "calibration": {
+    "source": "TEXBAT cleanStatic only",
+    "start_s": 30.0,
+    "stop_s": 120.0,
+    "samples": 450,
+    "development_continuation_start_s": 130.0,
+    "continuation_used_for_policy_development": true,
+    "independent_session_holdout": false,
+    "files": {
+      "navsol.mat": "b62129a8468b2372e8b353037b3bc9eab02b4cd3e4072cde1d4c67d2be3a5966",
+      "channel.mat": "4943045923140423d3202e363f9737fae6e2f6af0d2bba02f4f950d62ef07649"
+    }
+  },
+  "policy": "Training max deviation times 1.5 with fixed floors; attack labels unused. Known static GRID scenarios only; alarms are receiver anomalies, not certified spoofing."
+}

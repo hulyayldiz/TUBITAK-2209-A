@@ -1,0 +1,28 @@
+{
+  "schema": "hk-urbanspoof-reference-v1",
+  "repository": "Fangjingxiaotao/HK-UrbanSpoof",
+  "commit": "95def2b6a42eee6299bbc1a5b880a9f3bfc070d6",
+  "source_url": "https://github.com/Fangjingxiaotao/HK-UrbanSpoof",
+  "license": "No license declaration found in the pinned repository; local validation use only.",
+  "source_description": "S2/S3 post-processed NovAtel SPAN-CPT GNSS/INS reference trajectories.",
+  "raw_if_downloaded": false,
+  "files": [
+    {
+      "name": "S2_GT.txt",
+      "relative_path": "dataset_gercek/external/hk_urban_spoof/S2_GT.txt",
+      "bytes": 45730,
+      "git_blob_sha1": "1c03c4683dae12b7c41bb5ad079becf8387693f9",
+      "sha256": "4b5cd89d21197f36fb38f794e53c4d38803617d09c4a001e8b74ced0e38fe3d4",
+      "url": "https://raw.githubusercontent.com/Fangjingxiaotao/HK-UrbanSpoof/95def2b6a42eee6299bbc1a5b880a9f3bfc070d6/S2_GT.txt"
+    },
+    {
+      "name": "S3_GT.txt",
+      "relative_path": "dataset_gercek/external/hk_urban_spoof/S3_GT.txt",
+      "bytes": 1168279,
+      "git_blob_sha1": "eb6d687933fe3cf34f6f9a6c1a6c8f2bee932b70",
+      "sha256": "b223f1beea96d119e272ef9ce239286f802b92db40a8cb886fe0441e4beb98f1",
+      "url": "https://raw.githubusercontent.com/Fangjingxiaotao/HK-UrbanSpoof/95def2b6a42eee6299bbc1a5b880a9f3bfc070d6/S3_GT.txt"
+    }
+  ],
+  "downloaded_at_utc": "2026-10-23T14:48:00.147221+00:00"
+}

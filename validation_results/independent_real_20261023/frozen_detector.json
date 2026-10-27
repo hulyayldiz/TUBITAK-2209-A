@@ -1,0 +1,16 @@
+{
+  "protocol": "Detector frozen before CMU raw flights opened. New adapter may map documented units only. No training or threshold adjustment.",
+  "sha256": {
+    "detection.py": "860dda160b61aaa61b231f184deb5a73903625e7ef035fb4dcd772b3b5b69c90",
+    "fusion.py": "84fb015c70bcbfd088d96e4203b83e953f9b2a7af93be921c04b9f6f83f9f1e3",
+    "navigation.py": "235d0de62704b9a6b83cc64dfa5a15e0b644bddb751702d0a21922e4ffb6f279",
+    "ml_detection.py": "9d0efb42f904c2e204f4ae6acc70a24ae662dcdd8d4760928df492af1fb9b9b9",
+    "features.py": "e84fc1e91c59653a4851ee4040752f660b7fab096244e3078d20a44d48f61ad8",
+    "receiver_profile.py": "ae69a25aa651f05921b16fae8246eaca24ec4442a7a72f5ba77e0450962bfa8b",
+    "config.py": "0f84f6ee40927e0a0e8e7e505981bbaf8705a9c2540f45769c03f1cb2d9c9db9",
+    "models/texbat_grid_profile.json": "276dcaaf200ab43fc52768d7a562593615cdbc0a61620682397a40b6a192d116",
+    "gnss_rf_model.pkl": "d4bbbdf94b62dd0a3283e6091bc8bbdc12038e7cdd0b4bc18399d0917200182e",
+    "gnss_lstm_vae.pth": "d84956caa5d5728a81e4e351ee1eccdd17d6ff6e0b808d5d747a33f1b07974e8",
+    "gnss_kinematic_model.pkl": "b43dea742994302d454a556982e766bad2fa3e076b987a847a4361c4e4688302"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "verified_at_utc": "2026-10-23T12:01:10.167487+00:00",
+  "pytest": "144 passed in 17.42s",
+  "scoring_code_hashes_verified": true,
+  "primary_source_pdf_hashes_verified": true,
+  "detector_unchanged": true,
+  "performance_limitations": "High DS3/DS7 miss rates remain; see report."
+}

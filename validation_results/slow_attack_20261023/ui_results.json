@@ -1,0 +1,20 @@
+[
+  {
+    "source": "TEXBAT — cleanStatic (işlenmiş gerçek sinyal)",
+    "exceptions": 0,
+    "errors": [],
+    "capability_limit_visible": true,
+    "static_policy_caption_visible": true,
+    "rows": 2115,
+    "forensic_chain_valid": true
+  },
+  {
+    "source": "CMU — bağımsız nominal uçuş 1 (GNSS/INS)",
+    "exceptions": 0,
+    "errors": [],
+    "capability_limit_visible": true,
+    "static_policy_caption_visible": false,
+    "rows": 1339,
+    "forensic_chain_valid": true
+  }
+]

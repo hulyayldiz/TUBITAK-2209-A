@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "source": "Zurich — gerçek Fotokite uçuşu (GPS + gövde IMU)",
+      "rows": 13531,
+      "ml_source": "unavailable",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "receiver_status": null,
+      "forensic_chain_valid": true
+    },
+    {
+      "source": "TEXBAT — cleanStatic (işlenmiş gerçek sinyal)",
+      "rows": 2115,
+      "ml_source": "TEXBAT_RECEIVER_PROFILE",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "receiver_status": "warming_up",
+      "forensic_chain_valid": true
+    },
+    {
+      "source": "TEXBAT — DS2 (işlenmiş gerçek sinyal)",
+      "rows": 2100,
+      "ml_source": "TEXBAT_RECEIVER_PROFILE",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "receiver_status": "warming_up",
+      "forensic_chain_valid": true
+    },
+    {
+      "source": "TEXBAT — DS3 (işlenmiş gerçek sinyal)",
+      "rows": 2096,
+      "ml_source": "TEXBAT_RECEIVER_PROFILE",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "receiver_status": "warming_up",
+      "forensic_chain_valid": true
+    },
+    {
+      "source": "TEXBAT — DS7 (işlenmiş gerçek sinyal)",
+      "rows": 2175,
+      "ml_source": "TEXBAT_RECEIVER_PROFILE",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "receiver_status": "warming_up",
+      "forensic_chain_valid": true
+    }
+  ],
+  "simulation_switch_clears_uncertainty": true
+}

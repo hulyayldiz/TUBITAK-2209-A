@@ -1,0 +1,48 @@
+{
+  "schema": "receiver-observables-v2",
+  "profile_id": "synthetic-static-a",
+  "receiver_id": "synthetic-static-a",
+  "motion": "static",
+  "features": [
+    "position_rate_m_s",
+    "clock_rate_m_s",
+    "cn0_change_db",
+    "reported_clock_drift_m_s"
+  ],
+  "enabled_features": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "center": [
+    0.00487254769439005,
+    0.020000000000000285,
+    0.00011864690927154697,
+    0.02
+  ],
+  "limits": [
+    0.2,
+    0.02,
+    0.5,
+    0.01
+  ],
+  "position_sigma_m": 2.0,
+  "window_s": 10.0,
+  "warmup_s": 10.0,
+  "calibration": {
+    "trusted_normal_attested": true,
+    "source_sha256": "ee36249c17378a81b94a29bcaf60f1852764ed3f502d28b2e782ea5435fcd1ec",
+    "session_id": "calibration",
+    "samples": 340
+  },
+  "validation": {
+    "source_sha256": "c29d90cdbba30f90ff2a8d704274790eabee6c0be0ab97aae20f698667833ce4",
+    "session_id": "validation",
+    "alarm_samples": 0,
+    "fully_assessed_samples": 340,
+    "samples": 360,
+    "status": "passed"
+  },
+  "policy": "Normal-only receiver-specific bounds; separate normal session; not attack/field certification."
+}

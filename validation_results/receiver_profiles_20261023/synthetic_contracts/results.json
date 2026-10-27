@@ -1,0 +1,62 @@
+{
+  "synthetic_only": true,
+  "separate_normal_sessions": true,
+  "exported_not_installed": true,
+  "checks": [
+    {
+      "receiver_id": "synthetic-static-a",
+      "synthetic": true,
+      "normal": {
+        "alarms": 0,
+        "first_alarm_s": null,
+        "fully_assessed": 340,
+        "source": "RECEIVER_PROFILE",
+        "motion": "static",
+        "static_anchor_created": true
+      },
+      "attack_probe": {
+        "alarms": 357,
+        "first_alarm_s": 1.5,
+        "fully_assessed": 340,
+        "source": "RECEIVER_PROFILE",
+        "motion": "static",
+        "static_anchor_created": true
+      }
+    },
+    {
+      "receiver_id": "synthetic-moving-b",
+      "synthetic": true,
+      "normal": {
+        "alarms": 0,
+        "first_alarm_s": null,
+        "fully_assessed": 340,
+        "source": "RECEIVER_PROFILE",
+        "motion": "moving",
+        "static_anchor_created": false
+      },
+      "attack_probe": {
+        "alarms": 17,
+        "first_alarm_s": 51.5,
+        "fully_assessed": 340,
+        "source": "RECEIVER_PROFILE",
+        "motion": "moving",
+        "static_anchor_created": false
+      }
+    }
+  ],
+  "ui": [
+    {
+      "receiver_id": "synthetic-static-a",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "acquisition_coverage_visible": true
+    },
+    {
+      "receiver_id": "synthetic-moving-b",
+      "runtime_exceptions": 0,
+      "errors": [],
+      "acquisition_coverage_visible": true
+    }
+  ],
+  "limitations": "Normal-session checks are not real hardware/attack validation."
+}

@@ -6,8 +6,6 @@ Gerçek TEXBAT dosyası yoksa, akademik analiz için TEXBAT özelliklerini takli
 sentetik bir Static Overlap (Sürüklenme) senaryosu üretir.
 """
 
-import os
-import time
 import pandas as pd
 import numpy as np
 import datetime
@@ -149,7 +147,9 @@ def evaluate_texbat_scenario(csv_path):
     print("\n✅ Sonuçlar 'texbat_evaluation_report.txt' dosyasına kaydedildi.")
 
 if __name__ == "__main__":
-    target_csv = "dataset_gercek/TEXBAT/scenario1.csv"
-    if not os.path.exists(target_csv):
-        target_csv = create_synthetic_texbat_scenario()
-    evaluate_texbat_scenario(target_csv)
+    # Never silently substitute synthetic observations for recorded signals.
+    from real_data_catalog import available_sources
+    if not any(name.startswith('TEXBAT') for name in available_sources()):
+        raise SystemExit('Gerçek TEXBAT kaydı yok. Önce python download_real_data.py çalıştırın.')
+    from validate_real_data import validate_sources
+    validate_sources()

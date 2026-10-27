@@ -1,8 +1,6 @@
 import socket
-import pynmea2
 import select
 import time
-import streamlit as st
 import logging
 
 import logging.handlers
@@ -32,6 +30,12 @@ class SocketManager:
         self.tcp_client_conn = None
         self._setup_sockets()
 
+    def close(self):
+        for connection in (self.tcp_client_conn, self.tcp_sock, self.udp_sock):
+            if connection is not None:
+                connection.close()
+        self.tcp_client_conn = self.tcp_sock = self.udp_sock = None
+
     def _setup_sockets(self):
         try:
             # TCP Sunucu Soketi
@@ -48,10 +52,8 @@ class SocketManager:
             self.udp_sock.setblocking(False)
         except socket.error as e:
             logging.error(f"Soket Başlatma Hatası: {e}")
-            self.tcp_sock = None
-            self.udp_sock = None
+            self.close()
 
-@st.cache_resource
 def get_socket_manager(host, port):
     return SocketManager(host, port)
 
@@ -71,119 +73,93 @@ class SerialManager:
             logging.error(f"Seri Port Açma Hatası ({self.port}): {e}")
             self.ser = None
 
-@st.cache_resource
 def get_serial_manager(port, baud=9600):
     return SerialManager(port, baud)
 
-def get_gps_from_tcp(state, host='0.0.0.0', port=9000):
-    """
-    Hibrit Veri Alıcısı: Hem TCP hem de UDP üzerinden gelen NMEA paketlerini dinler.
-    """
-    manager = get_socket_manager(host, port)
-    
+def _decode(state, source, payload):
+    from nmea_stream import NMEAStream
+    parsers = state.get("nmea_parsers", {})
+    if source not in parsers and len(parsers) >= 8:
+        parsers.pop(next(iter(parsers)))
+    parser = parsers.setdefault(source, NMEAStream())
+    state.nmea_parsers = parsers
+    result = parser.feed(payload)
+    if result is not None:
+        state.gps_cn0 = parser.cn0()
+        state.gps_source = source
+        state.gps_sample_time = time.monotonic()
+    return result
+
+
+def get_gps_from_tcp(state, host="0.0.0.0", port=9000):
+    manager = state.get("gps_socket_manager")
+    if manager is None or (manager.host, manager.port) != (host, int(port)):
+        if manager is not None:
+            manager.close()
+        manager = get_socket_manager(host, int(port))
+        state.gps_socket_manager = manager
+    if (manager.tcp_sock is None or manager.udp_sock is None) and time.monotonic() >= getattr(manager, "retry_after", 0.):
+        manager._setup_sockets()
+        manager.retry_after = time.monotonic()+2.
     if manager.tcp_sock is None or manager.udp_sock is None:
         state.tcp_status = "Soket Hatası (Port Meşgul Olabilir)"
-        return None, None, None, None
-
-    # Dinlenecek giriş listesi
+        return (None,)*4
     inputs = [manager.tcp_sock, manager.udp_sock]
-    if manager.tcp_client_conn:
+    if manager.tcp_client_conn is not None:
         inputs.append(manager.tcp_client_conn)
-        
+    latest = None
     try:
-        readable, _, _ = select.select(inputs, [], [], 0.2)
-    except socket.error:
-        return None, None, None, None
-
-    raw_data = ""
-    
-    for s in readable:
-        # A. Yeni bir TCP bağlantı isteği
-        if s is manager.tcp_sock:
-            try:
-                conn, addr = s.accept()
-                conn.setblocking(False)
-                manager.tcp_client_conn = conn
-                state.tcp_status = f"Bağlı (TCP): {addr[0]}"
-            except socket.error:
-                pass
-            
-        # B. Mevcut TCP istemcisinden veri akışı
-        elif s is manager.tcp_client_conn:
-            try:
-                data = s.recv(4096)
-                if not data:
+        readable, _, _ = select.select(inputs, [], [], 0.)
+        for connection in readable:
+            if connection is manager.tcp_sock:
+                client, address = connection.accept()
+                client.setblocking(False)
+                if manager.tcp_client_conn is not None:
                     manager.tcp_client_conn.close()
+                manager.tcp_client_conn = client
+                manager.client_id = str(time.monotonic_ns())
+                state.tcp_status = f"TCP: {address[0]}"
+            elif connection is manager.udp_sock:
+                data, address = connection.recvfrom(65536)
+                latest = _decode(state, f"udp:{address}", data) or latest
+            else:
+                data = connection.recv(65536)
+                if not data:
+                    connection.close()
                     manager.tcp_client_conn = None
-                    state.tcp_status = "TCP Bağlantısı Kesildi (Yeniden Dinleniyor)"
-                    logging.info("TCP İstemcisi koptu, yeni bağlantı bekleniyor...")
                 else:
-                    raw_data = data.decode(errors='replace')
-                    state.tcp_status = "Veri Akıyor (TCP)"
-            except socket.error as e:
-                logging.warning(f"TCP Veri Alma Hatası (Bağlantı koptu): {e}")
-                manager.tcp_client_conn = None
-                state.tcp_status = "TCP Hata (Yeniden Dinleniyor)"
+                    latest = _decode(state, f"tcp:{manager.client_id}", data) or latest
+    except (OSError, ValueError) as error:
+        state.tcp_status = f"TCP/UDP Okuma Hatası: {error}"
+    return latest if latest is not None else (None,)*4
 
-        # C. UDP paketi girişi
-        elif s is manager.udp_sock:
-            try:
-                data, addr = manager.udp_sock.recvfrom(4096)
-                raw_data = data.decode(errors='replace')
-                state.tcp_status = f"Bağlı (UDP): {addr[0]}"
-            except socket.error as e:
-                logging.warning(f"UDP Veri Alma Hatası: {e}")
 
-    # NMEA Çözümleme
-    if not raw_data:
-        return None, None, None, None
-
-    try:
-        for line in raw_data.split('\n'):
-            line = line.strip()
-            if line.startswith('$'):
-                msg = pynmea2.parse(line)
-                if isinstance(msg, pynmea2.types.talker.GGA):
-                    return msg.latitude, msg.longitude, 0.0, getattr(state, "current_heading", 45.0)
-                elif isinstance(msg, pynmea2.types.talker.RMC):
-                    speed_kmh = float(msg.spd_over_grnd or 0) * 1.852
-                    heading = float(msg.true_course) if msg.true_course else getattr(state, "current_heading", 45.0)
-                    return msg.latitude, msg.longitude, speed_kmh, heading
-    except pynmea2.ParseError:
-        pass
-    except Exception as e:
-        logging.error(f"NMEA İşleme Hatası: {e}")
-        
-    return None, None, None, None
-
-def get_gps_from_serial(state, port='COM3', baud=9600):
-    """
-    Donanım Entegrasyonu: Seri port üzerinden gerçek NMEA verisini okur.
-    """
+def get_gps_from_serial(state, port="COM3", baud=9600):
     if serial is None:
         state.tcp_status = "Bağımlılık Eksik: pyserial"
-        return None, None, None, None
-
-    manager = get_serial_manager(port, baud)
-    
+        return (None,)*4
+    manager = state.get("gps_serial_manager")
+    if manager is None or (manager.port, manager.baud) != (port, baud):
+        if manager is not None and manager.ser is not None:
+            manager.ser.close()
+        manager = get_serial_manager(port, baud)
+        state.gps_serial_manager = manager
+    if manager.ser is None and time.monotonic() >= getattr(manager, "retry_after", 0.):
+        manager._setup_serial()
+        manager.retry_after = time.monotonic()+2.
+        state.get("nmea_parsers", {}).pop(f"serial:{port}:{baud}", None)
     if manager.ser is None:
         state.tcp_status = f"Port Erişim Hatası: {port}"
-        return None, None, None, None
-
+        return (None,)*4
     try:
-        if manager.ser.in_waiting > 0:
-            line = manager.ser.readline().decode('ascii', errors='replace').strip()
-            if line.startswith('$'):
-                msg = pynmea2.parse(line)
-                state.tcp_status = "Seri Veri Akıyor"
-                if isinstance(msg, pynmea2.types.talker.GGA):
-                    return float(msg.latitude), float(msg.longitude), 0.0, getattr(state, "current_heading", 45.0)
-                elif isinstance(msg, pynmea2.types.talker.RMC):
-                    speed_kmh = float(msg.spd_over_grnd or 0) * 1.852
-                    heading = float(msg.true_course) if msg.true_course else getattr(state, "current_heading", 45.0)
-                    return float(msg.latitude), float(msg.longitude), speed_kmh, heading
-    except Exception as e:
-        state.tcp_status = f"Seri Okuma Hatası: {str(e)}"
-        logging.error(f"Seri Okuma Hatası: {e}")
-        
-    return None, None, None, None
+        count = manager.ser.in_waiting
+        if count:
+            result = _decode(state, f"serial:{port}:{baud}", manager.ser.read(min(count, 65536)))
+            state.tcp_status = "Seri veri akıyor"
+            if result is not None:
+                return result
+    except (OSError, ValueError) as error:
+        state.tcp_status = f"Seri Okuma Hatası: {error}"
+        manager.ser.close()
+        manager.ser = None
+    return (None,)*4

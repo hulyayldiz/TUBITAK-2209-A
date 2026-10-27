@@ -1,40 +1,32 @@
-# 🎮 HACKATHON / JÜRİ DEMO KULLANIM KILAVUZU
+# Demo kullanım kılavuzu
 
-Bu kılavuz, jüri karşısına çıktığınızda projeyi hangi sırayla ve nasıl tanıtmanız gerektiğini adım adım anlatan "Kusursuz Şov" senaryosudur.
+Bu kılavuz, mevcut araştırma prototipinin doğrulanabilir işlevlerini dürüst ve tekrarlanabilir biçimde göstermeyi amaçlar. Arayüz, bir GNSS alıcısının kendisi, uçuş kontrolcüsü veya güvenlik sertifikalı ürün değildir. Demo sırasında ekrandaki alarmı dedektör çıktısı olarak anlatın; saldırının bağımsız doğrulanmış etiketi gibi sunmayın.
 
----
+## Hazırlık
 
-## 🚀 BAŞLANGIÇ: SİSTEMİ AYAĞA KALDIRMA
-1. Terminalden `streamlit run main.py` komutuyla sistemi başlatın.
-2. Sistem açıldığında menüden **"Sol Menüyü"** açın.
-3. Çıkan menüden en üstteki anahtarı **"Kayıtlı Veri Seti Yükle"** moduna getirin.
-4. "Eğitim Verisi Topla" şalterinin **AÇIK (Aktif)** olduğundan emin olun. (Bu, yapay zekanın uçuşu öğrenmesi için şarttır).
+1. Proje ortamında `streamlit run main.py` komutuyla arayüzü açın.
+2. Arayüzün sunduğu kayıtlı veri kümelerinden birini seçin. Dosya adını ve kaynak/kayıt bilgisini not edin; burada adı geçmeyen bir dosyanın projede bulunduğunu varsaymayın.
+3. Model eğitimi veya profil kalibrasyonu başlatmadan önce seçili akışın ne olduğunu, eğitimde hangi kayıtların kullanılacağını ve bunların test kaydıyla çakışıp çakışmadığını kontrol edin. Aynı kayda bakarak eşik ayarlayıp sonra aynı kayıtta başarı raporlamak bağımsız test değildir.
+4. Deney yapılandırmasını, uygulama sürümünü, adaptörü ve alarm parametrelerini kaydedin. Böylece replay tekrarlanabilir.
 
----
+## Önerilen kayıtlı replay
 
-## 🎯 SENARYO 1: İHA KOMBİNE SİBER HARP TESTİ (EN ETKİLEYİCİ KISIM)
-Bu aşamada dünyanın en zor siber saldırılarından biri olan "Önce Jamming, Sonra Spoofing (Kombine)" saldırısını jüriye göstereceksiniz.
+Önce `cleanStatic` kaydını gösterin. Bu kaydın 50–120 saniye aralığı güncel CMC alıcı profilini kalibre etmek için kullanılmıştır; dolayısıyla aynı kayıttaki sessiz sonuç, bağımsız yanlış-alarm doğrulaması değildir.
 
-* **Adım 1:** Veri yükleme kısmından daha önce hazırladığımız **`Kombine-Gercek-IHA-Saldirisi.csv`** dosyasını seçin.
-* **Adım 2:** Araç haritada uçmaya başlayacaktır. Jüriye şunu söyleyin: *"Şu an sistemimiz %100 gerçek verilerle tasarlanmış bir İHA uçuş dinamiğine geçti. Havada 1200 metrede 250 km/sa hızla devriye atıyoruz."*
-* **Adım 3 (EĞİTİM):** Uçuş normal bir şekilde devam ederken yaklaşık 15-20 saniye bekleyin. Sonra Karar Motoru paneli altındaki **"Yapay Zeka Modellerini Eğit"** butonuna basın. Jüriye dönüp: *"Yapay zeka şu an havadaki İHA'nın dinamiklerini öğreniyor. Modeller çevrimdışı eğitildiği için bu işlem biraz sürer ancak havadaki çıkarım (predict) hızı milisaniyedir."* deyin.
-* **Adım 4 (JAMMING GÖZLEMİ):** Bir süre sonra ekranda sinyal gücünün (SNR) aniden çakıldığını (40'lardan 15'e) ve haritanın kırmızıya döndüğünü göreceksiniz. *"İşte şu an Jamming (Körleştirme) saldırısı altındayız, uyduları kaybettik."* deyin.
-* **Adım 5 (SPOOFING VE KORUMA):** Hemen arkasından araç haritada ışınlanma tepkisi verecektir. Sisteminiz anında paneli Sarı/Kırmızı uyarıya çevirip aracı **"Kör Uçuş (INS) Otopilotuna"** alacaktır. *"Sistemimiz körleştirilmeyi fark edip sahte uydulara bağlanmayı reddetti. Şu an otopilotla kendi iç sensörlerimizi kullanarak güvendeyiz."* diyerek şovu tamamlayın.
+Sonra TEXBAT DS2 veya DS7 replay'ini açın. DS2'de mevcut yapılandırma için ilk yeni alarm yaklaşık 0,90 saniyede, DS7'de 5,60 saniyede oluşmuştur. DS7'deki saldırı başlangıcından ilk alarma kadar 1.789 örneğin 27'si alarm dışında kalmıştır. Bu değerler işlenmiş GRID NAV/kanal ölçümleriyle yapılan, DS7 incelendikten sonra bazı parametreleri ayarlanmış keşifsel replay sonuçlarıdır; kör bağımsız test, gerçek zamanlı gecikme veya genel tespit olasılığı değildir.
 
----
+Açıklama örneği: “Bu prototip, seçilen TEXBAT kaydının alıcı ölçümlerindeki tutarsızlıkları izliyor. Bu demo ham RF sinyalini yeniden çözmüyor ve alarm tek başına saldırı tipini kanıtlamıyor. DS7 için mevcut geliştirme replay'inde alarm gecikmesi 5,60 saniye; bunun bağımsız kayıtta doğrulanması gerekiyor.”
 
-## 🚙 SENARYO 2: KARA ARACINA (AV) DİNAMİK GEÇİŞ ŞOVU
-Bu aşamada makine öğrenmesi sisteminizin hantal olmadığını, her türlü araca anında adapte olabilen esnek bir ticari ürün olduğunu kanıtlayacaksınız.
+## Sentetik senaryolar
 
-* **Adım 1:** Sayfayı ASLA YENİLEMEYİN. Sol menüden dosya yükleyiciyi açıp bu sefer **`AV-GPS-Dataset-1.csv`** (Yavaş giden orijinal otonom araç) dosyasını yükleyin.
-* **Adım 2 (ANOMALİ YAKALAMA):** Dosyayı yükler yüklemez yapay zeka büyük ihtimalle "Spoofing / Anomali" tespit uyarısı vererek sistemi kilitleyecektir. Bu beklenen bir reaksiyondur (False Positive değil, True Anomaly). Jüriye dönüp profesyonel bir şekilde şunu açıklayın:
-*"Fark ettiğiniz gibi sistem uyarı verdi. Ancak bu bir hata değil, algoritmamızın kusursuz bir tespitidir. Yapay zekamız bir önceki uçuşta 'İHA uçuş dinamiklerini' referans almıştı. Biz aniden yavaş giden bir Karasal Otonom Araç profilini sisteme dahil ettiğimizde, yapay zeka bu ani hız ve irtifa düşüşünü önceden tanımlanmış eşiklerin dışında bir anomali (fiziksel tutarsızlık) olarak doğru bir şekilde sınıflandırdı."*
-* **Adım 3 (BEYNİ SIFIRLAMA):** Araç yürümeye devam ederken 15-20 saniye sonra tekrar **"Yapay Zeka Modellerini Eğit"** butonuna basın.
-* **Adım 4:** Sistem 20 saniye sonra eğitimi tamamlandığında ışıkların Yeşil'e (Normal) döndüğünü göreceksiniz. Jüriye şunu deyin: *"İşte gördüğünüz gibi, sistem yeni arabanın hız profilini yeni "Normal" olarak kabul etti ve sadece 20 saniyede bir otonom kara aracının beyni haline geldi. Tamamen platform bağımsızız."*
+Sentetik senaryo gösteriliyorsa bunu açıkça sentetik olarak etiketleyin. Enjekte edilmiş özellikler ve senaryo etiketleri algoritma davranışını sınamak için kullanılabilir; bunlar gerçek İHA uçuşu, gerçek saldırı kaydı veya saha doğrulaması değildir. Harita ya da araç animasyonu görselleştirmedir; fiziksel araç kontrolü veya gerçek sensör telemetrisi anlamına gelmez.
 
----
+## Sonuçların doğru anlatımı
 
-## 📊 VURUCU FİNAL (ADLİ BİLİŞİM KAPANIŞI)
-En son jüri sorusu vs. kalmadığında sayfanın en altına inip **"Adli Bilişim (Forensics) Kayıtları"** panelini açın. 
+Jamming, alıcıya ulaşan GNSS sinyallerini bozarak kullanılabilirliği düşürür; spoofing ise alıcının yanıltıcı uydu ölçümlerini takip etmesine yol açabilir. Bu projedeki her alarm bu iki sınıftan birini kesinleştirmez. “INS'e geçti”, “sahte uyduyu reddetti”, “otopilotu güvenli moda aldı”, “milisaniyede çalışıyor” veya “%100 gerçek İHA dinamiği” ifadelerini ancak ayrı fiziksel donanım ve zaman referanslı testlerle kanıtlandıysa kullanın. Mevcut yazılım çıktıları bu iddiaları tek başına desteklemiyor.
 
-* *"Tüm bu yaptığımız operasyonlar, İHA için ayrı sekmede, Kara Aracı için ayrı sekmede kaydedildi. Mahkemede veya siber güvenlik analizinde delil olması için hepsi manipüle edilemez SHA256 Askeri Kriptolamasıyla (Hash) mühürlenip indirilebilir durumdadır."* diyerek sunumu alkışlarla bitirin.
+Ölçüm sonuçlarını örnek kapsamı, olay düzeyinde tespit, kaçırılan olay/örnek, ilk alarm gecikmesi ve temiz bağımsız kayıttaki yanlış alarm olarak ayrı raporlayın. Ardışık örnek kapsamını olay tespit oranı ya da olasılıksal yanlış alarm garantisi diye sunmayın. Yöntem, veri kökeni ve kısıtlar için [teknik rapora](PROJE_RAPORU.md), [literatür eşlemesine](LITERATURE_REVIEW.md) ve [güncel TEXBAT değerlendirmesine](TEXBAT_CURRENT_VALIDATION.md) bakın.
+
+## Günlük ve hash gösterimi
+
+Günlük/hash ekranı gösteriliyorsa bunun yalnızca uygulamanın kaydettiği veride bütünlük kontrolü olduğunu söyleyin. Bu tek başına mahkemece kabul edilebilir adli delil, anahtar yönetimi, güvenilir zaman damgası veya askeri kriptolama kanıtı değildir. Veri kökeni ve dosya doğrulama durumu ayrıca [veri kökeni kaydında](DATA_PROVENANCE.md) belirtilmelidir.

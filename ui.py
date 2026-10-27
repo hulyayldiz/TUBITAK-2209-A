@@ -1,36 +1,25 @@
-"""
-Streamlit Merkezi UI Modülü
-Diğer bileşenleri koordine eder ve ana arayüzün iskeletini oluşturur.
-"""
+"""Streamlit application shell and top-level status messages."""
 
 import streamlit as st
-import streamlit.components.v1 as components
-import os
-import config
 
-# Bileşenleri Import Et
-from controls import render_sidebar, inject_custom_css
-from map_layers import render_map
-from analytics import render_top_metrics, render_academic_metrics, render_expanders
+from controls import render_sidebar
 
-def render_ui_skeleton(state):
-    """Arayüzün temel yapısını ve yerleşimini koordine eder."""
-    
-    # 1. Stil ve Sidebar
+def render_app_shell(state):
+    """Render the sidebar and accurately describe the research prototype."""
     fw_active, conf_cn0, conf_accel, conf_heading = render_sidebar(state)
-    
-    # 2. Üst Banner
-    st.title("🛰️ GNSS Sinyal Bütünlüğü İçin Hibrit Yapay Zeka Destekli Otonom Müdahale Sistemi")
-    st.markdown("*Akademik Literatür Standartlarında Anomali Tespit ve Savunma Arayüzü*")
-    
-    # 3. Bilgilendirme Mesajları (UX Geliştirmesi)
+    st.title("GNSS Ölçüm Tutarlılığı Araştırma Prototipi")
+    st.caption(
+        "Fiziksel kurallar ve uygun olduğunda veri türüne özel algılama katmanları. "
+        "Saha doğrulaması tamamlanmamıştır; örtülü spoofing değerlendirmesi bağımsız IMU/yönelim gerektirir."
+    )
+
     if state.get("save_training_data", False):
-        st.toast("🔴 Veri Toplama Aktif: Farklı senaryolar uygulayarak modeli zenginleştirin.", icon="📊")
-    
+        st.toast("Eğitim verisi kaydı etkin; bu kayıtlar saha doğrulaması yerine geçmez.", icon="📊")
+
     if state.get("ins_active", False):
-        st.warning(f"🚨 Sinyal Kaybı! Otopilot (INS) Devrede. Tahmini Kalan Süre: {state.get('ins_remaining', 0):.1f} sn", icon="🛡️")
+        st.warning(
+            "GNSS ölçümleri reddediliyor; mevcut sensör girdileriyle ataletsel konum tahmini kullanılıyor. "
+            "Bu çıktı doğrulanmış saha INS'i veya otopilot kontrolü değildir."
+        )
 
     return fw_active, conf_cn0, conf_accel, conf_heading
-
-# Geriye dönük uyumluluk için UI fonksiyonlarını buradan dışarı açıyoruz
-__all__ = ['render_sidebar', 'render_top_metrics', 'render_map', 'render_academic_metrics', 'render_expanders', 'render_ui_skeleton']

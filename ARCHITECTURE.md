@@ -1,61 +1,38 @@
-# PROJE TEKNİK MİMARİSİ VE VERİ AKIŞI 🛰️🛡️
+# GNSS ölçüm tutarlılığı prototipi: yazılım mimarisi
 
-Bu doküman, "GNSS Sinyal Bütünlüğü için Hibrit Yapay Zeka Destekli Otonom Müdahale Sistemi"nin iç işleyişini ve modüler yapısını görselleştirmek için hazırlanmıştır.
+Bu belge uygulamanın gerçek yazılım akışını özetler. Uygulama GNSS alıcısı içinde çalışmaz; RF örneklerini demodüle etmez ve uçuş kontrolüne komut göndermez.
 
-## 1. Veri Akış Diyagramı (Data Flow)
-
-Aşağıdaki şema, ham GPS verisinin sisteme girişinden itibaren nasıl işlendiğini ve otonom müdahalenin nasıl tetiklendiğini gösterir:
+## Veri ve karar akışı
 
 ```mermaid
 graph TD
-    A[GNSS Alıcısı / Simülatör] -->|Ham Veri: Lat, Lon, SNR, Hız| B(Sensör İşleme Modülü)
-    B --> C{Güvenlik Duvarı - Mod 1: Kural Tabanlı}
-    C -->|Fiziksel Kontrol: İvme/Yön| D[ML Özellik Vektörü Hazırlama]
-    C -->|Işınlanma Kontrolü| D
-    
-    subgraph Karar Motoru - Hibrit Karar
-        D --> E[Mod 2: Random Forest - Sınıflandırma]
-        D --> F[Mod 3: LSTM-VAE - Anomali Tespiti]
-        E --> G[Ağırlıklı Oylama Ünitesi]
-        F --> G
-        C -->|Kritik İhlal| G
-    end
-
-    G -->|Skor > 0.5| H{Müdahale Katmanı}
-    H -->|TEHDİT| I[INS Otopilot Devrede - Otonom Rota]
-    H -->|NORMAL| J[Standart Navigasyon]
-    I --> K[Siren ve Olay Kaydı - SIEM]
+    A[CSV/MAT/TEXBAT veya NMEA girişi] --> B[Kaynağa özel adaptör ve kalite kontrolü]
+    B --> C[Ortak durum ve ölçüm alanları]
+    C --> D[Anlık fiziksel kurallar]
+    C --> E{Veri türü ve alıcı profili}
+    E -->|GRID statik profil| F[Alıcı profili ve CMC izleyicisi]
+    E -->|C/N0 ve gerekli özellikler var| G[RF ve LSTM-VAE]
+    E -->|C/N0 yok, AV alanları var| H[AV kinematik RF modeli]
+    E -->|Gerekli alanlar yok| I[İlgili model devre dışı]
+    D --> J[Karar ve navigasyon politikası]
+    F --> J
+    G --> J
+    H --> J
+    I --> J
+    J --> K[Arayüz, olay çıktısı ve günlük]
 ```
 
-## 2. Modüler Mimari Yapısı
+Dosya oynatımı, NMEA canlı girişi ve bazı opsiyonel IMU girişleri desteklenir. Her adaptör birim ve alan sözleşmesine göre veriyi ortak şemaya dönüştürür; eksik özellikler uygun modeli devre dışı bırakabilir. Ham IQ/BIN için önce GNSS yazılım alıcısı gerekir.
 
-Projenin dosya yapısı ve modüller arası bağımlılıklar:
+## Tespit bileşenleri
 
-```mermaid
-graph LR
-    subgraph UI_Layer
-        Main[main.py]
-        UI[ui.py]
-    end
+- `detection.py` fiziksel/kinematik kuralları ve varsa alıcı durum göstergelerini değerlendirir. Bağımsız navigasyon çerçevesinde IMU/yönelim yoksa bu tutarlılık yolu kullanılamaz.
+- `ml_detection.py` veri yeterliyse RF sınıflandırıcısı ve LSTM-VAE anomali skorunu çalıştırır; özellik yoksa uygun katmanı kapatır. Model skorları kalibre edilmiş saldırı olasılığı değildir.
+- Alarm kararları fiziksel kural, sınıflandırıcı doğrulaması veya VAE eşik+süreklilik koşulundan ayrı ayrı gelir. Ölçekleri ortak kalibre edilmediğinden RF/VAE skorları ağırlıklı toplamla olasılık gibi birleştirilmez; arayüz kalibre edilmiş güven yüzdesi göstermez.
+- Statik TEXBAT GRID profili için alıcı profili ve `code_carrier.py` CMC gözlemleri kullanılır. CMC tek başına spoofing doğrulaması değildir ve alıcı/kayıt özelinde eşiklenmiştir.
+- `navigation.py` şüpheli GNSS ölçümlerini kabul etmeme, filtreleme ve varsa bağımsız IMU ile inertial prediction davranışını yönetir. Bu bir uçuşa elverişlilik veya gerçek INS donanım testi iddiası değildir.
+- `forensic_ledger.py` olay günlüğü bütünlüğü için HMAC zinciri sağlar. HMAC zinciri veri kaynağını, saldırı sınıfını veya geçmişin harici olarak korunmasını tek başına ispatlamaz.
 
-    subgraph Logic_Layer
-        Detect[detection.py]
-        ML[ml_detection.py]
-        Sat[satellites.py]
-    end
+## İlgili modüller
 
-    subgraph Data_Layer
-        Sensors[sensors.py]
-        Live[live_gps.py]
-        Models[models/lstm_vae.py]
-    end
-
-    Main --> UI
-    Main --> Logic_Layer
-    Logic_Layer --> Data_Layer
-```
-
-## 3. Özgün Teknolojiler ve Yenilikler
-1.  **Dinamik Eşikleme:** Hıza duyarlı ivme analizi.
-2.  **Zero-Day Koruma:** LSTM-VAE ile imzasız saldırı tespiti.
-3.  **Hibrit Oylama:** Üç farklı karar vericinin (Kural, RF, VAE) sonuçları ağırlıklandırması.
+`main.py` içindeki `run_app()` Streamlit başlangıç noktasını ve arayüz döngüsünü kurar; modül içe aktarıldığında uygulama başlatılmaz. `simulation.py` tek gözlemin algılama, navigasyon ve metrik hesabını UI çizmeden yürütür. `ui.py` kenar çubuğu, başlık ve durum mesajlarından oluşan uygulama kabuğunu çizer. `dataset_adapters.py`, `dataset_loader.py`, `nmea_stream.py` ve `live_gps.py` veri girişini; `detection.py`, `ml_detection.py`, `receiver_profile.py` ve `code_carrier.py` tespit yollarını; `fusion.py` ve `navigation.py` kestirim/kabul akışını koordine eder. Doğrulama kapsamı için [PROJE_RAPORU.md](PROJE_RAPORU.md), gerçek veri ve bilinen sınırlamalar için [DATA_PROVENANCE.md](DATA_PROVENANCE.md) ile [ACTIVE_ISSUES.md](ACTIVE_ISSUES.md) esas alınmalıdır.

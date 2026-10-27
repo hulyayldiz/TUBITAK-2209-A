@@ -1,0 +1,235 @@
+{
+  "created_at_utc": "2026-10-23T09:40:39.224189+00:00",
+  "protocol": "Full source replay, fixed existing models, no retraining or threshold adjustment, no forensic log writes.",
+  "source_manifest_sha256": "7442d90fec6b8a37437851fcc3271a102d479658db7537467cfcfdbe0ddc7add",
+  "code_sha256": {
+    "dataset_adapters.py": "757567ce3c17c0831223b16fce33401583d5f50c7052595a3de7e616b3633711",
+    "dataset_loader.py": "8b0f12433be29ed7b806fb90dc708ddccb44caba65451bac08ef78e6be01b138",
+    "validate_real_data.py": "5a5097b879cc371e4eb260d64b86c5d6210039bd7e3836dd82e16ed57a0c040b",
+    "detection.py": "3d7f7b98e7072224becd9093f529505d96c5ac11ad41091bc1f33113cf165040",
+    "ml_detection.py": "c08280716702112abf3d58a78abb529679f04b8284bfc37b817fcda6eddd75d6",
+    "navigation.py": "235d0de62704b9a6b83cc64dfa5a15e0b644bddb751702d0a21922e4ffb6f279",
+    "features.py": "e84fc1e91c59653a4851ee4040752f660b7fab096244e3078d20a44d48f61ad8"
+  },
+  "results": [
+    {
+      "name": "Zurich — gerçek Fotokite uçuşu (GPS + gövde IMU)",
+      "path": "dataset_gercek\\external\\zurich\\AGZ_subset.zip",
+      "input_sha256": "e79bf9d3da628745b83bb24bde5a7117d53002111a3b3f59a02f4d134bba8d1c",
+      "rows_replayed": 13531,
+      "source": {
+        "rows": 13531,
+        "cols": 12,
+        "filename": "C:\\Users\\hulya\\OneDrive\\Desktop\\vers8\\dataset_gercek\\external\\zurich\\AGZ_subset.zip",
+        "adapter": "zurich-mav-v1",
+        "source": {
+          "adapter": "zurich-mav-v1",
+          "coordinate_input": "degrees as stored in published sample",
+          "input_gps_rows": 81169,
+          "held_gps_rows_removed": 67638,
+          "out_of_order_boundaries": 6,
+          "time_policy": "stable timestamp sort; no clock rewriting",
+          "speed_origin": "Hypotenuse of GNSS north/east velocity, m/s to km/h",
+          "labels": "unknown; no attack annotation supplied",
+          "independent_imu": false,
+          "imu_origin": "Raw body accelerometer; backward match <=0.2s; no assumed attitude",
+          "notes": "Real Fotokite flight. Camera UTM reference is not GNSS antenna ground truth. GPS-assisted onboard pose is not independent heading. No C/N0 supplied."
+        },
+        "capabilities": {
+          "cn0": false,
+          "attack_labels": false,
+          "independent_imu": false
+        },
+        "time_unit": "seconds",
+        "speed_unit": "km/h at playback"
+      },
+      "cn0_observations": 0,
+      "body_imu_observations": 13526,
+      "output_decision_counts": {
+        "NORMAL": 13531
+      },
+      "ml_sources": {
+        "unavailable": 13531
+      },
+      "elapsed_s": 7.479,
+      "accuracy": null,
+      "false_alarm_rate": null,
+      "position_rmse_m": null,
+      "limitation": "No verified per-epoch attack labels or independent GNSS antenna position reference; decision counts are not accuracy or false-alarm rates. Models not field-calibrated on these sources."
+    },
+    {
+      "name": "TEXBAT — cleanStatic (işlenmiş gerçek sinyal)",
+      "path": "dataset_gercek\\external\\texbat\\cleanStatic\\navsol.mat",
+      "input_sha256": "b62129a8468b2372e8b353037b3bc9eab02b4cd3e4072cde1d4c67d2be3a5966",
+      "rows_replayed": 2115,
+      "source": {
+        "rows": 2115,
+        "cols": 7,
+        "filename": "C:\\Users\\hulya\\OneDrive\\Desktop\\vers8\\dataset_gercek\\external\\texbat\\cleanStatic\\navsol.mat",
+        "adapter": "texbat-grid-v1",
+        "source": {
+          "adapter": "texbat-grid-v1",
+          "receiver_profile": "texbat-grid-static-v1",
+          "speed_origin": "ECEF velocity projected to local horizontal plane",
+          "cn0_origin": "Mean of valid channels, backward match <=0.5s",
+          "labels": "unknown; no inferred attack onset",
+          "independent_imu": false,
+          "raw_signal": false,
+          "notes": "Recorded RF processed by UT GRID receiver; not UAV flight."
+        },
+        "capabilities": {
+          "cn0": true,
+          "attack_labels": false,
+          "independent_imu": false
+        },
+        "time_unit": "seconds",
+        "speed_unit": "km/h at playback"
+      },
+      "cn0_observations": 2115,
+      "body_imu_observations": 0,
+      "output_decision_counts": {
+        "NORMAL": 2115
+      },
+      "ml_sources": {
+        "TEXBAT_RECEIVER_PROFILE": 2115
+      },
+      "elapsed_s": 1.384,
+      "accuracy": null,
+      "false_alarm_rate": null,
+      "position_rmse_m": null,
+      "limitation": "No verified per-epoch attack labels or independent GNSS antenna position reference; decision counts are not accuracy or false-alarm rates. Models not field-calibrated on these sources."
+    },
+    {
+      "name": "TEXBAT — DS2 (işlenmiş gerçek sinyal)",
+      "path": "dataset_gercek\\external\\texbat\\ds2\\navsol.mat",
+      "input_sha256": "317ca9a57aaa6d1fde6f3f9325f002dc49655f6616e1ce53a8cda2d46b43b3ef",
+      "rows_replayed": 2100,
+      "source": {
+        "rows": 2100,
+        "cols": 7,
+        "filename": "C:\\Users\\hulya\\OneDrive\\Desktop\\vers8\\dataset_gercek\\external\\texbat\\ds2\\navsol.mat",
+        "adapter": "texbat-grid-v1",
+        "source": {
+          "adapter": "texbat-grid-v1",
+          "receiver_profile": "texbat-grid-static-v1",
+          "speed_origin": "ECEF velocity projected to local horizontal plane",
+          "cn0_origin": "Mean of valid channels, backward match <=0.5s",
+          "labels": "unknown; no inferred attack onset",
+          "independent_imu": false,
+          "raw_signal": false,
+          "notes": "Recorded RF processed by UT GRID receiver; not UAV flight."
+        },
+        "capabilities": {
+          "cn0": true,
+          "attack_labels": false,
+          "independent_imu": false
+        },
+        "time_unit": "seconds",
+        "speed_unit": "km/h at playback"
+      },
+      "cn0_observations": 2100,
+      "body_imu_observations": 0,
+      "output_decision_counts": {
+        "NORMAL": 1038,
+        "ANOMALİ (Alıcı tutarsızlığı)": 962,
+        "SPOOFING": 100
+      },
+      "ml_sources": {
+        "TEXBAT_RECEIVER_PROFILE": 2100
+      },
+      "elapsed_s": 1.506,
+      "accuracy": null,
+      "false_alarm_rate": null,
+      "position_rmse_m": null,
+      "limitation": "No verified per-epoch attack labels or independent GNSS antenna position reference; decision counts are not accuracy or false-alarm rates. Models not field-calibrated on these sources."
+    },
+    {
+      "name": "TEXBAT — DS3 (işlenmiş gerçek sinyal)",
+      "path": "dataset_gercek\\external\\texbat\\ds3\\navsol.mat",
+      "input_sha256": "5067660cd12626a1eae36146556c7c1c7b83332fd977d6bdc29ebda20da8d19e",
+      "rows_replayed": 2096,
+      "source": {
+        "rows": 2096,
+        "cols": 7,
+        "filename": "C:\\Users\\hulya\\OneDrive\\Desktop\\vers8\\dataset_gercek\\external\\texbat\\ds3\\navsol.mat",
+        "adapter": "texbat-grid-v1",
+        "source": {
+          "adapter": "texbat-grid-v1",
+          "receiver_profile": "texbat-grid-static-v1",
+          "speed_origin": "ECEF velocity projected to local horizontal plane",
+          "cn0_origin": "Mean of valid channels, backward match <=0.5s",
+          "labels": "unknown; no inferred attack onset",
+          "independent_imu": false,
+          "raw_signal": false,
+          "notes": "Recorded RF processed by UT GRID receiver; not UAV flight."
+        },
+        "capabilities": {
+          "cn0": true,
+          "attack_labels": false,
+          "independent_imu": false
+        },
+        "time_unit": "seconds",
+        "speed_unit": "km/h at playback"
+      },
+      "cn0_observations": 2096,
+      "body_imu_observations": 0,
+      "output_decision_counts": {
+        "NORMAL": 1945,
+        "ANOMALİ (Alıcı tutarsızlığı)": 76,
+        "SPOOFING": 75
+      },
+      "ml_sources": {
+        "TEXBAT_RECEIVER_PROFILE": 2096
+      },
+      "elapsed_s": 1.389,
+      "accuracy": null,
+      "false_alarm_rate": null,
+      "position_rmse_m": null,
+      "limitation": "No verified per-epoch attack labels or independent GNSS antenna position reference; decision counts are not accuracy or false-alarm rates. Models not field-calibrated on these sources."
+    },
+    {
+      "name": "TEXBAT — DS7 (işlenmiş gerçek sinyal)",
+      "path": "dataset_gercek\\external\\texbat\\ds7\\navsol.mat",
+      "input_sha256": "6b2aa3942b2ca2597f03dfc4796f20c00010940b4055f3a1ca9fd5bfe837ec46",
+      "rows_replayed": 2175,
+      "source": {
+        "rows": 2175,
+        "cols": 7,
+        "filename": "C:\\Users\\hulya\\OneDrive\\Desktop\\vers8\\dataset_gercek\\external\\texbat\\ds7\\navsol.mat",
+        "adapter": "texbat-grid-v1",
+        "source": {
+          "adapter": "texbat-grid-v1",
+          "receiver_profile": "texbat-grid-static-v1",
+          "speed_origin": "ECEF velocity projected to local horizontal plane",
+          "cn0_origin": "Mean of valid channels, backward match <=0.5s",
+          "labels": "unknown; no inferred attack onset",
+          "independent_imu": false,
+          "raw_signal": false,
+          "notes": "Recorded RF processed by UT GRID receiver; not UAV flight."
+        },
+        "capabilities": {
+          "cn0": true,
+          "attack_labels": false,
+          "independent_imu": false
+        },
+        "time_unit": "seconds",
+        "speed_unit": "km/h at playback"
+      },
+      "cn0_observations": 2175,
+      "body_imu_observations": 0,
+      "output_decision_counts": {
+        "NORMAL": 2029,
+        "ANOMALİ (Alıcı tutarsızlığı)": 121,
+        "SPOOFING": 25
+      },
+      "ml_sources": {
+        "TEXBAT_RECEIVER_PROFILE": 2175
+      },
+      "elapsed_s": 1.143,
+      "accuracy": null,
+      "false_alarm_rate": null,
+      "position_rmse_m": null,
+      "limitation": "No verified per-epoch attack labels or independent GNSS antenna position reference; decision counts are not accuracy or false-alarm rates. Models not field-calibrated on these sources."
+    }
+  ]
+}

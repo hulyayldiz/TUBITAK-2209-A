@@ -1,0 +1,1495 @@
+{
+  "threshold": 0.0031478898534551257,
+  "persistence_samples": 3,
+  "persistence_seconds": 1.5,
+  "rf_confirmation_samples": 1,
+  "synthetic": [
+    {
+      "seed": 80001,
+      "scenario": "normal",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 1200,
+          "alarms": 26,
+          "alarm_rate": 0.021666666666666667
+        },
+        "attack": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        },
+        "recovery": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 5,
+        "navigation": 21
+      },
+      "layers": {
+        "rule": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 2,
+          "tn": 1198,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0016666666666666668,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 3,
+          "tn": 1197,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0025,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 0,
+          "fp": 26,
+          "tn": 1174,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.021666666666666667,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 10.884249990340322,
+        "p95": 12.840384984156117,
+        "max": 1437.258500023745
+      },
+      "raw_rmse_m": 0.24291084131028323,
+      "navigation_rmse_m": 0.19702852098379897,
+      "ekf_rmse_m": 0.19702852098379897
+    },
+    {
+      "seed": 80002,
+      "scenario": "normal",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 1200,
+          "alarms": 13,
+          "alarm_rate": 0.010833333333333334
+        },
+        "attack": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        },
+        "recovery": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 4,
+        "navigation": 9
+      },
+      "layers": {
+        "rule": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 1196,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0033333333333333335,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 0,
+          "fp": 13,
+          "tn": 1187,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.010833333333333334,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 9.895850002067164,
+        "p95": 12.861114967381582,
+        "max": 13.723500014748424
+      },
+      "raw_rmse_m": 0.24149013088982216,
+      "navigation_rmse_m": 0.20212750651990136,
+      "ekf_rmse_m": 0.20212750651990136
+    },
+    {
+      "seed": 80003,
+      "scenario": "normal",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 1200,
+          "alarms": 0,
+          "alarm_rate": 0.0
+        },
+        "attack": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        },
+        "recovery": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        }
+      },
+      "false_alarm_sources": {},
+      "layers": {
+        "rule": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 7.407450000755489,
+        "p95": 9.877430021879258,
+        "max": 21.5320999850519
+      },
+      "raw_rmse_m": 0.24637311968449419,
+      "navigation_rmse_m": 0.183319933739513,
+      "ekf_rmse_m": 0.183319933739513
+    },
+    {
+      "seed": 80004,
+      "scenario": "normal",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 1200,
+          "alarms": 4,
+          "alarm_rate": 0.0033333333333333335
+        },
+        "attack": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        },
+        "recovery": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 2,
+        "navigation": 2
+      },
+      "layers": {
+        "rule": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 2,
+          "tn": 1198,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0016666666666666668,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 1196,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0033333333333333335,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 10.352399986004457,
+        "p95": 13.133050000760704,
+        "max": 15.204700001049787
+      },
+      "raw_rmse_m": 0.24442538891953805,
+      "navigation_rmse_m": 0.17928104655592655,
+      "ekf_rmse_m": 0.17928104655592655
+    },
+    {
+      "seed": 80005,
+      "scenario": "normal",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 1200,
+          "alarms": 19,
+          "alarm_rate": 0.015833333333333335
+        },
+        "attack": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        },
+        "recovery": {
+          "samples": 0,
+          "alarms": 0,
+          "alarm_rate": null
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 8,
+        "navigation": 11
+      },
+      "layers": {
+        "rule": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 8,
+          "tn": 1192,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.006666666666666667,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 0,
+          "fp": 19,
+          "tn": 1181,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.015833333333333335,
+          "f1": 0.0,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1200,
+          "fn": 0,
+          "recall": null,
+          "false_alarm_rate": 0.0,
+          "f1": null,
+          "episode_ttd_s": [],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 7.176700019044802,
+        "p95": 12.806500017177314,
+        "max": 13.634999981150031
+      },
+      "raw_rmse_m": 0.2436224534036767,
+      "navigation_rmse_m": 0.18853605715775024,
+      "ekf_rmse_m": 0.18853605715775024
+    },
+    {
+      "seed": 80001,
+      "scenario": "slow_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 6,
+          "alarm_rate": 0.05
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 780,
+          "alarm_rate": 1.0
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 20,
+          "alarm_rate": 0.06666666666666667
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 7,
+        "navigation": 12,
+        "physical_or_inertial": 7
+      },
+      "layers": {
+        "rule": {
+          "tp": 646,
+          "fp": 7,
+          "tn": 413,
+          "fn": 134,
+          "recall": 0.8282051282051283,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9016050244242847,
+          "episode_ttd_s": [
+            13.5
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 513,
+          "fp": 0,
+          "tn": 420,
+          "fn": 267,
+          "recall": 0.6576923076923077,
+          "false_alarm_rate": 0.0,
+          "f1": 0.7935034802784223,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 778,
+          "fp": 14,
+          "tn": 406,
+          "fn": 2,
+          "recall": 0.9974358974358974,
+          "false_alarm_rate": 0.03333333333333333,
+          "f1": 0.989821882951654,
+          "episode_ttd_s": [
+            1.0
+          ],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 780,
+          "fp": 26,
+          "tn": 394,
+          "fn": 0,
+          "recall": 1.0,
+          "false_alarm_rate": 0.06190476190476191,
+          "f1": 0.9836065573770492,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 525,
+          "fp": 0,
+          "tn": 420,
+          "fn": 255,
+          "recall": 0.6730769230769231,
+          "false_alarm_rate": 0.0,
+          "f1": 0.8045977011494253,
+          "episode_ttd_s": [
+            13.5
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 11.594199982937425,
+        "p95": 13.704630042775534,
+        "max": 14.070199977140874
+      },
+      "raw_rmse_m": 90.71252063642974,
+      "navigation_rmse_m": 39.75742892946978,
+      "ekf_rmse_m": 39.75742892946978
+    },
+    {
+      "seed": 80002,
+      "scenario": "slow_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 0,
+          "alarm_rate": 0.0
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 780,
+          "alarm_rate": 1.0
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 20,
+          "alarm_rate": 0.06666666666666667
+        }
+      },
+      "false_alarm_sources": {
+        "physical_or_inertial": 7,
+        "ml": 4,
+        "navigation": 9
+      },
+      "layers": {
+        "rule": {
+          "tp": 677,
+          "fp": 7,
+          "tn": 413,
+          "fn": 103,
+          "recall": 0.867948717948718,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.924863387978142,
+          "episode_ttd_s": [
+            14.0
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 534,
+          "fp": 1,
+          "tn": 419,
+          "fn": 246,
+          "recall": 0.6846153846153846,
+          "false_alarm_rate": 0.002380952380952381,
+          "f1": 0.8121673003802281,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 778,
+          "fp": 11,
+          "tn": 409,
+          "fn": 2,
+          "recall": 0.9974358974358974,
+          "false_alarm_rate": 0.02619047619047619,
+          "f1": 0.9917144678138942,
+          "episode_ttd_s": [
+            1.0
+          ],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 780,
+          "fp": 20,
+          "tn": 400,
+          "fn": 0,
+          "recall": 1.0,
+          "false_alarm_rate": 0.047619047619047616,
+          "f1": 0.9873417721518988,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 534,
+          "fp": 0,
+          "tn": 420,
+          "fn": 246,
+          "recall": 0.6846153846153846,
+          "false_alarm_rate": 0.0,
+          "f1": 0.8127853881278538,
+          "episode_ttd_s": [
+            14.0
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 12.516899994807318,
+        "p95": 13.872940043802373,
+        "max": 15.504299954045564
+      },
+      "raw_rmse_m": 90.70488588191331,
+      "navigation_rmse_m": 59.373335923463856,
+      "ekf_rmse_m": 59.373335923463856
+    },
+    {
+      "seed": 80003,
+      "scenario": "slow_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 0,
+          "alarm_rate": 0.0
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 780,
+          "alarm_rate": 1.0
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 20,
+          "alarm_rate": 0.06666666666666667
+        }
+      },
+      "false_alarm_sources": {
+        "physical_or_inertial": 7,
+        "ml": 4,
+        "navigation": 9
+      },
+      "layers": {
+        "rule": {
+          "tp": 755,
+          "fp": 7,
+          "tn": 413,
+          "fn": 25,
+          "recall": 0.967948717948718,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9792477302204928,
+          "episode_ttd_s": [
+            10.5
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 515,
+          "fp": 0,
+          "tn": 420,
+          "fn": 265,
+          "recall": 0.6602564102564102,
+          "false_alarm_rate": 0.0,
+          "f1": 0.7953667953667953,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 777,
+          "fp": 11,
+          "tn": 409,
+          "fn": 3,
+          "recall": 0.9961538461538462,
+          "false_alarm_rate": 0.02619047619047619,
+          "f1": 0.9910714285714286,
+          "episode_ttd_s": [
+            1.5
+          ],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 780,
+          "fp": 20,
+          "tn": 400,
+          "fn": 0,
+          "recall": 1.0,
+          "false_alarm_rate": 0.047619047619047616,
+          "f1": 0.9873417721518988,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 693,
+          "fp": 0,
+          "tn": 420,
+          "fn": 87,
+          "recall": 0.8884615384615384,
+          "false_alarm_rate": 0.0,
+          "f1": 0.9409368635437881,
+          "episode_ttd_s": [
+            10.5
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 7.195499987574294,
+        "p95": 13.086960051441565,
+        "max": 14.11089999601245
+      },
+      "raw_rmse_m": 90.71111058304108,
+      "navigation_rmse_m": 22.633362267363367,
+      "ekf_rmse_m": 22.633362267363367
+    },
+    {
+      "seed": 80004,
+      "scenario": "slow_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 4,
+          "alarm_rate": 0.03333333333333333
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 778,
+          "alarm_rate": 0.9974358974358974
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 30,
+          "alarm_rate": 0.1
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 7,
+        "navigation": 20,
+        "physical_or_inertial": 7
+      },
+      "layers": {
+        "rule": {
+          "tp": 756,
+          "fp": 7,
+          "tn": 413,
+          "fn": 24,
+          "recall": 0.9692307692307692,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9799092676604018,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 518,
+          "fp": 0,
+          "tn": 420,
+          "fn": 262,
+          "recall": 0.6641025641025641,
+          "false_alarm_rate": 0.0,
+          "f1": 0.7981510015408321,
+          "episode_ttd_s": [
+            1.0
+          ],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 776,
+          "fp": 14,
+          "tn": 406,
+          "fn": 4,
+          "recall": 0.9948717948717949,
+          "false_alarm_rate": 0.03333333333333333,
+          "f1": 0.9885350318471338,
+          "episode_ttd_s": [
+            2.0
+          ],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 778,
+          "fp": 34,
+          "tn": 386,
+          "fn": 2,
+          "recall": 0.9974358974358974,
+          "false_alarm_rate": 0.08095238095238096,
+          "f1": 0.9773869346733668,
+          "episode_ttd_s": [
+            1.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 756,
+          "fp": 0,
+          "tn": 420,
+          "fn": 24,
+          "recall": 0.9692307692307692,
+          "false_alarm_rate": 0.0,
+          "f1": 0.984375,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 9.903250000206754,
+        "p95": 13.14967000798788,
+        "max": 17.864699999336153
+      },
+      "raw_rmse_m": 90.7353144840095,
+      "navigation_rmse_m": 28.81146230573268,
+      "ekf_rmse_m": 28.81146230573268
+    },
+    {
+      "seed": 80005,
+      "scenario": "slow_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 9,
+          "alarm_rate": 0.075
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 780,
+          "alarm_rate": 1.0
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 20,
+          "alarm_rate": 0.06666666666666667
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 11,
+        "navigation": 11,
+        "physical_or_inertial": 7
+      },
+      "layers": {
+        "rule": {
+          "tp": 738,
+          "fp": 7,
+          "tn": 413,
+          "fn": 42,
+          "recall": 0.9461538461538461,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9678688524590164,
+          "episode_ttd_s": [
+            14.5
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 534,
+          "fp": 0,
+          "tn": 420,
+          "fn": 246,
+          "recall": 0.6846153846153846,
+          "false_alarm_rate": 0.0,
+          "f1": 0.8127853881278538,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 777,
+          "fp": 18,
+          "tn": 402,
+          "fn": 3,
+          "recall": 0.9961538461538462,
+          "false_alarm_rate": 0.04285714285714286,
+          "f1": 0.9866666666666667,
+          "episode_ttd_s": [
+            1.5
+          ],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 780,
+          "fp": 29,
+          "tn": 391,
+          "fn": 0,
+          "recall": 1.0,
+          "false_alarm_rate": 0.06904761904761905,
+          "f1": 0.9817495280050346,
+          "episode_ttd_s": [
+            0.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 695,
+          "fp": 0,
+          "tn": 420,
+          "fn": 85,
+          "recall": 0.8910256410256411,
+          "false_alarm_rate": 0.0,
+          "f1": 0.9423728813559322,
+          "episode_ttd_s": [
+            14.5
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 12.25880000856705,
+        "p95": 13.121095020323992,
+        "max": 14.481999969575554
+      },
+      "raw_rmse_m": 90.7091443937067,
+      "navigation_rmse_m": 34.813533397587136,
+      "ekf_rmse_m": 34.813533397587136
+    },
+    {
+      "seed": 80001,
+      "scenario": "stealth_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 6,
+          "alarm_rate": 0.05
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 750,
+          "alarm_rate": 0.9615384615384616
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 30,
+          "alarm_rate": 0.1
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 8,
+        "navigation": 21,
+        "physical_or_inertial": 7
+      },
+      "layers": {
+        "rule": {
+          "tp": 750,
+          "fp": 7,
+          "tn": 413,
+          "fn": 30,
+          "recall": 0.9615384615384616,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9759271307742355,
+          "episode_ttd_s": [
+            15.0
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 1,
+          "fp": 1,
+          "tn": 419,
+          "fn": 779,
+          "recall": 0.001282051282051282,
+          "false_alarm_rate": 0.002380952380952381,
+          "f1": 0.0025575447570332483,
+          "episode_ttd_s": [
+            371.5
+          ],
+          "missed_episodes": 0
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 12,
+          "tn": 408,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.02857142857142857,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "hybrid": {
+          "tp": 750,
+          "fp": 36,
+          "tn": 384,
+          "fn": 30,
+          "recall": 0.9615384615384616,
+          "false_alarm_rate": 0.08571428571428572,
+          "f1": 0.9578544061302682,
+          "episode_ttd_s": [
+            15.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 750,
+          "fp": 0,
+          "tn": 420,
+          "fn": 30,
+          "recall": 0.9615384615384616,
+          "false_alarm_rate": 0.0,
+          "f1": 0.9803921568627451,
+          "episode_ttd_s": [
+            15.0
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 12.43274999433197,
+        "p95": 13.080924953101203,
+        "max": 13.737600005697459
+      },
+      "raw_rmse_m": 90.73057732960385,
+      "navigation_rmse_m": 40.64807222594634,
+      "ekf_rmse_m": 40.64807222594634
+    },
+    {
+      "seed": 80002,
+      "scenario": "stealth_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 0,
+          "alarm_rate": 0.0
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 756,
+          "alarm_rate": 0.9692307692307692
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 33,
+          "alarm_rate": 0.11
+        }
+      },
+      "false_alarm_sources": {
+        "physical_or_inertial": 7,
+        "ml": 8,
+        "navigation": 18
+      },
+      "layers": {
+        "rule": {
+          "tp": 756,
+          "fp": 7,
+          "tn": 413,
+          "fn": 24,
+          "recall": 0.9692307692307692,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9799092676604018,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 420,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.0,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 13,
+          "tn": 407,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.030952380952380953,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "hybrid": {
+          "tp": 756,
+          "fp": 33,
+          "tn": 387,
+          "fn": 24,
+          "recall": 0.9692307692307692,
+          "false_alarm_rate": 0.07857142857142857,
+          "f1": 0.9636711281070746,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 756,
+          "fp": 0,
+          "tn": 420,
+          "fn": 24,
+          "recall": 0.9692307692307692,
+          "false_alarm_rate": 0.0,
+          "f1": 0.984375,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 7.985000003827736,
+        "p95": 12.95143501192797,
+        "max": 13.935299997683614
+      },
+      "raw_rmse_m": 90.74423430264906,
+      "navigation_rmse_m": 17.62253901115748,
+      "ekf_rmse_m": 17.62253901115748
+    },
+    {
+      "seed": 80003,
+      "scenario": "stealth_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 0,
+          "alarm_rate": 0.0
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 759,
+          "alarm_rate": 0.9730769230769231
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 20,
+          "alarm_rate": 0.06666666666666667
+        }
+      },
+      "false_alarm_sources": {
+        "physical_or_inertial": 7,
+        "ml": 4,
+        "navigation": 9
+      },
+      "layers": {
+        "rule": {
+          "tp": 759,
+          "fp": 7,
+          "tn": 413,
+          "fn": 21,
+          "recall": 0.9730769230769231,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.981888745148771,
+          "episode_ttd_s": [
+            10.5
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 420,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.0,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 9,
+          "tn": 411,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.02142857142857143,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "hybrid": {
+          "tp": 759,
+          "fp": 20,
+          "tn": 400,
+          "fn": 21,
+          "recall": 0.9730769230769231,
+          "false_alarm_rate": 0.047619047619047616,
+          "f1": 0.9737010904425915,
+          "episode_ttd_s": [
+            10.5
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 759,
+          "fp": 0,
+          "tn": 420,
+          "fn": 21,
+          "recall": 0.9730769230769231,
+          "false_alarm_rate": 0.0,
+          "f1": 0.98635477582846,
+          "episode_ttd_s": [
+            10.5
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 7.7717000094708055,
+        "p95": 13.032214989652857,
+        "max": 13.636100047733635
+      },
+      "raw_rmse_m": 90.72915844712313,
+      "navigation_rmse_m": 50.516546401482174,
+      "ekf_rmse_m": 50.516546401482174
+    },
+    {
+      "seed": 80004,
+      "scenario": "stealth_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 4,
+          "alarm_rate": 0.03333333333333333
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 718,
+          "alarm_rate": 0.9205128205128205
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 130,
+          "alarm_rate": 0.43333333333333335
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 6,
+        "navigation": 121,
+        "physical_or_inertial": 7
+      },
+      "layers": {
+        "rule": {
+          "tp": 677,
+          "fp": 7,
+          "tn": 413,
+          "fn": 103,
+          "recall": 0.867948717948718,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.924863387978142,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 420,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.0,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "vae": {
+          "tp": 0,
+          "fp": 11,
+          "tn": 409,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.02619047619047619,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "hybrid": {
+          "tp": 718,
+          "fp": 134,
+          "tn": 286,
+          "fn": 62,
+          "recall": 0.9205128205128205,
+          "false_alarm_rate": 0.319047619047619,
+          "f1": 0.8799019607843137,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 577,
+          "fp": 0,
+          "tn": 420,
+          "fn": 203,
+          "recall": 0.7397435897435898,
+          "false_alarm_rate": 0.0,
+          "f1": 0.8504053058216654,
+          "episode_ttd_s": [
+            12.0
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 9.152799990260974,
+        "p95": 12.863694987026975,
+        "max": 13.779199973214418
+      },
+      "raw_rmse_m": 90.71150611601337,
+      "navigation_rmse_m": 85.83867091921992,
+      "ekf_rmse_m": 85.83867091921992
+    },
+    {
+      "seed": 80005,
+      "scenario": "stealth_spoofing",
+      "steps": 1200,
+      "simulated_seconds": 600.0,
+      "phase_metrics": {
+        "clean": {
+          "samples": 120,
+          "alarms": 9,
+          "alarm_rate": 0.075
+        },
+        "attack": {
+          "samples": 780,
+          "alarms": 747,
+          "alarm_rate": 0.9576923076923077
+        },
+        "recovery": {
+          "samples": 300,
+          "alarms": 110,
+          "alarm_rate": 0.36666666666666664
+        }
+      },
+      "false_alarm_sources": {
+        "ml": 11,
+        "navigation": 101,
+        "physical_or_inertial": 7
+      },
+      "layers": {
+        "rule": {
+          "tp": 724,
+          "fp": 7,
+          "tn": 413,
+          "fn": 56,
+          "recall": 0.9282051282051282,
+          "false_alarm_rate": 0.016666666666666666,
+          "f1": 0.9583057577763071,
+          "episode_ttd_s": [
+            14.5
+          ],
+          "missed_episodes": 0
+        },
+        "rf": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 420,
+          "fn": 780,
+          "recall": 0.0,
+          "false_alarm_rate": 0.0,
+          "f1": 0.0,
+          "episode_ttd_s": [
+            null
+          ],
+          "missed_episodes": 1
+        },
+        "vae": {
+          "tp": 1,
+          "fp": 16,
+          "tn": 404,
+          "fn": 779,
+          "recall": 0.001282051282051282,
+          "false_alarm_rate": 0.0380952380952381,
+          "f1": 0.002509410288582183,
+          "episode_ttd_s": [
+            118.0
+          ],
+          "missed_episodes": 0
+        },
+        "hybrid": {
+          "tp": 747,
+          "fp": 119,
+          "tn": 301,
+          "fn": 33,
+          "recall": 0.9576923076923077,
+          "false_alarm_rate": 0.2833333333333333,
+          "f1": 0.9076549210206561,
+          "episode_ttd_s": [
+            14.5
+          ],
+          "missed_episodes": 0
+        },
+        "inertial": {
+          "tp": 631,
+          "fp": 0,
+          "tn": 420,
+          "fn": 149,
+          "recall": 0.808974358974359,
+          "false_alarm_rate": 0.0,
+          "f1": 0.8944011339475549,
+          "episode_ttd_s": [
+            14.5
+          ],
+          "missed_episodes": 0
+        }
+      },
+      "inference_ms": {
+        "median": 10.445049992995337,
+        "p95": 13.185324985533951,
+        "max": 17.213999992236495
+      },
+      "raw_rmse_m": 90.7082766345817,
+      "navigation_rmse_m": 79.41560567478993,
+      "ekf_rmse_m": 79.41560567478993
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tests_passed": 133,
+  "real_updates_replayed": 22017,
+  "observed_alarms_clean_records": 0,
+  "synthetic_runs_identical": 25,
+  "synthetic_samples": 30000,
+  "ui_sources_passed": 5,
+  "source_switch_verified": true,
+  "core_code_and_model_hashes_current": true,
+  "prior_synthetic_model_files_unchanged": true,
+  "limitations": [
+    "Real records used for development, not an independent field holdout.",
+    "151 cleanStatic samples are profile warmup; 37 marginal advisories retained.",
+    "Attack timelines not verified: attack recall/TTD not claimed."
+  ]
+}

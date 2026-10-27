@@ -9,6 +9,8 @@ NOMINAL_CN0 = 45.0                 # Nominal C/N0 değeri (dB-Hz)
 JAMMING_CN0_CRITICAL = 15.0        # Jamming tespiti için kritik C/N0 (Interference Threshold)
 MAX_G_FORCE = 3.0                  # Maksimum fiziksel ivme (g unit) - İHA'lar için 3-5g, Kara Araçları için 1.5-2g
 DEFAULT_HEADING_THRESHOLD = 45.0   # Yön sapması Derece (Aerodinamik Limit)
+RF_IMMEDIATE_ATTACK_SCORE = .9     # Strong GNSS RF evidence remains immediate.
+RF_CONFIRMATION_SAMPLES = 2        # Weak model-only evidence needs consecutive fixes.
 JAMMING_ERROR_FACTOR = 5.0          # Jamming anında konum hatası çarpanı
 
 GLOBAL_ATTACK_DURATION = 40.0      # Gözlem süresi (Observation Window)
@@ -44,12 +46,23 @@ SHOW_WIDGETS_ON_START = False      # Başlangıçta loglar ve grafikler daraltı
 EKF_PROFILES = {
     "İHA (UAV) - Yüksek Dinamik": {
         "Q": 0.05,        # Süreç Gürültüsü (Daha esnek takip)
-        "R": 0.0001,      # Ölçüm Gürültüsü (Daha temiz sinyal)
+        "R": 0.0001,
+        "position_variance_m2": 0.25,      # Ölçüm Gürültüsü (Daha temiz sinyal)
         "desc": "Hızlı manevralar için düşük gecikmeli takip."
     },
     "Kara Aracı (AV) - Yüksek Titreşim": {
         "Q": 0.01,        # Süreç Gürültüsü (Daha stabil/öngörülebilir)
-        "R": 0.001,       # Ölçüm Gürültüsü (Mekanik titreşim filtresi)
+        "R": 0.001,
+        "position_variance_m2": 1.0,       # Ölçüm Gürültüsü (Mekanik titreşim filtresi)
         "desc": "Yol gürültüsü ve titreşimi engelleme odaklı."
     }
 }
+
+# Detector outputs are not combined into a probability: their scales are not
+# calibrated on a common, independent validation set. Each layer applies its
+# own decision rule; a future calibrated fusion model needs a frozen protocol.
+
+# --- SENSOR / SLIDER NORMALİZASYON ---
+# UI slider değeri [0-100] → G-kuvveti cinsine çevirme faktörü
+# Örnek: Slider=40 → 40/20 = 2.0g (İHA manevra limiti)
+ACCEL_SLIDER_TO_G_FACTOR = 20.0

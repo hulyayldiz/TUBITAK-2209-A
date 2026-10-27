@@ -1,162 +1,113 @@
-# TEKNİK RAPOR: GNSS Sinyal Bütünlüğü için Hibrit Yapay Zeka Destekli Otonom Müdahale Sistemi 🛰️🛡️
+> Güncellik notu (23 Ekim 2026): Bu rapor, ölçülmüş sonuçları ve sınırlamaları ayıracak şekilde yenilenmiştir. TEXBAT sonuçlarının ayrıntısı [güncel replay raporunda](TEXBAT_CURRENT_VALIDATION.md), diğer veri kümeleri ve açık sorunlar [doğrulama raporlarında](ACTIVE_ISSUES.md) yer alır. Sonuçlar araştırma prototipine aittir; bağımsız alıcı/saha başarısı olarak yorumlanmamalıdır.
+
+# TEKNİK RAPOR: GNSS Ölçüm Tutarlılığı ve Anomali İzleme Yazılım Prototipi
 
 ## 1. ÖZET (ABSTRACT)
-Bu çalışma, GNSS alıcılarına yönelik gerçekleştirilen siber-fiziksel saldırıların (Sinyal Boğma ve Sahte Konum Üretme) tespiti için yerli ve özgün bir mimari sunmaktadır. Geliştirilen hibrit model; Kural Tabanlı Analiz, Random Forest (RF) ve LSTM-VAE (Zero-Day Anomali Tespiti) katmanlarını birleştirerek geleneksel yöntemlere kıyasla daha yüksek doğruluk ve daha düşük yanlış alarm (FPR) oranına ulaşmıştır. Önerilen sistem, tehdit anında otonom "Inertial Navigation System" (INS) modeline geçiş yaparak navigasyon sürekliliğini sağlamaktadır.
+Bu çalışma, GNSS ölçüm akışlarında tutarsızlıkları izleyen kural tabanlı, istatistiksel ve makine öğrenmesi bileşenlerinden oluşan bir araştırma prototipini sunar. Sistem, giriş adaptörleri üzerinden farklı kayıt biçimlerini ortak bir ölçüm modeline dönüştürür. Güncel TEXBAT değerlendirmesi yayımlanmış GRID NAV/kanal ölçümlerine dayalıdır; ham RF IQ sinyalleri bu replay'de yeniden alıcıdan geçirilmemiştir. DS7'de ilk yeni alarm enjeksiyon başlangıcından 5,60 s sonra oluşmuş, 1.789 saldırı örneğinin 27'si bu alarmdan önce kalmıştır. Farklı alıcıdan 209 nominal CMU uçuşu [yayımlanmış veri kümesiyle](https://doi.org/10.1038/s41597-021-00930-x) önceki dondurulmuş sürümde bağımsız sınanmış ve nominal varsayım altında %48,98 örnek alarm oranı vermiştir; sonraki düzeltmeler aynı kayıtlarda geliştirildiğinden güncel sürüm için bağımsız holdout yoktur. Veri saldırı etiketi taşımadığından bu oran kesin FAR değildir. Sistem sonuçları saldırı türünü tek başına doğrulamaz; INS sürekliliği de fiziksel sensörle doğrulanmış saha performansı anlamına gelmez.
 
 ---
 
 ## 2. GİRİŞ VE LİTERATÜR
-GNSS güvenliği, günümüzde otopilotlardan kritik altyapı senkronizasyonuna kadar hayati önem taşımaktadır. Ancak literatürdeki mevcut çözümler ya çok karmaşık donanım gerektirmekte (Örn: Array antenler [1]) ya da sadece belirli imza tabanlı saldırıları tespit edebilmektedir (Örn: Sadece SNR düşüşü [2]). Bu çalışma, ham verilerin kinematik analizini derin öğrenme tabanlı anomali tespitiyle harmanlayarak "Sıfırıncı Gün" saldırılarına karşı bütüncül bir savunma sunmaktadır.
+GNSS spoofing tespiti; alıcı içi sinyal özellikleri, kod/taşıyıcı ölçümleri, navigasyon çözümü tutarlılığı ve anten/yön bilgisi gibi farklı kanıt türlerini kullanır. Her ölçütün farklı saldırı ve alıcı koşullarındaki duyarlılığı değişir; tek bir ölçüt bütün saldırıları kapsamaz. Literatürde ölçüt birleştirme yöntemleri, eşiklerin alıcıya uygun nominal veride kalibre edilmesini ve yanlış alarm olasılığının açıkça değerlendirilmesini vurgular [1, 2]. Bu çalışma, mevcut alıcı çıktıları üzerinde kural, CMC ve öğrenilmiş skorları inceleyen bir prototiptir; ham IQ korelatör ölçümleri veya dizi anten yön bilgisi kullanan yöntemlerle eşdeğer değildir. Bu nedenle “zero-day koruması” veya tüm saldırılara karşı bütüncül savunma iddiasında bulunulmamaktadır.
 
 ---
 
 ## 3. LİTERATÜR KARŞILAŞTIRMA (COMPARATIVE ANALYSIS)
 
-Aşağıdaki tablo, projemizin literatürdeki yaygın yöntemlerle kıyaslamasını göstermektedir:
+Aşağıdaki tablo yöntem ailelerini ve bu projedeki kanıt sınırını özetler; doğrudan performans kıyaslaması değildir:
 
-| Yöntem | Tespit Mekanizması | Avantaj | Dezavantaj | Bizim Çözümümüz (Hibrit) |
+| Yaklaşım | Gözlenen kanıt | Güçlü olduğu koşul | Sınırlama | Bu projedeki karşılığı |
 | :--- | :--- | :--- | :--- | :--- |
-| **Geleneksel SNR [1]** | Sinyal Gücü | Hızlı Tespit | Yanlış alarmlar yüksek | **SNR + ML Karşılaştırması** |
-| **Kinematik Kontrol [2]** | Hız/İvme Analizi | Fiziksel Doğruluk | Sabit eşiklerde esnek değil | **Dinamik İvme Toleransı** |
-| **Sadece ML (RF) [3]** | Örüntü Tanıma | Yüksek Doğruluk | Bilinmeyen saldırılarda zayıf | **RF + LSTM-VAE (Anomali)** |
-| **Array Antenler [4]** | Yön Geliş Açısı | Çok Güçlü | Çok pahalı/büyük donanım | **Yazılım Tabanlı / Düşük Maliyet** (Donanım/Maliyet analizi planlanmaktadır) |
+| Sinyal gücü / C/N0 ve korelatör kalite ölçütleri [1, 6, 7] | Alıcı izleme kanalı veya IQ/korelatör çıktıları | Sinyal gücü ve korelasyon yapısı değiştiğinde | Bazı yumuşak/güç eşleşmeli saldırılar için tek başına yetersiz olabilir; belirli kanallar gerekir | Ham IQ/korelatör SQM şu anki TEXBAT replay'inde yok |
+| Kod-taşıyıcı ve ölçüm artıkları [1, 2, 3] | Pseudorange, taşıyıcı fazı ve alıcı ölçümleri | Ölçüm tutarsızlığı oluştuğunda | Multipath, iyonosfer, gürültü ve alıcı sapmaları da etkiler | CMC eğimleri yardımcı tutarsızlık göstergesi olarak inceleniyor |
+| Kinematik / GNSS-INS tutarlılığı [1] | GNSS ile bağımsız IMU/yönelim/konum | Hareket ölçümleri bağımsız ve zaman eşlemesi güvenilir olduğunda | Sensör kalibrasyonu ve hizalama gerekir; alıcı NAV tek başına bağımsız referans değildir | Bağımsız IMU ile saldırı doğrulaması henüz tamamlanmadı |
+| Çoklu ölçüt istatistiksel birleştirme [2] | Alıcıya özgü kalibre edilmiş ölçütler | Nominal dağılımlar ve yanlış alarm hedefi bilindiğinde | Kalibrasyon ve ayrı test verisi gerektirir | Mevcut karar mantığı araştırma prototipi; olasılıksal FAR garantisi yok |
 
 ---
 
-## 4. YÖNTEM VE ÖZGÜNLÜK (NOVELTY)
-Projenin temel yenilikleri aşağıda sunulmuştur:
-- **Dinamik Eşikleme (Fiziksel):** `config.py` içerisindeki ivme eşiği (**15 km/sa**) projenin test aşamasında farklı saldırı senaryoları (step, ramp, meander) ile realize edilmiş ve optimize edilmiştir. $A_{dyn} = \max(A_{base}, 0.1 \times |v|)$ formülüyle hıza duyarlı fiziksel tutarsızlık analizi yapılmaktadır.
-- **Dinamik Eşikleme (İstatistiksel - IQR):** LSTM-VAE modelinin anomali tespitinde sabit bir eşik yerine, literatürde kabul görmüş **Interquartile Range (IQR)** yöntemi kullanılmıştır. Eşik değeri, yeniden yapılandırma hatalarının dağılımı üzerinden $Threshold = Q_3 + 1.5 \times IQR$ formülüyle her eğitim sonrası otomatik olarak güncellenmektedir. Bu sayede model, değişen veri karakteristiğine karşı esneklik kazanmıştır.
-- **Modülerlik ve Esneklik:** Proje tam Docker desteğine (`Dockerfile` ve `docker-compose.yml`) sahiptir. Bu sayede sistem; bulut sunucuları, yerel iş istasyonları veya NVIDIA Jetson gibi kısıtlı donanıma sahip gömülü sistemlerde (edge computing) konfigürasyon gerektirmeden çalışabilmektedir.
-- **Sıfırıncı Gün (Zero-Day) Koruması:** LSTM-VAE mimarisi ile imza tabanlı (signature-based) olmayan, yeni nesil saldırı vektörlerinin tespiti.
-- **INS Drift Normalizasyonu:** Uzun süreli otonom sürüş simülasyonları için modulo 2π yön stabilizasyonu.
-- **Teknik Mimari:** Veri akış ve şema detayları için **[ARCHITECTURE.md](file:///c:/Users/hulya/OneDrive/Desktop/vers5/ARCHITECTURE.md)** dosyasına başvurunuz.
+## 4. YÖNTEM VE UYGULAMA KATKISI
+Projenin teknik katkısı, farklı veri kaynaklarını ortak şemaya alan adaptörler ile ölçüm kurallarını, alıcı profillerini, CMC tabanlı izlemeyi ve mevcut öğrenilmiş bileşenleri aynı yazılım prototipinde çalıştırmaktır. RF, LSTM ve VAE adları yerleşik model ailelerini belirtir; bu mimari kaynakları GNSS spoofing başarısına veya bu uygulamanın özgünlüğüne kanıt oluşturmaz [11–13]. Alarm yolları ayrı karar kuralları kullanır; ortak ve bağımsız veride kalibre edilmedikleri için skorlar ağırlıklı toplamla olasılık gibi birleştirilmez ve arayüz güven yüzdesi üretmez. CMC eşikleri alıcı/kayıt özelindeki normal gözlemlerden türetilmiş mühendislik sınırlarıdır. LSTM-VAE eşiği geliştirme akışında ayrı sentetik normal koşuların ampirik üst quantile değerinden gelir; örnek bağımlılığı nedeniyle hedef saha yanlış-alarm olasılığı garantisi vermez. Performans iddiasından önce eşiklerin bağımsız nominal oturumda değerlendirilmesi ve test kayıtlarının önceden kilitlenmesi gerekir. “Zero-day koruması”, kanıtlanmış bir yetenek olarak kullanılmamalı; yalnızca etiket gerektirmeyen anomali skorlama bileşeninin hedefi olarak tanımlanmalıdır. Uygulama bileşenlerinin ayrıntısı [ARCHITECTURE.md](ARCHITECTURE.md), kaynak-yöntem izlenebilirliği [literatür eşlemesinde](LITERATURE_REVIEW.md) yer alır.
 
-### Sistem Veri Akışı ve Mimari Diyagramı
-Aşağıdaki diyagram sistemin karar mekanizmasını ve akışını göstermektedir:
+### Uygulama veri akışı
+Aşağıdaki şema uygulamanın veri akışını gösterir; alıcı donanımı, ham RF demodülasyonu veya otomatik uçuş kontrolü bu şemadan varsayılmamalıdır:
 ```mermaid
 graph TD
-    A[Ham GNSS ve IMU Verisi] --> B{Siber Güvenlik Duvarı}
-    B -->|C/N0 & İvme Kontrolü| C[Kural Tabanlı Filtre]
-    C -->|Normal| D[Sensör Füzyon - EKF]
-    C -->|Şüpheli| E[Makine Öğrenmesi Katmanı]
-    E --> F[Random Forest - Supervised]
-    E --> G[LSTM-VAE - Unsupervised]
-    F --> H{Hibrit Karar Motoru}
-    G --> H
-    H -->|Tespit: Spoofing/Jamming| I[Otonom INS Müdahalesi]
-    H -->|Normal| D
-    I --> J[Kör Uçuş & Adli Loglama]
-    D --> K[Güvenli Konum Çıktısı]
+    A[Kaynak kayıt veya sensör akışı] --> B[Kaynağa özel adaptör]
+    B --> C[Ortak gözlem şeması ve kalite kontrolleri]
+    C --> D[Kural / navigasyon tutarlılığı]
+    C --> E[Alıcı profili ve CMC izleme]
+    C --> F[Mevcut ML özellik ve anomali bileşenleri]
+    D --> G[Karar ve olay çıktısı]
+    E --> G
+    F --> G
+    G --> H[Arayüz ve günlükleme]
 ```
 
 ---
 
-### A. Eğitim ve Test Metodolojisi
-Sistemin başarısı, 2025 satırlık hibrit veri seti (NORMAL, SPOOFING, JAMMING) üzerinde test edilmiştir. Veri seti **%80 Eğitim / %20 Bağımsız Test Seti** olarak ayrılmıştır. Ayrıca, modelin genelleme kabiliyetini ve kararlılığını doğrulamak amacıyla **5-Fold Cross-Validation (5-Katlı Çapraz Doğrulama)** uygulanmıştır. Testler sonucunda varyansın %0.5'in altında (kararlı) olduğu ve yüksek doğruluk oranlarının korunduğu teyit edilmiştir.
+### A. Ölçüt ve karar kuralı
+GPS L1 için CMC, pseudorange ile metre cinsine çevrilmiş taşıyıcı fazı farkı olarak hesaplanır: `CMC_i(t) = P_i(t) - λφ_i(t)`. Geçerli ve kesintisiz her PRN yayı üzerinde en küçük kareler doğrusu uydunun CMC hızını verir. Kodda uzun pencere 20 s, kısa pencere 1 s; kısa pencere en az 6 örnek ister. En az 4 GPS kanalı gerekir; kanalların en az %75'inde kalibre edilmiş merkezden aynı yönde limit aşımı aranır. Karar 3 örnek/3 s (uzun yol) ya da 0,4 s (kısa yol) süreklilik ister. Profil merkezi/limiti TEXBAT `cleanStatic` kaydının 50–120 s bölümünden türetilmiştir. Bunlar bu alıcı/ürün için deneysel seçimlerdir, literatürün evrensel eşikleri veya olasılıksal yanlış alarm garantisi değildir.
 
-### B. Ablation Study (Model Karşılaştırması)
-Hibrit yaklaşımın gerekliliği, her bir katmanın tekil performansı ölçülerek kanıtlanmıştır:
+Literatürde “slope-based spoofing metric” adıyla yayımlanmış bazı yöntemler alıcı izleme döngüsündeki ek korelatörlerden türetilir, teorik varyans ve temiz sinyalden seçilen yanlış alarm eşiğiyle test edilir [9]. Bu projedeki CMC eğimi farklı bir gözlemdir: işlenmiş pseudorange/taşıyıcı ölçümlerinden hesaplanır ve [9]'daki metotla özdeş değildir. Bu ayrım nedeniyle mevcut CMC sonucu literatürde doğrulanmış dedektör başarısı olarak sunulamaz.
 
-| Model | Konfigürasyon | Doğruluk (Accuracy) | F1-Skoru | FPR (Yanlış Alarm) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Sadece Kurallar** | Eşik Tabanlı (15 km/sa) | %84.2 | 0.8210 | %4.2 |
-| **Sadece RF** | Supervised (Random Forest) | %97.8 | 0.9655 | %1.1 |
-| **Sadece VAE** | Unsupervised (Anomali) | %92.4 | 0.9102 | %2.8 |
-| **HİBRİT (Önerilen)** | Kural + RF + VAE | **%98.5 (Sentetik Veri / Laboratuvar Ortamı)** | **0.9850** | **%2.0** |
+### B. Ölçüm ve değerlendirme yöntemi
+Sonuçlar kayıt, adaptör ve ölçüm türü belirtilerek raporlanır. Örnek kapsamı (alarm açık olan saldırı örneklerinin oranı), olay düzeyinde tespit, ilk alarm gecikmesi, kaçırılan örnek/olay ve temiz veride yanlış alarm ayrı metriklerdir; bunlar birbirinin yerine kullanılamaz. Ardışık epoch'lar bağımsız örnekler sayılmamalı; eğitim/doğrulama/test ayrımı mümkün olduğunda kayıt veya oturum bazında yapılmalıdır. Aynı kaydın farklı pencerelerinin rastgele ayrılması bağımsız test kanıtı oluşturmaz. ML çalışmalarında karışık örnek ayrımından farklı veri kümesine çapraz testte belirgin performans düşüşü raporlanmıştır; bu nedenle çapraz-alıcı/kayıt testi ayrıca gerekir [8]. CMC eşiklerinin kalibre edildiği `cleanStatic` kaydı bağımsız temiz holdout değildir. Farklı platformdan CMU AirLab verisi, önceki dondurulmuş sürümün bağımsız nominal değerlendirmesinde kullanılmış ve %48,98 örnek alarm oranı vermiştir. Sonraki navigasyon düzeltmesi aynı 209 kayıtta geliştirildiğinden güncel sürüm için CMU bağımsız holdout değildir. Kayıtlar saldırı etiketli olmadığı için bu oran kesin FAR olarak yorumlanamaz ([DATA_PROVENANCE.md](DATA_PROVENANCE.md), [INDEPENDENT_REAL_VALIDATION.md](INDEPENDENT_REAL_VALIDATION.md)). Mevcut TEXBAT skorları aynı benchmark ailesindeki keşif/değerlendirme sonuçlarıdır; bağımsız alıcı genellemesini ölçmez.
 
-### C. Başarı Analizi Metrikleri
-Sistemin genel başarısını somutlaştıran metrikler:
-- **Gerçek Zamanlı F1-Score:** ~0.995 (Bağımsız Stratified test seti ile doğrulanmıştır. Eğitim verisindeki imkansız fiziksel sapmalar temizlenmiş ve sınıf dengesizliği ele alınmıştır.)
-- **Inference Latency & Sistem Hızı:** Model çıkarım hızı (inference latency) ~10.0 ms olup gerçek zamanlı müdahaleye hazırdır. UI demonstrasyonu (Streamlit) saniyede 2 kare (2Hz) ile güncellenmekte olup, arka plandaki karar motoru entegrasyon sonrası 50Hz+ performans gösterebilir.
-- **Füzyon Hatası (RMSE):** < 0.45m (Analitik Jacobian EKF ile GPS kaybı anında sürüklenme minimizasyonu).
+### C. Önceki sentetik ölçümlerin durumu
+Önceki sürümlerde raporlanan ablation, doğruluk ve F1 değerleri güncel ve kayıt bazında ayrılmış bir benchmark ile yeniden üretilmedi. Bu nedenle ana sonuçlardan çıkarıldı ve akademik performans iddiası olarak kullanılmamalıdır.
 
-### D. Sensör Füzyon: LKF'den EKF'ye Geçiş
-Sistemde kullanılan koordinat dönüşümleri (Meters -> Lat/Lon) doğrusal olmadığı için, `SimpleEKF` sınıfına Jacobian matrisleri ($F$) eklenerek sistem **Genişletilmiş Kalman Filtresi (EKF)** mimarisine taşınmıştır. Bu sayede manevra anındaki kestirim doğruluğu %30 artırılmıştır.
+### D. Güncel TEXBAT ölçümü
+Güncel kodla yapılan replay yayımlanmış TEXBAT GRID NAV/kanal ölçümlerini kullanır; ham RF IQ yeniden işlenmemiştir. `cleanStatic` kalibrasyon penceresinde 2.115 örnekte alarm görülmemiştir; bu, aynı kayıttan eşik kalibre edildiği için bağımsız yanlış alarm oranı değildir. DS2 kapsamı %99,77 ve ilk yeni alarm gecikmesi 0,90 s'dir. DS7 kapsamı %98,49, ilk yeni alarm gecikmesi 5,60 s ve ilk alarma kadarki kaçırma 27/1.789 örnektir. DS3'te örnek kapsamı %100 görünür ancak başlangıçta alarm zaten etkin olduğu için yeni yükselen alarm gecikmesi ölçülememiştir. DS7 zaman çizelgesinde kaynaklar uyuşmadığından alternatif sonuç da ayrıca raporlanır. Kısa pencere ve alarm onay parametreleri DS7 sonuçları incelenirken yinelemeli biçimde ayarlandığından bu skorlar keşifsel geliştirme sonucudur; doğrulayıcı, kör test sonucu değildir. Sonraki holdout öncesinde eşikler ve karar kuralları dondurulmalıdır. Tanımlar ve sınırlamalar [TEXBAT_CURRENT_VALIDATION.md](TEXBAT_CURRENT_VALIDATION.md) içindedir. F1, bağımsız FAR, genel doğruluk, çalışma zamanı gecikmesi veya saha performansı bu sonuçlardan çıkarılmamıştır.
+
+### E. Sensör füzyonu ve emniyet sınırı
+Projede navigasyon/fusion kodu bulunması, uçuşa elverişli GPS/INS yedekleme veya belirli bir RMSE sağlandığını tek başına kanıtlamaz. Bu rapor için bağımsız referanslı, eşzamanlı GNSS/IMU testinden elde edilmiş doğruluk ve sürüklenme ölçümü sunulmamıştır. Böyle bir iddia için referans yörünge, sensör kalibrasyonu, zaman eşlemesi, kesinti süresi ve konum/hız/yönelim hata metrikleri gerekir.
 
 ---
 
-## 4.2. SENTETİK TEXBAT METODOLOJİSİ VE BAĞIMSIZ TEST SETİ
-Modelin aşırı öğrenme (overfitting) ve döngüsel doğrulama (circular validation) risklerini elemine etmek için, sistem eğitildiği sentetik verilerden tamamen bağımsız olan Texas Üniversitesi Spoofing Test Battery (**TEXBAT**) veri setinin fiziksel özellikleri taklit edilerek oluşturulan parametrik bir test setinde değerlendirilmiştir. (Not: Orijinal TEXBAT RF/IQ verileri projenin mevcut fazında kullanılamadığından, bu bir "Simüle Edilmiş Zero-Day" testidir.)
-
-### A. Simüle TEXBAT Senaryo 1 (Static Overlap) Benzetimi
-Bu senaryoda, sahte sinyal gerçek sinyal ile aynı konumda başlatılarak zamanla yavaş yavaş sürüklenir.
-- **Test Seti:** `texbat_scenario1_mock.csv` (Parametrik Profilleme ile Üretilmiş Bağımsız Veri)
-- **F1-Score Başarısı:** ~0.57 (Dikkat: Bu metrik tamamen gerçek dünya fiziksel zorluklarını taklit eden sentetik parametrik bir simülasyon üzerinden elde edilmiştir ve düşük çıkması veri azlığı ile model adaptasyon sürecindeki kısıtlardan kaynaklanmaktadır. Orijinal TEXBAT verisi laboratuvar ortamında sisteme entegre edildiğinde bu bölüm güncellenecektir.)
-- **Müdahale Gecikmesi:** ~10 ms (Sürükleme başladığı an algılanır).
-- **Sonuç:** VAE anomali skoru sürükleme anında eşiği aşarak adli loglama ve otonom INS geçişini tetiklemiştir. Modelin gerçek TEXBAT verisi (TRL 7 fazı) ile optimize edilmesi gelecek planlar arasındadır. Samimi bir jüri değerlendirmesinde bu şeffaf metodoloji laboratuvar doğrulaması olarak sunulmaktadır.
+## TEXBAT değerlendirmesinin kapsamı
+TEXBAT, kontrollü GPS L1 C/A spoofing senaryolarını ve temiz kayıtları içeren bir araştırma benchmark'ıdır; sahadaki bütün alıcı ve saldırı biçimlerini temsil etmez [4]. Bu projedeki güncel değerlendirme `cleanStatic`, DS2, DS3 ve DS7 yayımlanmış GRID NAV/kanal ürünleri üzerinde yapılmıştır. Bu, ham IQ tabanlı yeniden alıcı işleme veya bağımsız alıcı validasyonu değildir. DS7 güç eşleşmeli ve taşıyıcı fazı hizalı bir time-push senaryosudur [4]. Sonuçların aynı benchmark ailesinden olması, bağımsız genelleme iddiasını desteklemez. Ayrıca bazı TEXBAT alıcı analizlerinde DS1–DS4'te ortak kod-taşıyıcı sapma kaynakları tartışılmış, cleanStatic ile DS7/DS8'de aynı etkinin görülmediği raporlanmıştır [5]. Bu nedenle projedeki DS7 CMC göstergesi ölçülen kayıt için ampirik bulgudur; genel bir literatür garantisi ya da saldırı kimlik doğrulaması değildir.
 
 ---
 
-## 5. PROJE TAKVİMİ (REVİZE-8 AY)
-... (Takvim aynı kalır)
+## 5. Proje takvimi
+Proje takvimi bu teknik raporda verilmemiştir. Başlangıç/bitiş tarihleri ve tamamlanma kanıtı doğrulanmış ayrı bir çalışma planında sunulmalıdır.
 
 ---
 
-## 6. GELECEK ÇALIŞMALAR (STRATEJİK VİZYON)
-Projenin laboratuvar dışı doğruluğunu artırmak ve TRL (Teknoloji Hazırlık Seviyesi) 7 üzerine taşımak için şu adımlar planlanmaktadır:
-- **Düşük Maliyetli IMU Entegrasyonu:** GPS verilerinin **MPU6050** veya **BNO055** gibi 6/9 eksenli atalet ölçüm birimleriyle (IMU) harmanlanması.
-- **Genişletilmiş Kalman Filtresi (EKF) Uygulaması:** `sensors.py` katmanına, GPS-IMU füzyonunu gerçekleştirecek ve hız/doğrultu tahminlerindeki Jacobian matrisleri üzerinden fiziksel tutarsızlığı (innovation residue) dinamik olarak izleyecek bir EKF mimarisinin eklenmesi.
-- **TEXBAT & OAKBAT Validasyonu:** Texas University Spoofing Test Battery (TEXBAT) kayıtlarının otonom doğrulama süreçlerinde standartlaştırılması ve HackRF/LimeSDR donanımlarıyla canlı sinyal reaksiyon testlerinin yapılması.
-- **Gömülü Sistem Optimizasyonu:** Hibrit karar motorunun **NVIDIA Jetson Nano** üzerinde gerçek zamanlı (<10ms) çalışacak şekilde TensorRT ile optimize edilmesi.
+## 6. Gelecek çalışmalar
+- **Bağımsız değerlendirme:** FGI Jammertest 2025 Septentrio PolaRx5 kaydı yeni alıcı için adaydır; dosyaların indirilebilirliği, içerik şeması ve açıkça temiz olarak etiketlenmiş süre henüz doğrulanmadı. Veri erişimi sağlanırsa sabitlenmiş dosya listesi ve hash'lerle testten önce kod/eşikler dondurulmalı; saldırı etiketli ve nominal temiz olduğu doğrulanmış kayıtlarda olay düzeyinde kaçırma, gecikme ve yanlış alarm ölçülmelidir. [Önceden tanımlı protokol](INDEPENDENT_HOLDOUT_PROTOCOL.md).
+- **Ham sinyal doğrulaması:** Uygun lisans ve alıcı yazılımıyla TEXBAT ham IQ'yu bağımsız bir SDR alıcıdan geçirip ölçüm adaptörünün sonuçlarını çapraz kontrol etmek; correlator/SQM özellikleri bu veriyle mevcutsa ayrı değerlendirmek.
+- **Bağımsız sensör referansı:** Eşzamanlı ve kalibre edilmiş IMU/GNSS-INS referansıyla kinematik tutarlılık ve yedekleme performansını ölçmek.
+- **Çalışma zamanı ölçümü:** Hedef donanımda uçtan uca gecikme ve yükü ölçmeden gömülü gerçek-zaman performansı iddiası vermemek.
 
 ---
-**Tarih:** 2026-04-09
+**Güncelleme tarihi:** 2026-10-23
 **Bibliyografya (Academic References):**
 
-[1] M. L. Psiaki and T. E. Humphreys, "GNSS Spoofing and Detection," *Proceedings of the IEEE*, vol. 104, no. 6, pp. 1258-1273, 2016.
-[2] A. Broumandan et al., "GNSS Spoofing Detection and Mitigation Techniques: A Survey," *IEEE Aerospace and Electronic Systems Magazine*, vol. 36, no. 12, 2021.
-[3] W. Yang et al., "GPS Spoofing Detection Based on Machine Learning," *IEEE 6th Intl. Conf. Big Data Secur. Cloud (BigDataSecurity)*, 2020.
-[4] J. Jiang et al., "LSTM-VAE for Anomaly Detection in GNSS Spoofing Attacks," *Sensors*, vol. 23, no. 4, 1982, 2023.
-[5] T. E. Humphreys, "Assessing the Spoofing Threat to Civil GPS Receivers," *ION GNSS+*, 2008.
-[6] J. Zhu et al., "Machine Learning-Based Spoofing Detection using TEXBAT Dataset," *IEEE Intl. Conf. Elect. Eng. (ICEENG)*, 2024.
-[7] A. Ferreira et al., "Galileo OSNMA: A Practical Implementation and Testing on SDR Platforms," *Navigation (ION)*, vol. 69, no. 3, 2022.
-[8] X. Chen et al., "Detection of Stealthy GNSS Spoofing Attacks Using RNN," *IEEE Trans. Intell. Transp. Syst.*, vol. 22, no. 7, 2021.
-[9] Z. Zhou, "Clock Drift Monitoring Based GNSS Spoofing Detection Method for Autonomous Vehicles," *Proc. ION GNSS+*, 2024.
-[10] M. Lopez et al., "Multi-Sensor Fusion for GNSS Spoofing Detection in Urban Canyons," *GPS Solut.*, vol. 27, no. 2, 2023.
-[11] J. Guan et al., "Variational Autoencoder for GNSS Signal Quality Monitoring," *IEEE Commun. Lett.*, vol. 26, no. 5, 2022.
-[12] D. Schmidt et al., "Security Analysis of Modern GNSS Receivers: A Survey," *J. Navig.*, vol. 77, no. 1, 2024.
-[13] Y. Liu et al., "Deep Learning-Based Satellite Selection and Spoofing Detection," *IEEE Trans. Aerosp. Electron. Syst.*, vol. 56, no. 6, 2020.
-[14] C. O'Driscoll et al., "A Modern Look at GNSS Spoofing: Countermeasures," *Inside GNSS*, 2021.
-[15] B. Hofmann-Wellenhof et al., *Global Navigation Satellite Systems: GPS, GLONASS, Galileo, and More*. 6th ed., Springer, 2024.
+[1] M. L. Psiaki and T. E. Humphreys, “GNSS Spoofing and Detection,” *Proceedings of the IEEE*, vol. 104, no. 6, pp. 1258–1270, 2016. DOI: [10.1109/JPROC.2016.2526658](https://doi.org/10.1109/JPROC.2016.2526658).
+[2] F. Rothmaier, L. Taleghani, Y.-H. Chen, S. Lo, E. Phelts, and T. Walter, “GNSS Spoofing Detection through Metric Combinations: Calibration and Application of a General Framework,” *Proceedings of ION GNSS+ 2021*, pp. 4249–4263. DOI: [10.33012/2021.18126](https://doi.org/10.33012/2021.18126).
+[3] Q. Li et al., “Intrinsic Identification and Mitigation of Multipath for Enhanced GNSS Positioning,” *Sensors*, vol. 21, no. 1, 188, 2021. DOI: [10.3390/s21010188](https://doi.org/10.3390/s21010188). (CMC'nin multipath, iyonosfer ve taşıyıcı belirsizliği bileşenleri için.)
+[4] T. E. Humphreys et al., “The Texas Spoofing Test Battery: Toward a Standard for Evaluating GPS Signal Authentication Techniques,” *Proceedings of ION GNSS 2012*. [TEXBAT resmi veri/senaryo sayfası](https://radionavlab.ae.utexas.edu/texbat/).
+[5] M. Lemmenes et al., “Detailed Analysis of the Texas Spoofing Test Battery Using a High Fidelity Software Receiver,” *Proceedings of ION GNSS+ 2016*. [Yazar laboratuvarındaki makale](https://radionavlab.ae.utexas.edu/images/stories/files/papers/LemmenesGNSSpaper.pdf).
+[6] A. Mahroof, I. Nabi, S. Z. Farooq, and N. Najm, “Machine Learning-Based Detection of Spoofing Attacks in GNSS: A Study Using TEXBAT Dataset,” *2024 14th International Conference on Electrical Engineering (ICEENG)*, pp. 90–95. DOI: [10.1109/ICEENG58856.2024.10566287](https://doi.org/10.1109/ICEENG58856.2024.10566287). Çalışma iki TEXBAT senaryosunda C/N0 ve DLL gücüyle kanal bazlı kNN değerlendirmesi raporlar; sonucu bu projeye doğrudan taşımıyoruz.
+[7] E. G. Manfredini, D. M. Akos, Y.-H. Chen, S. Lo, T. Walter, and P. Enge, “Effective GPS Spoofing Detection Utilizing Metrics from Commercial Receivers,” *Proceedings of the 2018 International Technical Meeting of the Institute of Navigation*, pp. 672–689. DOI: [10.33012/2018.15595](https://doi.org/10.33012/2018.15595).
+[8] N. Khan, L. Marata, J. Nurmi, and E. S. Lohan, “GNSS-Spoofing Detection via Machine Learning with In-Domain and Cross-Domain Testing and Open-Access I/Q Data,” *IEEE Access*, vol. 14, pp. 73921–73934, 2026. DOI: [10.1109/ACCESS.2026.3693081](https://doi.org/10.1109/ACCESS.2026.3693081).
+[9] A. M. Khan, N. Iqbal, A. A. Khan, M. F. Khan, and A. Ahmad, “Detection of Intermediate Spoofing Attack on Global Navigation Satellite System Receiver Through Slope Based Metrics,” *The Journal of Navigation*, vol. 73, no. 5, pp. 1052–1068, 2020. DOI: [10.1017/S0373463320000168](https://doi.org/10.1017/S0373463320000168).
+[10] T. A. Rodrigues et al., “In-flight positional and energy use data set of a DJI Matrice 100 quadcopter for small package delivery,” *Scientific Data*, vol. 8, article 155, 2021. DOI: [10.1038/s41597-021-00930-x](https://doi.org/10.1038/s41597-021-00930-x).
+[11] L. Breiman, “Random Forests,” *Machine Learning*, vol. 45, pp. 5–32, 2001. DOI: [10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324).
+[12] S. Hochreiter and J. Schmidhuber, “Long Short-Term Memory,” *Neural Computation*, vol. 9, no. 8, pp. 1735–1780, 1997. DOI: [10.1162/neco.1997.9.8.1735](https://doi.org/10.1162/neco.1997.9.8.1735).
+[13] D. P. Kingma and M. Welling, “Auto-Encoding Variational Bayes,” *International Conference on Learning Representations*, 2014. [Paper](https://mlanthology.org/iclr/2014/kingma2014iclr-auto/).
 
 ---
 
-## 7. JÜRİ SAVUNMA VE SIKÇA SORULAN SORULAR (FAQ/DEFENSE)
+## 7. Veri kökeni, sentetik türevler ve adli günlük
 
-TÜBİTAK 2209-A jüri değerlendirmesinde sorulması muhtemel sorular ve teknik cevaplarımız aşağıda özetlenmiştir:
+Projede yayımlanmış gerçek kayıtlar, gerçek kayıtlardan değiştirilmiş türevler ve sentetik örnekler birlikte bulunur. Kaynağı doğrulanan AV-GPS kayıtları gerçek kara aracı deneyleridir; İHA saha uçuşu değildir. `IHA-Saha-Verisi.csv` hız/irtifa alanları değiştirilmiş bir türevdir; `Kombine-Gercek-IHA-Saldirisi.csv` yapay sinyal/jamming bileşenleri içerir. `ornek_dron_saldiri_logu.csv` ile `texbat_scenario1_mock.csv` sentetiktir. Yerel arşivdeki TEXBAT MATLAB GRID ölçümleri gerçek TEXBAT deneylerinden türetilmiştir, ancak ham RF IQ değildir. Dosya bazında kaynak, hash ve sınırlar [DATA_PROVENANCE.md](DATA_PROVENANCE.md) ile [REAL_DATA_INTEGRATION.md](REAL_DATA_INTEGRATION.md) içinde açıklanır.
 
-| Olası Soru / Eleştiri | Teknik Savunma Strategimiz | Yazılım Katmanındaki Karşılığı |
-| :--- | :--- | :--- |
-| **"Jamming verisini kendiniz eklemişsiniz, bu gerçekçi mi?"** | Projede kullanılan jamming modeli, askeri alıcıların sinyal kesintisinde (No Fix) tamamen kapanmasının aksine, sivil / düşük maliyetli GNSS alıcılarının Jamming anında gürültülü (noisy) konum üretmeye devam ettiği varsayımıyla modellenmiştir. Literatürdeki fiziksel C/N0-Hata karesel artış modeli kullanılmıştır. | `sensors.py` içindeki fizyolojik gürültü modeli. |
-| **"1000 satır veri VAE eğitimi için yeterli mi? Data Leakage var mı?"** | Hibrit mimarimizde VAE "Sıfırıncı Gün" tespiti için sliding-window (10'luk pencere) kullanmaktadır. Veri sızıntısını (Data Leakage) önlemek için **stride = SEQ_LEN (10)** kullanılmış olup pencereler arasında tam bağımsızlık sağlanmıştır. Bu sayede 1000 satır, yaklaşık 100 tamamen bağımsız ve örtüşmeyen sekans üretir; kavramsal ispat (PoC) için yeterlidir. | `train_model.py` ve `LSTM-VAE` stride/pencereleme algoritması. |
-| **"2 saniyelik güncelleme gerçek zamanlılık için yavaş değil mi?"** | Sistemin **karar verme süresi (inference) ~10 ms**'dir. 0.5 saniyelik limit sadece Streamlit arayüzünün görselleşme periyodudur; arka plandaki savunma döngüsü gerçek zamanlıdır. | `ml_detection.py` hızı. |
-| **"Saldırı verisi dengesizliği (class imbalance) var mı?"** | Random Forest modelinde `class_weight='balanced'` parametresi kullanılarak saldırı örneklerinin önemi artırılmıştır; bu sayede düşük saldırı verisiyle yüksek recall elde edilmiştir. | `train_model.py` RF konfigürasyonu. |
+Adli günlük yazılımı olay kayıtlarını hash/HMAC zinciriyle korumayı amaçlar; bu, verinin kaynağını veya saldırı sınıfının doğruluğunu kanıtlamaz. 23 Ekim 2026 doğrulama notunda mevcut `forensic_ledger.jsonl` için hash doğrulama başarısız kaydedilmiştir. Bu nedenle mevcut günlük zinciri doğrulanmış dijital delil olarak sunulmamalıdır. Ayrıntı için [DATA_PROVENANCE.md](DATA_PROVENANCE.md) içindeki yeniden doğrulama kaydına bakınız.
 
----
+## 8. Değerlendirme sınırlamaları ve sonraki deneyler
 
-## 7. ADLİ BİLİŞİM VE DİJİTAL DELİLLER (DIGITAL FORENSICS)
-Sistem, olası bir saldırı anında ve sonrasında derinlemesine inceleme yapılabilmesi için "Digital Forensics" uyumlu loglama altyapısına sahiptir:
-- **Anlık Loglama:** `sensors.py` üzerinden gelen ham RF ve konum verileri, `main.py` aracılığıyla `forensic_ledger.jsonl` dosyasına zaman damgalı ve HMAC-SHA256 şifreli olarak işlenir.
-- **Delil Niteliği:** Kaydedilen RF frekans bantları, saldırı tipi imzaları ve otonom müdahale kayıtları, siber saldırı sonrası adli analiz raporlarında birer dijital delil olarak kullanılabilir. Zincir yapısı sayesinde geçmişe dönük veri değiştirme (Tampering) imkansız kılınmıştır.
-- **Veri Bütünlüğü:** Tespit edilen her anomali, hibrit karar motoru güven skoruyla birlikte arşivlenerek geçmişe dönük olay analizi (incident response) imkanı sağlar. Atomic Rename (os.replace) rotasyonu ile log dosyası bozulmaları önlenmiştir.
-- **Platform Bazlı İzolasyon:** Adli Bilişim modülü üzerinden, Karasal Otonom Araçlar (AV) ve İnsansız Hava Araçları (UAV) logları ayrıştırılarak `.env` tabanlı gizli anahtarla mühürlenmekte ve jüri/uzman incelemesi için delil şeffaflığı sunulmaktadır.
+Jamming ve spoofing ayrı tehditlerdir; jamming çoğunlukla sinyal kullanılabilirliğini düşürürken spoofing alıcıyı sahte ölçüm/PVT çözümüne yöneltir. Sentetik olarak eklenen C/N0 veya konum etkileri saldırı fiziğinin veya gerçek alıcı tepkisinin doğrulaması değildir. Etiketsiz kayıtlarda Pd, FPR, F1 veya tespit gecikmesi hesaplanmamalıdır. Kaynak veri ayrımları ve yapılan değerlendirmelerin kapsamı [DATA_PROVENANCE.md](DATA_PROVENANCE.md), [REAL_DATA_INTEGRATION.md](REAL_DATA_INTEGRATION.md), [TEXBAT_CURRENT_VALIDATION.md](TEXBAT_CURRENT_VALIDATION.md) ve [ACTIVE_ISSUES.md](ACTIVE_ISSUES.md) dosyalarında tutulur.
 
----
-
-## 8. VERİ SETİ KAYNAKLARI VE KOMBİNE SİBER HARP (DATA AUGMENTATION)
-Proje, güvenirliğini doğrudan akademik donanım saha testleriyle ispatlanmış açık kaynak veri setlerinden almaktadır.
-
-### 8.1. Veri Kaynağı Orijini (AV-GPS-Dataset)
-Simülasyonda kullanılan gerçek verilerin (Enlem, Boylam, GPS sapma saniyeleri) temeli, araştırmacılar tarafından fiziksel SDR donanımları (HackRF vb.) kullanılarak gerçek otonom araçlar üzerinde uygulanmış açık kaynaklı **AV-GPS-Dataset** kayıtlarına dayanmaktadır. Sistem bu donanım tabanlı reaksiyonları veri kaynağı (ground truth) olarak kabul eder.
-
-### 8.2. Yarı-Sentetik Zenginleştirme (Parametrik Senaryo Dönüşümü)
-Orijinal veri sadece karasal otonom araçlara (15-20 km/sa hızlarda) ait olduğu için, sistemin havacılık savunmasındaki geçerliliğini test etmek amacıyla projede **Parametrik Senaryo Dönüşümü (Parametric Scenario Transformation)** uygulanmıştır:
-* Hız ve kinematik profiller; otonom araç ivme limitlerinden çıkartılarak (dönüş dinamikleri ve ivme limitleri göz önünde bulundurularak) fizik tabanlı faktörlerle İHA uçuş profillerine dönüştürülmüştür.
-* İrtifa bileşenlerine 1200 metre fiziksel tavan eklenerek havacılık operasyonları simüle edilmiştir.
-* Yapay Zeka modellerinin farklı platformlara (Karasal vs. Hava) adaptasyonunu sağlamak için bu özellikler modele çok parametreli olarak sunulmuştur.
-
-### 8.3. Kombine Elektronik Harp Senaryosu (Comb-Attack)
-Gerçek donanım verisi içinde fiziksel Jamming (Sinyal Boğma) evresi bulunmadığından, projeye özel olarak **Gelişmiş Kombine Saldırı** veri seti `Kombine-Gercek-IHA-Saldirisi.csv` üretilmiştir. 
-* Bu aşamada hedef hava aracına ışınlanma koordinatları (Spoofing) yüklenmeden hemen önce **20 saniyelik bir Sinyal Boğma (Jamming)** evresi matematiksel olarak enjekte edilmiştir (SNR'in %40'tan %15'lere düşmesi).
-* Bu tasarım, laboratuvar/jüri ortamında gerçek dünyadaki çok aşamalı askeri saldırı (Önce Kör Et, Sonra Kaçır) evrelerinin test edilebilirliğini garantilemektedir.
+Literatüre uygun bir sonraki değerlendirme; alıcı/oturum bazında ayrılmış geliştirme ve test verisi, test öncesi dondurulmuş eşikler, bağımsız temiz kayıtlar ve doğrulanmış saldırı etiketleri gerektirir. Sonuçlarda olay düzeyinde tespit olasılığı, kaçırma oranı, tespit gecikmesi ve yanlış alarm oranı ayrı verilmelidir. Başka alıcıdaki test ayrıca çapraz-alıcı genelleme olarak raporlanmalıdır. CMC ya da ML alarmı tek başına saldırı kimliğini doğrulamaz; bağımsız RF özellikleri, INS referansı veya doğrulanmış senaryo etiketleriyle desteklenmesi gerekir.

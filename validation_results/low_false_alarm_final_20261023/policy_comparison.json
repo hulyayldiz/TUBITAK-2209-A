@@ -1,0 +1,89 @@
+[
+  {
+    "scenario": "normal",
+    "before": {
+      "tp": 0,
+      "fn": 0,
+      "fp": 62,
+      "tn": 5938,
+      "false_alarm_rate": 0.010333333333333333,
+      "recall": null,
+      "episode_ttd_s": []
+    },
+    "after": {
+      "tp": 0,
+      "fn": 0,
+      "fp": 0,
+      "tn": 6000,
+      "false_alarm_rate": 0.0,
+      "recall": null,
+      "episode_ttd_s": []
+    }
+  },
+  {
+    "scenario": "slow_spoofing",
+    "before": {
+      "tp": 3898,
+      "fn": 2,
+      "fp": 129,
+      "tn": 1971,
+      "false_alarm_rate": 0.06142857142857143,
+      "recall": 0.9994871794871795,
+      "episode_ttd_s": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "after": {
+      "tp": 3898,
+      "fn": 2,
+      "fp": 100,
+      "tn": 2000,
+      "false_alarm_rate": 0.047619047619047616,
+      "recall": 0.9994871794871795,
+      "episode_ttd_s": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "scenario": "stealth_spoofing",
+    "before": {
+      "tp": 3730,
+      "fn": 170,
+      "fp": 342,
+      "tn": 1758,
+      "false_alarm_rate": 0.16285714285714287,
+      "recall": 0.9564102564102565,
+      "episode_ttd_s": [
+        15.0,
+        12.0,
+        10.5,
+        12.0,
+        14.5
+      ]
+    },
+    "after": {
+      "tp": 3730,
+      "fn": 170,
+      "fp": 300,
+      "tn": 1800,
+      "false_alarm_rate": 0.14285714285714285,
+      "recall": 0.9564102564102565,
+      "episode_ttd_s": [
+        15.0,
+        12.0,
+        10.5,
+        12.0,
+        14.5
+      ]
+    }
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "schema": "external-real-data-v1",
+  "verified_at_utc": "2026-10-23T09:19:52.817642+00:00",
+  "hash_policy": "Local SHA-256 of HTTPS download; no upstream signed digest supplied.",
+  "files": [
+    {
+      "relative_path": "zurich/AGZ_subset.zip",
+      "url": "https://download.ifi.uzh.ch/rpg/AGZ_data/AGZ_subset.zip",
+      "bytes": 279153939,
+      "sha256": "e79bf9d3da628745b83bb24bde5a7117d53002111a3b3f59a02f4d134bba8d1c",
+      "local_file_mtime_utc": "2026-10-23T09:02:45.820489+00:00"
+    },
+    {
+      "relative_path": "zurich/source.html",
+      "url": "https://rpg.ifi.uzh.ch/zurichmavdataset.html",
+      "bytes": 20022,
+      "sha256": "b09eb1670a1c1e828cf5273210e7da636ed42a5e2d66b6daa88312892e00380d",
+      "local_file_mtime_utc": "2026-10-23T09:07:20.286262+00:00"
+    },
+    {
+      "relative_path": "texbat/readme.txt",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/readme.txt",
+      "bytes": 654,
+      "sha256": "0f14760b061c6e1263f1cc2a7688c70a5cb609c2ac06ff650a9a23cdd1faf49f",
+      "local_file_mtime_utc": "2026-10-23T08:59:31.782681+00:00"
+    },
+    {
+      "relative_path": "texbat/navsoldef.txt",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/satNavCourse/logFileDocumentation/navsoldef.txt",
+      "bytes": 1932,
+      "sha256": "f8d380ee7f7012824112568f6317c19dcc8297944f4b1a7f1e00c5ae94c83ebf",
+      "local_file_mtime_utc": "2026-10-23T09:00:42.825599+00:00"
+    },
+    {
+      "relative_path": "texbat/channeldef.txt",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/satNavCourse/logFileDocumentation/channeldef.txt",
+      "bytes": 3475,
+      "sha256": "3daeed101f2a2a94cdb197ab2d20306d48ea58a22f45b8d746b2bc1b2f9e82bf",
+      "local_file_mtime_utc": "2026-10-23T09:00:43.720149+00:00"
+    },
+    {
+      "relative_path": "texbat/source.html",
+      "url": "https://radionavlab.ae.utexas.edu/texbat/",
+      "bytes": 105349,
+      "sha256": "242c385a3e47a952284c3d984febb1839ff23938e09401deb7c8e9ff7ae30baa",
+      "local_file_mtime_utc": "2026-10-23T09:07:27.020823+00:00"
+    },
+    {
+      "relative_path": "texbat/cleanStatic/navsol.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/cleanStatic/navsol.mat",
+      "bytes": 203232,
+      "sha256": "b62129a8468b2372e8b353037b3bc9eab02b4cd3e4072cde1d4c67d2be3a5966",
+      "local_file_mtime_utc": "2026-10-23T08:59:26.622693+00:00"
+    },
+    {
+      "relative_path": "texbat/cleanStatic/channel.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/cleanStatic/channel.mat",
+      "bytes": 3572096,
+      "sha256": "4943045923140423d3202e363f9737fae6e2f6af0d2bba02f4f950d62ef07649",
+      "local_file_mtime_utc": "2026-10-23T08:59:28.020776+00:00"
+    },
+    {
+      "relative_path": "texbat/ds2/navsol.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/ds2/navsol.mat",
+      "bytes": 201792,
+      "sha256": "317ca9a57aaa6d1fde6f3f9325f002dc49655f6616e1ce53a8cda2d46b43b3ef",
+      "local_file_mtime_utc": "2026-10-23T08:59:26.636900+00:00"
+    },
+    {
+      "relative_path": "texbat/ds2/channel.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/ds2/channel.mat",
+      "bytes": 3494928,
+      "sha256": "69a5dd38fd2c7c87e1ba0d3e7970c384e17c48b3bbe9692dbd607a48ddcb3c1e",
+      "local_file_mtime_utc": "2026-10-23T08:59:30.101354+00:00"
+    },
+    {
+      "relative_path": "texbat/ds3/navsol.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/ds3/navsol.mat",
+      "bytes": 201408,
+      "sha256": "5067660cd12626a1eae36146556c7c1c7b83332fd977d6bdc29ebda20da8d19e",
+      "local_file_mtime_utc": "2026-10-23T08:59:28.622734+00:00"
+    },
+    {
+      "relative_path": "texbat/ds3/channel.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/ds3/channel.mat",
+      "bytes": 3572096,
+      "sha256": "c01d49ce6a274fe36c2b8b51c7545c87bd2a9e6d38ff3878479ff5b38f39ae94",
+      "local_file_mtime_utc": "2026-10-23T08:59:31.901769+00:00"
+    },
+    {
+      "relative_path": "texbat/ds7/navsol.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/ds7/navsol.mat",
+      "bytes": 208992,
+      "sha256": "6b2aa3942b2ca2597f03dfc4796f20c00010940b4055f3a1ca9fd5bfe837ec46",
+      "local_file_mtime_utc": "2026-10-23T08:59:30.898738+00:00"
+    },
+    {
+      "relative_path": "texbat/ds7/channel.mat",
+      "url": "https://rnl-data.ae.utexas.edu/datastore/texbat/processed/ds7/channel.mat",
+      "bytes": 3666176,
+      "sha256": "d6b1f51cd342af9c0d0bf5ae54826282c16a0dd7f2ca648ef44bfc98041543d2",
+      "local_file_mtime_utc": "2026-10-23T08:59:36.955659+00:00"
+    }
+  ],
+  "excluded": {
+    "texbat_raw_bin": "Not downloaded; 39-44 GB per attack scenario.",
+    "ieee_uav_attack": "Requires IEEE account login; not downloaded."
+  }
+}

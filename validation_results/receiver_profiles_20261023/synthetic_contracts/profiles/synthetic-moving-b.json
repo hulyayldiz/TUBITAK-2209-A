@@ -1,0 +1,48 @@
+{
+  "schema": "receiver-observables-v2",
+  "profile_id": "synthetic-moving-b",
+  "receiver_id": "synthetic-moving-b",
+  "motion": "moving",
+  "features": [
+    "position_rate_m_s",
+    "clock_rate_m_s",
+    "cn0_change_db",
+    "reported_clock_drift_m_s"
+  ],
+  "enabled_features": [
+    false,
+    false,
+    true,
+    false
+  ],
+  "center": [
+    0.0,
+    0.0,
+    0.00011864690927154697,
+    0.0
+  ],
+  "limits": [
+    0.2,
+    0.02,
+    0.5,
+    0.01
+  ],
+  "position_sigma_m": 2.0,
+  "window_s": 10.0,
+  "warmup_s": 10.0,
+  "calibration": {
+    "trusted_normal_attested": true,
+    "source_sha256": "395d690aa0d822b9633f900da5a0c0d77697ef03da6050891c59d8dbedce3446",
+    "session_id": "calibration",
+    "samples": 340
+  },
+  "validation": {
+    "source_sha256": "0807ba6ce306d43b6c1d63ed6e97a6acbff4a0b0d4968e0a2374c4307afe4a46",
+    "session_id": "validation",
+    "alarm_samples": 0,
+    "fully_assessed_samples": 340,
+    "samples": 360,
+    "status": "passed"
+  },
+  "policy": "Normal-only receiver-specific bounds; separate normal session; not attack/field certification."
+}

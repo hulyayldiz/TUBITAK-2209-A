@@ -3,7 +3,6 @@ MPU6050 IMU Modülü (v2.0)
 Gerçek donanım (I2C) desteği ve sanal fallback mekanizması içerir.
 """
 import random
-import math
 import logging
 
 try:
@@ -37,7 +36,7 @@ class MPU6050:
         high = self.bus.read_byte_data(self.address, addr)
         low = self.bus.read_byte_data(self.address, addr + 1)
         value = (high << 8) | low
-        if value > 32768:
+        if value >= 32768:
             value = value - 65536
         return value
 
@@ -48,9 +47,9 @@ class MPU6050:
                 accel_scale = 16384.0
                 gyro_scale = 131.0
                 
-                ax = self._read_raw_data(0x3B) / accel_scale
-                ay = self._read_raw_data(0x3D) / accel_scale
-                az = self._read_raw_data(0x3F) / accel_scale
+                ax = self._read_raw_data(0x3B) / accel_scale * 9.80665
+                ay = self._read_raw_data(0x3D) / accel_scale * 9.80665
+                az = self._read_raw_data(0x3F) / accel_scale * 9.80665
                 
                 gx = self._read_raw_data(0x43) / gyro_scale
                 gy = self._read_raw_data(0x45) / gyro_scale
@@ -59,6 +58,7 @@ class MPU6050:
                 return {
                     "accel": {"x": ax, "y": ay, "z": az},
                     "gyro": {"x": gx, "y": gy, "z": gz},
+                    "frame": "body",
                     "real": True
                 }
             except Exception as e:
@@ -66,13 +66,11 @@ class MPU6050:
                 self.is_real_hardware = False # Hata durumunda sanal moda düş
         
         # Sanal Fallback (Literatüre uygun gürültü modeli)
-        # Hız km/sa -> m/s çevrimi
-        speed_ms = speed_kmh / 3.6
         return {
             "accel": {
                 "x": (random.random() - 0.5) * 0.2, 
                 "y": (random.random() - 0.5) * 0.2, 
-                "z": 1.0 + (random.random() - 0.5) * 0.1
+                "z": 9.80665 + (random.random() - 0.5) * 0.1
             },
             "gyro": {
                 "x": 0.0, "y": 0.0, "z": random.uniform(-0.1, 0.1)

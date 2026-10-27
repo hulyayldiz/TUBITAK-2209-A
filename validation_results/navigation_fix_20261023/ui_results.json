@@ -1,0 +1,18 @@
+[
+  {
+    "source": "TEXBAT — DS7 (işlenmiş gerçek sinyal)",
+    "exceptions": 0,
+    "errors": [],
+    "gnss_measurement_used": true,
+    "effective_acceleration_variance": 0.05,
+    "forensic_chain_valid": true
+  },
+  {
+    "source": "CMU — bağımsız nominal uçuş 1 (GNSS/INS)",
+    "exceptions": 0,
+    "errors": [],
+    "gnss_measurement_used": true,
+    "effective_acceleration_variance": 128.31480000000002,
+    "forensic_chain_valid": true
+  }
+]

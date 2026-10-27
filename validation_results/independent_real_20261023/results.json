@@ -1,0 +1,5636 @@
+{
+  "created_at_utc": "2026-10-23T11:49:32.446822+00:00",
+  "source_url": "https://kilthub.cmu.edu/articles/dataset/12683453",
+  "doi": "10.1184/R1/12683453",
+  "archive_sha256": "98f65a1ab54a8b618c169fdf49311a53ff1fefed86fdc3f440d6a0166ce49fb1",
+  "publisher_md5_verified": true,
+  "detector_freeze_verified_before_and_after": true,
+  "frozen_detector": {
+    "protocol": "Detector frozen before CMU raw flights opened. New adapter may map documented units only. No training or threshold adjustment.",
+    "sha256": {
+      "detection.py": "860dda160b61aaa61b231f184deb5a73903625e7ef035fb4dcd772b3b5b69c90",
+      "fusion.py": "84fb015c70bcbfd088d96e4203b83e953f9b2a7af93be921c04b9f6f83f9f1e3",
+      "navigation.py": "235d0de62704b9a6b83cc64dfa5a15e0b644bddb751702d0a21922e4ffb6f279",
+      "ml_detection.py": "9d0efb42f904c2e204f4ae6acc70a24ae662dcdd8d4760928df492af1fb9b9b9",
+      "features.py": "e84fc1e91c59653a4851ee4040752f660b7fab096244e3078d20a44d48f61ad8",
+      "receiver_profile.py": "ae69a25aa651f05921b16fae8246eaca24ec4442a7a72f5ba77e0450962bfa8b",
+      "config.py": "0f84f6ee40927e0a0e8e7e505981bbaf8705a9c2540f45769c03f1cb2d9c9db9",
+      "models/texbat_grid_profile.json": "276dcaaf200ab43fc52768d7a562593615cdbc0a61620682397a40b6a192d116",
+      "gnss_rf_model.pkl": "d4bbbdf94b62dd0a3283e6091bc8bbdc12038e7cdd0b4bc18399d0917200182e",
+      "gnss_lstm_vae.pth": "d84956caa5d5728a81e4e351ee1eccdd17d6ff6e0b808d5d747a33f1b07974e8",
+      "gnss_kinematic_model.pkl": "b43dea742994302d454a556982e766bad2fa3e076b987a847a4361c4e4688302"
+    }
+  },
+  "adapter_sha256": "a230a7a705da6e8daa1e23b1321b2774d7c60b1599dd50032ce055eed584d26d",
+  "evaluation_code_sha256": "13ce5ee68ec085dbfdb45157636eed9535b3243f5dde36556fa54d51fee7e342",
+  "summary": {
+    "records": 209,
+    "cruise_flights": 196,
+    "rows": 257896,
+    "nominal_alarm_samples": 126321,
+    "nominal_alarm_rate": 0.489813723361355,
+    "records_with_alarms": 196,
+    "record_duration_s": 38717.46
+  },
+  "results": [
+    {
+      "flight": 1,
+      "route": "R5",
+      "is_cruise_flight": true,
+      "source_member": "flights/1.csv",
+      "source_sha256": "ecafd1655a183ea0e37b3ab6570b102a09d7b36a39d94f3f7bae88ddc5142183",
+      "input_rows": 1339,
+      "rows": 1339,
+      "duration_s": 200.7,
+      "decisions": {
+        "NORMAL": 749,
+        "SPOOFING": 590
+      },
+      "rule_decisions": {
+        "NORMAL": 1339
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 18,
+        "GNSS yeniden doğrulama bekleniyor": 572
+      },
+      "nominal_alarm_samples": 590,
+      "nominal_alarm_rate": 0.4406273338312173,
+      "alarm_duration_s": 88.49,
+      "ml_sources": {
+        "unavailable": 1339
+      }
+    },
+    {
+      "flight": 2,
+      "route": "R5",
+      "is_cruise_flight": true,
+      "source_member": "flights/2.csv",
+      "source_sha256": "ff4a060f832f6e8e8e2a3e881e16099963bf8a49e3b91d53c5de99672087d6f0",
+      "input_rows": 1809,
+      "rows": 1809,
+      "duration_s": 271.2,
+      "decisions": {
+        "NORMAL": 825,
+        "SPOOFING": 984
+      },
+      "rule_decisions": {
+        "NORMAL": 1809
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 954
+      },
+      "nominal_alarm_samples": 984,
+      "nominal_alarm_rate": 0.5439469320066335,
+      "alarm_duration_s": 147.70000000000002,
+      "ml_sources": {
+        "unavailable": 1809
+      }
+    },
+    {
+      "flight": 3,
+      "route": "R5",
+      "is_cruise_flight": true,
+      "source_member": "flights/3.csv",
+      "source_sha256": "672e3e9c7dd025f23ea9a8931fa5a4ce944de87c9c9f40cff9eb88460dce2c01",
+      "input_rows": 1201,
+      "rows": 1201,
+      "duration_s": 180.1,
+      "decisions": {
+        "NORMAL": 339,
+        "SPOOFING": 862
+      },
+      "rule_decisions": {
+        "NORMAL": 1201
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 836
+      },
+      "nominal_alarm_samples": 862,
+      "nominal_alarm_rate": 0.7177352206494588,
+      "alarm_duration_s": 129.39,
+      "ml_sources": {
+        "unavailable": 1201
+      }
+    },
+    {
+      "flight": 4,
+      "route": "R5",
+      "is_cruise_flight": true,
+      "source_member": "flights/4.csv",
+      "source_sha256": "e80b07b124015c585f1c3842c2194a23ac642b11668142304c303296c2d22846",
+      "input_rows": 1141,
+      "rows": 1141,
+      "duration_s": 171.0,
+      "decisions": {
+        "NORMAL": 201,
+        "SPOOFING": 940
+      },
+      "rule_decisions": {
+        "NORMAL": 1141
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 912
+      },
+      "nominal_alarm_samples": 940,
+      "nominal_alarm_rate": 0.8238387379491674,
+      "alarm_duration_s": 141.0,
+      "ml_sources": {
+        "unavailable": 1141
+      }
+    },
+    {
+      "flight": 5,
+      "route": "R2",
+      "is_cruise_flight": true,
+      "source_member": "flights/5.csv",
+      "source_sha256": "c8a53323f80f8864639d0fcb40b13ab87f5d9d1efbfaf7a439a82555148b1c1b",
+      "input_rows": 1445,
+      "rows": 1445,
+      "duration_s": 217.0,
+      "decisions": {
+        "NORMAL": 560,
+        "SPOOFING": 885
+      },
+      "rule_decisions": {
+        "NORMAL": 1445
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 27,
+        "GNSS yeniden doğrulama bekleniyor": 858
+      },
+      "nominal_alarm_samples": 885,
+      "nominal_alarm_rate": 0.6124567474048442,
+      "alarm_duration_s": 133.1,
+      "ml_sources": {
+        "unavailable": 1445
+      }
+    },
+    {
+      "flight": 6,
+      "route": "R3",
+      "is_cruise_flight": true,
+      "source_member": "flights/6.csv",
+      "source_sha256": "c41c557632b935a54a7867d4ab14f8c1d67e34a43e1b7bb6ab11d09db037b2d6",
+      "input_rows": 1364,
+      "rows": 1364,
+      "duration_s": 204.49,
+      "decisions": {
+        "NORMAL": 519,
+        "SPOOFING": 845
+      },
+      "rule_decisions": {
+        "NORMAL": 1364
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 820
+      },
+      "nominal_alarm_samples": 845,
+      "nominal_alarm_rate": 0.6195014662756598,
+      "alarm_duration_s": 126.88000000000001,
+      "ml_sources": {
+        "unavailable": 1364
+      }
+    },
+    {
+      "flight": 7,
+      "route": "R4",
+      "is_cruise_flight": true,
+      "source_member": "flights/7.csv",
+      "source_sha256": "07781642636b85cd14d6bdaa092c4c577ae153f8a446874eb2b3b3aed3ccb8ef",
+      "input_rows": 1197,
+      "rows": 1197,
+      "duration_s": 179.61,
+      "decisions": {
+        "NORMAL": 452,
+        "SPOOFING": 745
+      },
+      "rule_decisions": {
+        "NORMAL": 1197
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 23,
+        "GNSS yeniden doğrulama bekleniyor": 722
+      },
+      "nominal_alarm_samples": 745,
+      "nominal_alarm_rate": 0.6223893065998329,
+      "alarm_duration_s": 112.01000000000002,
+      "ml_sources": {
+        "unavailable": 1197
+      }
+    },
+    {
+      "flight": 8,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/8.csv",
+      "source_sha256": "9cc3b6c76e07615ba7263b2918eaf3f71d50fb3f2a47fcea4a22e3b25e32eaa2",
+      "input_rows": 1558,
+      "rows": 1558,
+      "duration_s": 233.5,
+      "decisions": {
+        "NORMAL": 754,
+        "SPOOFING": 804
+      },
+      "rule_decisions": {
+        "NORMAL": 1558
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 24,
+        "GNSS yeniden doğrulama bekleniyor": 780
+      },
+      "nominal_alarm_samples": 804,
+      "nominal_alarm_rate": 0.5160462130937099,
+      "alarm_duration_s": 120.59,
+      "ml_sources": {
+        "unavailable": 1558
+      }
+    },
+    {
+      "flight": 10,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/10.csv",
+      "source_sha256": "3fee0c3eea5e8466179385da5e7543ba4676b5d76aea14f30bcd5dd77f5b6746",
+      "input_rows": 922,
+      "rows": 922,
+      "duration_s": 138.09,
+      "decisions": {
+        "NORMAL": 412,
+        "SPOOFING": 510
+      },
+      "rule_decisions": {
+        "NORMAL": 922
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 495
+      },
+      "nominal_alarm_samples": 510,
+      "nominal_alarm_rate": 0.5531453362255966,
+      "alarm_duration_s": 76.49,
+      "ml_sources": {
+        "unavailable": 922
+      }
+    },
+    {
+      "flight": 12,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/12.csv",
+      "source_sha256": "0acad8e1ed4855119f13277eda35e967c0d1d10e6160986cc68851b5e743767e",
+      "input_rows": 775,
+      "rows": 775,
+      "duration_s": 116.21,
+      "decisions": {
+        "NORMAL": 406,
+        "SPOOFING": 369
+      },
+      "rule_decisions": {
+        "NORMAL": 775
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 358
+      },
+      "nominal_alarm_samples": 369,
+      "nominal_alarm_rate": 0.4761290322580645,
+      "alarm_duration_s": 55.4,
+      "ml_sources": {
+        "unavailable": 775
+      }
+    },
+    {
+      "flight": 14,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/14.csv",
+      "source_sha256": "8c1c6528d1f5fddbbad8d27b55ebd92d8cadabb96cb982c876c939551e090c47",
+      "input_rows": 708,
+      "rows": 708,
+      "duration_s": 106.11,
+      "decisions": {
+        "NORMAL": 270,
+        "SPOOFING": 438
+      },
+      "rule_decisions": {
+        "NORMAL": 708
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 425
+      },
+      "nominal_alarm_samples": 438,
+      "nominal_alarm_rate": 0.6186440677966102,
+      "alarm_duration_s": 65.8,
+      "ml_sources": {
+        "unavailable": 708
+      }
+    },
+    {
+      "flight": 15,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/15.csv",
+      "source_sha256": "459ef30e08a20affd3e8d9f350a8d26ce92a35699a87724344dacf6bb3622887",
+      "input_rows": 756,
+      "rows": 756,
+      "duration_s": 113.2,
+      "decisions": {
+        "NORMAL": 319,
+        "SPOOFING": 437
+      },
+      "rule_decisions": {
+        "NORMAL": 756
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 424
+      },
+      "nominal_alarm_samples": 437,
+      "nominal_alarm_rate": 0.578042328042328,
+      "alarm_duration_s": 65.6,
+      "ml_sources": {
+        "unavailable": 756
+      }
+    },
+    {
+      "flight": 16,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/16.csv",
+      "source_sha256": "31ead6a2699c56345210f76f5a6c9d9eab31bd5a49404a0141fcff052adac3f5",
+      "input_rows": 840,
+      "rows": 840,
+      "duration_s": 125.8,
+      "decisions": {
+        "NORMAL": 232,
+        "SPOOFING": 608
+      },
+      "rule_decisions": {
+        "NORMAL": 840
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 18,
+        "GNSS yeniden doğrulama bekleniyor": 590
+      },
+      "nominal_alarm_samples": 608,
+      "nominal_alarm_rate": 0.7238095238095238,
+      "alarm_duration_s": 91.11999999999999,
+      "ml_sources": {
+        "unavailable": 840
+      }
+    },
+    {
+      "flight": 17,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/17.csv",
+      "source_sha256": "6c569cfd13aeda577d5ca3de0f22c496a81a141abffc19086e142914b2951882",
+      "input_rows": 928,
+      "rows": 928,
+      "duration_s": 139.09,
+      "decisions": {
+        "NORMAL": 280,
+        "SPOOFING": 648
+      },
+      "rule_decisions": {
+        "NORMAL": 928
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 20,
+        "GNSS yeniden doğrulama bekleniyor": 628
+      },
+      "nominal_alarm_samples": 648,
+      "nominal_alarm_rate": 0.6982758620689655,
+      "alarm_duration_s": 97.3,
+      "ml_sources": {
+        "unavailable": 928
+      }
+    },
+    {
+      "flight": 18,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/18.csv",
+      "source_sha256": "664ca2064fdfacd459606ca1cfef68bf19a997e9895ebb29fff004b3c2ea133e",
+      "input_rows": 1135,
+      "rows": 1135,
+      "duration_s": 170.2,
+      "decisions": {
+        "NORMAL": 395,
+        "SPOOFING": 740
+      },
+      "rule_decisions": {
+        "NORMAL": 1135
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 22,
+        "GNSS yeniden doğrulama bekleniyor": 718
+      },
+      "nominal_alarm_samples": 740,
+      "nominal_alarm_rate": 0.6519823788546255,
+      "alarm_duration_s": 111.1,
+      "ml_sources": {
+        "unavailable": 1135
+      }
+    },
+    {
+      "flight": 20,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/20.csv",
+      "source_sha256": "4e11fd7d0ede1c597694a0c88a829ec8ab739dd5fa1c9785a694e7722c49c9b4",
+      "input_rows": 934,
+      "rows": 934,
+      "duration_s": 140.09,
+      "decisions": {
+        "NORMAL": 359,
+        "SPOOFING": 575
+      },
+      "rule_decisions": {
+        "NORMAL": 934
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 558
+      },
+      "nominal_alarm_samples": 575,
+      "nominal_alarm_rate": 0.6156316916488223,
+      "alarm_duration_s": 86.39,
+      "ml_sources": {
+        "unavailable": 934
+      }
+    },
+    {
+      "flight": 23,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/23.csv",
+      "source_sha256": "edd77acfc655ca28d6b4e6625a1855494280c70742ab19c5a5103194e5c4a7a8",
+      "input_rows": 848,
+      "rows": 848,
+      "duration_s": 127.0,
+      "decisions": {
+        "NORMAL": 443,
+        "SPOOFING": 405
+      },
+      "rule_decisions": {
+        "NORMAL": 848
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 393
+      },
+      "nominal_alarm_samples": 405,
+      "nominal_alarm_rate": 0.47759433962264153,
+      "alarm_duration_s": 60.8,
+      "ml_sources": {
+        "unavailable": 848
+      }
+    },
+    {
+      "flight": 59,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/59.csv",
+      "source_sha256": "b00996b81af176b73f876e46b2c25d90c1326bd45e8f5893766dc64c25e26cf1",
+      "input_rows": 941,
+      "rows": 941,
+      "duration_s": 141.1,
+      "decisions": {
+        "NORMAL": 568,
+        "SPOOFING": 373
+      },
+      "rule_decisions": {
+        "NORMAL": 941
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 362
+      },
+      "nominal_alarm_samples": 373,
+      "nominal_alarm_rate": 0.39638682252922425,
+      "alarm_duration_s": 56.0,
+      "ml_sources": {
+        "unavailable": 941
+      }
+    },
+    {
+      "flight": 60,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/60.csv",
+      "source_sha256": "877bdf5c2486308492ac2850dcda1ddd2b9340431e03e090a302667ff42eb827",
+      "input_rows": 1003,
+      "rows": 1003,
+      "duration_s": 150.41,
+      "decisions": {
+        "NORMAL": 664,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 1003
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.33798604187437686,
+      "alarm_duration_s": 50.790000000000006,
+      "ml_sources": {
+        "unavailable": 1003
+      }
+    },
+    {
+      "flight": 68,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/68.csv",
+      "source_sha256": "9d80ef2c33a86b9269b2383538f9c11a716d1bb7a02930399e3d24c7f27d4cba",
+      "input_rows": 1144,
+      "rows": 1144,
+      "duration_s": 171.49,
+      "decisions": {
+        "NORMAL": 707,
+        "SPOOFING": 437
+      },
+      "rule_decisions": {
+        "NORMAL": 1144
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 424
+      },
+      "nominal_alarm_samples": 437,
+      "nominal_alarm_rate": 0.381993006993007,
+      "alarm_duration_s": 65.59,
+      "ml_sources": {
+        "unavailable": 1144
+      }
+    },
+    {
+      "flight": 76,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/76.csv",
+      "source_sha256": "27d49a5a281ff90a432e78260408533de6901abddd7065171a7e8985eeb0c1e9",
+      "input_rows": 1622,
+      "rows": 1622,
+      "duration_s": 243.3,
+      "decisions": {
+        "NORMAL": 513,
+        "SPOOFING": 1109
+      },
+      "rule_decisions": {
+        "NORMAL": 1622
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 33,
+        "GNSS yeniden doğrulama bekleniyor": 1076
+      },
+      "nominal_alarm_samples": 1109,
+      "nominal_alarm_rate": 0.6837237977805178,
+      "alarm_duration_s": 166.5,
+      "ml_sources": {
+        "unavailable": 1622
+      }
+    },
+    {
+      "flight": 77,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/77.csv",
+      "source_sha256": "c22fc7173f8df13be1da34004cbe9a9689bc67a7cf5311ffc2cd274f92113728",
+      "input_rows": 909,
+      "rows": 909,
+      "duration_s": 136.3,
+      "decisions": {
+        "NORMAL": 539,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 909
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.40704070407040704,
+      "alarm_duration_s": 55.59,
+      "ml_sources": {
+        "unavailable": 909
+      }
+    },
+    {
+      "flight": 78,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/78.csv",
+      "source_sha256": "38ac0a348f7d638525ca93c94ef9fcc1d2ffc6f257a34ea0ec8c844525df1ca4",
+      "input_rows": 1257,
+      "rows": 1257,
+      "duration_s": 188.5,
+      "decisions": {
+        "NORMAL": 317,
+        "SPOOFING": 940
+      },
+      "rule_decisions": {
+        "NORMAL": 1257
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 912
+      },
+      "nominal_alarm_samples": 940,
+      "nominal_alarm_rate": 0.7478122513922036,
+      "alarm_duration_s": 141.1,
+      "ml_sources": {
+        "unavailable": 1257
+      }
+    },
+    {
+      "flight": 79,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/79.csv",
+      "source_sha256": "cb4b1d81732de8c2cde326413c81d0dda63bb9d02a681c79c594680a76684727",
+      "input_rows": 1043,
+      "rows": 1043,
+      "duration_s": 156.21,
+      "decisions": {
+        "NORMAL": 673,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 1043
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.3547459252157239,
+      "alarm_duration_s": 55.49000000000001,
+      "ml_sources": {
+        "unavailable": 1043
+      }
+    },
+    {
+      "flight": 80,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/80.csv",
+      "source_sha256": "799f2dd35b6a6ac79bcdab7759c56f2c28ff3a19110bd47f2418bbc9c25fbcbf",
+      "input_rows": 1181,
+      "rows": 1181,
+      "duration_s": 176.9,
+      "decisions": {
+        "NORMAL": 741,
+        "SPOOFING": 440
+      },
+      "rule_decisions": {
+        "NORMAL": 1181
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 427
+      },
+      "nominal_alarm_samples": 440,
+      "nominal_alarm_rate": 0.37256562235393736,
+      "alarm_duration_s": 66.00000000000001,
+      "ml_sources": {
+        "unavailable": 1181
+      }
+    },
+    {
+      "flight": 81,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/81.csv",
+      "source_sha256": "3910837cca4a53b998471389ebb4de1524b43e4faa15dbce192e72b794bb8540",
+      "input_rows": 1194,
+      "rows": 1194,
+      "duration_s": 179.0,
+      "decisions": {
+        "NORMAL": 374,
+        "SPOOFING": 820
+      },
+      "rule_decisions": {
+        "NORMAL": 1194
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 795
+      },
+      "nominal_alarm_samples": 820,
+      "nominal_alarm_rate": 0.6867671691792295,
+      "alarm_duration_s": 123.0,
+      "ml_sources": {
+        "unavailable": 1194
+      }
+    },
+    {
+      "flight": 82,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/82.csv",
+      "source_sha256": "7457392e4551788029e475affe75d9d8e7d01cdae56dcd309c7a9c28a16e2b13",
+      "input_rows": 1218,
+      "rows": 1218,
+      "duration_s": 181.9,
+      "decisions": {
+        "NORMAL": 674,
+        "SPOOFING": 544
+      },
+      "rule_decisions": {
+        "NORMAL": 1218
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 528
+      },
+      "nominal_alarm_samples": 544,
+      "nominal_alarm_rate": 0.4466338259441708,
+      "alarm_duration_s": 81.49,
+      "ml_sources": {
+        "unavailable": 1218
+      }
+    },
+    {
+      "flight": 83,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/83.csv",
+      "source_sha256": "f3d1faf145eb8b8b8c3b01283fd2a90efd81caf78b48292fa880ae92f6d96ae2",
+      "input_rows": 1191,
+      "rows": 1191,
+      "duration_s": 178.3,
+      "decisions": {
+        "NORMAL": 820,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1191
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.31150293870696893,
+      "alarm_duration_s": 55.71,
+      "ml_sources": {
+        "unavailable": 1191
+      }
+    },
+    {
+      "flight": 84,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/84.csv",
+      "source_sha256": "c1ddc48f8d4b029fae9d9bafd2f4e02360aa07725e5f2653f19470cedc7b1170",
+      "input_rows": 1517,
+      "rows": 1517,
+      "duration_s": 227.3,
+      "decisions": {
+        "NORMAL": 410,
+        "SPOOFING": 1107
+      },
+      "rule_decisions": {
+        "NORMAL": 1517
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 33,
+        "GNSS yeniden doğrulama bekleniyor": 1074
+      },
+      "nominal_alarm_samples": 1107,
+      "nominal_alarm_rate": 0.7297297297297297,
+      "alarm_duration_s": 166.1,
+      "ml_sources": {
+        "unavailable": 1517
+      }
+    },
+    {
+      "flight": 85,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/85.csv",
+      "source_sha256": "ef6b117fd9b4b6823867f0af9562a60b829b1b60dbfb842f3ff71ee243286804",
+      "input_rows": 1514,
+      "rows": 1514,
+      "duration_s": 226.5,
+      "decisions": {
+        "NORMAL": 1007,
+        "SPOOFING": 507
+      },
+      "rule_decisions": {
+        "NORMAL": 1514
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 492
+      },
+      "nominal_alarm_samples": 507,
+      "nominal_alarm_rate": 0.33487450462351387,
+      "alarm_duration_s": 76.0,
+      "ml_sources": {
+        "unavailable": 1514
+      }
+    },
+    {
+      "flight": 86,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/86.csv",
+      "source_sha256": "9a22f8f690e633c3822e3496d262cab45b0ecdf4e0f15df39ee8e9bc0f0b2e48",
+      "input_rows": 1218,
+      "rows": 1218,
+      "duration_s": 182.69,
+      "decisions": {
+        "NORMAL": 845,
+        "SPOOFING": 373
+      },
+      "rule_decisions": {
+        "NORMAL": 1218
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 362
+      },
+      "nominal_alarm_samples": 373,
+      "nominal_alarm_rate": 0.30623973727422005,
+      "alarm_duration_s": 55.989999999999995,
+      "ml_sources": {
+        "unavailable": 1218
+      }
+    },
+    {
+      "flight": 87,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/87.csv",
+      "source_sha256": "e733dc9f258cd61d8c9b1a2f9690cb7f80ea33a7a151a31685baee916fba9d01",
+      "input_rows": 1671,
+      "rows": 1671,
+      "duration_s": 250.1,
+      "decisions": {
+        "NORMAL": 660,
+        "SPOOFING": 1011
+      },
+      "rule_decisions": {
+        "NORMAL": 1671
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 981
+      },
+      "nominal_alarm_samples": 1011,
+      "nominal_alarm_rate": 0.6050269299820467,
+      "alarm_duration_s": 151.4,
+      "ml_sources": {
+        "unavailable": 1671
+      }
+    },
+    {
+      "flight": 88,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/88.csv",
+      "source_sha256": "21c1059d871066bc9626f1bfbe33561c7a52cf81a52320ddc4216bd1c3e6d147",
+      "input_rows": 1369,
+      "rows": 1369,
+      "duration_s": 205.3,
+      "decisions": {
+        "NORMAL": 863,
+        "SPOOFING": 506
+      },
+      "rule_decisions": {
+        "NORMAL": 1369
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 491
+      },
+      "nominal_alarm_samples": 506,
+      "nominal_alarm_rate": 0.3696128560993426,
+      "alarm_duration_s": 75.89999999999999,
+      "ml_sources": {
+        "unavailable": 1369
+      }
+    },
+    {
+      "flight": 91,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/91.csv",
+      "source_sha256": "3622813ec266a7b6f6d88d240ea6d92fd55d2d57508bb0cd37f39c574b4bd795",
+      "input_rows": 1185,
+      "rows": 1185,
+      "duration_s": 177.39,
+      "decisions": {
+        "NORMAL": 812,
+        "SPOOFING": 373
+      },
+      "rule_decisions": {
+        "NORMAL": 1185
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 362
+      },
+      "nominal_alarm_samples": 373,
+      "nominal_alarm_rate": 0.31476793248945145,
+      "alarm_duration_s": 55.910000000000004,
+      "ml_sources": {
+        "unavailable": 1185
+      }
+    },
+    {
+      "flight": 92,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/92.csv",
+      "source_sha256": "0337d5a86121e5b4c404a9dd1adb05279641655c7ec3c31e85f5469af8d01c70",
+      "input_rows": 1174,
+      "rows": 1174,
+      "duration_s": 175.81,
+      "decisions": {
+        "NORMAL": 803,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1174
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.31601362862010224,
+      "alarm_duration_s": 55.6,
+      "ml_sources": {
+        "unavailable": 1174
+      }
+    },
+    {
+      "flight": 93,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/93.csv",
+      "source_sha256": "1eecd75ad3f43d677a745cced31155db106599446017bbcd1fc330e317087283",
+      "input_rows": 1214,
+      "rows": 1214,
+      "duration_s": 181.81,
+      "decisions": {
+        "NORMAL": 378,
+        "SPOOFING": 836
+      },
+      "rule_decisions": {
+        "NORMAL": 1214
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 811
+      },
+      "nominal_alarm_samples": 836,
+      "nominal_alarm_rate": 0.6886326194398682,
+      "alarm_duration_s": 125.41,
+      "ml_sources": {
+        "unavailable": 1214
+      }
+    },
+    {
+      "flight": 94,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/94.csv",
+      "source_sha256": "23e61af429789a6ba3467150791107ae3995bb37a63ab4c514cfd8c0f99ace0b",
+      "input_rows": 1461,
+      "rows": 1461,
+      "duration_s": 219.2,
+      "decisions": {
+        "NORMAL": 535,
+        "SPOOFING": 926
+      },
+      "rule_decisions": {
+        "NORMAL": 1461
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 898
+      },
+      "nominal_alarm_samples": 926,
+      "nominal_alarm_rate": 0.6338124572210815,
+      "alarm_duration_s": 139.1,
+      "ml_sources": {
+        "unavailable": 1461
+      }
+    },
+    {
+      "flight": 95,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/95.csv",
+      "source_sha256": "08393684fb7dd43bc87d1abdd98e8d6052fda2ae1517677f597723400358476d",
+      "input_rows": 1066,
+      "rows": 1066,
+      "duration_s": 159.7,
+      "decisions": {
+        "NORMAL": 696,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 1066
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.34709193245778613,
+      "alarm_duration_s": 55.61,
+      "ml_sources": {
+        "unavailable": 1066
+      }
+    },
+    {
+      "flight": 96,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/96.csv",
+      "source_sha256": "6eb1cc6703dc8dd1f01594b0483c1a4c6388947e16cca021c16163a930fb93c8",
+      "input_rows": 1341,
+      "rows": 1341,
+      "duration_s": 201.0,
+      "decisions": {
+        "NORMAL": 466,
+        "SPOOFING": 875
+      },
+      "rule_decisions": {
+        "NORMAL": 1341
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 849
+      },
+      "nominal_alarm_samples": 875,
+      "nominal_alarm_rate": 0.6524981357196122,
+      "alarm_duration_s": 131.29000000000002,
+      "ml_sources": {
+        "unavailable": 1341
+      }
+    },
+    {
+      "flight": 97,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/97.csv",
+      "source_sha256": "d131524881fa4ec169fd566cd9eff2a66ce04b176251a23637cccb790e1b5343",
+      "input_rows": 1577,
+      "rows": 1577,
+      "duration_s": 236.39,
+      "decisions": {
+        "NORMAL": 593,
+        "SPOOFING": 984
+      },
+      "rule_decisions": {
+        "NORMAL": 1577
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 954
+      },
+      "nominal_alarm_samples": 984,
+      "nominal_alarm_rate": 0.6239695624603678,
+      "alarm_duration_s": 147.7,
+      "ml_sources": {
+        "unavailable": 1577
+      }
+    },
+    {
+      "flight": 98,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/98.csv",
+      "source_sha256": "b00b9a3b524f9f6dcfc2d298af4af69916c4d7f98930e171d34e43c297aed50c",
+      "input_rows": 871,
+      "rows": 871,
+      "duration_s": 130.5,
+      "decisions": {
+        "NORMAL": 532,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 871
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.38920780711825487,
+      "alarm_duration_s": 50.8,
+      "ml_sources": {
+        "unavailable": 871
+      }
+    },
+    {
+      "flight": 99,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/99.csv",
+      "source_sha256": "6a23ea1b2065c3cd0ea06603ad681220505ce9b4c758baa14fbe06b1ba75c61d",
+      "input_rows": 1274,
+      "rows": 1274,
+      "duration_s": 190.7,
+      "decisions": {
+        "NORMAL": 732,
+        "SPOOFING": 542
+      },
+      "rule_decisions": {
+        "NORMAL": 1274
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 526
+      },
+      "nominal_alarm_samples": 542,
+      "nominal_alarm_rate": 0.42543171114599687,
+      "alarm_duration_s": 81.3,
+      "ml_sources": {
+        "unavailable": 1274
+      }
+    },
+    {
+      "flight": 100,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/100.csv",
+      "source_sha256": "e579d423c18d126a772e27ba647a201789bf64c20bbe46541244debb8f9e7c2e",
+      "input_rows": 1042,
+      "rows": 1042,
+      "duration_s": 156.01,
+      "decisions": {
+        "NORMAL": 673,
+        "SPOOFING": 369
+      },
+      "rule_decisions": {
+        "NORMAL": 1042
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 358
+      },
+      "nominal_alarm_samples": 369,
+      "nominal_alarm_rate": 0.354126679462572,
+      "alarm_duration_s": 55.29,
+      "ml_sources": {
+        "unavailable": 1042
+      }
+    },
+    {
+      "flight": 101,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/101.csv",
+      "source_sha256": "541bce0d9c4f57706eee5001e9697f0f38ded6d77595b66971b0c8523b04a3b6",
+      "input_rows": 1098,
+      "rows": 1098,
+      "duration_s": 164.5,
+      "decisions": {
+        "NORMAL": 559,
+        "SPOOFING": 539
+      },
+      "rule_decisions": {
+        "NORMAL": 1098
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 523
+      },
+      "nominal_alarm_samples": 539,
+      "nominal_alarm_rate": 0.49089253187613846,
+      "alarm_duration_s": 80.7,
+      "ml_sources": {
+        "unavailable": 1098
+      }
+    },
+    {
+      "flight": 102,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/102.csv",
+      "source_sha256": "ea550c6f9c1597420cda1eaa082aeae2aa9615cdf50a6cc87002438e52184bea",
+      "input_rows": 1688,
+      "rows": 1688,
+      "duration_s": 252.5,
+      "decisions": {
+        "NORMAL": 708,
+        "SPOOFING": 980
+      },
+      "rule_decisions": {
+        "NORMAL": 1688
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 951
+      },
+      "nominal_alarm_samples": 980,
+      "nominal_alarm_rate": 0.580568720379147,
+      "alarm_duration_s": 146.71,
+      "ml_sources": {
+        "unavailable": 1688
+      }
+    },
+    {
+      "flight": 105,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/105.csv",
+      "source_sha256": "a142aca363d5375df8509c6ca2bc9723b9473231c00d5c59b7e90ec6634634cc",
+      "input_rows": 1477,
+      "rows": 1477,
+      "duration_s": 221.1,
+      "decisions": {
+        "NORMAL": 569,
+        "SPOOFING": 908
+      },
+      "rule_decisions": {
+        "NORMAL": 1477
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 27,
+        "GNSS yeniden doğrulama bekleniyor": 881
+      },
+      "nominal_alarm_samples": 908,
+      "nominal_alarm_rate": 0.6147596479350034,
+      "alarm_duration_s": 136.29999999999998,
+      "ml_sources": {
+        "unavailable": 1477
+      }
+    },
+    {
+      "flight": 106,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/106.csv",
+      "source_sha256": "17507c8c35da4f6c4a638cb3b76d70847e1b3ae2109d9d9c68bbdf3565645cf3",
+      "input_rows": 1299,
+      "rows": 1299,
+      "duration_s": 194.8,
+      "decisions": {
+        "NORMAL": 928,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1299
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.28560431100846806,
+      "alarm_duration_s": 55.7,
+      "ml_sources": {
+        "unavailable": 1299
+      }
+    },
+    {
+      "flight": 107,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/107.csv",
+      "source_sha256": "1b2a54e167e48f7819efd865ce5cbfd99273599262cde7244d1714f18e7aa777",
+      "input_rows": 1300,
+      "rows": 1300,
+      "duration_s": 194.9,
+      "decisions": {
+        "NORMAL": 829,
+        "SPOOFING": 471
+      },
+      "rule_decisions": {
+        "NORMAL": 1300
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 14,
+        "GNSS yeniden doğrulama bekleniyor": 457
+      },
+      "nominal_alarm_samples": 471,
+      "nominal_alarm_rate": 0.36230769230769233,
+      "alarm_duration_s": 70.6,
+      "ml_sources": {
+        "unavailable": 1300
+      }
+    },
+    {
+      "flight": 108,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/108.csv",
+      "source_sha256": "64990fc1b47853c3cddafcc76b5e36aac6afb19677aaeea512669429b505400b",
+      "input_rows": 1073,
+      "rows": 1073,
+      "duration_s": 161.9,
+      "decisions": {
+        "NORMAL": 241,
+        "SPOOFING": 832
+      },
+      "rule_decisions": {
+        "NORMAL": 1073
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 807
+      },
+      "nominal_alarm_samples": 832,
+      "nominal_alarm_rate": 0.7753960857409133,
+      "alarm_duration_s": 125.9,
+      "ml_sources": {
+        "unavailable": 1073
+      }
+    },
+    {
+      "flight": 109,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/109.csv",
+      "source_sha256": "b52088f64d13d3c92089afb7e2507ca24ce9304f3bc9c9e17e0e71bb418caba1",
+      "input_rows": 1691,
+      "rows": 1691,
+      "duration_s": 253.9,
+      "decisions": {
+        "NORMAL": 653,
+        "SPOOFING": 1038
+      },
+      "rule_decisions": {
+        "NORMAL": 1691
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 1007
+      },
+      "nominal_alarm_samples": 1038,
+      "nominal_alarm_rate": 0.6138379657007688,
+      "alarm_duration_s": 156.4,
+      "ml_sources": {
+        "unavailable": 1691
+      }
+    },
+    {
+      "flight": 110,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/110.csv",
+      "source_sha256": "2943201c98caf56b871d7731aa4457f6e63f40a44664ac8c9f8f8827becbb0cf",
+      "input_rows": 1628,
+      "rows": 1628,
+      "duration_s": 245.8,
+      "decisions": {
+        "NORMAL": 728,
+        "SPOOFING": 900
+      },
+      "rule_decisions": {
+        "NORMAL": 1628
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 27,
+        "GNSS yeniden doğrulama bekleniyor": 873
+      },
+      "nominal_alarm_samples": 900,
+      "nominal_alarm_rate": 0.5528255528255528,
+      "alarm_duration_s": 136.60000000000002,
+      "ml_sources": {
+        "unavailable": 1628
+      }
+    },
+    {
+      "flight": 111,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/111.csv",
+      "source_sha256": "f5d7f5bb94cd771f8b19b7e0a2827dc7ff39404c2adf7c214d659f4455cbb245",
+      "input_rows": 906,
+      "rows": 906,
+      "duration_s": 135.8,
+      "decisions": {
+        "NORMAL": 504,
+        "SPOOFING": 402
+      },
+      "rule_decisions": {
+        "NORMAL": 906
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 390
+      },
+      "nominal_alarm_samples": 402,
+      "nominal_alarm_rate": 0.44370860927152317,
+      "alarm_duration_s": 60.21,
+      "ml_sources": {
+        "unavailable": 906
+      }
+    },
+    {
+      "flight": 112,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/112.csv",
+      "source_sha256": "5a2cb96390bb448987878b3e70817b6f8cae294dfa544649ffb3b53e21e83ad8",
+      "input_rows": 1342,
+      "rows": 1342,
+      "duration_s": 201.5,
+      "decisions": {
+        "NORMAL": 375,
+        "SPOOFING": 967
+      },
+      "rule_decisions": {
+        "NORMAL": 1342
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 938
+      },
+      "nominal_alarm_samples": 967,
+      "nominal_alarm_rate": 0.7205663189269746,
+      "alarm_duration_s": 145.50000000000003,
+      "ml_sources": {
+        "unavailable": 1342
+      }
+    },
+    {
+      "flight": 113,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/113.csv",
+      "source_sha256": "8a3752853e47122e3b3771ba475a8120dd156e5886578641da0ba90f8a66f98c",
+      "input_rows": 1331,
+      "rows": 1331,
+      "duration_s": 201.2,
+      "decisions": {
+        "NORMAL": 992,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 1331
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.25469571750563486,
+      "alarm_duration_s": 50.800000000000004,
+      "ml_sources": {
+        "unavailable": 1331
+      }
+    },
+    {
+      "flight": 114,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/114.csv",
+      "source_sha256": "871c46aad107a70c71986021e405bd173f611d9e5f9c742ecee8feb130a6a3c9",
+      "input_rows": 1176,
+      "rows": 1176,
+      "duration_s": 176.92,
+      "decisions": {
+        "NORMAL": 805,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1176
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.31547619047619047,
+      "alarm_duration_s": 55.71,
+      "ml_sources": {
+        "unavailable": 1176
+      }
+    },
+    {
+      "flight": 115,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/115.csv",
+      "source_sha256": "1cf6f07d252aab0bb1a1f861e5008e07d080e281ed4c9caba4fccdf57630562e",
+      "input_rows": 994,
+      "rows": 994,
+      "duration_s": 148.8,
+      "decisions": {
+        "NORMAL": 422,
+        "SPOOFING": 572
+      },
+      "rule_decisions": {
+        "NORMAL": 994
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 555
+      },
+      "nominal_alarm_samples": 572,
+      "nominal_alarm_rate": 0.5754527162977867,
+      "alarm_duration_s": 85.6,
+      "ml_sources": {
+        "unavailable": 994
+      }
+    },
+    {
+      "flight": 116,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/116.csv",
+      "source_sha256": "91b964645a7d3103c05daab1dac6ca3cc7fedc49f81816f72d6a6786a50d7770",
+      "input_rows": 902,
+      "rows": 902,
+      "duration_s": 134.9,
+      "decisions": {
+        "NORMAL": 462,
+        "SPOOFING": 440
+      },
+      "rule_decisions": {
+        "NORMAL": 902
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 427
+      },
+      "nominal_alarm_samples": 440,
+      "nominal_alarm_rate": 0.4878048780487805,
+      "alarm_duration_s": 65.8,
+      "ml_sources": {
+        "unavailable": 902
+      }
+    },
+    {
+      "flight": 117,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/117.csv",
+      "source_sha256": "83364f4eefb9b3d7598b976a2e8152d0be30858c5d6b4ac62eb2b1116ce45705",
+      "input_rows": 1073,
+      "rows": 1073,
+      "duration_s": 161.0,
+      "decisions": {
+        "NORMAL": 704,
+        "SPOOFING": 369
+      },
+      "rule_decisions": {
+        "NORMAL": 1073
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 358
+      },
+      "nominal_alarm_samples": 369,
+      "nominal_alarm_rate": 0.34389561975768873,
+      "alarm_duration_s": 55.3,
+      "ml_sources": {
+        "unavailable": 1073
+      }
+    },
+    {
+      "flight": 118,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/118.csv",
+      "source_sha256": "3203210e884afed4edb510fd6b55ed5636fc747c41f0335b66335af69a9a7110",
+      "input_rows": 1704,
+      "rows": 1704,
+      "duration_s": 256.2,
+      "decisions": {
+        "NORMAL": 727,
+        "SPOOFING": 977
+      },
+      "rule_decisions": {
+        "NORMAL": 1704
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 948
+      },
+      "nominal_alarm_samples": 977,
+      "nominal_alarm_rate": 0.5733568075117371,
+      "alarm_duration_s": 147.41,
+      "ml_sources": {
+        "unavailable": 1704
+      }
+    },
+    {
+      "flight": 119,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/119.csv",
+      "source_sha256": "6f63e85c6117cf48fa0490d504ba1e9843d13a09a06bd296d35763f6b52a81cb",
+      "input_rows": 1333,
+      "rows": 1333,
+      "duration_s": 199.5,
+      "decisions": {
+        "NORMAL": 825,
+        "SPOOFING": 508
+      },
+      "rule_decisions": {
+        "NORMAL": 1333
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 493
+      },
+      "nominal_alarm_samples": 508,
+      "nominal_alarm_rate": 0.3810952738184546,
+      "alarm_duration_s": 76.2,
+      "ml_sources": {
+        "unavailable": 1333
+      }
+    },
+    {
+      "flight": 120,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/120.csv",
+      "source_sha256": "e6df70bb7064fef7a0b282d218d49e5c1f08968f46226958a877f27fdad282b1",
+      "input_rows": 921,
+      "rows": 921,
+      "duration_s": 138.4,
+      "decisions": {
+        "NORMAL": 285,
+        "SPOOFING": 636
+      },
+      "rule_decisions": {
+        "NORMAL": 921
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 19,
+        "GNSS yeniden doğrulama bekleniyor": 617
+      },
+      "nominal_alarm_samples": 636,
+      "nominal_alarm_rate": 0.6905537459283387,
+      "alarm_duration_s": 95.82000000000001,
+      "ml_sources": {
+        "unavailable": 921
+      }
+    },
+    {
+      "flight": 121,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/121.csv",
+      "source_sha256": "0e72e9536c946b2f1135d76350f6cb190887e5a475ba365919fb8d6ddf2aeb25",
+      "input_rows": 1220,
+      "rows": 1220,
+      "duration_s": 183.1,
+      "decisions": {
+        "NORMAL": 314,
+        "SPOOFING": 906
+      },
+      "rule_decisions": {
+        "NORMAL": 1220
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 878
+      },
+      "nominal_alarm_samples": 906,
+      "nominal_alarm_rate": 0.7426229508196721,
+      "alarm_duration_s": 136.10000000000002,
+      "ml_sources": {
+        "unavailable": 1220
+      }
+    },
+    {
+      "flight": 122,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/122.csv",
+      "source_sha256": "d838a405a187d199a9398d011c7bd328ace8cd457ac04621d9075e17b7ee09f7",
+      "input_rows": 1163,
+      "rows": 1163,
+      "duration_s": 174.4,
+      "decisions": {
+        "NORMAL": 759,
+        "SPOOFING": 404
+      },
+      "rule_decisions": {
+        "NORMAL": 1163
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 392
+      },
+      "nominal_alarm_samples": 404,
+      "nominal_alarm_rate": 0.3473774720550301,
+      "alarm_duration_s": 60.5,
+      "ml_sources": {
+        "unavailable": 1163
+      }
+    },
+    {
+      "flight": 123,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/123.csv",
+      "source_sha256": "a1c571d35152259e7b45cccd9a83078e4d5fe65db48aee456896724426d88c82",
+      "input_rows": 1428,
+      "rows": 1428,
+      "duration_s": 215.1,
+      "decisions": {
+        "NORMAL": 412,
+        "SPOOFING": 1016
+      },
+      "rule_decisions": {
+        "NORMAL": 1428
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 985
+      },
+      "nominal_alarm_samples": 1016,
+      "nominal_alarm_rate": 0.711484593837535,
+      "alarm_duration_s": 153.29999999999998,
+      "ml_sources": {
+        "unavailable": 1428
+      }
+    },
+    {
+      "flight": 124,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/124.csv",
+      "source_sha256": "f9a5d32af6ad119f1637dffbbbd2ea360d3abf976a023a06b20f88964ef562de",
+      "input_rows": 996,
+      "rows": 996,
+      "duration_s": 149.8,
+      "decisions": {
+        "NORMAL": 460,
+        "SPOOFING": 536
+      },
+      "rule_decisions": {
+        "NORMAL": 996
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 520
+      },
+      "nominal_alarm_samples": 536,
+      "nominal_alarm_rate": 0.5381526104417671,
+      "alarm_duration_s": 80.69,
+      "ml_sources": {
+        "unavailable": 996
+      }
+    },
+    {
+      "flight": 125,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/125.csv",
+      "source_sha256": "44e9f3a24300321dbeb5e1dada989782acf7f145384be907396c24b6c4246ee9",
+      "input_rows": 1523,
+      "rows": 1523,
+      "duration_s": 231.61,
+      "decisions": {
+        "NORMAL": 589,
+        "SPOOFING": 934
+      },
+      "rule_decisions": {
+        "NORMAL": 1523
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 906
+      },
+      "nominal_alarm_samples": 934,
+      "nominal_alarm_rate": 0.613263296126067,
+      "alarm_duration_s": 141.81000000000003,
+      "ml_sources": {
+        "unavailable": 1523
+      }
+    },
+    {
+      "flight": 126,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/126.csv",
+      "source_sha256": "8c9d000c8dbdb6e7e127ba65ecf6238bf31f6d39b8f1da9d271103e976b48301",
+      "input_rows": 1719,
+      "rows": 1719,
+      "duration_s": 262.51,
+      "decisions": {
+        "NORMAL": 687,
+        "SPOOFING": 1032
+      },
+      "rule_decisions": {
+        "NORMAL": 1719
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 32,
+        "GNSS yeniden doğrulama bekleniyor": 1000
+      },
+      "nominal_alarm_samples": 1032,
+      "nominal_alarm_rate": 0.6003490401396161,
+      "alarm_duration_s": 158.31,
+      "ml_sources": {
+        "unavailable": 1719
+      }
+    },
+    {
+      "flight": 127,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/127.csv",
+      "source_sha256": "dfc7cbd3d701eb11962186178e6d34b9186a453bac7b6d6a3cc0f0d28173771a",
+      "input_rows": 1086,
+      "rows": 1086,
+      "duration_s": 163.6,
+      "decisions": {
+        "NORMAL": 584,
+        "SPOOFING": 502
+      },
+      "rule_decisions": {
+        "NORMAL": 1086
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 487
+      },
+      "nominal_alarm_samples": 502,
+      "nominal_alarm_rate": 0.4622467771639042,
+      "alarm_duration_s": 75.91,
+      "ml_sources": {
+        "unavailable": 1086
+      }
+    },
+    {
+      "flight": 128,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/128.csv",
+      "source_sha256": "837a08cf8a8c3f0a68ec8179b4b687302f2b15f48b86d06414df3c567ebd121a",
+      "input_rows": 1363,
+      "rows": 1363,
+      "duration_s": 205.3,
+      "decisions": {
+        "NORMAL": 862,
+        "SPOOFING": 501
+      },
+      "rule_decisions": {
+        "NORMAL": 1363
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 486
+      },
+      "nominal_alarm_samples": 501,
+      "nominal_alarm_rate": 0.3675715333822451,
+      "alarm_duration_s": 75.80999999999999,
+      "ml_sources": {
+        "unavailable": 1363
+      }
+    },
+    {
+      "flight": 129,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/129.csv",
+      "source_sha256": "00eb99c3ec44f555dfa79fd8e35e3b98e2cb765252a60b55dc85390fc172a1a5",
+      "input_rows": 1248,
+      "rows": 1248,
+      "duration_s": 188.3,
+      "decisions": {
+        "NORMAL": 443,
+        "SPOOFING": 805
+      },
+      "rule_decisions": {
+        "NORMAL": 1248
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 24,
+        "GNSS yeniden doğrulama bekleniyor": 781
+      },
+      "nominal_alarm_samples": 805,
+      "nominal_alarm_rate": 0.6450320512820513,
+      "alarm_duration_s": 121.69999999999999,
+      "ml_sources": {
+        "unavailable": 1248
+      }
+    },
+    {
+      "flight": 130,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/130.csv",
+      "source_sha256": "154c44de945969d3154562a32f9f4ba611418cc3489694000293ff60d0a2f704",
+      "input_rows": 1038,
+      "rows": 1038,
+      "duration_s": 155.6,
+      "decisions": {
+        "NORMAL": 668,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 1038
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.35645472061657035,
+      "alarm_duration_s": 55.4,
+      "ml_sources": {
+        "unavailable": 1038
+      }
+    },
+    {
+      "flight": 131,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/131.csv",
+      "source_sha256": "2204622bc3e2660d20c8eb8aef75b89c857610d20ce150c66027538358ddbe32",
+      "input_rows": 1644,
+      "rows": 1644,
+      "duration_s": 250.21,
+      "decisions": {
+        "NORMAL": 669,
+        "SPOOFING": 975
+      },
+      "rule_decisions": {
+        "NORMAL": 1644
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 945
+      },
+      "nominal_alarm_samples": 975,
+      "nominal_alarm_rate": 0.593065693430657,
+      "alarm_duration_s": 150.01000000000002,
+      "ml_sources": {
+        "unavailable": 1644
+      }
+    },
+    {
+      "flight": 134,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/134.csv",
+      "source_sha256": "f4ba73f2f0345c1ff81f88382f65c351b1e762f1c1e8a99236ada420dafb12da",
+      "input_rows": 1074,
+      "rows": 1074,
+      "duration_s": 160.69,
+      "decisions": {
+        "NORMAL": 671,
+        "SPOOFING": 403
+      },
+      "rule_decisions": {
+        "NORMAL": 1074
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 391
+      },
+      "nominal_alarm_samples": 403,
+      "nominal_alarm_rate": 0.3752327746741155,
+      "alarm_duration_s": 60.300000000000004,
+      "ml_sources": {
+        "unavailable": 1074
+      }
+    },
+    {
+      "flight": 135,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/135.csv",
+      "source_sha256": "ffdc56a1f5935b96a518394b3ab21933ecc5933abf08725054bc1297f09cbbb8",
+      "input_rows": 1309,
+      "rows": 1309,
+      "duration_s": 196.3,
+      "decisions": {
+        "NORMAL": 462,
+        "SPOOFING": 847
+      },
+      "rule_decisions": {
+        "NORMAL": 1309
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 821
+      },
+      "nominal_alarm_samples": 847,
+      "nominal_alarm_rate": 0.6470588235294118,
+      "alarm_duration_s": 127.20000000000002,
+      "ml_sources": {
+        "unavailable": 1309
+      }
+    },
+    {
+      "flight": 136,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/136.csv",
+      "source_sha256": "b3d2622cac6c558667cd096ee7eeefa09e520413d2693a59d0a5e526e8e84cb6",
+      "input_rows": 1183,
+      "rows": 1183,
+      "duration_s": 177.2,
+      "decisions": {
+        "NORMAL": 609,
+        "SPOOFING": 574
+      },
+      "rule_decisions": {
+        "NORMAL": 1183
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 557
+      },
+      "nominal_alarm_samples": 574,
+      "nominal_alarm_rate": 0.48520710059171596,
+      "alarm_duration_s": 86.0,
+      "ml_sources": {
+        "unavailable": 1183
+      }
+    },
+    {
+      "flight": 137,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/137.csv",
+      "source_sha256": "9618aae92338b9a76ba503bbd1709bdf06a8727c685ebd672aada44843a4a311",
+      "input_rows": 1315,
+      "rows": 1315,
+      "duration_s": 197.4,
+      "decisions": {
+        "NORMAL": 809,
+        "SPOOFING": 506
+      },
+      "rule_decisions": {
+        "NORMAL": 1315
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 491
+      },
+      "nominal_alarm_samples": 506,
+      "nominal_alarm_rate": 0.38479087452471483,
+      "alarm_duration_s": 75.89999999999999,
+      "ml_sources": {
+        "unavailable": 1315
+      }
+    },
+    {
+      "flight": 138,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/138.csv",
+      "source_sha256": "fd8419d04a4112bb9e22bffb2417bda51920c99ab365ca7ecaef099d067ff31b",
+      "input_rows": 1339,
+      "rows": 1339,
+      "duration_s": 200.9,
+      "decisions": {
+        "NORMAL": 765,
+        "SPOOFING": 574
+      },
+      "rule_decisions": {
+        "NORMAL": 1339
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 557
+      },
+      "nominal_alarm_samples": 574,
+      "nominal_alarm_rate": 0.42867811799850636,
+      "alarm_duration_s": 85.99,
+      "ml_sources": {
+        "unavailable": 1339
+      }
+    },
+    {
+      "flight": 139,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/139.csv",
+      "source_sha256": "80e37a330423a2547bd6864289f01d33b279649b21c70a810c1fc961469210fb",
+      "input_rows": 1045,
+      "rows": 1045,
+      "duration_s": 156.7,
+      "decisions": {
+        "NORMAL": 575,
+        "SPOOFING": 470
+      },
+      "rule_decisions": {
+        "NORMAL": 1045
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 14,
+        "GNSS yeniden doğrulama bekleniyor": 456
+      },
+      "nominal_alarm_samples": 470,
+      "nominal_alarm_rate": 0.44976076555023925,
+      "alarm_duration_s": 70.50999999999999,
+      "ml_sources": {
+        "unavailable": 1045
+      }
+    },
+    {
+      "flight": 140,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/140.csv",
+      "source_sha256": "b38b7ad7049b52d0f2286bea9e4d9c3c23cb97b6f23e15484aaab248647cda83",
+      "input_rows": 1320,
+      "rows": 1320,
+      "duration_s": 199.2,
+      "decisions": {
+        "NORMAL": 465,
+        "SPOOFING": 855
+      },
+      "rule_decisions": {
+        "NORMAL": 1320
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 829
+      },
+      "nominal_alarm_samples": 855,
+      "nominal_alarm_rate": 0.6477272727272727,
+      "alarm_duration_s": 129.49999999999997,
+      "ml_sources": {
+        "unavailable": 1320
+      }
+    },
+    {
+      "flight": 141,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/141.csv",
+      "source_sha256": "12ee79649e5f04925322cc83e54f5d590a88057187f03490c6edde6fac25df13",
+      "input_rows": 1574,
+      "rows": 1574,
+      "duration_s": 237.6,
+      "decisions": {
+        "NORMAL": 1237,
+        "SPOOFING": 337
+      },
+      "rule_decisions": {
+        "NORMAL": 1574
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 327
+      },
+      "nominal_alarm_samples": 337,
+      "nominal_alarm_rate": 0.21410419313850063,
+      "alarm_duration_s": 50.510000000000005,
+      "ml_sources": {
+        "unavailable": 1574
+      }
+    },
+    {
+      "flight": 142,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/142.csv",
+      "source_sha256": "89d72b2c82b5a30a57195b51afedfeefc69dd3c1a3f3b398ac13e6a7e7b63c08",
+      "input_rows": 1185,
+      "rows": 1185,
+      "duration_s": 177.5,
+      "decisions": {
+        "NORMAL": 645,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 1185
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.45569620253164556,
+      "alarm_duration_s": 80.89000000000001,
+      "ml_sources": {
+        "unavailable": 1185
+      }
+    },
+    {
+      "flight": 143,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/143.csv",
+      "source_sha256": "a9c00e60f93dcfb9be47cb01d2ff9e17bda858e55386bb36714dd97e181630e3",
+      "input_rows": 1120,
+      "rows": 1120,
+      "duration_s": 167.9,
+      "decisions": {
+        "NORMAL": 783,
+        "SPOOFING": 337
+      },
+      "rule_decisions": {
+        "NORMAL": 1120
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 327
+      },
+      "nominal_alarm_samples": 337,
+      "nominal_alarm_rate": 0.30089285714285713,
+      "alarm_duration_s": 50.61,
+      "ml_sources": {
+        "unavailable": 1120
+      }
+    },
+    {
+      "flight": 144,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/144.csv",
+      "source_sha256": "4dd64606a5342180f30d13bf68359f12a4ba74683911d9af70986830d229c55a",
+      "input_rows": 1158,
+      "rows": 1158,
+      "duration_s": 173.5,
+      "decisions": {
+        "NORMAL": 547,
+        "SPOOFING": 611
+      },
+      "rule_decisions": {
+        "NORMAL": 1158
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 18,
+        "GNSS yeniden doğrulama bekleniyor": 593
+      },
+      "nominal_alarm_samples": 611,
+      "nominal_alarm_rate": 0.5276338514680483,
+      "alarm_duration_s": 91.61999999999998,
+      "ml_sources": {
+        "unavailable": 1158
+      }
+    },
+    {
+      "flight": 145,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/145.csv",
+      "source_sha256": "b57d47c09463e534c102a6d40e0ad51d43ab2f368c716a66d84ab6fd7ea8b682",
+      "input_rows": 1470,
+      "rows": 1470,
+      "duration_s": 220.4,
+      "decisions": {
+        "NORMAL": 427,
+        "SPOOFING": 1043
+      },
+      "rule_decisions": {
+        "NORMAL": 1470
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 1012
+      },
+      "nominal_alarm_samples": 1043,
+      "nominal_alarm_rate": 0.7095238095238096,
+      "alarm_duration_s": 156.49,
+      "ml_sources": {
+        "unavailable": 1470
+      }
+    },
+    {
+      "flight": 146,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/146.csv",
+      "source_sha256": "3c9373a94e835b9c34e3623b8f864fe6573c950021780b301ca13d833fb87012",
+      "input_rows": 1218,
+      "rows": 1218,
+      "duration_s": 182.5,
+      "decisions": {
+        "NORMAL": 847,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1218
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.3045977011494253,
+      "alarm_duration_s": 55.7,
+      "ml_sources": {
+        "unavailable": 1218
+      }
+    },
+    {
+      "flight": 147,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/147.csv",
+      "source_sha256": "1d7963770ecacbf878f99f8d7c8b2abe37262c47ef111b783e30585219a9434b",
+      "input_rows": 1629,
+      "rows": 1629,
+      "duration_s": 244.2,
+      "decisions": {
+        "NORMAL": 359,
+        "SPOOFING": 1270
+      },
+      "rule_decisions": {
+        "NORMAL": 1629
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 38,
+        "GNSS yeniden doğrulama bekleniyor": 1232
+      },
+      "nominal_alarm_samples": 1270,
+      "nominal_alarm_rate": 0.7796193984039288,
+      "alarm_duration_s": 190.58999999999997,
+      "ml_sources": {
+        "unavailable": 1629
+      }
+    },
+    {
+      "flight": 148,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/148.csv",
+      "source_sha256": "7f0e4ad1dee5a7703136450932f49c0990d5cb85552945f84bbdb4926564cbd0",
+      "input_rows": 2027,
+      "rows": 2027,
+      "duration_s": 304.2,
+      "decisions": {
+        "NORMAL": 976,
+        "SPOOFING": 1051
+      },
+      "rule_decisions": {
+        "NORMAL": 2027
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 1020
+      },
+      "nominal_alarm_samples": 1051,
+      "nominal_alarm_rate": 0.5185002466699556,
+      "alarm_duration_s": 157.79,
+      "ml_sources": {
+        "unavailable": 2027
+      }
+    },
+    {
+      "flight": 149,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/149.csv",
+      "source_sha256": "48e7767fbbd9ba69a34abe9a56ac5bff2d4ec05e8ee79d6cf900d3e2d804d761",
+      "input_rows": 1158,
+      "rows": 1158,
+      "duration_s": 173.81,
+      "decisions": {
+        "NORMAL": 786,
+        "SPOOFING": 372
+      },
+      "rule_decisions": {
+        "NORMAL": 1158
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 361
+      },
+      "nominal_alarm_samples": 372,
+      "nominal_alarm_rate": 0.32124352331606215,
+      "alarm_duration_s": 55.81,
+      "ml_sources": {
+        "unavailable": 1158
+      }
+    },
+    {
+      "flight": 150,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/150.csv",
+      "source_sha256": "70302bbec5f043747195f6b82cbc560fb7a0e01820f4a075fdc9c04537124509",
+      "input_rows": 1215,
+      "rows": 1215,
+      "duration_s": 182.1,
+      "decisions": {
+        "NORMAL": 879,
+        "SPOOFING": 336
+      },
+      "rule_decisions": {
+        "NORMAL": 1215
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 326
+      },
+      "nominal_alarm_samples": 336,
+      "nominal_alarm_rate": 0.2765432098765432,
+      "alarm_duration_s": 50.3,
+      "ml_sources": {
+        "unavailable": 1215
+      }
+    },
+    {
+      "flight": 151,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/151.csv",
+      "source_sha256": "0f9a4e98d25faf747795e343029f9a6baefbf3ef2e591b272760b5fb8fdd5688",
+      "input_rows": 999,
+      "rows": 999,
+      "duration_s": 149.71,
+      "decisions": {
+        "NORMAL": 660,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 999
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.33933933933933935,
+      "alarm_duration_s": 50.8,
+      "ml_sources": {
+        "unavailable": 999
+      }
+    },
+    {
+      "flight": 152,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/152.csv",
+      "source_sha256": "a2e3f4e97b1f70e81c25c97181c4a32060628a1ff0305f7c4bb3fac12bdecdb5",
+      "input_rows": 1290,
+      "rows": 1290,
+      "duration_s": 193.39,
+      "decisions": {
+        "NORMAL": 752,
+        "SPOOFING": 538
+      },
+      "rule_decisions": {
+        "NORMAL": 1290
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 522
+      },
+      "nominal_alarm_samples": 538,
+      "nominal_alarm_rate": 0.4170542635658915,
+      "alarm_duration_s": 80.7,
+      "ml_sources": {
+        "unavailable": 1290
+      }
+    },
+    {
+      "flight": 153,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/153.csv",
+      "source_sha256": "f2aa999ee668d9551764d691e2b93105b07e67f760409bcc0aaab7347629e464",
+      "input_rows": 1257,
+      "rows": 1257,
+      "duration_s": 188.29,
+      "decisions": {
+        "NORMAL": 883,
+        "SPOOFING": 374
+      },
+      "rule_decisions": {
+        "NORMAL": 1257
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 363
+      },
+      "nominal_alarm_samples": 374,
+      "nominal_alarm_rate": 0.2975338106603023,
+      "alarm_duration_s": 56.1,
+      "ml_sources": {
+        "unavailable": 1257
+      }
+    },
+    {
+      "flight": 154,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/154.csv",
+      "source_sha256": "6cf4f425457144998b8606f5dac40a2fc786e1979795ae2ce5abf4f7430f0e9c",
+      "input_rows": 1180,
+      "rows": 1180,
+      "duration_s": 176.7,
+      "decisions": {
+        "NORMAL": 416,
+        "SPOOFING": 764
+      },
+      "rule_decisions": {
+        "NORMAL": 1180
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 23,
+        "GNSS yeniden doğrulama bekleniyor": 741
+      },
+      "nominal_alarm_samples": 764,
+      "nominal_alarm_rate": 0.6474576271186441,
+      "alarm_duration_s": 114.6,
+      "ml_sources": {
+        "unavailable": 1180
+      }
+    },
+    {
+      "flight": 155,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/155.csv",
+      "source_sha256": "23a3d583b858af92ac92c4a1aa1c5416516fbad591b1b5548e39a2d46bbfb65a",
+      "input_rows": 1256,
+      "rows": 1256,
+      "duration_s": 188.2,
+      "decisions": {
+        "NORMAL": 883,
+        "SPOOFING": 373
+      },
+      "rule_decisions": {
+        "NORMAL": 1256
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 362
+      },
+      "nominal_alarm_samples": 373,
+      "nominal_alarm_rate": 0.29697452229299365,
+      "alarm_duration_s": 55.900000000000006,
+      "ml_sources": {
+        "unavailable": 1256
+      }
+    },
+    {
+      "flight": 156,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/156.csv",
+      "source_sha256": "f4397f8b2d9b500d307612f6316c8a57b617fc5ba71f2ec7e1df75e01e2f48aa",
+      "input_rows": 1447,
+      "rows": 1447,
+      "duration_s": 217.1,
+      "decisions": {
+        "NORMAL": 530,
+        "SPOOFING": 917
+      },
+      "rule_decisions": {
+        "NORMAL": 1447
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 889
+      },
+      "nominal_alarm_samples": 917,
+      "nominal_alarm_rate": 0.6337249481686248,
+      "alarm_duration_s": 137.7,
+      "ml_sources": {
+        "unavailable": 1447
+      }
+    },
+    {
+      "flight": 157,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/157.csv",
+      "source_sha256": "288f84b6105140010c2b758df52b09397c63cc6abe3a4c86a768565583fe7ce5",
+      "input_rows": 1005,
+      "rows": 1005,
+      "duration_s": 150.91,
+      "decisions": {
+        "NORMAL": 635,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 1005
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.3681592039800995,
+      "alarm_duration_s": 55.51,
+      "ml_sources": {
+        "unavailable": 1005
+      }
+    },
+    {
+      "flight": 158,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/158.csv",
+      "source_sha256": "9fdadb741b55f49fa57fb7ef6b59e8d3d9b4a8d53ae50b98a81dd51329f305a6",
+      "input_rows": 1127,
+      "rows": 1127,
+      "duration_s": 168.9,
+      "decisions": {
+        "NORMAL": 788,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 1127
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.3007985803016859,
+      "alarm_duration_s": 50.89999999999999,
+      "ml_sources": {
+        "unavailable": 1127
+      }
+    },
+    {
+      "flight": 159,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/159.csv",
+      "source_sha256": "35e3e26a20cd1825df64aed7c7a84ccdbf4c8028a6e7518a73be9ab5b3b7f55c",
+      "input_rows": 1068,
+      "rows": 1068,
+      "duration_s": 160.2,
+      "decisions": {
+        "NORMAL": 358,
+        "SPOOFING": 710
+      },
+      "rule_decisions": {
+        "NORMAL": 1068
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 22,
+        "GNSS yeniden doğrulama bekleniyor": 688
+      },
+      "nominal_alarm_samples": 710,
+      "nominal_alarm_rate": 0.6647940074906367,
+      "alarm_duration_s": 106.69999999999999,
+      "ml_sources": {
+        "unavailable": 1068
+      }
+    },
+    {
+      "flight": 160,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/160.csv",
+      "source_sha256": "372f858ae8ce78aff4c98d1786205f08155d275df071c0a8cc162c834ebbbea2",
+      "input_rows": 1453,
+      "rows": 1453,
+      "duration_s": 218.0,
+      "decisions": {
+        "NORMAL": 522,
+        "SPOOFING": 931
+      },
+      "rule_decisions": {
+        "NORMAL": 1453
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 903
+      },
+      "nominal_alarm_samples": 931,
+      "nominal_alarm_rate": 0.6407432897453544,
+      "alarm_duration_s": 139.79999999999998,
+      "ml_sources": {
+        "unavailable": 1453
+      }
+    },
+    {
+      "flight": 162,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/162.csv",
+      "source_sha256": "421156452226378ef913c2c467c8895dce90a8b69cbdc553c4e814f79295d3b7",
+      "input_rows": 1206,
+      "rows": 1206,
+      "duration_s": 181.3,
+      "decisions": {
+        "NORMAL": 534,
+        "SPOOFING": 672
+      },
+      "rule_decisions": {
+        "NORMAL": 1206
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 20,
+        "GNSS yeniden doğrulama bekleniyor": 652
+      },
+      "nominal_alarm_samples": 672,
+      "nominal_alarm_rate": 0.5572139303482587,
+      "alarm_duration_s": 100.8,
+      "ml_sources": {
+        "unavailable": 1206
+      }
+    },
+    {
+      "flight": 163,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/163.csv",
+      "source_sha256": "262a7e01aaf2fc01631d8055db8f0734b00ed06e0f430d5c96fda2d8702c6724",
+      "input_rows": 1360,
+      "rows": 1360,
+      "duration_s": 204.11,
+      "decisions": {
+        "NORMAL": 461,
+        "SPOOFING": 899
+      },
+      "rule_decisions": {
+        "NORMAL": 1360
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 27,
+        "GNSS yeniden doğrulama bekleniyor": 872
+      },
+      "nominal_alarm_samples": 899,
+      "nominal_alarm_rate": 0.6610294117647059,
+      "alarm_duration_s": 135.02,
+      "ml_sources": {
+        "unavailable": 1360
+      }
+    },
+    {
+      "flight": 164,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/164.csv",
+      "source_sha256": "175de79b8db3484ac9f8ad592ab02939fe288bccb249044d88828474d5da5bbb",
+      "input_rows": 1287,
+      "rows": 1287,
+      "duration_s": 193.1,
+      "decisions": {
+        "NORMAL": 916,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1287
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.28826728826728826,
+      "alarm_duration_s": 55.6,
+      "ml_sources": {
+        "unavailable": 1287
+      }
+    },
+    {
+      "flight": 165,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/165.csv",
+      "source_sha256": "fd7bbdc2d8968387f2ac50ca6bfeb57daf1a81eae33a1219f570d847a62d42a7",
+      "input_rows": 1374,
+      "rows": 1374,
+      "duration_s": 206.0,
+      "decisions": {
+        "NORMAL": 832,
+        "SPOOFING": 542
+      },
+      "rule_decisions": {
+        "NORMAL": 1374
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 526
+      },
+      "nominal_alarm_samples": 542,
+      "nominal_alarm_rate": 0.39446870451237265,
+      "alarm_duration_s": 81.27999999999999,
+      "ml_sources": {
+        "unavailable": 1374
+      }
+    },
+    {
+      "flight": 166,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/166.csv",
+      "source_sha256": "8b04b2562b578609371e09613b22b44048455b2ee3913254d4a0326f2b7ee08a",
+      "input_rows": 1281,
+      "rows": 1281,
+      "duration_s": 191.99,
+      "decisions": {
+        "NORMAL": 440,
+        "SPOOFING": 841
+      },
+      "rule_decisions": {
+        "NORMAL": 1281
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 815
+      },
+      "nominal_alarm_samples": 841,
+      "nominal_alarm_rate": 0.6565183450429352,
+      "alarm_duration_s": 126.10000000000001,
+      "ml_sources": {
+        "unavailable": 1281
+      }
+    },
+    {
+      "flight": 167,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/167.csv",
+      "source_sha256": "2a29c879860ddb5db5524703c79a5d96ad1772b9b794e6d83be59c4a6093d077",
+      "input_rows": 951,
+      "rows": 951,
+      "duration_s": 142.51,
+      "decisions": {
+        "NORMAL": 580,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 951
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.3901156677181914,
+      "alarm_duration_s": 55.6,
+      "ml_sources": {
+        "unavailable": 951
+      }
+    },
+    {
+      "flight": 168,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/168.csv",
+      "source_sha256": "2c0c876ecf5763a2355bb8c917f091144e8e6f1351b827a1ff633858922a0deb",
+      "input_rows": 1206,
+      "rows": 1206,
+      "duration_s": 180.8,
+      "decisions": {
+        "NORMAL": 801,
+        "SPOOFING": 405
+      },
+      "rule_decisions": {
+        "NORMAL": 1206
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 393
+      },
+      "nominal_alarm_samples": 405,
+      "nominal_alarm_rate": 0.3358208955223881,
+      "alarm_duration_s": 60.709999999999994,
+      "ml_sources": {
+        "unavailable": 1206
+      }
+    },
+    {
+      "flight": 169,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/169.csv",
+      "source_sha256": "ce88c4c8197c5601f37b57c86ab4d93e941d02816f26414481001789006703c9",
+      "input_rows": 1222,
+      "rows": 1222,
+      "duration_s": 183.3,
+      "decisions": {
+        "NORMAL": 424,
+        "SPOOFING": 798
+      },
+      "rule_decisions": {
+        "NORMAL": 1222
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 24,
+        "GNSS yeniden doğrulama bekleniyor": 774
+      },
+      "nominal_alarm_samples": 798,
+      "nominal_alarm_rate": 0.6530278232405892,
+      "alarm_duration_s": 119.78,
+      "ml_sources": {
+        "unavailable": 1222
+      }
+    },
+    {
+      "flight": 170,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/170.csv",
+      "source_sha256": "2137d3e524b140f37b1faff6cd777931917fab7eede96eab6b7ddf4f6e0c9bc0",
+      "input_rows": 1100,
+      "rows": 1100,
+      "duration_s": 164.5,
+      "decisions": {
+        "NORMAL": 371,
+        "SPOOFING": 729
+      },
+      "rule_decisions": {
+        "NORMAL": 1100
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 22,
+        "GNSS yeniden doğrulama bekleniyor": 707
+      },
+      "nominal_alarm_samples": 729,
+      "nominal_alarm_rate": 0.6627272727272727,
+      "alarm_duration_s": 109.28999999999999,
+      "ml_sources": {
+        "unavailable": 1100
+      }
+    },
+    {
+      "flight": 171,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/171.csv",
+      "source_sha256": "0aa435142b316e00b6328f9ee3d145d263846647caf77aec61adc8162fa56894",
+      "input_rows": 882,
+      "rows": 882,
+      "duration_s": 132.09,
+      "decisions": {
+        "NORMAL": 547,
+        "SPOOFING": 335
+      },
+      "rule_decisions": {
+        "NORMAL": 882
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 325
+      },
+      "nominal_alarm_samples": 335,
+      "nominal_alarm_rate": 0.3798185941043084,
+      "alarm_duration_s": 50.19,
+      "ml_sources": {
+        "unavailable": 882
+      }
+    },
+    {
+      "flight": 172,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/172.csv",
+      "source_sha256": "96f12998049f8440984226f58652cf3c36aa15442eb5a997ffefc94c1018c0d0",
+      "input_rows": 1476,
+      "rows": 1476,
+      "duration_s": 221.0,
+      "decisions": {
+        "NORMAL": 423,
+        "SPOOFING": 1053
+      },
+      "rule_decisions": {
+        "NORMAL": 1476
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 32,
+        "GNSS yeniden doğrulama bekleniyor": 1021
+      },
+      "nominal_alarm_samples": 1053,
+      "nominal_alarm_rate": 0.7134146341463414,
+      "alarm_duration_s": 157.8,
+      "ml_sources": {
+        "unavailable": 1476
+      }
+    },
+    {
+      "flight": 173,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/173.csv",
+      "source_sha256": "a8f21d305a1b5bf0e61eb535eb1f92f305e754862a3d04efc157491d9a6dba29",
+      "input_rows": 1577,
+      "rows": 1577,
+      "duration_s": 236.6,
+      "decisions": {
+        "NORMAL": 568,
+        "SPOOFING": 1009
+      },
+      "rule_decisions": {
+        "NORMAL": 1577
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 979
+      },
+      "nominal_alarm_samples": 1009,
+      "nominal_alarm_rate": 0.6398224476854788,
+      "alarm_duration_s": 151.5,
+      "ml_sources": {
+        "unavailable": 1577
+      }
+    },
+    {
+      "flight": 174,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/174.csv",
+      "source_sha256": "e39ffe5ff72e63bccda01142a4e7f109f99b51a560fc5f4022c8de518eebda47",
+      "input_rows": 1146,
+      "rows": 1146,
+      "duration_s": 171.8,
+      "decisions": {
+        "NORMAL": 806,
+        "SPOOFING": 340
+      },
+      "rule_decisions": {
+        "NORMAL": 1146
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 330
+      },
+      "nominal_alarm_samples": 340,
+      "nominal_alarm_rate": 0.29668411867364747,
+      "alarm_duration_s": 51.0,
+      "ml_sources": {
+        "unavailable": 1146
+      }
+    },
+    {
+      "flight": 175,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/175.csv",
+      "source_sha256": "4cda5f645f589eeb66b37632e398d3ba534084f18e051e42f37ba1d0b1686bb5",
+      "input_rows": 1304,
+      "rows": 1304,
+      "duration_s": 195.2,
+      "decisions": {
+        "NORMAL": 438,
+        "SPOOFING": 866
+      },
+      "rule_decisions": {
+        "NORMAL": 1304
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 840
+      },
+      "nominal_alarm_samples": 866,
+      "nominal_alarm_rate": 0.6641104294478528,
+      "alarm_duration_s": 129.68999999999997,
+      "ml_sources": {
+        "unavailable": 1304
+      }
+    },
+    {
+      "flight": 176,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/176.csv",
+      "source_sha256": "3cbd181e680009433f90e49ae64741767b26ba3bf4db2a5c5dc43cc3ba371b2c",
+      "input_rows": 1357,
+      "rows": 1357,
+      "duration_s": 203.4,
+      "decisions": {
+        "NORMAL": 817,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 1357
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.39793662490788506,
+      "alarm_duration_s": 80.89,
+      "ml_sources": {
+        "unavailable": 1357
+      }
+    },
+    {
+      "flight": 177,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/177.csv",
+      "source_sha256": "3f1f6f4e5d465bb8d02c3a602c49e41bf88b98510fb34c82c318b512021e34de",
+      "input_rows": 929,
+      "rows": 929,
+      "duration_s": 139.0,
+      "decisions": {
+        "NORMAL": 557,
+        "SPOOFING": 372
+      },
+      "rule_decisions": {
+        "NORMAL": 929
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 361
+      },
+      "nominal_alarm_samples": 372,
+      "nominal_alarm_rate": 0.40043057050592035,
+      "alarm_duration_s": 55.60000000000001,
+      "ml_sources": {
+        "unavailable": 929
+      }
+    },
+    {
+      "flight": 178,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/178.csv",
+      "source_sha256": "d1f1728921d7a38bb95caf8394e890f889c8587eabe5aff24e69f03981b0e6fd",
+      "input_rows": 925,
+      "rows": 925,
+      "duration_s": 138.1,
+      "decisions": {
+        "NORMAL": 554,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 925
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.4010810810810811,
+      "alarm_duration_s": 55.71,
+      "ml_sources": {
+        "unavailable": 925
+      }
+    },
+    {
+      "flight": 179,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/179.csv",
+      "source_sha256": "2036c535d14b701d4ec71568ceffb348499d30c921f14f24d25ea790a7c3941d",
+      "input_rows": 1413,
+      "rows": 1413,
+      "duration_s": 211.9,
+      "decisions": {
+        "NORMAL": 410,
+        "SPOOFING": 1003
+      },
+      "rule_decisions": {
+        "NORMAL": 1413
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 973
+      },
+      "nominal_alarm_samples": 1003,
+      "nominal_alarm_rate": 0.7098372257607927,
+      "alarm_duration_s": 150.6,
+      "ml_sources": {
+        "unavailable": 1413
+      }
+    },
+    {
+      "flight": 180,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/180.csv",
+      "source_sha256": "481ba27416d5c5ddd1c97565460039c11ec72ebde6722e2646b5b3bb839f5896",
+      "input_rows": 1148,
+      "rows": 1148,
+      "duration_s": 172.0,
+      "decisions": {
+        "NORMAL": 780,
+        "SPOOFING": 368
+      },
+      "rule_decisions": {
+        "NORMAL": 1148
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 357
+      },
+      "nominal_alarm_samples": 368,
+      "nominal_alarm_rate": 0.3205574912891986,
+      "alarm_duration_s": 55.2,
+      "ml_sources": {
+        "unavailable": 1148
+      }
+    },
+    {
+      "flight": 181,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/181.csv",
+      "source_sha256": "b8679dad703791cc7fbf1036545a16d96bf8f353df3af00d3572c24c093eac03",
+      "input_rows": 1172,
+      "rows": 1172,
+      "duration_s": 175.6,
+      "decisions": {
+        "NORMAL": 396,
+        "SPOOFING": 776
+      },
+      "rule_decisions": {
+        "NORMAL": 1172
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 24,
+        "GNSS yeniden doğrulama bekleniyor": 752
+      },
+      "nominal_alarm_samples": 776,
+      "nominal_alarm_rate": 0.6621160409556314,
+      "alarm_duration_s": 116.29999999999998,
+      "ml_sources": {
+        "unavailable": 1172
+      }
+    },
+    {
+      "flight": 182,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/182.csv",
+      "source_sha256": "2e5ab42d35eeec9cd98a86d28041586b36e3eebbca7b42320a23ba01c260da49",
+      "input_rows": 1207,
+      "rows": 1207,
+      "duration_s": 180.8,
+      "decisions": {
+        "NORMAL": 667,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 1207
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.44739022369511183,
+      "alarm_duration_s": 80.99999999999999,
+      "ml_sources": {
+        "unavailable": 1207
+      }
+    },
+    {
+      "flight": 183,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/183.csv",
+      "source_sha256": "d1def01fbe05a4671aa96e517a8afac60acab8fcdf9d76dc6880a9e66f9ed814",
+      "input_rows": 907,
+      "rows": 907,
+      "duration_s": 135.9,
+      "decisions": {
+        "NORMAL": 569,
+        "SPOOFING": 338
+      },
+      "rule_decisions": {
+        "NORMAL": 907
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 328
+      },
+      "nominal_alarm_samples": 338,
+      "nominal_alarm_rate": 0.37265711135611906,
+      "alarm_duration_s": 50.78000000000001,
+      "ml_sources": {
+        "unavailable": 907
+      }
+    },
+    {
+      "flight": 184,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/184.csv",
+      "source_sha256": "bac79acf4609c7557bfba59048d288241b02d9e5cf8d99c245dac22be60cba08",
+      "input_rows": 1668,
+      "rows": 1668,
+      "duration_s": 249.9,
+      "decisions": {
+        "NORMAL": 650,
+        "SPOOFING": 1018
+      },
+      "rule_decisions": {
+        "NORMAL": 1668
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 987
+      },
+      "nominal_alarm_samples": 1018,
+      "nominal_alarm_rate": 0.6103117505995204,
+      "alarm_duration_s": 152.69000000000003,
+      "ml_sources": {
+        "unavailable": 1668
+      }
+    },
+    {
+      "flight": 185,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/185.csv",
+      "source_sha256": "ed2a6524ae4741a1f322232df7b41ca6ffce124ad0bb5aee36b7c03dc5b9da25",
+      "input_rows": 1269,
+      "rows": 1269,
+      "duration_s": 190.3,
+      "decisions": {
+        "NORMAL": 523,
+        "SPOOFING": 746
+      },
+      "rule_decisions": {
+        "NORMAL": 1269
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 22,
+        "GNSS yeniden doğrulama bekleniyor": 724
+      },
+      "nominal_alarm_samples": 746,
+      "nominal_alarm_rate": 0.5878644602048857,
+      "alarm_duration_s": 111.81000000000002,
+      "ml_sources": {
+        "unavailable": 1269
+      }
+    },
+    {
+      "flight": 186,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/186.csv",
+      "source_sha256": "d77f07682b71ad15bae11140fcc22256105b712cf1bb87ed85da2a635e51d228",
+      "input_rows": 1128,
+      "rows": 1128,
+      "duration_s": 168.9,
+      "decisions": {
+        "NORMAL": 791,
+        "SPOOFING": 337
+      },
+      "rule_decisions": {
+        "NORMAL": 1128
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 327
+      },
+      "nominal_alarm_samples": 337,
+      "nominal_alarm_rate": 0.2987588652482269,
+      "alarm_duration_s": 50.4,
+      "ml_sources": {
+        "unavailable": 1128
+      }
+    },
+    {
+      "flight": 187,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/187.csv",
+      "source_sha256": "b4a2700e67f96dbfcb3f8f2ceb986b0e5e22526a0797e06611926db8a8b9f93c",
+      "input_rows": 920,
+      "rows": 920,
+      "duration_s": 137.8,
+      "decisions": {
+        "NORMAL": 582,
+        "SPOOFING": 338
+      },
+      "rule_decisions": {
+        "NORMAL": 920
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 328
+      },
+      "nominal_alarm_samples": 338,
+      "nominal_alarm_rate": 0.3673913043478261,
+      "alarm_duration_s": 50.599999999999994,
+      "ml_sources": {
+        "unavailable": 920
+      }
+    },
+    {
+      "flight": 188,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/188.csv",
+      "source_sha256": "efb3ecc026932c1e0ef28a67813f67f9ec4c5f4df4efc3f1825a77bd923f6589",
+      "input_rows": 2042,
+      "rows": 2042,
+      "duration_s": 306.3,
+      "decisions": {
+        "NORMAL": 1069,
+        "SPOOFING": 973
+      },
+      "rule_decisions": {
+        "NORMAL": 2042
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 944
+      },
+      "nominal_alarm_samples": 973,
+      "nominal_alarm_rate": 0.4764936336924584,
+      "alarm_duration_s": 146.10999999999999,
+      "ml_sources": {
+        "unavailable": 2042
+      }
+    },
+    {
+      "flight": 189,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/189.csv",
+      "source_sha256": "349911bf775b3a6bcd2eb819c6d839668bf1dbde2bc98d9e4ec3643f4bacb2c6",
+      "input_rows": 988,
+      "rows": 988,
+      "duration_s": 147.9,
+      "decisions": {
+        "NORMAL": 446,
+        "SPOOFING": 542
+      },
+      "rule_decisions": {
+        "NORMAL": 988
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 526
+      },
+      "nominal_alarm_samples": 542,
+      "nominal_alarm_rate": 0.548582995951417,
+      "alarm_duration_s": 81.21,
+      "ml_sources": {
+        "unavailable": 988
+      }
+    },
+    {
+      "flight": 190,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/190.csv",
+      "source_sha256": "80ce0252f01852342941c81200b26c1d646a534ef1f8e584802cb8c736fea57c",
+      "input_rows": 1312,
+      "rows": 1312,
+      "duration_s": 196.61,
+      "decisions": {
+        "NORMAL": 939,
+        "SPOOFING": 373
+      },
+      "rule_decisions": {
+        "NORMAL": 1312
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 362
+      },
+      "nominal_alarm_samples": 373,
+      "nominal_alarm_rate": 0.2842987804878049,
+      "alarm_duration_s": 55.88999999999999,
+      "ml_sources": {
+        "unavailable": 1312
+      }
+    },
+    {
+      "flight": 191,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/191.csv",
+      "source_sha256": "2e6e1d8520e8464b566b8cdc08bb775ec85e10e2664bc426500a83963ef3f49c",
+      "input_rows": 1287,
+      "rows": 1287,
+      "duration_s": 193.0,
+      "decisions": {
+        "NORMAL": 947,
+        "SPOOFING": 340
+      },
+      "rule_decisions": {
+        "NORMAL": 1287
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 330
+      },
+      "nominal_alarm_samples": 340,
+      "nominal_alarm_rate": 0.2641802641802642,
+      "alarm_duration_s": 51.0,
+      "ml_sources": {
+        "unavailable": 1287
+      }
+    },
+    {
+      "flight": 192,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/192.csv",
+      "source_sha256": "3225e811a4a87620e471dd8e9ac79de4901949d7443c76615a125d35005616c8",
+      "input_rows": 1060,
+      "rows": 1060,
+      "duration_s": 158.89,
+      "decisions": {
+        "NORMAL": 720,
+        "SPOOFING": 340
+      },
+      "rule_decisions": {
+        "NORMAL": 1060
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 330
+      },
+      "nominal_alarm_samples": 340,
+      "nominal_alarm_rate": 0.32075471698113206,
+      "alarm_duration_s": 51.0,
+      "ml_sources": {
+        "unavailable": 1060
+      }
+    },
+    {
+      "flight": 193,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/193.csv",
+      "source_sha256": "a0126d65c2f44e18c9218ef049d38cd9b2fe65591815aaae49896396f7b94d32",
+      "input_rows": 1453,
+      "rows": 1453,
+      "duration_s": 217.8,
+      "decisions": {
+        "NORMAL": 527,
+        "SPOOFING": 926
+      },
+      "rule_decisions": {
+        "NORMAL": 1453
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 898
+      },
+      "nominal_alarm_samples": 926,
+      "nominal_alarm_rate": 0.6373021335168617,
+      "alarm_duration_s": 138.99,
+      "ml_sources": {
+        "unavailable": 1453
+      }
+    },
+    {
+      "flight": 194,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/194.csv",
+      "source_sha256": "f2823eba53c3d8dd0cf12ffccf5da2caf56d34273486fd99ccca95b1c2baeac4",
+      "input_rows": 1366,
+      "rows": 1366,
+      "duration_s": 204.71,
+      "decisions": {
+        "NORMAL": 1029,
+        "SPOOFING": 337
+      },
+      "rule_decisions": {
+        "NORMAL": 1366
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 327
+      },
+      "nominal_alarm_samples": 337,
+      "nominal_alarm_rate": 0.246705710102489,
+      "alarm_duration_s": 50.400000000000006,
+      "ml_sources": {
+        "unavailable": 1366
+      }
+    },
+    {
+      "flight": 195,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/195.csv",
+      "source_sha256": "72f797cb3af014d01d1fe960cbe148c337ab429acfed5ac8827056c3a84645fd",
+      "input_rows": 1394,
+      "rows": 1394,
+      "duration_s": 208.79,
+      "decisions": {
+        "NORMAL": 854,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 1394
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.38737446197991393,
+      "alarm_duration_s": 80.81,
+      "ml_sources": {
+        "unavailable": 1394
+      }
+    },
+    {
+      "flight": 196,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/196.csv",
+      "source_sha256": "ca07b2b66985779741f62d567aa475a9304b340aaec428775402df72450a4e5f",
+      "input_rows": 1775,
+      "rows": 1775,
+      "duration_s": 266.11,
+      "decisions": {
+        "NORMAL": 1436,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 1775
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.19098591549295774,
+      "alarm_duration_s": 50.89,
+      "ml_sources": {
+        "unavailable": 1775
+      }
+    },
+    {
+      "flight": 197,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/197.csv",
+      "source_sha256": "f9c3f3d80e1aba266ffc21c33ed1f55d1e56782b8b2c8f7d339a826b00c3c3a6",
+      "input_rows": 916,
+      "rows": 916,
+      "duration_s": 137.3,
+      "decisions": {
+        "NORMAL": 542,
+        "SPOOFING": 374
+      },
+      "rule_decisions": {
+        "NORMAL": 916
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 363
+      },
+      "nominal_alarm_samples": 374,
+      "nominal_alarm_rate": 0.40829694323144106,
+      "alarm_duration_s": 56.11,
+      "ml_sources": {
+        "unavailable": 916
+      }
+    },
+    {
+      "flight": 198,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/198.csv",
+      "source_sha256": "5a3fcf69276f601cc6f61e184bbb4c1d48da4c8546c1e99dab973549e849dd0b",
+      "input_rows": 1020,
+      "rows": 1020,
+      "duration_s": 152.9,
+      "decisions": {
+        "NORMAL": 650,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 1020
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.3627450980392157,
+      "alarm_duration_s": 55.5,
+      "ml_sources": {
+        "unavailable": 1020
+      }
+    },
+    {
+      "flight": 199,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/199.csv",
+      "source_sha256": "467e2f3198f7e3ea9b36c485194ab557ca1fd2ae7169735e6c28f7ba1083a2ee",
+      "input_rows": 1550,
+      "rows": 1550,
+      "duration_s": 232.0,
+      "decisions": {
+        "NORMAL": 527,
+        "SPOOFING": 1023
+      },
+      "rule_decisions": {
+        "NORMAL": 1550
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 992
+      },
+      "nominal_alarm_samples": 1023,
+      "nominal_alarm_rate": 0.66,
+      "alarm_duration_s": 153.3,
+      "ml_sources": {
+        "unavailable": 1550
+      }
+    },
+    {
+      "flight": 200,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/200.csv",
+      "source_sha256": "7e78b64f710e1e95338f7f7401ae0ff151b4860827e65304cf483151b692be2f",
+      "input_rows": 1312,
+      "rows": 1312,
+      "duration_s": 196.89,
+      "decisions": {
+        "NORMAL": 467,
+        "SPOOFING": 845
+      },
+      "rule_decisions": {
+        "NORMAL": 1312
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 819
+      },
+      "nominal_alarm_samples": 845,
+      "nominal_alarm_rate": 0.6440548780487805,
+      "alarm_duration_s": 126.88999999999999,
+      "ml_sources": {
+        "unavailable": 1312
+      }
+    },
+    {
+      "flight": 201,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/201.csv",
+      "source_sha256": "3ad5cd0fe68df54aa849d82ae2b8843a257af3247cb1152658a76725e0396b62",
+      "input_rows": 1563,
+      "rows": 1563,
+      "duration_s": 234.5,
+      "decisions": {
+        "NORMAL": 570,
+        "SPOOFING": 993
+      },
+      "rule_decisions": {
+        "NORMAL": 1563
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 963
+      },
+      "nominal_alarm_samples": 993,
+      "nominal_alarm_rate": 0.6353166986564299,
+      "alarm_duration_s": 149.09,
+      "ml_sources": {
+        "unavailable": 1563
+      }
+    },
+    {
+      "flight": 202,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/202.csv",
+      "source_sha256": "2f3454f26c943adbfad84b874400c5a7d3154a4c366304290a43e194ec0aea99",
+      "input_rows": 1427,
+      "rows": 1427,
+      "duration_s": 214.32,
+      "decisions": {
+        "NORMAL": 473,
+        "SPOOFING": 954
+      },
+      "rule_decisions": {
+        "NORMAL": 1427
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 925
+      },
+      "nominal_alarm_samples": 954,
+      "nominal_alarm_rate": 0.6685353889278206,
+      "alarm_duration_s": 143.41,
+      "ml_sources": {
+        "unavailable": 1427
+      }
+    },
+    {
+      "flight": 203,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/203.csv",
+      "source_sha256": "b1d75a2f78552c0bf298c22cfba3781110f777f53ec0012ab088c46c7c3a631a",
+      "input_rows": 951,
+      "rows": 951,
+      "duration_s": 142.7,
+      "decisions": {
+        "NORMAL": 411,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 951
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.5678233438485805,
+      "alarm_duration_s": 81.20999999999998,
+      "ml_sources": {
+        "unavailable": 951
+      }
+    },
+    {
+      "flight": 204,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/204.csv",
+      "source_sha256": "60fe2a37703cf33d773f1c4aa3cef47f8cfc2728d46d8fb23b20a7e29d1d1905",
+      "input_rows": 1112,
+      "rows": 1112,
+      "duration_s": 166.5,
+      "decisions": {
+        "NORMAL": 277,
+        "SPOOFING": 835
+      },
+      "rule_decisions": {
+        "NORMAL": 1112
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 810
+      },
+      "nominal_alarm_samples": 835,
+      "nominal_alarm_rate": 0.7508992805755396,
+      "alarm_duration_s": 125.10000000000001,
+      "ml_sources": {
+        "unavailable": 1112
+      }
+    },
+    {
+      "flight": 205,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/205.csv",
+      "source_sha256": "e01088ed315d99b644b271f6268c0d2c3444998da0ac9939ae084b5629fc3dd4",
+      "input_rows": 1079,
+      "rows": 1079,
+      "duration_s": 161.8,
+      "decisions": {
+        "NORMAL": 246,
+        "SPOOFING": 833
+      },
+      "rule_decisions": {
+        "NORMAL": 1079
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 808
+      },
+      "nominal_alarm_samples": 833,
+      "nominal_alarm_rate": 0.7720111214087118,
+      "alarm_duration_s": 125.10000000000002,
+      "ml_sources": {
+        "unavailable": 1079
+      }
+    },
+    {
+      "flight": 206,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/206.csv",
+      "source_sha256": "5fdb898586cfec5a540e9b696f8dad1174a3715712f09963f504fbccc1faf23b",
+      "input_rows": 1239,
+      "rows": 1239,
+      "duration_s": 185.7,
+      "decisions": {
+        "NORMAL": 732,
+        "SPOOFING": 507
+      },
+      "rule_decisions": {
+        "NORMAL": 1239
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 492
+      },
+      "nominal_alarm_samples": 507,
+      "nominal_alarm_rate": 0.4092009685230024,
+      "alarm_duration_s": 76.1,
+      "ml_sources": {
+        "unavailable": 1239
+      }
+    },
+    {
+      "flight": 207,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/207.csv",
+      "source_sha256": "37d7bb414b25cea1e96cc983049acf2eb43672aedaa5932839ff6c9b0fff9f2a",
+      "input_rows": 1102,
+      "rows": 1102,
+      "duration_s": 165.2,
+      "decisions": {
+        "NORMAL": 562,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 1102
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.4900181488203267,
+      "alarm_duration_s": 81.1,
+      "ml_sources": {
+        "unavailable": 1102
+      }
+    },
+    {
+      "flight": 208,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/208.csv",
+      "source_sha256": "435080494c1622bfda46a8919321e9823a7b94ff2ca8f28259d1b3a046c1970f",
+      "input_rows": 1320,
+      "rows": 1320,
+      "duration_s": 198.09,
+      "decisions": {
+        "NORMAL": 367,
+        "SPOOFING": 953
+      },
+      "rule_decisions": {
+        "NORMAL": 1320
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 924
+      },
+      "nominal_alarm_samples": 953,
+      "nominal_alarm_rate": 0.7219696969696969,
+      "alarm_duration_s": 143.10999999999999,
+      "ml_sources": {
+        "unavailable": 1320
+      }
+    },
+    {
+      "flight": 209,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/209.csv",
+      "source_sha256": "ad5ad42b3a6c2f713718ce7695ac1f48053336df09ac6cad811638fa208785fc",
+      "input_rows": 1169,
+      "rows": 1169,
+      "duration_s": 175.3,
+      "decisions": {
+        "NORMAL": 270,
+        "SPOOFING": 899
+      },
+      "rule_decisions": {
+        "NORMAL": 1169
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 27,
+        "GNSS yeniden doğrulama bekleniyor": 872
+      },
+      "nominal_alarm_samples": 899,
+      "nominal_alarm_rate": 0.7690333618477331,
+      "alarm_duration_s": 135.01,
+      "ml_sources": {
+        "unavailable": 1169
+      }
+    },
+    {
+      "flight": 210,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/210.csv",
+      "source_sha256": "2401880b5ad1100f2b513bd94f1f760765e083b165cf21ba5bc8268610fa82f5",
+      "input_rows": 1677,
+      "rows": 1677,
+      "duration_s": 251.49,
+      "decisions": {
+        "NORMAL": 733,
+        "SPOOFING": 944
+      },
+      "rule_decisions": {
+        "NORMAL": 1677
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 916
+      },
+      "nominal_alarm_samples": 944,
+      "nominal_alarm_rate": 0.5629099582587954,
+      "alarm_duration_s": 141.79,
+      "ml_sources": {
+        "unavailable": 1677
+      }
+    },
+    {
+      "flight": 211,
+      "route": "A1",
+      "is_cruise_flight": false,
+      "source_member": "flights/211.csv",
+      "source_sha256": "a1dd5410b408570a2dffbe0603573d73c348278980b6ade4985cee03ce3039ff",
+      "input_rows": 881,
+      "rows": 881,
+      "duration_s": 131.9,
+      "decisions": {
+        "NORMAL": 881
+      },
+      "rule_decisions": {
+        "NORMAL": 881
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 881
+      }
+    },
+    {
+      "flight": 212,
+      "route": "A1",
+      "is_cruise_flight": false,
+      "source_member": "flights/212.csv",
+      "source_sha256": "e45b3d3847f0fc6b057852f0a92a32c430df3cb660459592e6064f0501f65f0b",
+      "input_rows": 805,
+      "rows": 805,
+      "duration_s": 120.3,
+      "decisions": {
+        "NORMAL": 805
+      },
+      "rule_decisions": {
+        "NORMAL": 805
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 805
+      }
+    },
+    {
+      "flight": 213,
+      "route": "A1",
+      "is_cruise_flight": false,
+      "source_member": "flights/213.csv",
+      "source_sha256": "5e29b222bdf8f30664ffe54ff9e655015dcf52e85426e6c25176c940e919f9c7",
+      "input_rows": 392,
+      "rows": 392,
+      "duration_s": 58.61,
+      "decisions": {
+        "NORMAL": 392
+      },
+      "rule_decisions": {
+        "NORMAL": 392
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 392
+      }
+    },
+    {
+      "flight": 214,
+      "route": "A2",
+      "is_cruise_flight": false,
+      "source_member": "flights/214.csv",
+      "source_sha256": "806225d9379cef818c7543b13c60acdb4bb6b0a5c8b16b96ed927641b52ae53c",
+      "input_rows": 910,
+      "rows": 910,
+      "duration_s": 136.21,
+      "decisions": {
+        "NORMAL": 910
+      },
+      "rule_decisions": {
+        "NORMAL": 910
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 910
+      }
+    },
+    {
+      "flight": 215,
+      "route": "A2",
+      "is_cruise_flight": false,
+      "source_member": "flights/215.csv",
+      "source_sha256": "2299e5081725a1675ddbb11a49a6580fed6c8a471989b02ba84106c9a98d1083",
+      "input_rows": 391,
+      "rows": 391,
+      "duration_s": 58.59,
+      "decisions": {
+        "NORMAL": 391
+      },
+      "rule_decisions": {
+        "NORMAL": 391
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 391
+      }
+    },
+    {
+      "flight": 216,
+      "route": "A2",
+      "is_cruise_flight": false,
+      "source_member": "flights/216.csv",
+      "source_sha256": "5ef1a148511aeecf4290988e99e0fa04e722369343a42263ed57641baaca7450",
+      "input_rows": 392,
+      "rows": 392,
+      "duration_s": 58.69,
+      "decisions": {
+        "NORMAL": 392
+      },
+      "rule_decisions": {
+        "NORMAL": 392
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 392
+      }
+    },
+    {
+      "flight": 217,
+      "route": "A3",
+      "is_cruise_flight": false,
+      "source_member": "flights/217.csv",
+      "source_sha256": "e863437263b73604df061ad4a98150065f3ec0aa21bd33d66979326326e456e8",
+      "input_rows": 935,
+      "rows": 935,
+      "duration_s": 140.1,
+      "decisions": {
+        "NORMAL": 935
+      },
+      "rule_decisions": {
+        "NORMAL": 935
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 935
+      }
+    },
+    {
+      "flight": 218,
+      "route": "A3",
+      "is_cruise_flight": false,
+      "source_member": "flights/218.csv",
+      "source_sha256": "fff1f9a129d5a58d9d87c6fb56c1029ec95c0743ae454365f368210b80912054",
+      "input_rows": 953,
+      "rows": 953,
+      "duration_s": 142.8,
+      "decisions": {
+        "NORMAL": 953
+      },
+      "rule_decisions": {
+        "NORMAL": 953
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 953
+      }
+    },
+    {
+      "flight": 219,
+      "route": "A3",
+      "is_cruise_flight": false,
+      "source_member": "flights/219.csv",
+      "source_sha256": "4840dd610ecb03c6cb5227dcd6bd954f9c256ee7087ed8176223e077de0e1767",
+      "input_rows": 842,
+      "rows": 842,
+      "duration_s": 126.41,
+      "decisions": {
+        "NORMAL": 842
+      },
+      "rule_decisions": {
+        "NORMAL": 842
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 842
+      }
+    },
+    {
+      "flight": 221,
+      "route": "H",
+      "is_cruise_flight": false,
+      "source_member": "flights/221.csv",
+      "source_sha256": "8686679e53b1a3fd1b5cf3083a110a8ee9a83b86746162b25c6d6da7814d401d",
+      "input_rows": 809,
+      "rows": 809,
+      "duration_s": 121.2,
+      "decisions": {
+        "NORMAL": 809
+      },
+      "rule_decisions": {
+        "NORMAL": 809
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 809
+      }
+    },
+    {
+      "flight": 222,
+      "route": "H",
+      "is_cruise_flight": false,
+      "source_member": "flights/222.csv",
+      "source_sha256": "20e77482713f8746760a0767a5a3a1d683e0840023e9a34d19fac0e1af9a34c4",
+      "input_rows": 950,
+      "rows": 950,
+      "duration_s": 142.4,
+      "decisions": {
+        "NORMAL": 950
+      },
+      "rule_decisions": {
+        "NORMAL": 950
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 950
+      }
+    },
+    {
+      "flight": 223,
+      "route": "H",
+      "is_cruise_flight": false,
+      "source_member": "flights/223.csv",
+      "source_sha256": "fedac8524b7c9a51ee1d4557a857e52613c90e547485dc1b99a52d567f92b42a",
+      "input_rows": 857,
+      "rows": 857,
+      "duration_s": 128.4,
+      "decisions": {
+        "NORMAL": 857
+      },
+      "rule_decisions": {
+        "NORMAL": 857
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 857
+      }
+    },
+    {
+      "flight": 224,
+      "route": "H",
+      "is_cruise_flight": false,
+      "source_member": "flights/224.csv",
+      "source_sha256": "10af9b697f34e3fd8220bae041981a8d2b6c7cf7a3c7e6f6699fdf86449413ea",
+      "input_rows": 1178,
+      "rows": 1178,
+      "duration_s": 176.61,
+      "decisions": {
+        "NORMAL": 1178
+      },
+      "rule_decisions": {
+        "NORMAL": 1178
+      },
+      "causes": {},
+      "nominal_alarm_samples": 0,
+      "nominal_alarm_rate": 0.0,
+      "alarm_duration_s": 0.0,
+      "ml_sources": {
+        "unavailable": 1178
+      }
+    },
+    {
+      "flight": 225,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/225.csv",
+      "source_sha256": "3b78a8a893974ab2157764bb704763e180b74d9cfc131536d74d268407fe6551",
+      "input_rows": 1163,
+      "rows": 1163,
+      "duration_s": 174.39,
+      "decisions": {
+        "NORMAL": 623,
+        "SPOOFING": 540
+      },
+      "rule_decisions": {
+        "NORMAL": 1163
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 524
+      },
+      "nominal_alarm_samples": 540,
+      "nominal_alarm_rate": 0.4643164230438521,
+      "alarm_duration_s": 80.99,
+      "ml_sources": {
+        "unavailable": 1163
+      }
+    },
+    {
+      "flight": 226,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/226.csv",
+      "source_sha256": "87db2f10e2cc5c279a8f6dbbb0a293fa8a55213d05e6512f8c74ccc0998c820a",
+      "input_rows": 1251,
+      "rows": 1251,
+      "duration_s": 187.0,
+      "decisions": {
+        "NORMAL": 674,
+        "SPOOFING": 577
+      },
+      "rule_decisions": {
+        "NORMAL": 1251
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 560
+      },
+      "nominal_alarm_samples": 577,
+      "nominal_alarm_rate": 0.4612310151878497,
+      "alarm_duration_s": 86.39,
+      "ml_sources": {
+        "unavailable": 1251
+      }
+    },
+    {
+      "flight": 227,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/227.csv",
+      "source_sha256": "b39bd1eafa318c43bb7820753e15b2ef097dda835995eb3057ecf094f5791a68",
+      "input_rows": 1443,
+      "rows": 1443,
+      "duration_s": 216.21,
+      "decisions": {
+        "NORMAL": 528,
+        "SPOOFING": 915
+      },
+      "rule_decisions": {
+        "NORMAL": 1443
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 887
+      },
+      "nominal_alarm_samples": 915,
+      "nominal_alarm_rate": 0.6340956340956341,
+      "alarm_duration_s": 137.31,
+      "ml_sources": {
+        "unavailable": 1443
+      }
+    },
+    {
+      "flight": 228,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/228.csv",
+      "source_sha256": "d4a0a41a2f75abb8cfe6f0daf3befd446a826a998176b1a49ce674cd796cb05f",
+      "input_rows": 1271,
+      "rows": 1271,
+      "duration_s": 190.71,
+      "decisions": {
+        "NORMAL": 899,
+        "SPOOFING": 372
+      },
+      "rule_decisions": {
+        "NORMAL": 1271
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 361
+      },
+      "nominal_alarm_samples": 372,
+      "nominal_alarm_rate": 0.2926829268292683,
+      "alarm_duration_s": 55.779999999999994,
+      "ml_sources": {
+        "unavailable": 1271
+      }
+    },
+    {
+      "flight": 229,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/229.csv",
+      "source_sha256": "dc1d6fa1742a1de274a59a05f22208c922a378c6c5701333d3557e407c7970de",
+      "input_rows": 1053,
+      "rows": 1053,
+      "duration_s": 157.9,
+      "decisions": {
+        "NORMAL": 682,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1053
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.352326685660019,
+      "alarm_duration_s": 55.7,
+      "ml_sources": {
+        "unavailable": 1053
+      }
+    },
+    {
+      "flight": 230,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/230.csv",
+      "source_sha256": "d4fc546c1b2015b59ced8526bc57668e78d0c927848a249df35a532a7275ae1f",
+      "input_rows": 1098,
+      "rows": 1098,
+      "duration_s": 164.6,
+      "decisions": {
+        "NORMAL": 324,
+        "SPOOFING": 774
+      },
+      "rule_decisions": {
+        "NORMAL": 1098
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 24,
+        "GNSS yeniden doğrulama bekleniyor": 750
+      },
+      "nominal_alarm_samples": 774,
+      "nominal_alarm_rate": 0.7049180327868853,
+      "alarm_duration_s": 116.19999999999999,
+      "ml_sources": {
+        "unavailable": 1098
+      }
+    },
+    {
+      "flight": 231,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/231.csv",
+      "source_sha256": "76217319a9a93e4e0c7c0d8386462683f92d0c787991d9669fceb075f2cd23fb",
+      "input_rows": 1325,
+      "rows": 1325,
+      "duration_s": 198.4,
+      "decisions": {
+        "NORMAL": 718,
+        "SPOOFING": 607
+      },
+      "rule_decisions": {
+        "NORMAL": 1325
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 18,
+        "GNSS yeniden doğrulama bekleniyor": 589
+      },
+      "nominal_alarm_samples": 607,
+      "nominal_alarm_rate": 0.45811320754716983,
+      "alarm_duration_s": 90.99999999999997,
+      "ml_sources": {
+        "unavailable": 1325
+      }
+    },
+    {
+      "flight": 232,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/232.csv",
+      "source_sha256": "d6d8ca342d1feb4c05d9026890a0d1c417d522a2619bbbd5fee23a1ac9db0649",
+      "input_rows": 1336,
+      "rows": 1336,
+      "duration_s": 200.1,
+      "decisions": {
+        "NORMAL": 963,
+        "SPOOFING": 373
+      },
+      "rule_decisions": {
+        "NORMAL": 1336
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 362
+      },
+      "nominal_alarm_samples": 373,
+      "nominal_alarm_rate": 0.2791916167664671,
+      "alarm_duration_s": 55.789999999999985,
+      "ml_sources": {
+        "unavailable": 1336
+      }
+    },
+    {
+      "flight": 233,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/233.csv",
+      "source_sha256": "1cbd0902ba26ba7eb0255f438d9897ebd6a70fb8a2e8d2912d22dd29814b2b0a",
+      "input_rows": 1446,
+      "rows": 1446,
+      "duration_s": 216.71,
+      "decisions": {
+        "NORMAL": 529,
+        "SPOOFING": 917
+      },
+      "rule_decisions": {
+        "NORMAL": 1446
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 889
+      },
+      "nominal_alarm_samples": 917,
+      "nominal_alarm_rate": 0.6341632088520055,
+      "alarm_duration_s": 137.61,
+      "ml_sources": {
+        "unavailable": 1446
+      }
+    },
+    {
+      "flight": 234,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/234.csv",
+      "source_sha256": "1b61323517dbd7fe39e24e8c11154ec1abd941021b0809bec212b7923b357ea3",
+      "input_rows": 1263,
+      "rows": 1263,
+      "duration_s": 189.3,
+      "decisions": {
+        "NORMAL": 859,
+        "SPOOFING": 404
+      },
+      "rule_decisions": {
+        "NORMAL": 1263
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 392
+      },
+      "nominal_alarm_samples": 404,
+      "nominal_alarm_rate": 0.31987331749802056,
+      "alarm_duration_s": 60.70000000000002,
+      "ml_sources": {
+        "unavailable": 1263
+      }
+    },
+    {
+      "flight": 235,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/235.csv",
+      "source_sha256": "03347d64f02ed6c6b751361cbd3eb51bdd64c8c1668b611149fbd1084d91621e",
+      "input_rows": 943,
+      "rows": 943,
+      "duration_s": 141.4,
+      "decisions": {
+        "NORMAL": 537,
+        "SPOOFING": 406
+      },
+      "rule_decisions": {
+        "NORMAL": 943
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 394
+      },
+      "nominal_alarm_samples": 406,
+      "nominal_alarm_rate": 0.4305408271474019,
+      "alarm_duration_s": 60.9,
+      "ml_sources": {
+        "unavailable": 943
+      }
+    },
+    {
+      "flight": 236,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/236.csv",
+      "source_sha256": "ce84a901f6b610955e2d28e1dbd466d2477df7ddbe7a6901804edc1561193d0c",
+      "input_rows": 1036,
+      "rows": 1036,
+      "duration_s": 155.4,
+      "decisions": {
+        "NORMAL": 594,
+        "SPOOFING": 442
+      },
+      "rule_decisions": {
+        "NORMAL": 1036
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 429
+      },
+      "nominal_alarm_samples": 442,
+      "nominal_alarm_rate": 0.4266409266409266,
+      "alarm_duration_s": 66.39,
+      "ml_sources": {
+        "unavailable": 1036
+      }
+    },
+    {
+      "flight": 237,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/237.csv",
+      "source_sha256": "cb980a03a7499a9ac0ae8f002faee57ee1a3c67b6289093208fa80b4675ed186",
+      "input_rows": 1897,
+      "rows": 1897,
+      "duration_s": 284.61,
+      "decisions": {
+        "NORMAL": 923,
+        "SPOOFING": 974
+      },
+      "rule_decisions": {
+        "NORMAL": 1897
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 945
+      },
+      "nominal_alarm_samples": 974,
+      "nominal_alarm_rate": 0.5134422772799156,
+      "alarm_duration_s": 146.20000000000002,
+      "ml_sources": {
+        "unavailable": 1897
+      }
+    },
+    {
+      "flight": 238,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/238.csv",
+      "source_sha256": "a6cd6f67a65160a2d1561f255052d116c1be3493f127b83d2f4b0b1a0d191c37",
+      "input_rows": 1444,
+      "rows": 1444,
+      "duration_s": 216.31,
+      "decisions": {
+        "NORMAL": 534,
+        "SPOOFING": 910
+      },
+      "rule_decisions": {
+        "NORMAL": 1444
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 882
+      },
+      "nominal_alarm_samples": 910,
+      "nominal_alarm_rate": 0.6301939058171745,
+      "alarm_duration_s": 136.41,
+      "ml_sources": {
+        "unavailable": 1444
+      }
+    },
+    {
+      "flight": 239,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/239.csv",
+      "source_sha256": "e8e7a78be37ccbba7aa7c2c0fd3eed360540370c0cfe8db8aa6aa97ef2b16809",
+      "input_rows": 1674,
+      "rows": 1674,
+      "duration_s": 250.8,
+      "decisions": {
+        "NORMAL": 698,
+        "SPOOFING": 976
+      },
+      "rule_decisions": {
+        "NORMAL": 1674
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 947
+      },
+      "nominal_alarm_samples": 976,
+      "nominal_alarm_rate": 0.5830346475507766,
+      "alarm_duration_s": 146.4,
+      "ml_sources": {
+        "unavailable": 1674
+      }
+    },
+    {
+      "flight": 240,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/240.csv",
+      "source_sha256": "76fc5c508d75274ea3dd38a9993c3027901456118ae185e6e07a9f2bf2c6b5fb",
+      "input_rows": 1338,
+      "rows": 1338,
+      "duration_s": 200.8,
+      "decisions": {
+        "NORMAL": 479,
+        "SPOOFING": 859
+      },
+      "rule_decisions": {
+        "NORMAL": 1338
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 26,
+        "GNSS yeniden doğrulama bekleniyor": 833
+      },
+      "nominal_alarm_samples": 859,
+      "nominal_alarm_rate": 0.6420029895366218,
+      "alarm_duration_s": 129.11,
+      "ml_sources": {
+        "unavailable": 1338
+      }
+    },
+    {
+      "flight": 241,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/241.csv",
+      "source_sha256": "c30d37d51da8fa13b1f7df939729b4443d1ce626b06c6cab14f38184e2d549cb",
+      "input_rows": 1152,
+      "rows": 1152,
+      "duration_s": 172.7,
+      "decisions": {
+        "NORMAL": 784,
+        "SPOOFING": 368
+      },
+      "rule_decisions": {
+        "NORMAL": 1152
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 357
+      },
+      "nominal_alarm_samples": 368,
+      "nominal_alarm_rate": 0.3194444444444444,
+      "alarm_duration_s": 55.300000000000004,
+      "ml_sources": {
+        "unavailable": 1152
+      }
+    },
+    {
+      "flight": 242,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/242.csv",
+      "source_sha256": "b8b280a2ed9a2fcee456085f3d539164859ecedad644e7512434edc08a1b83bc",
+      "input_rows": 1765,
+      "rows": 1765,
+      "duration_s": 264.61,
+      "decisions": {
+        "NORMAL": 1161,
+        "SPOOFING": 604
+      },
+      "rule_decisions": {
+        "NORMAL": 1765
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 18,
+        "GNSS yeniden doğrulama bekleniyor": 586
+      },
+      "nominal_alarm_samples": 604,
+      "nominal_alarm_rate": 0.3422096317280453,
+      "alarm_duration_s": 90.69999999999999,
+      "ml_sources": {
+        "unavailable": 1765
+      }
+    },
+    {
+      "flight": 243,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/243.csv",
+      "source_sha256": "1eae0bb7a1731649d6c088f983e81d157b4021f651535bc825b2e4340c3d80fb",
+      "input_rows": 1619,
+      "rows": 1619,
+      "duration_s": 242.7,
+      "decisions": {
+        "NORMAL": 573,
+        "SPOOFING": 1046
+      },
+      "rule_decisions": {
+        "NORMAL": 1619
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 1015
+      },
+      "nominal_alarm_samples": 1046,
+      "nominal_alarm_rate": 0.6460778258184064,
+      "alarm_duration_s": 156.99,
+      "ml_sources": {
+        "unavailable": 1619
+      }
+    },
+    {
+      "flight": 246,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/246.csv",
+      "source_sha256": "8f8c4af03aebc1dc4cc7c218e837e6eca12a682700f1327cc0666590f4db80f6",
+      "input_rows": 1366,
+      "rows": 1366,
+      "duration_s": 204.4,
+      "decisions": {
+        "NORMAL": 825,
+        "SPOOFING": 541
+      },
+      "rule_decisions": {
+        "NORMAL": 1366
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 525
+      },
+      "nominal_alarm_samples": 541,
+      "nominal_alarm_rate": 0.39604685212298685,
+      "alarm_duration_s": 81.10000000000001,
+      "ml_sources": {
+        "unavailable": 1366
+      }
+    },
+    {
+      "flight": 247,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/247.csv",
+      "source_sha256": "97f3fce3ce55793b070c40eb142ade7c5e85674d5a310330449cec03e400655a",
+      "input_rows": 1245,
+      "rows": 1245,
+      "duration_s": 187.6,
+      "decisions": {
+        "NORMAL": 674,
+        "SPOOFING": 571
+      },
+      "rule_decisions": {
+        "NORMAL": 1245
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 554
+      },
+      "nominal_alarm_samples": 571,
+      "nominal_alarm_rate": 0.45863453815261046,
+      "alarm_duration_s": 85.81,
+      "ml_sources": {
+        "unavailable": 1245
+      }
+    },
+    {
+      "flight": 248,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/248.csv",
+      "source_sha256": "fd0a10343f0a931ea4d63d9901978e6b4c2340cd518939c6841f3d56ae15f34c",
+      "input_rows": 1593,
+      "rows": 1593,
+      "duration_s": 238.69,
+      "decisions": {
+        "NORMAL": 609,
+        "SPOOFING": 984
+      },
+      "rule_decisions": {
+        "NORMAL": 1593
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 954
+      },
+      "nominal_alarm_samples": 984,
+      "nominal_alarm_rate": 0.6177024482109228,
+      "alarm_duration_s": 147.6,
+      "ml_sources": {
+        "unavailable": 1593
+      }
+    },
+    {
+      "flight": 249,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/249.csv",
+      "source_sha256": "b90300d0e65d8a9a58224131f1a6c476afb5635ff899d32707e29379f2376d35",
+      "input_rows": 1103,
+      "rows": 1103,
+      "duration_s": 165.4,
+      "decisions": {
+        "NORMAL": 565,
+        "SPOOFING": 538
+      },
+      "rule_decisions": {
+        "NORMAL": 1103
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 16,
+        "GNSS yeniden doğrulama bekleniyor": 522
+      },
+      "nominal_alarm_samples": 538,
+      "nominal_alarm_rate": 0.4877606527651859,
+      "alarm_duration_s": 80.6,
+      "ml_sources": {
+        "unavailable": 1103
+      }
+    },
+    {
+      "flight": 250,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/250.csv",
+      "source_sha256": "22d77be03b195c0182e460d5709f09362b982cd68cdc930e048e8f7953525da2",
+      "input_rows": 1101,
+      "rows": 1101,
+      "duration_s": 165.2,
+      "decisions": {
+        "NORMAL": 730,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1101
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.3369663941871026,
+      "alarm_duration_s": 55.699999999999996,
+      "ml_sources": {
+        "unavailable": 1101
+      }
+    },
+    {
+      "flight": 251,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/251.csv",
+      "source_sha256": "acfb014cf8e0f785cfde23c858b08b09ae918a24d4c8e6ca74a0ca87d41c4287",
+      "input_rows": 1177,
+      "rows": 1177,
+      "duration_s": 176.5,
+      "decisions": {
+        "NORMAL": 672,
+        "SPOOFING": 505
+      },
+      "rule_decisions": {
+        "NORMAL": 1177
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 490
+      },
+      "nominal_alarm_samples": 505,
+      "nominal_alarm_rate": 0.4290569243840272,
+      "alarm_duration_s": 75.7,
+      "ml_sources": {
+        "unavailable": 1177
+      }
+    },
+    {
+      "flight": 252,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/252.csv",
+      "source_sha256": "08e113502ac3d449e838088bb5b448b6abb17773d45f2c984354fa32bc3ef3bb",
+      "input_rows": 1286,
+      "rows": 1286,
+      "duration_s": 193.01,
+      "decisions": {
+        "NORMAL": 947,
+        "SPOOFING": 339
+      },
+      "rule_decisions": {
+        "NORMAL": 1286
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 10,
+        "GNSS yeniden doğrulama bekleniyor": 329
+      },
+      "nominal_alarm_samples": 339,
+      "nominal_alarm_rate": 0.26360808709175737,
+      "alarm_duration_s": 50.88999999999999,
+      "ml_sources": {
+        "unavailable": 1286
+      }
+    },
+    {
+      "flight": 253,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/253.csv",
+      "source_sha256": "5e4017a3cb5a4a481bc3efd093dda3490c341886e6635a8033b885b68260d893",
+      "input_rows": 1021,
+      "rows": 1021,
+      "duration_s": 153.1,
+      "decisions": {
+        "NORMAL": 650,
+        "SPOOFING": 371
+      },
+      "rule_decisions": {
+        "NORMAL": 1021
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 360
+      },
+      "nominal_alarm_samples": 371,
+      "nominal_alarm_rate": 0.3633692458374143,
+      "alarm_duration_s": 55.699999999999996,
+      "ml_sources": {
+        "unavailable": 1021
+      }
+    },
+    {
+      "flight": 254,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/254.csv",
+      "source_sha256": "df81301b2c3b345aca2a1ca8babc5494d01e1c16b0eee5164dc54924ee890ef0",
+      "input_rows": 1103,
+      "rows": 1103,
+      "duration_s": 165.39,
+      "decisions": {
+        "NORMAL": 731,
+        "SPOOFING": 372
+      },
+      "rule_decisions": {
+        "NORMAL": 1103
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 361
+      },
+      "nominal_alarm_samples": 372,
+      "nominal_alarm_rate": 0.3372620126926564,
+      "alarm_duration_s": 55.900000000000006,
+      "ml_sources": {
+        "unavailable": 1103
+      }
+    },
+    {
+      "flight": 255,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/255.csv",
+      "source_sha256": "68549f12eebfdc1b641fab63839fa68d6521e5e6a8bb1364b1190ea6c112ebfa",
+      "input_rows": 1102,
+      "rows": 1102,
+      "duration_s": 165.21,
+      "decisions": {
+        "NORMAL": 364,
+        "SPOOFING": 738
+      },
+      "rule_decisions": {
+        "NORMAL": 1102
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 22,
+        "GNSS yeniden doğrulama bekleniyor": 716
+      },
+      "nominal_alarm_samples": 738,
+      "nominal_alarm_rate": 0.6696914700544465,
+      "alarm_duration_s": 110.81,
+      "ml_sources": {
+        "unavailable": 1102
+      }
+    },
+    {
+      "flight": 256,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/256.csv",
+      "source_sha256": "9b7c83d8327ab3e6e10b46d7e105c0580ce8ea9b7c82d2d97603d3a1f25723d5",
+      "input_rows": 1150,
+      "rows": 1150,
+      "duration_s": 172.4,
+      "decisions": {
+        "NORMAL": 778,
+        "SPOOFING": 372
+      },
+      "rule_decisions": {
+        "NORMAL": 1150
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 361
+      },
+      "nominal_alarm_samples": 372,
+      "nominal_alarm_rate": 0.3234782608695652,
+      "alarm_duration_s": 55.7,
+      "ml_sources": {
+        "unavailable": 1150
+      }
+    },
+    {
+      "flight": 257,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/257.csv",
+      "source_sha256": "f3df77bf826ad7b0a43fc695a127a189d34532b7bd3247c3b077fb23b0c8a993",
+      "input_rows": 1401,
+      "rows": 1401,
+      "duration_s": 210.0,
+      "decisions": {
+        "NORMAL": 365,
+        "SPOOFING": 1036
+      },
+      "rule_decisions": {
+        "NORMAL": 1401
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 1005
+      },
+      "nominal_alarm_samples": 1036,
+      "nominal_alarm_rate": 0.7394718058529621,
+      "alarm_duration_s": 155.4,
+      "ml_sources": {
+        "unavailable": 1401
+      }
+    },
+    {
+      "flight": 258,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/258.csv",
+      "source_sha256": "3e99c3ee0954a2d2089d7465f59b7202f2e112845dc13064c326f59599fce3b9",
+      "input_rows": 1462,
+      "rows": 1462,
+      "duration_s": 219.3,
+      "decisions": {
+        "NORMAL": 518,
+        "SPOOFING": 944
+      },
+      "rule_decisions": {
+        "NORMAL": 1462
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 915
+      },
+      "nominal_alarm_samples": 944,
+      "nominal_alarm_rate": 0.6456908344733242,
+      "alarm_duration_s": 141.70000000000002,
+      "ml_sources": {
+        "unavailable": 1462
+      }
+    },
+    {
+      "flight": 260,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/260.csv",
+      "source_sha256": "6dd4fd28fcace7c739dd6f84973f61c7ab21cab1eeb491658a13771735e60039",
+      "input_rows": 1632,
+      "rows": 1632,
+      "duration_s": 244.71,
+      "decisions": {
+        "NORMAL": 687,
+        "SPOOFING": 945
+      },
+      "rule_decisions": {
+        "NORMAL": 1632
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 28,
+        "GNSS yeniden doğrulama bekleniyor": 917
+      },
+      "nominal_alarm_samples": 945,
+      "nominal_alarm_rate": 0.5790441176470589,
+      "alarm_duration_s": 141.79999999999998,
+      "ml_sources": {
+        "unavailable": 1632
+      }
+    },
+    {
+      "flight": 261,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/261.csv",
+      "source_sha256": "569415a4c5a420312311bc7da04ced41e6d4758e73cc4205c0d6a52f27f5a7d2",
+      "input_rows": 1287,
+      "rows": 1287,
+      "duration_s": 192.9,
+      "decisions": {
+        "NORMAL": 302,
+        "SPOOFING": 985
+      },
+      "rule_decisions": {
+        "NORMAL": 1287
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 30,
+        "GNSS yeniden doğrulama bekleniyor": 955
+      },
+      "nominal_alarm_samples": 985,
+      "nominal_alarm_rate": 0.7653457653457654,
+      "alarm_duration_s": 147.79999999999998,
+      "ml_sources": {
+        "unavailable": 1287
+      }
+    },
+    {
+      "flight": 262,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/262.csv",
+      "source_sha256": "6ea2b115f4b3fa08dcc8bec6e17628f5cf4ebf90475296ba4d3f09a8865d244b",
+      "input_rows": 1149,
+      "rows": 1149,
+      "duration_s": 172.51,
+      "decisions": {
+        "NORMAL": 779,
+        "SPOOFING": 370
+      },
+      "rule_decisions": {
+        "NORMAL": 1149
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 359
+      },
+      "nominal_alarm_samples": 370,
+      "nominal_alarm_rate": 0.32201914708442125,
+      "alarm_duration_s": 55.60000000000001,
+      "ml_sources": {
+        "unavailable": 1149
+      }
+    },
+    {
+      "flight": 263,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/263.csv",
+      "source_sha256": "9c4a94609e5f2628ca454415f3573b8057e0c752b688a0e1db9509f3abc9749b",
+      "input_rows": 1590,
+      "rows": 1590,
+      "duration_s": 238.4,
+      "decisions": {
+        "NORMAL": 684,
+        "SPOOFING": 906
+      },
+      "rule_decisions": {
+        "NORMAL": 1590
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 27,
+        "GNSS yeniden doğrulama bekleniyor": 879
+      },
+      "nominal_alarm_samples": 906,
+      "nominal_alarm_rate": 0.569811320754717,
+      "alarm_duration_s": 136.1,
+      "ml_sources": {
+        "unavailable": 1590
+      }
+    },
+    {
+      "flight": 264,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/264.csv",
+      "source_sha256": "6c8742fc1c2c3196f56abe256ff227b876e832617290bb852863357bb00b36c7",
+      "input_rows": 1515,
+      "rows": 1515,
+      "duration_s": 227.1,
+      "decisions": {
+        "NORMAL": 420,
+        "SPOOFING": 1095
+      },
+      "rule_decisions": {
+        "NORMAL": 1515
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 33,
+        "GNSS yeniden doğrulama bekleniyor": 1062
+      },
+      "nominal_alarm_samples": 1095,
+      "nominal_alarm_rate": 0.7227722772277227,
+      "alarm_duration_s": 164.2,
+      "ml_sources": {
+        "unavailable": 1515
+      }
+    },
+    {
+      "flight": 267,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/267.csv",
+      "source_sha256": "6b378a4223bc9572a4f0d7fd1d0b7aa31303c4d5fea80f69b034f9cb9e61daaa",
+      "input_rows": 1009,
+      "rows": 1009,
+      "duration_s": 152.61,
+      "decisions": {
+        "NORMAL": 440,
+        "SPOOFING": 569
+      },
+      "rule_decisions": {
+        "NORMAL": 1009
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 552
+      },
+      "nominal_alarm_samples": 569,
+      "nominal_alarm_rate": 0.5639246778989098,
+      "alarm_duration_s": 86.6,
+      "ml_sources": {
+        "unavailable": 1009
+      }
+    },
+    {
+      "flight": 268,
+      "route": "R6",
+      "is_cruise_flight": true,
+      "source_member": "flights/268.csv",
+      "source_sha256": "aa9678be35e33b5c63c0ed7ee7e66a19dc33af3129e077bd62fe85e10e139f52",
+      "input_rows": 1511,
+      "rows": 1511,
+      "duration_s": 232.51,
+      "decisions": {
+        "NORMAL": 290,
+        "SPOOFING": 1221
+      },
+      "rule_decisions": {
+        "NORMAL": 1511
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 37,
+        "GNSS yeniden doğrulama bekleniyor": 1184
+      },
+      "nominal_alarm_samples": 1221,
+      "nominal_alarm_rate": 0.8080741230972865,
+      "alarm_duration_s": 187.4,
+      "ml_sources": {
+        "unavailable": 1511
+      }
+    },
+    {
+      "flight": 269,
+      "route": "R6",
+      "is_cruise_flight": true,
+      "source_member": "flights/269.csv",
+      "source_sha256": "584a75f9b3e89ee4472cb1d5965ea240d17f343a6b02b90c1376016e452d38f3",
+      "input_rows": 1317,
+      "rows": 1317,
+      "duration_s": 201.51,
+      "decisions": {
+        "NORMAL": 356,
+        "SPOOFING": 961
+      },
+      "rule_decisions": {
+        "NORMAL": 1317
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 932
+      },
+      "nominal_alarm_samples": 961,
+      "nominal_alarm_rate": 0.7296886864085042,
+      "alarm_duration_s": 147.32,
+      "ml_sources": {
+        "unavailable": 1317
+      }
+    },
+    {
+      "flight": 270,
+      "route": "R6",
+      "is_cruise_flight": true,
+      "source_member": "flights/270.csv",
+      "source_sha256": "a47578d0bd1aaff6870f4bd01fe02e9dd1e1c71edbf0aefffcd1de80f1b567a4",
+      "input_rows": 1466,
+      "rows": 1466,
+      "duration_s": 221.4,
+      "decisions": {
+        "NORMAL": 629,
+        "SPOOFING": 837
+      },
+      "rule_decisions": {
+        "NORMAL": 1466
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 25,
+        "GNSS yeniden doğrulama bekleniyor": 812
+      },
+      "nominal_alarm_samples": 837,
+      "nominal_alarm_rate": 0.5709413369713506,
+      "alarm_duration_s": 126.80000000000001,
+      "ml_sources": {
+        "unavailable": 1466
+      }
+    },
+    {
+      "flight": 271,
+      "route": "R6",
+      "is_cruise_flight": true,
+      "source_member": "flights/271.csv",
+      "source_sha256": "f8e2e25746cd9c783a28bffbbb77b1a45ac6bb79cc113912f629bbc83543dcea",
+      "input_rows": 1219,
+      "rows": 1219,
+      "duration_s": 184.7,
+      "decisions": {
+        "NORMAL": 248,
+        "SPOOFING": 971
+      },
+      "rule_decisions": {
+        "NORMAL": 1219
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 29,
+        "GNSS yeniden doğrulama bekleniyor": 942
+      },
+      "nominal_alarm_samples": 971,
+      "nominal_alarm_rate": 0.7965545529122231,
+      "alarm_duration_s": 147.41,
+      "ml_sources": {
+        "unavailable": 1219
+      }
+    },
+    {
+      "flight": 272,
+      "route": "R6",
+      "is_cruise_flight": true,
+      "source_member": "flights/272.csv",
+      "source_sha256": "c4cf8daa7e2194ba59b9cb6ab9d259b4a5dc52b3faa0fb6853fcce0c1b665c16",
+      "input_rows": 2856,
+      "rows": 2856,
+      "duration_s": 428.29,
+      "decisions": {
+        "NORMAL": 1803,
+        "SPOOFING": 1053
+      },
+      "rule_decisions": {
+        "NORMAL": 2856
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 31,
+        "GNSS yeniden doğrulama bekleniyor": 1022
+      },
+      "nominal_alarm_samples": 1053,
+      "nominal_alarm_rate": 0.36869747899159666,
+      "alarm_duration_s": 157.91,
+      "ml_sources": {
+        "unavailable": 2856
+      }
+    },
+    {
+      "flight": 275,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/275.csv",
+      "source_sha256": "0a0242c39f89f1405f4b2b1b5c68ab838a322cdf6062db66738d3c68a6dd494b",
+      "input_rows": 983,
+      "rows": 983,
+      "duration_s": 149.4,
+      "decisions": {
+        "NORMAL": 486,
+        "SPOOFING": 497
+      },
+      "rule_decisions": {
+        "NORMAL": 983
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 15,
+        "GNSS yeniden doğrulama bekleniyor": 482
+      },
+      "nominal_alarm_samples": 497,
+      "nominal_alarm_rate": 0.5055951169888098,
+      "alarm_duration_s": 76.41000000000001,
+      "ml_sources": {
+        "unavailable": 983
+      }
+    },
+    {
+      "flight": 276,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/276.csv",
+      "source_sha256": "ae6a63616fe868d9a0d26dcd97732818edad0e1763228c931600a80eda9bf182",
+      "input_rows": 984,
+      "rows": 984,
+      "duration_s": 147.9,
+      "decisions": {
+        "NORMAL": 615,
+        "SPOOFING": 369
+      },
+      "rule_decisions": {
+        "NORMAL": 984
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 11,
+        "GNSS yeniden doğrulama bekleniyor": 358
+      },
+      "nominal_alarm_samples": 369,
+      "nominal_alarm_rate": 0.375,
+      "alarm_duration_s": 55.61,
+      "ml_sources": {
+        "unavailable": 984
+      }
+    },
+    {
+      "flight": 277,
+      "route": "R1",
+      "is_cruise_flight": true,
+      "source_member": "flights/277.csv",
+      "source_sha256": "ea6fe8a36984ad25b560596d1dc2699409c2e2a61cd10d0b871b26f179828750",
+      "input_rows": 860,
+      "rows": 860,
+      "duration_s": 134.81,
+      "decisions": {
+        "NORMAL": 443,
+        "SPOOFING": 417
+      },
+      "rule_decisions": {
+        "NORMAL": 860
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 13,
+        "GNSS yeniden doğrulama bekleniyor": 404
+      },
+      "nominal_alarm_samples": 417,
+      "nominal_alarm_rate": 0.4848837209302326,
+      "alarm_duration_s": 65.21,
+      "ml_sources": {
+        "unavailable": 860
+      }
+    },
+    {
+      "flight": 278,
+      "route": "R7",
+      "is_cruise_flight": true,
+      "source_member": "flights/278.csv",
+      "source_sha256": "37143f7edf09b98fd45ce0e573012a5922f7db0b3c8f6ef9062da2d1a84ea72d",
+      "input_rows": 1197,
+      "rows": 1197,
+      "duration_s": 186.39,
+      "decisions": {
+        "NORMAL": 631,
+        "SPOOFING": 566
+      },
+      "rule_decisions": {
+        "NORMAL": 1197
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 17,
+        "GNSS yeniden doğrulama bekleniyor": 549
+      },
+      "nominal_alarm_samples": 566,
+      "nominal_alarm_rate": 0.4728487886382623,
+      "alarm_duration_s": 91.46000000000001,
+      "ml_sources": {
+        "unavailable": 1197
+      }
+    },
+    {
+      "flight": 279,
+      "route": "R7",
+      "is_cruise_flight": true,
+      "source_member": "flights/279.csv",
+      "source_sha256": "88ef8f832b4c6ad37ec49890286da353512467319c852f051a9f96feef490e62",
+      "input_rows": 988,
+      "rows": 988,
+      "duration_s": 152.7,
+      "decisions": {
+        "NORMAL": 584,
+        "SPOOFING": 404
+      },
+      "rule_decisions": {
+        "NORMAL": 988
+      },
+      "causes": {
+        "GNSS filtre yeniliği tutarsız": 12,
+        "GNSS yeniden doğrulama bekleniyor": 392
+      },
+      "nominal_alarm_samples": 404,
+      "nominal_alarm_rate": 0.4089068825910931,
+      "alarm_duration_s": 60.6,
+      "ml_sources": {
+        "unavailable": 988
+      }
+    }
+  ],
+  "limitations": [
+    "All 209 records included, including ancillary ground/hover tests.",
+    "Nominal energy-study flights; no producer binary spoofing labels. Alarm rate assumes nominal operations.",
+    "Different DJI M100 platform and MicroStrain receiver; fused GNSS/INS output, not raw GPS.",
+    "No C/N0 and no AV feature schema: only physical/navigation layers assessed; RF/VAE not validated.",
+    "No independent IMU/attitude/position truth; no attack recall or position RMSE can be inferred.",
+    "No model training, threshold change or flight selection based on predictions."
+  ]
+}

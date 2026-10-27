@@ -4,9 +4,14 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Veri ve Modeller (Küçük oldukları için repo'ya dahil edildi)
-# gnss_training_dataset.csv
-# gnss_rf_model.pkl
+# Yerel/indirilebilir ölçüm verileri ve yeniden üretilebilen model ağırlıkları
+/dataset_gercek/*.csv
+/dataset_gercek/*.CSV
+/dataset_gercek/**/*.csv
+/dataset_gercek/**/*.CSV
+*.pkl
+*.pth
+*.npy
 
 # Loglar ve Çıktılar
 system_events.log
@@ -26,3 +31,42 @@ env/
 dist/
 build/
 *.egg-info/
+
+# Python önbelleği
+__pycache__/
+.pytest_cache/
+
+# Gizli bilgiler
+.env
+.env.*
+!.env.example
+
+# Yerel günlükler
+*.log
+
+# Geçici rapor üretim ve render dosyaları
+/tmp/
+/output/*
+!/output/docs/
+/output/docs/*
+!/output/docs/*.docx
+
+# İç içe depo metadata'sı
+**/.git/
+
+# Yerel veri ve çalışma çıktıları
+.pytest_cache/
+.streamlit/
+*.log
+servs8/
+
+.forensic_secret
+
+.forensic_secret.lock
+forensic_ledger.jsonl.lock
+forensic_ledger.jsonl.segment-*.jsonl
+forensic_ledger.jsonl.legacy-*
+forensic_ledger.jsonl.recovery-pending*
+
+# Reproducible external downloads; manifests and adapters remain in source.
+dataset_gercek/external/

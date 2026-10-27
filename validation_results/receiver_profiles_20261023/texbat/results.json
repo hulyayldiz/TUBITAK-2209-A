@@ -1,0 +1,470 @@
+{
+  "created_at_utc": "2026-10-23T13:06:10.820601+00:00",
+  "frozen_detector": {
+    "detection.py": "860dda160b61aaa61b231f184deb5a73903625e7ef035fb4dcd772b3b5b69c90",
+    "fusion.py": "84fb015c70bcbfd088d96e4203b83e953f9b2a7af93be921c04b9f6f83f9f1e3",
+    "navigation.py": "235d0de62704b9a6b83cc64dfa5a15e0b644bddb751702d0a21922e4ffb6f279",
+    "ml_detection.py": "c3b6bb86bbf8c640c2c6cdb1210748916f076589ffd1d94a4b096dbb4e7033da",
+    "features.py": "e84fc1e91c59653a4851ee4040752f660b7fab096244e3078d20a44d48f61ad8",
+    "receiver_profile.py": "1ab507444b6282657b13d20ce6e44e8970ffb97d6c75afb5b26bcb1ebb626488",
+    "config.py": "0f84f6ee40927e0a0e8e7e505981bbaf8705a9c2540f45769c03f1cb2d9c9db9",
+    "models/texbat_grid_profile.json": "276dcaaf200ab43fc52768d7a562593615cdbc0a61620682397a40b6a192d116",
+    "gnss_rf_model.pkl": "d4bbbdf94b62dd0a3283e6091bc8bbdc12038e7cdd0b4bc18399d0917200182e",
+    "gnss_lstm_vae.pth": "d84956caa5d5728a81e4e351ee1eccdd17d6ff6e0b808d5d747a33f1b07974e8"
+  },
+  "protocol": "Labels applied after inference only. Boundary ±0.1s and activation-only interval excluded. Primary recall is per observed navigation sample, not per episode. TTD requires a fresh post-onset rising alarm; a pre-existing alarm is not detection. No model/threshold changes.",
+  "source_documents": {
+    "lemmenes_2016.pdf": "c1467a8a4aede7f710e861380726df3924bfb33c2297d3bda515a6301c9bd2d6",
+    "humphreys_ds7_ds8_2016.pdf": "3ac9a01f79a7f099f93b91f2def613b6fa41897f0cf700cb4434795b974aa149"
+  },
+  "source_code": {
+    "texbat_timing.py": "1951394386c00c72ebd394f4c1c27b80b7b92dac05cfcc463ccf2465e356dc69",
+    "validate_texbat_timing.py": "ce1041a025472cb52bf298006af62239a6965d2b133fe1a5f5e4e13f2f94ccea"
+  },
+  "published_offset_crosscheck_errors_s": {
+    "cleanStatic": 0.0,
+    "ds2": -1.8791627365288832e-08,
+    "ds3": 5.670532488011304e-09,
+    "ds7": 0.0
+  },
+  "results": [
+    {
+      "scenario": "cleanStatic",
+      "samples": 2115,
+      "input_sha256": {
+        "navsol.mat": "b62129a8468b2372e8b353037b3bc9eab02b4cd3e4072cde1d4c67d2be3a5966",
+        "channel.mat": "4943045923140423d3202e363f9737fae6e2f6af0d2bba02f4f950d62ef07649"
+      },
+      "alignment": {
+        "first_navigation_recording_s": 33.00055316678481,
+        "last_navigation_recording_s": 455.801387622545,
+        "max_channel_match_error_s": 0.19999994029058143,
+        "gps_week": 1705,
+        "ort_minus_rrt_s": 477879.3684438271,
+        "ort_minus_rrt_spread_s": 5.820766091346741e-11
+      },
+      "primary_timeline": {
+        "scenario": "cleanStatic",
+        "onset_s": null,
+        "activation_s": null,
+        "pull_s": null,
+        "source_url": "https://radionavlab.ae.utexas.edu/images/stories/files/papers/LemmenesGNSSpaper.pdf",
+        "timing_uncertainty_s": 0.1
+      },
+      "scores": {
+        "detector": {
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 2115,
+          "excluded_boundary_or_activation_samples": 0,
+          "recall": null,
+          "miss_rate": null,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": null,
+          "first_fresh_alarm_recording_s": null,
+          "ttd_from_signal_onset_s": null,
+          "ttd_relative_to_pull_s": null,
+          "preexisting_alarm_at_onset": false,
+          "phases": {}
+        },
+        "navigation": {
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 2115,
+          "excluded_boundary_or_activation_samples": 0,
+          "recall": null,
+          "miss_rate": null,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": null,
+          "first_fresh_alarm_recording_s": null,
+          "ttd_from_signal_onset_s": null,
+          "ttd_relative_to_pull_s": null,
+          "preexisting_alarm_at_onset": false,
+          "phases": {}
+        }
+      },
+      "alternative_timing": null,
+      "receiver_status_counts": {
+        "warming_up": 151,
+        "monitoring": 1927,
+        "advisory": 37
+      },
+      "right_censored_at_last_available_navigation": true
+    },
+    {
+      "scenario": "ds2",
+      "samples": 2100,
+      "input_sha256": {
+        "navsol.mat": "317ca9a57aaa6d1fde6f3f9325f002dc49655f6616e1ce53a8cda2d46b43b3ef",
+        "channel.mat": "69a5dd38fd2c7c87e1ba0d3e7970c384e17c48b3bbe9692dbd607a48ddcb3c1e"
+      },
+      "alignment": {
+        "first_navigation_recording_s": 36.00063277117442,
+        "last_navigation_recording_s": 455.8014712758013,
+        "max_channel_match_error_s": 0.19999994058161974,
+        "gps_week": 1705,
+        "ort_minus_rrt_s": 477882.3653613283,
+        "ort_minus_rrt_spread_s": 5.820766091346741e-11
+      },
+      "primary_timeline": {
+        "scenario": "ds2",
+        "activation_s": 99.4,
+        "onset_s": 110.1,
+        "pull_s": 133.0,
+        "end_s": null,
+        "source_url": "https://radionavlab.ae.utexas.edu/images/stories/files/papers/LemmenesGNSSpaper.pdf",
+        "source_pages": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "timing_uncertainty_s": 0.1,
+        "time_reference": "Per-file recording start; converted from common DS2 origin",
+        "common_reference_shift_s": 0.0,
+        "conflict": false
+      },
+      "scores": {
+        "detector": {
+          "tp": 1718,
+          "fn": 11,
+          "fp": 0,
+          "tn": 317,
+          "excluded_boundary_or_activation_samples": 54,
+          "recall": 0.993637941006362,
+          "miss_rate": 0.006362058993637941,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": true,
+          "first_fresh_alarm_recording_s": 112.4005973036401,
+          "ttd_from_signal_onset_s": 2.300597303640103,
+          "ttd_relative_to_pull_s": -20.599402696359903,
+          "preexisting_alarm_at_onset": false,
+          "phases": {
+            "injection_before_pull": {
+              "samples": 114,
+              "alarm_samples": 103,
+              "missed_samples": 11
+            },
+            "after_pull": {
+              "samples": 1615,
+              "alarm_samples": 1615,
+              "missed_samples": 0
+            }
+          }
+        },
+        "navigation": {
+          "tp": 1718,
+          "fn": 11,
+          "fp": 0,
+          "tn": 317,
+          "excluded_boundary_or_activation_samples": 54,
+          "recall": 0.993637941006362,
+          "miss_rate": 0.006362058993637941,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": true,
+          "first_fresh_alarm_recording_s": 112.4005973036401,
+          "ttd_from_signal_onset_s": 2.300597303640103,
+          "ttd_relative_to_pull_s": -20.599402696359903,
+          "preexisting_alarm_at_onset": false,
+          "phases": {
+            "injection_before_pull": {
+              "samples": 114,
+              "alarm_samples": 103,
+              "missed_samples": 11
+            },
+            "after_pull": {
+              "samples": 1615,
+              "alarm_samples": 1615,
+              "missed_samples": 0
+            }
+          }
+        }
+      },
+      "alternative_timing": null,
+      "receiver_status_counts": {
+        "warming_up": 151,
+        "advisory": 231,
+        "alarm": 1718
+      },
+      "right_censored_at_last_available_navigation": true
+    },
+    {
+      "scenario": "ds3",
+      "samples": 2096,
+      "input_sha256": {
+        "navsol.mat": "5067660cd12626a1eae36146556c7c1c7b83332fd977d6bdc29ebda20da8d19e",
+        "channel.mat": "c01d49ce6a274fe36c2b8b51c7545c87bd2a9e6d38ff3878479ff5b38f39ae94"
+      },
+      "alignment": {
+        "first_navigation_recording_s": 36.80022942676442,
+        "last_navigation_recording_s": 455.8010661280132,
+        "max_channel_match_error_s": 0.19999994052341208,
+        "gps_week": 1705,
+        "ort_minus_rrt_s": 477881.57176467276,
+        "ort_minus_rrt_spread_s": 5.820766091346741e-11
+      },
+      "primary_timeline": {
+        "scenario": "ds3",
+        "activation_s": 114.89359667999999,
+        "onset_s": 119.69359668,
+        "pull_s": 195.79359668,
+        "end_s": null,
+        "source_url": "https://radionavlab.ae.utexas.edu/images/stories/files/papers/LemmenesGNSSpaper.pdf",
+        "source_pages": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "timing_uncertainty_s": 0.1,
+        "time_reference": "Per-file recording start; converted from common DS2 origin",
+        "common_reference_shift_s": -0.7935966799999998,
+        "conflict": false
+      },
+      "scores": {
+        "detector": {
+          "tp": 1652,
+          "fn": 29,
+          "fp": 0,
+          "tn": 390,
+          "excluded_boundary_or_activation_samples": 25,
+          "recall": 0.9827483640690066,
+          "miss_rate": 0.017251635930993457,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": true,
+          "first_fresh_alarm_recording_s": 174.60116733255563,
+          "ttd_from_signal_onset_s": 54.907570652555634,
+          "ttd_relative_to_pull_s": -21.192429347444374,
+          "preexisting_alarm_at_onset": true,
+          "phases": {
+            "injection_before_pull": {
+              "samples": 380,
+              "alarm_samples": 351,
+              "missed_samples": 29
+            },
+            "after_pull": {
+              "samples": 1301,
+              "alarm_samples": 1301,
+              "missed_samples": 0
+            }
+          }
+        },
+        "navigation": {
+          "tp": 1677,
+          "fn": 4,
+          "fp": 0,
+          "tn": 390,
+          "excluded_boundary_or_activation_samples": 25,
+          "recall": 0.9976204640095181,
+          "miss_rate": 0.002379535990481856,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": true,
+          "first_fresh_alarm_recording_s": 174.60116733255563,
+          "ttd_from_signal_onset_s": 54.907570652555634,
+          "ttd_relative_to_pull_s": -21.192429347444374,
+          "preexisting_alarm_at_onset": true,
+          "phases": {
+            "injection_before_pull": {
+              "samples": 380,
+              "alarm_samples": 376,
+              "missed_samples": 4
+            },
+            "after_pull": {
+              "samples": 1301,
+              "alarm_samples": 1301,
+              "missed_samples": 0
+            }
+          }
+        }
+      },
+      "alternative_timing": null,
+      "receiver_status_counts": {
+        "warming_up": 151,
+        "advisory": 283,
+        "alarm": 1661,
+        "monitoring": 1
+      },
+      "right_censored_at_last_available_navigation": true
+    },
+    {
+      "scenario": "ds7",
+      "samples": 2175,
+      "input_sha256": {
+        "navsol.mat": "6b2aa3942b2ca2597f03dfc4796f20c00010940b4055f3a1ca9fd5bfe837ec46",
+        "channel.mat": "d6b1f51cd342af9c0d0bf5ae54826282c16a0dd7f2ca648ef44bfc98041543d2"
+      },
+      "alignment": {
+        "first_navigation_recording_s": 33.00055316678481,
+        "last_navigation_recording_s": 467.8013852056465,
+        "max_channel_match_error_s": 0.19999994221143425,
+        "gps_week": 1705,
+        "ort_minus_rrt_s": 477879.3684438271,
+        "ort_minus_rrt_spread_s": 5.820766091346741e-11
+      },
+      "primary_timeline": {
+        "scenario": "ds7",
+        "activation_s": null,
+        "onset_s": 110.0,
+        "capture_s": 130.0,
+        "pull_s": 150.0,
+        "end_s": 468.0,
+        "source_url": "https://rnl-data.ae.utexas.edu/datastore/texbat/texbat_ds7_and_ds8.pdf",
+        "source_pages": [
+          4,
+          5
+        ],
+        "timing_uncertainty_s": 0.1,
+        "conflict": true,
+        "time_reference": "DS7 recording start"
+      },
+      "scores": {
+        "detector": {
+          "tp": 596,
+          "fn": 1193,
+          "fp": 0,
+          "tn": 385,
+          "excluded_boundary_or_activation_samples": 1,
+          "recall": 0.33314700950251536,
+          "miss_rate": 0.6668529904974846,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": true,
+          "first_fresh_alarm_recording_s": 348.80042285926174,
+          "ttd_from_signal_onset_s": 238.80042285926174,
+          "ttd_relative_to_pull_s": 198.80042285926174,
+          "preexisting_alarm_at_onset": false,
+          "phases": {
+            "injection_before_pull": {
+              "samples": 199,
+              "alarm_samples": 0,
+              "missed_samples": 199
+            },
+            "after_pull": {
+              "samples": 1590,
+              "alarm_samples": 596,
+              "missed_samples": 994
+            }
+          }
+        },
+        "navigation": {
+          "tp": 596,
+          "fn": 1193,
+          "fp": 0,
+          "tn": 385,
+          "excluded_boundary_or_activation_samples": 1,
+          "recall": 0.33314700950251536,
+          "miss_rate": 0.6668529904974846,
+          "false_alarm_rate": 0.0,
+          "attack_episode_detected": true,
+          "first_fresh_alarm_recording_s": 348.80042285926174,
+          "ttd_from_signal_onset_s": 238.80042285926174,
+          "ttd_relative_to_pull_s": 198.80042285926174,
+          "preexisting_alarm_at_onset": false,
+          "phases": {
+            "injection_before_pull": {
+              "samples": 199,
+              "alarm_samples": 0,
+              "missed_samples": 199
+            },
+            "after_pull": {
+              "samples": 1590,
+              "alarm_samples": 596,
+              "missed_samples": 994
+            }
+          }
+        }
+      },
+      "alternative_timing": {
+        "timeline": {
+          "scenario": "ds7",
+          "activation_s": null,
+          "onset_s": 112.99691752,
+          "pull_s": 138.99691752,
+          "end_s": null,
+          "source_url": "https://radionavlab.ae.utexas.edu/images/stories/files/papers/LemmenesGNSSpaper.pdf",
+          "source_pages": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "timing_uncertainty_s": 0.1,
+          "time_reference": "Per-file recording start; converted from common DS2 origin",
+          "common_reference_shift_s": -2.99691752,
+          "conflict": true
+        },
+        "scores": {
+          "detector": {
+            "tp": 596,
+            "fn": 1178,
+            "fp": 0,
+            "tn": 400,
+            "excluded_boundary_or_activation_samples": 1,
+            "recall": 0.3359639233370913,
+            "miss_rate": 0.6640360766629086,
+            "false_alarm_rate": 0.0,
+            "attack_episode_detected": true,
+            "first_fresh_alarm_recording_s": 348.80042285926174,
+            "ttd_from_signal_onset_s": 235.80350533926173,
+            "ttd_relative_to_pull_s": 209.80350533926173,
+            "preexisting_alarm_at_onset": false,
+            "phases": {
+              "injection_before_pull": {
+                "samples": 129,
+                "alarm_samples": 0,
+                "missed_samples": 129
+              },
+              "after_pull": {
+                "samples": 1645,
+                "alarm_samples": 596,
+                "missed_samples": 1049
+              }
+            }
+          },
+          "navigation": {
+            "tp": 596,
+            "fn": 1178,
+            "fp": 0,
+            "tn": 400,
+            "excluded_boundary_or_activation_samples": 1,
+            "recall": 0.3359639233370913,
+            "miss_rate": 0.6640360766629086,
+            "false_alarm_rate": 0.0,
+            "attack_episode_detected": true,
+            "first_fresh_alarm_recording_s": 348.80042285926174,
+            "ttd_from_signal_onset_s": 235.80350533926173,
+            "ttd_relative_to_pull_s": 209.80350533926173,
+            "preexisting_alarm_at_onset": false,
+            "phases": {
+              "injection_before_pull": {
+                "samples": 129,
+                "alarm_samples": 0,
+                "missed_samples": 129
+              },
+              "after_pull": {
+                "samples": 1645,
+                "alarm_samples": 596,
+                "missed_samples": 1049
+              }
+            }
+          }
+        }
+      },
+      "receiver_status_counts": {
+        "warming_up": 151,
+        "monitoring": 772,
+        "advisory": 656,
+        "alarm": 596
+      },
+      "right_censored_at_last_available_navigation": true
+    }
+  ],
+  "limitations": [
+    "DS7 primary/AFIT timing disagreement is retained with alternative scores.",
+    "No raw-IQ receiver rerun; evaluation uses released GRID navigation/channel outputs.",
+    "Detector was developed using these recordings; this is not an independent holdout.",
+    "Scoring begins at first valid navigation output; missing startup is not counted as normal.",
+    "AFIT documents a hardware-related code/carrier bias in DS2/DS3; detections may exploit this artifact."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "verified_at_utc": "2026-10-23T12:01:10.167487+00:00",
+  "pytest": "144 passed in 17.42s",
+  "independent_performance_passed": false,
+  "detector_freeze_verified": true,
+  "publisher_and_local_source_checksums_verified": true,
+  "ui_smoke_test_passed": true,
+  "forensic_ledger_verified_records": 4,
+  "py_compile_passed": true,
+  "git_diff_check_passed": true,
+  "evaluation_code_hashes_verified": true,
+  "nominal_alarm_causes": {
+    "GNSS filtre yeniliği tutarsız": 3784,
+    "GNSS yeniden doğrulama bekleniyor": 122537
+  },
+  "current_source_sha256": {
+    "dataset_loader.py": "af19ac598fd173c5145fe6b78261d71945a88b5b34ec14fdae11071868bbc5dd",
+    "dataset_adapters.py": "a230a7a705da6e8daa1e23b1321b2774d7c60b1599dd50032ce055eed584d26d",
+    "controls.py": "a8be7bc190d7898fd03458f0cadeb7b00fe97110d0c9f75153eae44c73aac8e7",
+    "real_data_catalog.py": "58748e1d17e2471483224cc24de35c83551300fd9d80c39606d86671dc68ba95",
+    "download_independent_cmu.py": "eb4dff3350e2ec4c12f42de28352cbb19c7d0d23cc5f70f4d04f4488b8c57556",
+    "validate_independent_real.py": "13ce5ee68ec085dbfdb45157636eed9535b3243f5dde36556fa54d51fee7e342"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "verified_at_utc": "2026-10-23T13:25:31.363698+00:00",
+  "pytest": "177 passed in 13.02s",
+  "cmu_records": 209,
+  "cmu_rows": 257896,
+  "cmu_nominal_alarm_samples": 0,
+  "cmu_gnss_updates_used": 257896,
+  "historical_nominal_alarm_samples": 126321,
+  "independent_new_evaluation": false,
+  "synthetic_samples_per_version": 9000,
+  "synthetic_security_cases": 15,
+  "synthetic_metrics_unchanged": true,
+  "texbat_scores_unchanged": true,
+  "ui_loading_checks": 2,
+  "py_compile_passed": true,
+  "git_diff_check_passed": true,
+  "forensic_records_verified": 4,
+  "serial_devices_available": [
+    {
+      "device": "COM3",
+      "description": "Bluetooth ba\u011flant\u0131s\u0131 \u00fczerinden Standart Seri (COM3)"
+    },
+    {
+      "device": "COM4",
+      "description": "Bluetooth ba\u011flant\u0131s\u0131 \u00fczerinden Standart Seri (COM4)"
+    }
+  ],
+  "code_sha256": {
+    "navigation.py": "46aa5e3c6c325fc122c0990727766e19b87a2bc0fb4cbc49c292cfea23b75d4d",
+    "fusion.py": "0a3a4e32e735b0589a343342180a94d4f6e1200f69b098adab9275a50500afba",
+    "controls.py": "58577b637737a525edd8b188ab0bf002aba9ca6b0f5957873ab167e386bca5e5",
+    "validate_navigation_real.py": "86db554687b23faa55de358839845afcd26aa0b5f6891718aa251a3df43ece67",
+    "validate_navigation_attacks.py": "25332a257d874a42020bff76f92dca3133a140f63cc76b5dd6f036f48130733f",
+    "tests/test_navigation_dynamics.py": "21cb363b7882adaf6c28d62b5c4af8bf7fc11f6777f151ff53fb9c738bcb1aa2"
+  },
+  "remaining": [
+    "DS7 real attack misses/delay remain.",
+    "New receiver and independent complete-chain field validation still required.",
+    "No independent position truth or new RF/VAE real-data guarantee."
+  ]
+}

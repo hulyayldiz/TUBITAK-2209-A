@@ -1,0 +1,18 @@
+{
+  "source": "synthetic only",
+  "training_seeds": [
+    11,
+    22,
+    33
+  ],
+  "calibration_seeds": [
+    101,
+    202,
+    303
+  ],
+  "rows": 8640,
+  "normal_calibration_quantile": 0.999,
+  "vae_threshold": 0.0031478898534551257,
+  "feature_schema": "motion-v2",
+  "training_csv_sha256": "31710c009497ceee0349f3525956d7dcc61b6095410065952dea4591f389ffea"
+}

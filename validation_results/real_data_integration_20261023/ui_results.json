@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Zurich — gerçek Fotokite uçuşu (GPS + gövde IMU)",
+    "rows": 81169,
+    "exceptions": 0,
+    "runtime_failures": [],
+    "alarm_notices": [],
+    "cn0_available": false,
+    "ground_truth_available": false,
+    "ml_source": "unavailable",
+    "forensic_chain_valid": true
+  },
+  {
+    "name": "TEXBAT — cleanStatic (işlenmiş gerçek sinyal)",
+    "rows": 2115,
+    "exceptions": 0,
+    "runtime_failures": [],
+    "alarm_notices": [
+      "SPOOFING TESPİT EDİLDİ!"
+    ],
+    "cn0_available": true,
+    "ground_truth_available": false,
+    "ml_source": "GNSS_RF",
+    "forensic_chain_valid": true
+  },
+  {
+    "name": "TEXBAT — DS2 (işlenmiş gerçek sinyal)",
+    "rows": 2100,
+    "exceptions": 0,
+    "runtime_failures": [],
+    "alarm_notices": [
+      "SPOOFING TESPİT EDİLDİ!"
+    ],
+    "cn0_available": true,
+    "ground_truth_available": false,
+    "ml_source": "GNSS_RF",
+    "forensic_chain_valid": true
+  },
+  {
+    "name": "TEXBAT — DS3 (işlenmiş gerçek sinyal)",
+    "rows": 2096,
+    "exceptions": 0,
+    "runtime_failures": [],
+    "alarm_notices": [
+      "SPOOFING TESPİT EDİLDİ!"
+    ],
+    "cn0_available": true,
+    "ground_truth_available": false,
+    "ml_source": "GNSS_RF",
+    "forensic_chain_valid": true
+  },
+  {
+    "name": "TEXBAT — DS7 (işlenmiş gerçek sinyal)",
+    "rows": 2175,
+    "exceptions": 0,
+    "runtime_failures": [],
+    "alarm_notices": [
+      "SPOOFING TESPİT EDİLDİ!"
+    ],
+    "cn0_available": true,
+    "ground_truth_available": false,
+    "ml_source": "GNSS_RF",
+    "forensic_chain_valid": true
+  }
+]

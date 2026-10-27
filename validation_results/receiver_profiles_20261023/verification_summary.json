@@ -1,0 +1,26 @@
+{
+  "verified_at_utc": "2026-10-23T13:08:05.077105+00:00",
+  "pytest": "171 passed in 12.07s",
+  "real_replay_decisions_unchanged": true,
+  "real_sources_replayed": 6,
+  "synthetic_device_contracts": 2,
+  "cli_and_streamlit_checked": true,
+  "real_new_device_profiles_installed": 0,
+  "models_unchanged": true,
+  "legacy_hash_recovery_preserved": true,
+  "source_sha256": {
+    "receiver_profile.py": "1ab507444b6282657b13d20ce6e44e8970ffb97d6c75afb5b26bcb1ebb626488",
+    "receiver_registry.py": "fea3a34f8b5a471b1864f9863f38f9668751180332513e958245525cd07fedf4",
+    "calibrate_receiver.py": "af7e3614fe65a08304a3f426fee7b0fd367a26bcbc361939188003ab322bf171",
+    "validate_receiver_contracts.py": "21b849c42d41e20ecaab5c463545a4b5a217c5e05b554840d085b631984f59c9",
+    "dataset_loader.py": "213e3dda6f7e3901042c7bb3886ebbef271be2b33a959dc81393b9f26b867bc0",
+    "ml_detection.py": "c3b6bb86bbf8c640c2c6cdb1210748916f076589ffd1d94a4b096dbb4e7033da",
+    "main.py": "8829074c73864d24862c3b647e56f712bcdb5b816b5b193ee89f986009c4d32d",
+    "controls.py": "1e5de9df7b08c022855aaad5ae1668244a05f4968958ec477631cc9355c17bb5"
+  },
+  "limitations": [
+    "New contracts tested synthetically; not new real hardware validation.",
+    "CMU navigation false alarms and DS7 misses/delay remain.",
+    "Historical independent detector freeze retained; no renewed independent field success claim."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "verified_at_utc": "2026-10-23T12:12:40.211543+00:00",
+  "pytest": "154 passed in 16.14s",
+  "modified_frozen_detector_files": [
+    "receiver_profile.py"
+  ],
+  "model_files_unchanged": true,
+  "independent_cmu_historical_freeze_preserved": true,
+  "synthetic_probes": 27,
+  "synthetic_attack_cases_detected_before": 0,
+  "synthetic_attack_cases_detected_after": 18,
+  "synthetic_control_alarm_samples": 0,
+  "real_sources_fully_replayed": 6,
+  "cmu_first_flight_alarm_samples_unchanged": 590,
+  "ui_source_loading_checks": 2,
+  "py_compile_passed": true,
+  "git_diff_check_passed": true,
+  "forensic_records_verified": 4,
+  "current_sha256": {
+    "receiver_profile.py": "e32ed339c3d8fc6151e9190803af3fa72d6c347ded47d84db55e3762c7744624",
+    "controls.py": "fb5d5b4cd14900343301b83bbed4734360550d6ed48db188f51b21e238decd6e",
+    "validate_slow_receiver.py": "41c1f178978c9638238fea13ca5f5341934f53785133726c30e58e414662b671",
+    "tests/test_slow_receiver.py": "cf9d4a12f576c19a5fae2b4ea27d21193650b6280297fd93173406f166741471"
+  },
+  "historical_baseline_sha256": "ae69a25aa651f05921b16fae8246eaca24ec4442a7a72f5ba77e0450962bfa8b",
+  "limitations": [
+    "Real TEXBAT records are development data, not independent holdout.",
+    "DS3 alarm already active before signal onset; sample alarm coverage is not spoofing identity evidence.",
+    "DS7 remains delayed and mostly missed.",
+    "Unobservable coherent motion without independent reference cannot be guaranteed detectable.",
+    "CMU navigation false alarms remain unresolved; RF/VAE models were not changed."
+  ]
+}

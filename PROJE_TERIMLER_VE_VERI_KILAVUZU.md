@@ -1,45 +1,22 @@
-# 📖 SIFIRDAN BAŞLAYANLAR İÇİN: PROJE TERİMLERİ VE VERİ BİLGİ KILAVUZU
+# Proje terimleri ve veri kılavuzu
 
-Bu kılavuz, projeyi incelerken veya sunarken karşılaşılabilecek tüm karmaşık siber güvenlik ve teknik terimleri "Gündelik dilde, hiç bilmeyen birine anlatır gibi" açıklamak için hazırlanmıştır.
+Bu belge GNSS terimlerini ve projedeki veri türlerini, doğrulanmış uygulama kapsamıyla açıklar. Saldırıya dair bir alarm saldırı kaynağını tek başına ispatlamaz.
 
----
+## Temel terimler
 
-## 1. TEMEL HAVACILIK VE NAVİGASYON TERİMLERİ
+- **GNSS:** GPS, Galileo, GLONASS ve BeiDou gibi uydu seyrüsefer sistemlerinin ortak adıdır. Projedeki destek, her sistem/alıcı için doğrulanmış olduğu anlamına gelmez; kullanılan giriş şemasına bağlıdır.
+- **Spoofing:** GNSS alıcısının sahte uydu benzeri sinyalleri gerçek sanarak hatalı zaman veya konum çözümü üretmesine yol açan saldırı ailesidir. Her spoofing saldırısı alıcı çözümünde ani koordinat sıçraması oluşturmaz.
+- **Jamming:** Alım kalitesini veya uydu sinyallerinin kullanılabilirliğini bozmayı hedefleyen girişimdir. Fix kaybı ya da düşük C/N0 tek başına jamming kaynağını kanıtlamaz; doğal kapsama ve alıcı arızaları da benzer belirti üretebilir.
+- **C/N0:** Taşıyıcı gücünün gürültü güç yoğunluğuna oranıdır ve çoğunlukla dB-Hz ile verilir. Beklenen değer anten, alıcı, uydu ve ortamla değişir; tek bir evrensel eşik yoktur.
+- **CMC (Code Minus Carrier):** Pseudorange ile taşıyıcı fazı uzunluğunun farkıdır. Ortak geometrik ve saat bileşenlerini azaltır; kalan ölçüm multipath, iyonosfer, belirsizlik ve gürültü gibi bileşenler de içerir. Bu projede yardımcı tutarsızlık göstergesi olarak kullanılır, spoofing doğrulaması değildir.
+- **IMU/INS:** IMU ivme ve açısal hız ölçer; INS bu ölçümleri entegre ederek hareket kestirir ve hatası zamanla büyüyebilir. Projede bağımsız yönelim/IMU yoksa inertial tutarlılık testi çalışmaz. Arayüz kestirimi uçuşa elverişli yedek navigasyon kanıtı değildir.
+- **RF ve VAE skorları:** Random Forest sınıflandırıcı skoru ile LSTM-VAE anomali skoru kalibre edilmiş saldırı olasılığı sayılmaz. Anomali skoru görülmemiş saldırıların tespit edildiğini tek başına göstermez.
+- **Gecikme ve kapsam:** Gecikme ilk yeni alarmın tanımlı olay başlangıcından sonraki süresidir. Örnek kapsamı alarm açık olan etiketli epoch'ların payıdır; olay düzeyinde tespit olasılığı, yanlış alarm oranı ve bağımsız genelleme ile aynı metrik değildir.
 
-* **GNSS (Global Navigation Satellite System):** Sadece Amerikan sistemi olan "GPS" değil; Avrupa (Galileo), Rusya (GLONASS) ve Çin (BeiDou) gibi uzaydaki tüm konum uydularının genel ve evrensel adıdır. Biz projemizde sadece GPS değil, hepsini (GNSS) kapsayan bir güvenlik yapıyoruz.
-* **Otonom Araç / İHA (UAV):** İçinde insan pilot/şoför olmayan, kendi kendine uçan (İnsansız Hava Aracı) veya kendi kendi giden araçlardır. Bu araçların gözleri tamamen dışarıdan gelen uydulara (GNSS) bağlıdır, uydu kandırılırsa araç da kandırılmış olur.
+## Veri kökeni
 
----
+Projede gerçek yayımlanmış deney kayıtları, bunlardan değiştirilmiş türevler ve sentetik örnekler bulunur. Kaynağı doğrulanan AV-GPS kayıtları kara aracı deneyleridir, fiziksel İHA uçuşu değildir. Yerel `IHA-Saha-Verisi.csv` ve kombine CSV'ler hız/irtifa, etiket veya yapay sinyal alanları eklenerek değiştirilmiştir. `ornek_dron_saldiri_logu.csv` ile `texbat_scenario1_mock.csv` sentetiktir. TEXBAT değerlendirmesinde yayımlanmış işlenmiş GRID NAV/kanal ölçümleri kullanılır; ham RF IQ yeniden alıcıdan geçirilmemiştir. Dosya bazında ayrıntı [DATA_PROVENANCE.md](DATA_PROVENANCE.md) ve [REAL_DATA_INTEGRATION.md](REAL_DATA_INTEGRATION.md) içindedir.
 
-## 2. SİBER SALDIRI (KÖTÜ ADAM) TERİMLERİ
+## Bilimsel raporlama
 
-* **Spoofing (Işınlanma / Sahtekarlık):** Bir hackerın elinde güçlü bir vericiyle sizin drone'unuza "Sahte Uydu Sinyalleri" göndermesidir. Drone bir anda uzaydaki değil, yeryüzündeki hackerın yalan sinyaline inanır ve kendini İstanbul'dayken aniden Ankara'da sanıp oraya uçmaya başlar. Biz buna "Işınlama Saldırısı" diyoruz. CSV loglarında satır satır koordinatlar kayabilir.
-* **Jamming (Sinyal Boğma / Kör Etme):** Hackerın "Ben sana yanlış bilgi vereyim" demek yerine, "Sana o kadar yüksek sesle (beyaz gürültüyle) bağıracağım ki kendi uydularını hiç duyamayacaksın" demesidir. Drone tamamen sağır/kör olur. Sinyal gücü aniden düşer.
-* **Elektronik Harp (EW - Electronic Warfare):** Orduların radyo dalgalarıyla uyduları, dinlemeleri ve seyir sistemlerini hackleme ve bozma savaşlarının genel adıdır. 
-
----
-
-## 3. BİZİM SAVUNMA (KAHRAMAN) TERİMLERİMİZ
-
-* **C/N0 (Carrier-to-Noise density ratio / Sinyal Kalitesi):** Literatürde "SNR" yerine kullanılan en hassas terimdir. Bir sinyalin gürültü içindeki net gücünü (dB-Hz biriminde) gösterir. Normalde 40-50 dB-Hz civarındadır. Jamming (Sinyal Boğma) durumunda bu değer 20'nin altına düşer. Sistemimiz bu düşüşü bir DoS (Denial of Service) saldırısı olarak anında yakalar.
-* **G-Kuvveti (İvme İhlali):** Bir nesnenin hızındaki ani değişimin yerçekimi (g) cinsinden ifadesidir. İHA'lar veya araçlar fiziksel olarak belirli bir ivmenin (örn. 2g) üzerine aniden çıkamazlar. Eğer GPS verisi bir saniyede 15g ivme gösteriyorsa, bu sinyalin sahte (Spoofing) olduğunun matematiksel kanıtıdır.
-* **Drift (Sapma Hatası):** Kör uçuş (INS) sonsuza kadar süremez. Rüzgar, titreşim derken cihaz zamanla yolundan sapmaya başlar. Buna sapma hatası denir, o yüzden sistemimiz 10-15 saniyede bir anteni açıp dışarıyı kontrol eder.
-
----
-
-## 4. YAPAY ZEKA TERİMLERİ (AKILLI KARAR MOTORU)
-
-* **LSTM-VAE (Anomali Tespiti Zekası):** Sadece geçmişten ona öğretilen ezberlenmiş saldırıları değil, "Ben hayatımda böyle bir şey görmedim, burada bir gariplik var" diyebilen çok zeki bir derin öğrenme modelidir.
-* **Random Forest (RF):** Geçmiş verileri ağaç dalları gibi sınıflara ayırıp tecrübeye dayalı karar veren diğer yardımcımızdır.
-* **Epoch (Eğitim Döngüsü):** Yapay zekanın "Eğit" butonuna basıldığında tüm kitabı baştan sona kaç defa tekrar okuduğunu belirtir. Eğitim (Training) o yüzden yavaş sürer.
-* **Inference (Çıkarım):** Eğitimini tamamlamış (mezun olmuş) yapay zekanın, o an gördüğü soruya "Bu bir Spoofing'dir!" diye saniyeden bile kısa sürede (milisaniyede) anında cevap vermesidir. Uygulamamız havadayken eğitim yapmaz, çıkarım (Inference) yapar.
-
----
-
-## 5. VERİ KAYNAKLARIMIZ NEREDEN GELİYOR VE NEDEN DEĞİŞTİRDİK?
-
-* **Orijinal Veri (AV-GPS-Dataset):** Amerika'da araştırmacıların otonom (kendi giden) bir araca gerçek cihazlar takıp, sonra ona radyoyla sahte konum (Spoofing) basarak kaydettiği %100 GERÇEK ve uluslararası bilim camiasında kabul görmüş veridir.
-* **Neden Değiştirdik? (Data Augmentation):**
-  1. Otonom bir araba yavaş gider (20km/h), bizim sistemimiz ise bir İHA (Dron). Bu yüzden sistemimizi gerçek havacılık hızlarında test etmek için matematiksel bir işlem yaparak gerçek verinin hızını İHA düzeylerine katladık.
-  2. Orijinal veride sadece "Spoofing" vardı. Askeri laboratuvarlarda yapılan **Tehdit Enjeksiyonu** mantığını kullanarak, sahte ışınlanma başlamadan hemen öncesine 20 saniyelik bir Jamming (Sinyal çöküşü) ekledik.
-* **Sonuç (Kombine Saldırı Senaryosu):** Temeli %100 gerçek fizik kurallarına dayanan, ancak havacılık ve ağır bir askeri savaş senaryosuna göre "Zenginleştirilmiş (Augmented)" kusursuz bir simülasyon ortamı yarattık. Jüriye bu işlemin adının **Data Augmentation** olduğunu söylemelisiniz.
+Sentetik veri yazılımın senaryo davranışını sınamak için kullanılabilir; fiziksel saldırı veya saha geçerliliğini kanıtlamaz. Eşikler ve hiperparametreler geliştirme verisinde seçilmeli, bağımsız test öncesinde dondurulmalıdır. Test ve eğitim kayıt/oturum bazında ayrılmalı; olay düzeyinde tespit, kaçırma, gecikme ve temiz kayıttaki yanlış alarm ayrı raporlanmalıdır. Mevcut TEXBAT ölçümleri ile sınırlamalar [TEXBAT_CURRENT_VALIDATION.md](TEXBAT_CURRENT_VALIDATION.md) içinde açıklanır.

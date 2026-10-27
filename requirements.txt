@@ -1,7 +1,7 @@
-streamlit
+streamlit>=1.57,<2
 pandas
 numpy
-scikit-learn
+scikit-learn==1.8.0
 joblib
 torch
 pynmea2
@@ -13,3 +13,8 @@ plotly
 tqdm
 skyfield
 scipy
+folium
+matplotlib
+seaborn
+python-dotenv
+truststore>=0.10

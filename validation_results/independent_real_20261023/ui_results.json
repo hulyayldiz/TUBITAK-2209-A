@@ -1,0 +1,12 @@
+{
+  "source": "CMU — bağımsız nominal uçuş 1 (GNSS/INS)",
+  "available_sources": 6,
+  "rows": 1339,
+  "ml_source": "unavailable",
+  "cn0_available": false,
+  "labels_available": false,
+  "runtime_exceptions": 0,
+  "errors": [],
+  "independent_test_failure_warning_present": true,
+  "forensic_chain_valid": true
+}

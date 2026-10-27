@@ -1,0 +1,12 @@
+{
+  "tests_passed": 119,
+  "full_replay_rows": 89655,
+  "replay_source_and_code_hashes_current": true,
+  "ui_sources_verified": 5,
+  "forensic_chain_verified": true,
+  "limitations": [
+    "Raw TEXBAT BIN not downloaded",
+    "IEEE file needs login",
+    "High alarms on clean real data; no field performance claim"
+  ]
+}
